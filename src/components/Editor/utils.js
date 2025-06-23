@@ -57,7 +57,7 @@ export const validateAndFormatUrl = url => {
     return null;
   }
 
-  if (!/^(https?:\/\/)/i.test(url)) {
+  if (!/^[a-zA-Z]\w*:/i.test(url)) {
     return `https://${url}`;
   }
 
