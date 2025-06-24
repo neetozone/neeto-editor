@@ -45,6 +45,10 @@ export const DIRECT_UPLOAD_ENDPOINT = "/api/direct_uploads";
 export const URL_REGEXP =
   /[(http(s)?)://(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/;
 
+// HTTP/HTTPS/FTP with :// or Non-slash protocols like mailto:, tel: or Domain without protocol
+export const ALL_PROTOCOL_URL_REGEXP =
+  /^[a-zA-Z]\w*:\/\/[a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)|^[a-zA-Z]\w*:[^//][a-zA-Z0-9@:%._+~#=?&-]*|^[a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/i;
+
 export const YOUTUBE_URL_REGEXP =
   /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w-]+\?v=|embed\/|v\/)?)([\w-]+)(\S*?)(\?[^#]*)?$/;
 

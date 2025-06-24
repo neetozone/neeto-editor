@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 
-import { URL_REGEXP } from "common/constants";
+import { ALL_PROTOCOL_URL_REGEXP } from "common/constants";
 import { isNotPresent } from "neetocist";
 import { Close } from "neetoicons";
 import { Button } from "neetoui";
 import { useTranslation } from "react-i18next";
+
+import { validateAndFormatUrl } from "components/Editor/utils";
 
 const LinkOption = ({ editor, handleClose, handleAnimateInvalidLink }) => {
   const { t } = useTranslation();
@@ -24,7 +26,7 @@ const LinkOption = ({ editor, handleClose, handleAnimateInvalidLink }) => {
   };
 
   const handleSubmit = () => {
-    if (URL_REGEXP.test(link)) {
+    if (ALL_PROTOCOL_URL_REGEXP.test(link)) {
       editor.chain().focus().setLink({ href: link }).run();
       handleClose();
     } else if (isNotPresent(link)) {
@@ -54,7 +56,9 @@ const LinkOption = ({ editor, handleClose, handleAnimateInvalidLink }) => {
         name="url"
         placeholder={t("neetoEditor.placeholders.linkInput")}
         value={link}
-        onChange={({ target: { value } }) => setLink(value)}
+        onChange={({ target: { value } }) =>
+          setLink(validateAndFormatUrl(value))
+        }
       />
       <Button
         data-cy="neeto-editor-link-cancel-button"

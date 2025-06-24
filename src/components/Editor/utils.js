@@ -2,7 +2,7 @@ import { Slice, Fragment, Node } from "@tiptap/pm/model";
 import { Selection } from "@tiptap/pm/state";
 import { isNotEmpty } from "neetocist";
 
-import { EDITOR_OPTIONS, URL_REGEXP } from "src/common/constants";
+import { ALL_PROTOCOL_URL_REGEXP, EDITOR_OPTIONS } from "src/common/constants";
 
 import {
   EDITOR_LINE_HEIGHT,
@@ -53,7 +53,7 @@ export const isEditorOverlaysActive = () =>
   );
 
 export const validateAndFormatUrl = url => {
-  if (!URL_REGEXP.test(url)) {
+  if (!ALL_PROTOCOL_URL_REGEXP.test(url)) {
     return null;
   }
 

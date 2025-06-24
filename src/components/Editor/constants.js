@@ -1,4 +1,4 @@
-import { EDITOR_OPTIONS, URL_REGEXP } from "common/constants";
+import { ALL_PROTOCOL_URL_REGEXP, EDITOR_OPTIONS } from "common/constants";
 import { t } from "i18next";
 import * as yup from "yup";
 
@@ -36,6 +36,6 @@ export const LINK_VALIDATION_SCHEMA = yup.object().shape({
   textContent: yup.string().required(t("neetoEditor.error.textRequired")),
   urlString: yup
     .string()
-    .matches(URL_REGEXP, t("neetoEditor.error.invalidUrl"))
+    .matches(ALL_PROTOCOL_URL_REGEXP, t("neetoEditor.error.invalidUrl"))
     .required(t("neetoEditor.error.urlRequired")),
 });

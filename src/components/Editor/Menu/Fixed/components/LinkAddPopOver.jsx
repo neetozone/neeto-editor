@@ -8,7 +8,7 @@ import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 
 import { validateAndFormatUrl } from "components/Editor/utils";
-import { URL_REGEXP } from "src/common/constants";
+import { ALL_PROTOCOL_URL_REGEXP } from "src/common/constants";
 
 import { getLinkPopoverPosition, getCursorPos } from "../utils";
 
@@ -51,7 +51,7 @@ const LinkAddPopOver = ({
     const { from, to } = state.selection;
     const formattedUrl = validateAndFormatUrl(linkUrl);
 
-    if (!URL_REGEXP.test(formattedUrl)) {
+    if (!ALL_PROTOCOL_URL_REGEXP.test(formattedUrl)) {
       setError(t("neetoEditor.error.invalidUrl"));
 
       return;
