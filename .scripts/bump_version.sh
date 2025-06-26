@@ -26,7 +26,7 @@ raise_pr() {
   git add -A
   git commit -m "Bump version"
   git push --set-upstream origin bump-version
-  gh pr create -B main -H bump-version -t "Bump version" -b "This is an automated PR." -l mergepr -a @me
+  gh pr create -B main -H bump-version -t "Bump version" -b "This is an automated PR." -l instant-mergepr -a @me
 }
 
 install_gh
