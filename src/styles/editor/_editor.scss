@@ -1,5 +1,3 @@
-@use "editor-content";
-
 @mixin show-placeholder {
   content: attr(data-placeholder);
   float: left;
