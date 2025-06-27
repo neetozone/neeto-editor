@@ -1,18 +1,18 @@
 //Abstracts
-@use "styles/abstracts/animations";
+@import "./styles/abstracts/animations";
 
 // Editor
-@use "styles/editor/commands";
-@use "styles/editor/editor";
-@use "styles/editor/editor-content";
-@use "styles/editor/menu";
-@use "styles/editor/media-uploader";
-@use "styles/editor/image-preview";
-@use "styles/editor/emoji";
-@use "styles/editor/table";
-@use "styles/editor/link-popover";
-@use "styles/editor/collaboration-cursor";
-@use "styles/components/attachments";
+@import "./styles/editor/commands";
+@import "./styles/editor/editor";
+@import "./styles/editor/editor-content";
+@import "./styles/editor/menu";
+@import "./styles/editor/media-uploader";
+@import "./styles/editor/image-preview";
+@import "./styles/editor/emoji";
+@import "./styles/editor/table";
+@import "./styles/editor/link-popover";
+@import "./styles/editor/collaboration-cursor";
+@import "./styles/components/attachments";
 
 .ProseMirror {
   overflow-y: auto;

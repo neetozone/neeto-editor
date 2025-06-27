@@ -1,11 +1,9 @@
-@use "sass:meta";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@include meta.load-css("@bigbinary/neetoui");
-@include meta.load-css("react-toastify/dist/ReactToastify.min");
+@import "@bigbinary/neetoui";
+@import "react-toastify/dist/ReactToastify.min.css";
 
 /* Hiding certain control columns from argstable */
 #hide-controls-column > div > table > thead > tr > th:last-child,
