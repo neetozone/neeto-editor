@@ -1,0 +1,8 @@
+---
+fail_fast: true
+plan_slug: basic
+triggers:
+- event: pull_request
+commands:
+- checkout
+- yarn install
