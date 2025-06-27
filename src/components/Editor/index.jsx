@@ -73,6 +73,7 @@ const Editor = (
     collaborationProvider = null,
     enableReactNodeViewOptimization = false,
     size = EDITOR_SIZES.SMALL,
+    otherAttachmentProps = {},
     ...otherProps
   },
   ref
@@ -272,6 +273,7 @@ const Editor = (
                 [attachmentsClassName]: attachmentsClassName,
               })}
               onChange={onChangeAttachments}
+              {...otherAttachmentProps}
             />
           )}
           {editor?.isActive("link") && <LinkPopOver {...{ editor }} />}
