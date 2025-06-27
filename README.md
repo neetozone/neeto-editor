@@ -1,5 +1,6 @@
 # NeetoEditor
 
+
 The **neetoEditor** library drives the rich text experience in the
 [neeto products](https://neeto.com) built at
 [BigBinary](https://www.bigbinary.com).
