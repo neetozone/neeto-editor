@@ -23,6 +23,10 @@ import {
   convertPlainTextToHtml,
 } from "./utils";
 import { buildHeaderLinks } from "./utils/headers";
+import {
+  handleTodoCheckboxClick,
+  syncTodoCheckboxStates,
+} from "./utils/todoCheckbox";
 
 const EditorContent = ({
   content = "",
@@ -30,6 +34,7 @@ const EditorContent = ({
   className,
   size = EDITOR_SIZES.SMALL,
   configuration = EDITOR_CONTENT_DEFAULT_CONFIGURATION,
+  onChange,
   ...otherProps
 }) => {
   const [imagePreviewDetails, setImagePreviewDetails] = useState(null);
@@ -42,6 +47,10 @@ const EditorContent = ({
     )
   );
   const sanitize = DOMPurify.sanitize;
+
+  const handleContentClick = event => {
+    handleTodoCheckboxClick(event, editorContentRef.current, onChange);
+  };
 
   const injectCopyButtonToCodeBlocks = () => {
     const preTags = editorContentRef.current?.querySelectorAll(
@@ -84,10 +93,11 @@ const EditorContent = ({
   useEffect(() => {
     injectCopyButtonToCodeBlocks();
     bindImageClickListener();
+    syncTodoCheckboxStates(editorContentRef.current);
     applyLineHighlighting(editorContentRef.current);
     configuration.enableHeaderLinks &&
       buildHeaderLinks(editorContentRef.current);
-  }, [content]);
+  }, [content, configuration.enableHeaderLinks]);
 
   return (
     <>
@@ -101,6 +111,7 @@ const EditorContent = ({
         dangerouslySetInnerHTML={{
           __html: sanitize(htmlContent, SANITIZE_OPTIONS),
         }}
+        onClick={handleContentClick}
         {...otherProps}
       />
       {imagePreviewDetails && (
