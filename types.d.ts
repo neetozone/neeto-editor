@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 import {
   Editor as TiptapEditor,
   Extension,
@@ -14,7 +14,7 @@ import { StarterKitOptions } from "@tiptap/starter-kit";
 import { PlaceholderOptions } from "@tiptap/extension-placeholder";
 import { CharacterCountOptions } from "@tiptap/extension-character-count";
 import Variables from "components/Editor/CustomExtensions/Variable/index";
-import { EDITOR_OPTIONS as EDITOR_OPTIONS_VALUES } from "common/constants"
+import { EDITOR_OPTIONS as EDITOR_OPTIONS_VALUES } from "common/constants";
 
 interface Command {
   label: string;
@@ -81,12 +81,12 @@ interface attachment {
   signedId?: string;
   url?: string;
   [otherProps: string]: any;
-};
+}
 
 interface attachmentsConfig {
-  maxFileSize?: number,
-  maxNumberOfFiles?: number,
-  allowedFileTypes?: string[],
+  maxFileSize?: number;
+  maxNumberOfFiles?: number;
+  allowedFileTypes?: string[];
 }
 
 interface EditorProps {
@@ -166,6 +166,7 @@ export function EditorContent(props: {
   variables?: (VariableCategory | Variable)[];
   size?: "large" | "medium" | "small";
   configuration?: EditorContentConfigType;
+  onChange?: (htmlContent: string) => void;
   [otherProps: string]: any;
 }): JSX.Element;
 
@@ -175,7 +176,10 @@ export function removeEmptyTags(html: string): string;
 
 export function isEditorEmpty(htmlContent: string | null | undefined): boolean;
 
-export function isEditorContentWithinLimit(htmlContent: string | null | undefined, maxLength: number): boolean;
+export function isEditorContentWithinLimit(
+  htmlContent: string | null | undefined,
+  maxLength: number
+): boolean;
 
 export function isEditorOverlaysActive(): boolean;
 
