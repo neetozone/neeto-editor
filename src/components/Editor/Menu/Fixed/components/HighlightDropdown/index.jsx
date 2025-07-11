@@ -32,7 +32,8 @@ const HighlightDropdown = ({
     )();
   };
 
-  const handleBackgroundColorClick = colorVar => {
+  const handleBackgroundColorClick = (colorVar, event) => {
+    event.stopPropagation();
     if (backgroundColor === `var(${colorVar})`) {
       updateBackgroundColor(null);
     } else {
@@ -40,7 +41,8 @@ const HighlightDropdown = ({
     }
   };
 
-  const handleTextColorClick = colorVar => {
+  const handleTextColorClick = (colorVar, event) => {
+    event.stopPropagation();
     if (textColor === `var(${colorVar})`) {
       editor.chain().focus().unsetColor().run();
     } else {
@@ -58,10 +60,10 @@ const HighlightDropdown = ({
             ? textColor === `var(${colorVar})`
             : backgroundColor === `var(${colorVar})`
         }
-        onClick={() =>
+        onClick={event =>
           isTextColor
-            ? handleTextColorClick(colorVar)
-            : handleBackgroundColorClick(colorVar)
+            ? handleTextColorClick(colorVar, event)
+            : handleBackgroundColorClick(colorVar, event)
         }
       />
     ));
