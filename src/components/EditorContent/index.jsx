@@ -100,7 +100,7 @@ const EditorContent = ({
     applyLineHighlighting(editorContentRef.current);
     configuration.enableHeaderLinks &&
       buildHeaderLinks(editorContentRef.current);
-  }, [content, configuration.enableHeaderLinks]);
+  }, [content]);
 
   return (
     <>
