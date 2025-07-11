@@ -35,6 +35,7 @@ const EditorContent = ({
   size = EDITOR_SIZES.SMALL,
   configuration = EDITOR_CONTENT_DEFAULT_CONFIGURATION,
   onChange,
+  onClick,
   ...otherProps
 }) => {
   const [imagePreviewDetails, setImagePreviewDetails] = useState(null);
@@ -50,6 +51,8 @@ const EditorContent = ({
 
   const handleContentClick = event => {
     handleTodoCheckboxClick(event, editorContentRef.current, onChange);
+
+    onClick?.(event);
   };
 
   const injectCopyButtonToCodeBlocks = () => {
