@@ -37,7 +37,7 @@
       "imageSizeIsShouldBeLess": "Image size should be less than {{limit}} MB",
       "urlRequired": "URL is required",
       "textRequired": "Text is required",
-      "uploadFileFailed": "Failed to upload an attachment",
+      "uploadFileFailed": "Attachment upload failed",
       "fileNotAllowed": "The selected file type is not allowed",
       "noResults": "No results",
       "imageUploadFailed": "Image upload failed, please try again!"

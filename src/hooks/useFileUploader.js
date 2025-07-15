@@ -70,7 +70,7 @@ const useFileUploader = ({
         Toastr.error(t("neetoEditor.error.uploadFileFailed"));
       }
       // eslint-disable-next-line no-console
-      console.error("Failed to upload attachment", error);
+      console.error("Attachment upload failed", error);
       removeFile(contextId, file.id);
 
       return null;
