@@ -17,7 +17,7 @@
   "addons": [],
   "buildpacks": [
     {
-      "url": "heroku/nodejs"
+      "url": "neeto-deploy/nodejs"
     }
   ]
 }
