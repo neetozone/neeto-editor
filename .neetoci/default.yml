@@ -1,8 +1,13 @@
----
-fail_fast: true
-plan_slug: basic
-triggers:
-- event: pull_request
+version: v1.0
+
+plan: standard-2
+
 commands:
-- checkout
-- yarn install
+  - checkout
+  - neetoci-version node 22.13
+  - yarn install
+
+triggers:
+  - event: branch
+    branch_name: main
+  - event: pull_request
