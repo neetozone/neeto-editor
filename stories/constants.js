@@ -14,10 +14,9 @@ export const EDITOR_ADDONS_TABLE_ROWS = [
   ["redo", "Redo last performed action."],
   ["table", "Add a table to the editor."],
   ["undo", "Undo last performed action."],
-  ["video-upload", "Upload videos to the editor."],
   [
-    "video-embed",
-    "Embed videos from neetoRecord, YouTube, Loom, Vimeo, and Supademo.",
+    "video-upload",
+    "Upload videos or embed from URLs (YouTube, Vimeo, Loom, neetoRecord, Supademo).",
   ],
   ["text-color", "Change the color of the text."],
   ["todo-list", "Add a to-do list with checkboxes."],

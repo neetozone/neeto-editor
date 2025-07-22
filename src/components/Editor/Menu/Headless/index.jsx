@@ -18,15 +18,14 @@ const Headless = ({
   attachmentProps,
   isEmojiPickerActive,
   setIsEmojiPickerActive,
-  setIsEmbedModalOpen,
 }) => {
   if (!editor) {
     return null;
   }
 
-  const isMediaUploaderActive = options.includes(
-    EDITOR_OPTIONS.IMAGE_UPLOAD || EDITOR_OPTIONS.VIDEO_UPLOAD
-  );
+  const isMediaUploaderActive =
+    options.includes(EDITOR_OPTIONS.IMAGE_UPLOAD) ||
+    options.includes(EDITOR_OPTIONS.VIDEO_UPLOAD);
 
   const menuOptions = buildMenuOptions({
     tooltips,
@@ -36,7 +35,6 @@ const Headless = ({
     attachmentProps,
     isEmojiPickerActive,
     setIsEmojiPickerActive,
-    setIsEmbedModalOpen,
   });
 
   const addonCommandOptions = buildOptionsFromAddonCommands({

@@ -14,7 +14,6 @@ import {
   ListNumber,
   ImageUpload,
   Video,
-  MediaVideo,
   Undo,
   Redo,
   TextP,
@@ -33,7 +32,6 @@ export const createMenuOptions = ({
   editor,
   setMediaUploader,
   attachmentProps,
-  setIsEmbedModalOpen,
   setIsAddLinkActive,
 }) => ({
   font: [
@@ -142,12 +140,6 @@ export const createMenuOptions = ({
       optionName: "video-upload",
       tooltip: tooltips.videoUpload || t("neetoEditor.menu.videoUpload"),
     },
-    {
-      Icon: MediaVideo,
-      command: () => setIsEmbedModalOpen(true),
-      optionName: "video-embed",
-      tooltip: tooltips.videoEmbed || t("neetoEditor.menu.videoEmbed"),
-    },
   ],
   right: [
     {
@@ -175,7 +167,6 @@ export const buildBubbleMenuOptions = ({
   options,
   setMediaUploader,
   attachmentProps,
-  setIsEmbedModalOpen,
   setIsAddLinkActive,
 }) => {
   const menuOptions = createMenuOptions({
@@ -183,7 +174,6 @@ export const buildBubbleMenuOptions = ({
     editor,
     setMediaUploader,
     attachmentProps,
-    setIsEmbedModalOpen,
     setIsAddLinkActive,
   });
 

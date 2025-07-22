@@ -21,7 +21,6 @@ export default {
     addonCommands,
     options,
     setMediaUploader,
-    setIsEmbedModalOpen,
     setIsAddLinkActive,
     attachmentProps,
   }) => {
@@ -29,7 +28,6 @@ export default {
       options,
       addonCommands,
       setMediaUploader,
-      setIsEmbedModalOpen,
       setIsAddLinkActive,
       attachmentProps,
     });

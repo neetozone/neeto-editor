@@ -18,7 +18,6 @@ import {
   Minus,
   Video,
   Notes,
-  MediaVideo,
   Column,
   TextBold,
   TextItalic,
@@ -225,13 +224,6 @@ export const MENU_ITEMS = [
     command: ({ editor, range }) => {
       editor.chain().focus().deleteRange(range).setHorizontalRule().run();
     },
-  },
-  {
-    optionName: EDITOR_OPTIONS.VIDEO_EMBED,
-    title: t("neetoEditor.menu.embed"),
-    description: t("neetoEditor.menu.embedDescription"),
-    Icon: MediaVideo,
-    command: noop,
   },
   {
     optionName: EDITOR_OPTIONS.PASTE_UNFORMATTED,

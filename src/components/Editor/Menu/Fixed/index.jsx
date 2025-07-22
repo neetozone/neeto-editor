@@ -7,7 +7,6 @@ import DynamicVariables from "neetomolecules/DynamicVariables";
 import { isEmpty } from "ramda";
 import { useTranslation } from "react-i18next";
 
-import EmbedOption from "components/Editor/CustomExtensions/Embeds";
 import MediaUploader from "components/Editor/MediaUploader";
 
 import LinkAddPopOver from "./components/LinkAddPopOver";
@@ -34,7 +33,6 @@ const Fixed = ({
   openLinkInNewTab,
 }) => {
   const [focusedButtonIndex, setFocusedButtonIndex] = useState(0);
-  const [isEmbedModalOpen, setIsEmbedModalOpen] = useState(false);
   const [isAddLinkActive, setIsAddLinkActive] = useState(false);
   const [menuItems, setMenuItems] = useState([]);
   const [moreMenuItems, setMoreMenuItems] = useState([]);
@@ -97,7 +95,6 @@ const Fixed = ({
         options,
         setMediaUploader,
         attachmentProps,
-        setIsEmbedModalOpen,
         setIsAddLinkActive,
         mentions,
         addonCommands,
@@ -134,7 +131,6 @@ const Fixed = ({
 
   if (!editor) return null;
 
-  const isEmbedOptionActive = options.includes(EDITOR_OPTIONS.VIDEO_EMBED);
   const isMediaUploaderActive =
     options.includes(EDITOR_OPTIONS.IMAGE_UPLOAD) ||
     options.includes(EDITOR_OPTIONS.VIDEO_UPLOAD);
@@ -219,9 +215,6 @@ const Fixed = ({
           {...{ editor, mediaUploader, unsplashApiKey }}
           onClose={() => setMediaUploader({ image: false, video: false })}
         />
-      )}
-      {isEmbedOptionActive && (
-        <EmbedOption {...{ editor, isEmbedModalOpen, setIsEmbedModalOpen }} />
       )}
     </div>
   );

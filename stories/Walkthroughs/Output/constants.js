@@ -11,7 +11,7 @@ export const ADDONS = [
   "block-quote",
   "image-upload-unsplash",
   "divider",
-  "video-embed",
+  "video-upload",
   "undo",
   "redo",
   "table",

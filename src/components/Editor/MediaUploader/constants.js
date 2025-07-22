@@ -1,6 +1,10 @@
+import { t } from "i18next";
 import { globalProps } from "neetocommons/initializers";
+import * as yup from "yup";
 
 import { DIRECT_UPLOAD_ENDPOINT } from "src/common/constants";
+
+import { validateUrl } from "../CustomExtensions/Embeds/utils";
 
 const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100 MB
 
@@ -32,3 +36,14 @@ export const MEDIA_UPLOAD_OPTIONS = [
   { title: "Link", key: "link" },
   { title: "Unsplash", key: "unsplash" },
 ];
+
+export const VIDEO_EMBED_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  videoUrl: yup
+    .string()
+    .required(t("neetoEditor.error.fieldRequired"))
+    .test(
+      "is-valid-video-url",
+      t("neetoEditor.error.invalidEmbedUrl"),
+      validateUrl
+    ),
+});

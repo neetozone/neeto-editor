@@ -11,7 +11,6 @@ import {
   ListDot,
   ListNumber,
   ImageUpload,
-  MediaVideo,
   Undo,
   Redo,
   Smiley,
@@ -32,7 +31,6 @@ export const MENU_OPTIONS = ({
   handleUploadAttachments,
   isEmojiPickerActive,
   setIsEmojiPickerActive,
-  setIsEmbedModalOpen,
 }) => [
   {
     Icon: TextBold,
@@ -121,12 +119,6 @@ export const MENU_OPTIONS = ({
     command: () => setMediaUploader(assoc("video", true)),
     optionName: "video-upload",
     tooltip: tooltips.videoUpload || t("neetoEditor.menu.videoUpload"),
-  },
-  {
-    Icon: MediaVideo,
-    command: () => setIsEmbedModalOpen(true),
-    optionName: "video-embed",
-    tooltip: tooltips.videoEmbed || t("neetoEditor.menu.videoEmbed"),
   },
   {
     Icon: Smiley,
