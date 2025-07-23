@@ -40,8 +40,8 @@ import {
   TodoListExtension,
   TodoItemExtension,
 } from "../TodoList/ExtensionConfig";
-import UnifiedVideoExtension from "../UnifiedVideo/ExtensionConfig";
 import Variable from "../Variable/ExtensionConfig";
+import UnifiedVideoExtension from "../Video/ExtensionConfig";
 
 const useCustomExtensions = ({
   placeholder,

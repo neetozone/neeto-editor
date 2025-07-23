@@ -16,7 +16,7 @@ export const EDITOR_ADDONS_TABLE_ROWS = [
   ["undo", "Undo last performed action."],
   [
     "video-upload",
-    "Upload videos or embed from URLs (YouTube, Vimeo, Loom, neetoRecord, Supademo).",
+    "Upload videos or embed from URLs (YouTube, Vimeo, Loom, NeetoRecord, Supademo).",
   ],
   ["text-color", "Change the color of the text."],
   ["todo-list", "Add a to-do list with checkboxes."],

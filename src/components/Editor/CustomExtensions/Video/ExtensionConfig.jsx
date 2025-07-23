@@ -3,18 +3,10 @@ import { TextSelection } from "@tiptap/pm/state";
 import { ReactNodeViewRenderer } from "@tiptap/react";
 import { COMBINED_REGEX } from "common/constants";
 
-import {
-  DEFAULT_ALIGN,
-  DEFAULT_EMBED_HEIGHT,
-  DEFAULT_EMBED_WIDTH,
-  DEFAULT_FRAME_SETTINGS,
-  DEFAULT_VIDEO_HEIGHT,
-  DEFAULT_VIDEO_WIDTH,
-} from "./constants";
+import VideoComponent from "./VideoComponent";
 
 import EmbedComponent from "../Embeds/EmbedComponent";
 import { validateUrl } from "../Embeds/utils";
-import VideoComponent from "../Video/VideoComponent";
 
 const getSharedAttributes = () => ({
   src: {
@@ -27,7 +19,7 @@ const getSharedAttributes = () => ({
     },
   },
   align: {
-    default: DEFAULT_ALIGN,
+    default: "left",
     parseHTML: element =>
       element.getAttribute("align") ||
       element.querySelector("video")?.getAttribute("align"),
@@ -48,12 +40,12 @@ const getUploadAttributes = () => ({
     parseHTML: element => element.querySelector("video")?.getAttribute("alt"),
   },
   vidheight: {
-    default: DEFAULT_VIDEO_HEIGHT,
+    default: "fit-content",
     parseHTML: element =>
       element.querySelector("video")?.getAttribute("vidheight"),
   },
   vidwidth: {
-    default: DEFAULT_VIDEO_WIDTH,
+    default: 502,
     parseHTML: element =>
       element.querySelector("video")?.getAttribute("vidwidth"),
   },
@@ -61,15 +53,18 @@ const getUploadAttributes = () => ({
 
 const getEmbedAttributes = () => ({
   figheight: {
-    default: DEFAULT_EMBED_HEIGHT,
+    default: 281,
     parseHTML: element => element.getAttribute("figheight"),
   },
   figwidth: {
-    default: DEFAULT_EMBED_WIDTH,
+    default: 500,
     parseHTML: element => element.getAttribute("figwidth"),
   },
   title: { default: null },
-  ...DEFAULT_FRAME_SETTINGS,
+  frameBorder: "0",
+  allow:
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+  allowfullscreen: "allowfullscreen",
 });
 
 const renderEmbedHTML = (node, HTMLAttributes, options) => {
