@@ -10,9 +10,21 @@
   min-height: 184px;
   width: 100%;
 
+  &__header {
+    padding: 20px 16px 0 16px;
+
+    &-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: rgb(var(--neeto-ui-gray-800));
+      margin: 0;
+      text-align: left;
+    }
+  }
+
   .neeto-ui-tab__wrapper {
     padding: 0 16px;
-    margin-top: 1.2rem;
+    margin-top: 1rem;
   }
 
   .ne-tab__wrapper {
@@ -244,5 +256,22 @@
 .ne-embed-modal-wrapper {
   @media screen and (max-width: 767px) {
     width: 95vw !important;
+  }
+}
+
+.ne-video-embed-form {
+  padding: 1.5rem;
+  width: 100%;
+
+  &__content {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  &__footer {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
   }
 }

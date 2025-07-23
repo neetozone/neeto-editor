@@ -11,7 +11,6 @@ import {
   ListDot,
   ListNumber,
   ImageUpload,
-  MediaVideo,
   Undo,
   Redo,
   Smiley,
@@ -31,7 +30,6 @@ const createMenuOptions = ({
   attachmentProps,
   isEmojiPickerActive,
   setIsEmojiPickerActive,
-  setIsEmbedModalOpen,
 }) => [
   {
     Icon: TextBold,
@@ -123,12 +121,6 @@ const createMenuOptions = ({
     tooltip: tooltips.videoUpload || t("neetoEditor.menu.videoUpload"),
   },
   {
-    Icon: MediaVideo,
-    command: () => setIsEmbedModalOpen(true),
-    optionName: "video-embed",
-    tooltip: tooltips.videoEmbed || t("neetoEditor.menu.videoEmbed"),
-  },
-  {
     Icon: Smiley,
     command: noop,
     optionName: "emoji",
@@ -181,7 +173,6 @@ export const buildMenuOptions = ({
   attachmentProps,
   isEmojiPickerActive,
   setIsEmojiPickerActive,
-  setIsEmbedModalOpen,
 }) => {
   const menuOptions = createMenuOptions({
     editor,
@@ -190,7 +181,6 @@ export const buildMenuOptions = ({
     attachmentProps,
     isEmojiPickerActive,
     setIsEmojiPickerActive,
-    setIsEmbedModalOpen,
   });
 
   return options

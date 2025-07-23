@@ -15,7 +15,6 @@ import { removeEmptyTags } from "src/utils";
 
 import { DEFAULT_EDITOR_OPTIONS } from "./constants";
 import CharacterCountWrapper from "./CustomExtensions/CharacterCount";
-import EmbedOption from "./CustomExtensions/Embeds";
 import useCustomExtensions from "./CustomExtensions/hooks/useCustomExtensions";
 import TableActionMenu from "./CustomExtensions/Table/TableActionMenu";
 import LinkPopOver from "./LinkPopOver";
@@ -82,7 +81,6 @@ const Editor = (
 
   const wrapperRef = useRef(null);
   const isAttachmentsActive = addons.includes(EDITOR_OPTIONS.ATTACHMENTS);
-  const isVideoEmbedActive = addons.includes(EDITOR_OPTIONS.VIDEO_EMBED);
   const isMediaUploaderActive =
     addons.includes(EDITOR_OPTIONS.IMAGE_UPLOAD) ||
     addons.includes(EDITOR_OPTIONS.VIDEO_UPLOAD);
@@ -91,7 +89,6 @@ const Editor = (
   const isSlashCommandsActive =
     !hideSlashCommands || (isBubbleMenuActive && !hideSlashCommands);
   const isPlaceholderActive = !!placeholder;
-  const [isEmbedModalOpen, setIsEmbedModalOpen] = useState(false);
   const [isAddLinkActive, setIsAddLinkActive] = useState(false);
   const [mediaUploader, setMediaUploader] = useState({
     image: false,
@@ -130,9 +127,7 @@ const Editor = (
     addonCommands,
     onSubmit,
     keyboardShortcuts,
-    isVideoEmbedActive,
     setMediaUploader,
-    setIsEmbedModalOpen,
     setIsAddLinkActive,
     attachmentProps,
     openImageInNewTab,
@@ -254,11 +249,6 @@ const Editor = (
               {...{ editor, mediaUploader }}
               unsplashApiKey={editorSecrets?.unsplash}
               onClose={() => setMediaUploader({ image: false, video: false })}
-            />
-          )}
-          {isVideoEmbedActive && (
-            <EmbedOption
-              {...{ editor, isEmbedModalOpen, setIsEmbedModalOpen }}
             />
           )}
           {isAttachmentsActive && (

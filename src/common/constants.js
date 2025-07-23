@@ -32,7 +32,6 @@ export const EDITOR_OPTIONS = {
   IMAGE_UPLOAD_UNSPLASH: "image-upload-unsplash",
   VIDEO_UPLOAD: "video-upload",
   DIVIDER: "divider",
-  VIDEO_EMBED: "video-embed",
   PASTE_UNFORMATTED: "paste-unformatted",
   TABLE: "table",
   TEXT_COLOR: "text-color",

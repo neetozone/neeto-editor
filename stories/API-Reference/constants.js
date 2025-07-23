@@ -69,7 +69,7 @@ export const EDITOR_PROPS = [
   [
     "addons",
     "Accepts an array of strings, each corresponding to the name of an addon.",
-    `["highlight", "emoji", "code-block", "block-quote", "image-upload", "video-upload", "divider", "video-embed", "paste-unformatted","attachments"]`,
+    `["highlight", "emoji", "code-block", "block-quote", "image-upload", "video-upload", "divider", "paste-unformatted","attachments"]`,
   ],
   [
     "addonCommands",

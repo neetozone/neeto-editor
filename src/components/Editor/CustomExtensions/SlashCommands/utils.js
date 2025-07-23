@@ -3,13 +3,6 @@ import { assoc } from "ramda";
 
 import { MENU_ITEMS } from "./constants";
 
-const embedCommand =
-  setIsEmbedModalOpen =>
-  ({ editor, range }) => {
-    setIsEmbedModalOpen(true);
-    editor.chain().focus().deleteRange(range).run();
-  };
-
 const imageCommand =
   setMediaUploader =>
   ({ editor, range }) => {
@@ -42,7 +35,6 @@ export const buildCommandItems = ({
   options,
   addonCommands,
   setMediaUploader,
-  setIsEmbedModalOpen,
   setIsAddLinkActive,
   attachmentProps,
 }) => {
@@ -51,8 +43,6 @@ export const buildCommandItems = ({
       return assoc("command", imageCommand(setMediaUploader), item);
     } else if (item.optionName === EDITOR_OPTIONS.VIDEO_UPLOAD) {
       return assoc("command", videoCommand(setMediaUploader), item);
-    } else if (item.optionName === EDITOR_OPTIONS.VIDEO_EMBED) {
-      return assoc("command", embedCommand(setIsEmbedModalOpen), item);
     } else if (item.optionName === EDITOR_OPTIONS.LINK) {
       return assoc("command", linkCommand(setIsAddLinkActive), item);
     } else if (item.optionName === EDITOR_OPTIONS.ATTACHMENTS) {

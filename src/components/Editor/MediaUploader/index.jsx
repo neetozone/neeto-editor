@@ -9,6 +9,9 @@ import LocalUploader from "./LocalUploader";
 import UnsplashImagePicker from "./UnsplashImagePicker";
 import URLForm from "./URLForm";
 import { getTabs } from "./utils";
+import VideoEmbedForm from "./VideoEmbedForm";
+
+import { validateUrl } from "../CustomExtensions/Embeds/utils";
 
 const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
   const { t } = useTranslation();
@@ -31,6 +34,14 @@ const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
   const handleSubmit = url => {
     insertMediaToEditor({ url, alt: "image" });
     handleClose();
+  };
+
+  const handleVideoEmbed = url => {
+    const validatedUrl = validateUrl(url);
+    if (validatedUrl) {
+      editor.chain().focus().setExternalVideo({ src: validatedUrl }).run();
+      handleClose();
+    }
   };
 
   const insertMediaToEditor = file => {
@@ -61,6 +72,13 @@ const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
       onClose={handleClose}
     >
       <div className="ne-media-uploader">
+        {mediaUploader.video && (
+          <div className="ne-media-uploader__header">
+            <h2 className="ne-media-uploader__header-title">
+              {t("neetoEditor.menu.addVideo")}
+            </h2>
+          </div>
+        )}
         {!isNotPresent(tabs) && (
           <Tab>
             {tabs.map(({ key, title }) => (
@@ -98,6 +116,12 @@ const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
             <UnsplashImagePicker
               {...{ unsplashApiKey }}
               onSubmit={handleSubmit}
+            />
+          )}
+          {activeTab === "embed" && mediaUploader.video && (
+            <VideoEmbedForm
+              onCancel={handleClose}
+              onSubmit={handleVideoEmbed}
             />
           )}
         </div>

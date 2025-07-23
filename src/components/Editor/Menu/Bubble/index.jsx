@@ -18,7 +18,6 @@ const Bubble = ({
   attachmentProps,
   isEmojiPickerActive,
   setIsEmojiPickerActive,
-  setIsEmbedModalOpen,
 }) => {
   const [isInvalidLink, setIsInvalidLink] = useState(false);
   const [isLinkOptionActive, setIsLinkOptionActive] = useState(false);
@@ -69,7 +68,6 @@ const Bubble = ({
             isLinkOptionActive,
             isTableOptionActive,
             mentions,
-            setIsEmbedModalOpen,
             setIsEmojiPickerActive,
             setIsInvalidLink,
             setIsLinkOptionActive,

@@ -30,7 +30,6 @@ const Options = ({
   attachmentProps,
   isEmojiPickerActive,
   setIsEmojiPickerActive,
-  setIsEmbedModalOpen,
 }) => {
   const { t } = useTranslation();
   const { Menu, MenuItem } = Dropdown;
@@ -52,7 +51,6 @@ const Options = ({
     setMediaUploader,
     tooltips,
     attachmentProps,
-    setIsEmbedModalOpen,
     setIsAddLinkActive: setIsLinkOptionActive,
   });
 

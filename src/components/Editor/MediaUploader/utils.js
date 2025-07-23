@@ -34,7 +34,12 @@ export const buildImageOptions = () => [
 ];
 
 export const getTabs = (mediaUploader, unsplashApiKey) => {
-  if (mediaUploader.video) return [];
+  if (mediaUploader.video) {
+    return [
+      { title: "Upload", key: "local" },
+      { title: "Embed", key: "embed" },
+    ];
+  }
 
   return unsplashApiKey
     ? MEDIA_UPLOAD_OPTIONS

@@ -23,7 +23,6 @@ import BulletList from "../BulletList/ExtensionConfig";
 import Callout from "../Callout/ExtensionConfig";
 import CodeBlock from "../CodeBlock/ExtensionConfig";
 import CustomCommands from "../CustomCommands/ExtensionConfig";
-import Embeds from "../Embeds/ExtensionConfig";
 import EmojiPicker from "../Emoji/EmojiPicker/ExtensionConfig";
 import EmojiSuggestion from "../Emoji/EmojiSuggestion/ExtensionConfig";
 import ImageExtension from "../Image/ExtensionConfig";
@@ -42,7 +41,7 @@ import {
   TodoItemExtension,
 } from "../TodoList/ExtensionConfig";
 import Variable from "../Variable/ExtensionConfig";
-import VideoExtension from "../Video/ExtensionConfig";
+import UnifiedVideoExtension from "../Video/ExtensionConfig";
 
 const useCustomExtensions = ({
   placeholder,
@@ -54,9 +53,7 @@ const useCustomExtensions = ({
   addonCommands,
   onSubmit,
   keyboardShortcuts,
-  isVideoEmbedActive,
   setMediaUploader,
-  setIsEmbedModalOpen,
   setIsAddLinkActive,
   attachmentProps,
   openImageInNewTab,
@@ -75,7 +72,6 @@ const useCustomExtensions = ({
     SelectionDecoration,
     Focus.configure({ mode: "shallowest" }),
     Highlight,
-    VideoExtension,
     ImageExtension.configure({
       openImageInNewTab,
       enableReactNodeViewOptimization,
@@ -107,8 +103,9 @@ const useCustomExtensions = ({
     EmojiSuggestion,
     EmojiPicker,
   ];
-  if (isVideoEmbedActive) {
-    customExtensions.push(Embeds);
+
+  if (options.includes(EDITOR_OPTIONS.VIDEO_UPLOAD)) {
+    customExtensions.push(UnifiedVideoExtension);
   }
 
   if (options.includes(EDITOR_OPTIONS.TABLE)) {
@@ -146,7 +143,6 @@ const useCustomExtensions = ({
         options,
         addonCommands,
         setMediaUploader,
-        setIsEmbedModalOpen,
         setIsAddLinkActive,
         attachmentProps,
       })
