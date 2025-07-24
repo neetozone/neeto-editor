@@ -15,7 +15,8 @@
       "url": "Enlace",
       "editLink": "Editar enlace",
       "resetToDefault": "Restablecer a los valores predeterminados",
-      "openInNewTab": "Abrir en una nueva pestaña"
+      "openInNewTab": "Abrir en una nueva pestaña",
+      "saveChanges": "Guardar cambios"
     },
     "attachments": {
       "actionsBlocked": "No tiene permiso para actualizar o eliminar archivos adjuntos",
@@ -40,7 +41,8 @@
       "uploadFileFailed": "Falló la carga de un archivo adjunto",
       "fileNotAllowed": "El tipo de archivo seleccionado no está permitido",
       "noResults": "Sin resultados",
-      "imageUploadFailed": "La carga de la imagen falló, ¡por favor intente de nuevo!"
+      "imageUploadFailed": "La carga de la imagen falló, ¡por favor intente de nuevo!",
+      "fieldRequired": "Este campo es obligatorio."
     },
     "menu": {
       "attachments": "Archivos adjuntos",
@@ -130,7 +132,9 @@
       "tableDescription": "Agregar una tabla.",
       "noResults": "Sin resultados",
       "rows": "Filas",
-      "columns": "Columnas"
+      "columns": "Columnas",
+      "addVideo": "Agregar video",
+      "addVideoDescription": "Sube un archivo de video o embéldalo desde una URL"
     },
     "placeholders": {
       "columns": "Ingrese columnas",
@@ -142,7 +146,8 @@
       "url": "Ingrese URL",
       "enterText": "Ingrese texto",
       "writeSomething": "Escriba algo …",
-      "searchLanguages": "Buscar idiomas"
+      "searchLanguages": "Buscar idiomas",
+      "embedUrl": "https://"
     },
     "table": {
       "delete": "Eliminar tabla",

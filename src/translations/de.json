@@ -15,7 +15,8 @@
       "url": "Link",
       "editLink": "Link bearbeiten",
       "resetToDefault": "Auf Standard zurücksetzen",
-      "openInNewTab": "In neuem Tab öffnen"
+      "openInNewTab": "In neuem Tab öffnen",
+      "saveChanges": "Änderungen speichern"
     },
     "attachments": {
       "actionsBlocked": "Sie sind nicht berechtigt, Anhänge zu aktualisieren oder zu löschen",
@@ -40,7 +41,8 @@
       "uploadFileFailed": "Hochladen eines Anhangs fehlgeschlagen",
       "fileNotAllowed": "Der ausgewählte Dateityp ist nicht erlaubt",
       "noResults": "Keine Ergebnisse",
-      "imageUploadFailed": "Das Hochladen des Bildes ist fehlgeschlagen, bitte versuchen Sie es erneut!"
+      "imageUploadFailed": "Das Hochladen des Bildes ist fehlgeschlagen, bitte versuchen Sie es erneut!",
+      "fieldRequired": "Dieses Feld ist erforderlich."
     },
     "menu": {
       "attachments": "Anhänge",
@@ -130,7 +132,9 @@
       "tableDescription": "Fügen Sie eine Tabelle hinzu.",
       "noResults": "Keine Ergebnisse",
       "rows": "Zeilen",
-      "columns": "Spalten"
+      "columns": "Spalten",
+      "addVideo": "Video hinzufügen",
+      "addVideoDescription": "Eine Videodatei hochladen oder von URL einbetten"
     },
     "placeholders": {
       "columns": "Spalten eingeben",
@@ -142,7 +146,8 @@
       "url": "URL eingeben",
       "enterText": "Text eingeben",
       "writeSomething": "Schreiben Sie etwas …",
-      "searchLanguages": "Sprachen durchsuchen"
+      "searchLanguages": "Sprachen durchsuchen",
+      "embedUrl": "https://"
     },
     "table": {
       "delete": "Tabelle löschen",
