@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { hyphenize } from "neetocommons/utils";
 import { Typography } from "neetoui";
 
 const ColorDot = ({ colorVar, isSelected, onClick, isTextColor }) => {
@@ -13,8 +14,17 @@ const ColorDot = ({ colorVar, isSelected, onClick, isTextColor }) => {
       : { backgroundColor: `var(${colorVar})` }),
   };
 
+  const colorNumber = colorVar.match(/\d+$/)?.[0] || colorVar;
+
   return (
-    <div {...{ onClick }} className={dotClass} style={dotStyle}>
+    <div
+      {...{ onClick }}
+      className={dotClass}
+      style={dotStyle}
+      data-cy={`neeto-editor-highlight-${hyphenize(
+        isTextColor ? "text" : "background"
+      )}-color-dot-${colorNumber}`}
+    >
       {isTextColor && (
         <Typography
           className="neeto-editor-highlight-dropdown__color-dot-text"
