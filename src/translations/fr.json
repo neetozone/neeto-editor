@@ -15,7 +15,8 @@
       "url": "Lien",
       "editLink": "Modifier le lien",
       "resetToDefault": "Réinitialiser par défaut",
-      "openInNewTab": "Ouvrir dans un nouvel onglet"
+      "openInNewTab": "Ouvrir dans un nouvel onglet",
+      "saveChanges": "Enregistrer les modifications"
     },
     "attachments": {
       "actionsBlocked": "Vous n'êtes pas autorisé à mettre à jour ou supprimer des pièces jointes",
@@ -40,7 +41,8 @@
       "uploadFileFailed": "Échec du téléchargement d'une pièce jointe",
       "fileNotAllowed": "Le type de fichier sélectionné n'est pas autorisé",
       "noResults": "Aucun résultat",
-      "imageUploadFailed": "Échec du téléchargement de l'image, veuillez réessayer !"
+      "imageUploadFailed": "Échec du téléchargement de l'image, veuillez réessayer !",
+      "fieldRequired": "Ce champ est requis."
     },
     "menu": {
       "attachments": "Pièces jointes",
@@ -130,7 +132,9 @@
       "tableDescription": "Ajouter un tableau.",
       "noResults": "Aucun résultat",
       "rows": "Lignes",
-      "columns": "Colonnes"
+      "columns": "Colonnes",
+      "addVideo": "Ajouter une vidéo",
+      "addVideoDescription": "Téléchargez un fichier vidéo ou intégrez à partir d'une URL"
     },
     "placeholders": {
       "columns": "Entrez les colonnes",
@@ -142,7 +146,8 @@
       "url": "Entrez l'URL",
       "enterText": "Entrez le texte",
       "writeSomething": "Écrivez quelque chose ...",
-      "searchLanguages": "Rechercher des langues"
+      "searchLanguages": "Rechercher des langues",
+      "embedUrl": "https://"
     },
     "table": {
       "delete": "Supprimer le tableau",
