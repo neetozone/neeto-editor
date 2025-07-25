@@ -1,3 +1,4 @@
+import i18n from "i18next";
 import { noop } from "neetocist";
 
 import directUploadsApi from "apis/direct_uploads";
@@ -13,6 +14,10 @@ class DirectUpload {
   }
 
   create = async () => {
+    if (!this.file.name || !this.file.size) {
+      throw new Error(i18n.t("neetoEditor.error.corruptFile"));
+    }
+
     const response = await this.generateUrl();
     const { url, headers } =
       response.direct_upload || response.data.direct_upload;
