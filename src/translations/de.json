@@ -42,7 +42,8 @@
       "fileNotAllowed": "Der ausgewählte Dateityp ist nicht erlaubt",
       "noResults": "Keine Ergebnisse",
       "imageUploadFailed": "Das Hochladen des Bildes ist fehlgeschlagen, bitte versuchen Sie es erneut!",
-      "fieldRequired": "Dieses Feld ist erforderlich."
+      "fieldRequired": "Dieses Feld ist erforderlich.",
+      "corruptFile": "Diese Datei ist beschädigt. Bitte versuchen Sie es erneut mit einer anderen."
     },
     "menu": {
       "attachments": "Anhänge",
