@@ -42,7 +42,8 @@
       "fileNotAllowed": "El tipo de archivo seleccionado no está permitido",
       "noResults": "Sin resultados",
       "imageUploadFailed": "La carga de la imagen falló, ¡por favor intente de nuevo!",
-      "fieldRequired": "Este campo es obligatorio."
+      "fieldRequired": "Este campo es obligatorio.",
+      "corruptFile": "Este archivo está dañado. Por favor, intenta de nuevo con otro"
     },
     "menu": {
       "attachments": "Archivos adjuntos",
