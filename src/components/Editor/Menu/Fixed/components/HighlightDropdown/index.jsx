@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 
+import { hyphenize } from "neetocommons/utils";
 import { Down } from "neetoicons";
 import { Typography, Dropdown } from "neetoui";
 
@@ -98,7 +99,10 @@ const HighlightDropdown = ({
             >
               {title}
             </Typography>
-            <div className="neeto-editor-highlight-dropdown__color-grid">
+            <div
+              className="neeto-editor-highlight-dropdown__color-grid"
+              data-cy={`neeto-editor-highlight-${hyphenize(title)}-grid`}
+            >
               {renderColorDots(colors, isTextColor)}
             </div>
           </div>
