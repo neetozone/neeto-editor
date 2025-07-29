@@ -2,7 +2,7 @@ import { forwardRef, memo } from "react";
 
 import { FastField } from "formik";
 import { noop } from "neetocist";
-import { path } from "ramda";
+import { path, pluck } from "ramda";
 
 import Editor from ".";
 
@@ -31,12 +31,15 @@ const FormikEditor = (
     const nextError = path(pathParts, nextFormikProps.errors);
     const prevTouched = path(pathParts, prevFormikProps.touched);
     const nextTouched = path(pathParts, nextFormikProps.touched);
+    const prevAttachments = pluck("signedId", prevProps.attachments).join("|");
+    const nextAttachments = pluck("signedId", nextProps.attachments).join("|");
 
     return (
       prevError !== nextError ||
       prevTouched !== nextTouched ||
       Object.keys(nextProps).length !== Object.keys(prevProps).length ||
       prevFormikProps.isSubmitting !== nextFormikProps.isSubmitting ||
+      prevAttachments !== nextAttachments ||
       Boolean(shouldUpdate?.(prevProps, nextProps))
     );
   };

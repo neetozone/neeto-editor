@@ -42,7 +42,8 @@
       "fileNotAllowed": "Le type de fichier sélectionné n'est pas autorisé",
       "noResults": "Aucun résultat",
       "imageUploadFailed": "Échec du téléchargement de l'image, veuillez réessayer !",
-      "fieldRequired": "Ce champ est requis."
+      "fieldRequired": "Ce champ est requis.",
+      "corruptFile": "Ce fichier est corrompu. Veuillez réessayer avec un autre"
     },
     "menu": {
       "attachments": "Pièces jointes",

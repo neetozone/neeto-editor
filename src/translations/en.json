@@ -42,7 +42,8 @@
       "uploadFileFailed": "Attachment upload failed",
       "fileNotAllowed": "The selected file type is not allowed",
       "noResults": "No results",
-      "imageUploadFailed": "Image upload failed, please try again!"
+      "imageUploadFailed": "Image upload failed, please try again!",
+      "corruptFile": "This file is corrupted. Please try again with another"
     },
     "menu": {
       "attachments": "Attachments",
