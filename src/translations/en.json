@@ -105,6 +105,8 @@
       "bulletListDescription": "Add a list with bullets.",
       "todoList": "To-do list",
       "todoListDescription": "Add a to-do list with checkboxes.",
+      "toggleList": "Toggle list",
+      "toggleListDescription": "Add a toggle list with collapsible content.",
       "image": "Image",
       "imageDescription": "Add an image block.",
       "video": "Video",
@@ -148,6 +150,7 @@
       "url": "Enter URL",
       "enterText": "Enter text",
       "writeSomething": "Write something …",
+      "toggleSummary": "Summary",
       "searchLanguages": "Search languages"
     },
     "table": {
