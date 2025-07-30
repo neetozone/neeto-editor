@@ -20,6 +20,7 @@ export const EDITOR_ADDONS_TABLE_ROWS = [
   ],
   ["text-color", "Change the color of the text."],
   ["todo-list", "Add a to-do list with checkboxes."],
+  ["toggle-list", "Add a toggle list with collapsible content."],
 ];
 
 export const EDITOR_PROP_TABLE_COLUMNS = [
