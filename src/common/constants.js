@@ -24,6 +24,7 @@ export const EDITOR_OPTIONS = {
   CALLOUT: "callout",
   ATTACHMENTS: "attachments",
   TODO_LIST: "todo-list",
+  TOGGLE_LIST: "toggle-list",
   UNDO: "undo",
   REDO: "redo",
   HIGHLIGHT: "highlight",

@@ -268,5 +268,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bigbinary/neeto-editor.git"
+  },
+  "dependencies": {
+    "@tiptap/extension-details": "^3.0.7"
   }
 }
