@@ -25,6 +25,7 @@ import {
   Link,
   Attachment,
   MessageSquare,
+  Down,
 } from "neetoicons";
 
 export const MENU_ITEMS = [
@@ -326,6 +327,15 @@ export const MENU_ITEMS = [
         },
       },
     ],
+  },
+  {
+    optionName: EDITOR_OPTIONS.TOGGLE_LIST,
+    title: t("neetoEditor.menu.toggleList"),
+    description: t("neetoEditor.menu.toggleListDescription"),
+    Icon: Down,
+    command: ({ editor, range }) => {
+      editor.chain().focus().deleteRange(range).setDetails().run();
+    },
   },
 ];
 
