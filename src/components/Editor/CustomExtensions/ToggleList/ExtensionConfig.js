@@ -10,6 +10,85 @@ export const ToggleList = Details.configure({
   persist: true,
   HTMLAttributes: { class: "neeto-editor-toggle-list" },
   openClassName: "is-open",
+}).extend({
+  addCommands() {
+    return {
+      ...this.parent?.(),
+      setToggleList:
+        () =>
+        ({ tr, state, dispatch, chain }) => {
+          const { selection } = state;
+          const { from, to, $from } = selection;
+
+          const selectedText = state.doc.textBetween(from, to, "");
+
+          // Check if cursor is on a line with text (even if not selected)
+          let textToUse = selectedText.trim();
+          let rangeFrom = from;
+          let rangeTo = to;
+
+          if (!textToUse) {
+            // No text selected, check if cursor is within a paragraph with content
+            const currentNode = $from.parent;
+            if (
+              currentNode.type.name === "paragraph" &&
+              currentNode.textContent.trim()
+            ) {
+              // Get the full paragraph text
+              textToUse = currentNode.textContent.trim();
+              // Replace the entire paragraph node, not just content
+              rangeFrom = $from.before($from.depth);
+              rangeTo = $from.after($from.depth);
+            }
+          }
+
+          if (textToUse) {
+            const detailsNode = state.schema.nodes.details.create({}, [
+              state.schema.nodes.detailsSummary.create(
+                {},
+                state.schema.text(textToUse)
+              ),
+              state.schema.nodes.detailsContent.create(
+                {},
+                state.schema.nodes.paragraph.create()
+              ),
+            ]);
+
+            const newTr = tr.replaceWith(rangeFrom, rangeTo, detailsNode);
+
+            const insertPos = rangeFrom + detailsNode.nodeSize;
+            if (insertPos >= newTr.doc.content.size) {
+              newTr.insert(insertPos, state.schema.nodes.paragraph.create());
+            }
+
+            if (dispatch) {
+              dispatch(newTr);
+            }
+
+            return true;
+          }
+
+          return chain()
+            .setDetails()
+            .command(({ tr, state, dispatch }) => {
+              const docSize = tr.doc.content.size;
+              const lastNode = tr.doc.lastChild;
+
+              if (lastNode?.type.name === "details") {
+                tr.insert(docSize, state.schema.nodes.paragraph.create());
+              }
+
+              if (dispatch) {
+                dispatch(tr);
+              }
+
+              return true;
+            })
+            .focus()
+            .run();
+        },
+    };
+  },
 });
 
 export const ToggleListSummary = DetailsSummary;
@@ -23,7 +102,7 @@ export const ToggleListPlaceholder = Placeholder.configure({
       return t("neetoEditor.placeholders.toggleSummary");
     }
 
-    return null;
+    return "";
   },
 });
 

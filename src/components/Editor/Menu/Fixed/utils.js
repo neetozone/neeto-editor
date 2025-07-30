@@ -18,6 +18,7 @@ import {
   CodeBlock,
   Attachment,
   Link,
+  Down,
 } from "neetoicons";
 import { prop, not, assoc } from "ramda";
 
@@ -161,6 +162,17 @@ const createMenuOptions = ({
         optionName: "todoList",
         highlight: true,
         label: tooltips.todoList ?? t("neetoEditor.menu.todoList"),
+      },
+      {
+        type: MENU_ELEMENT_TYPES.BUTTON,
+        icon: Down,
+        command: runEditorCommand(editor =>
+          editor.chain().focus().setToggleList().run()
+        ),
+        isEnabled: options.includes(EDITOR_OPTIONS.TOGGLE_LIST),
+        optionName: "details",
+        highlight: true,
+        label: tooltips.toggleList ?? t("neetoEditor.menu.toggleList"),
       },
     ],
     // block
