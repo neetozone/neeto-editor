@@ -16,27 +16,27 @@ export const ToggleList = Details.configure({
       ...this.parent?.(),
       setToggleList:
         () =>
-        ({ tr, state, dispatch, chain }) => {
+        ({ tr, state, dispatch, chain, editor }) => {
+          if (editor.isActive("details")) {
+            return chain().focus().unsetDetails().run();
+          }
+
           const { selection } = state;
           const { from, to, $from } = selection;
 
           const selectedText = state.doc.textBetween(from, to, "");
 
-          // Check if cursor is on a line with text (even if not selected)
           let textToUse = selectedText.trim();
           let rangeFrom = from;
           let rangeTo = to;
 
           if (!textToUse) {
-            // No text selected, check if cursor is within a paragraph with content
             const currentNode = $from.parent;
             if (
               currentNode.type.name === "paragraph" &&
               currentNode.textContent.trim()
             ) {
-              // Get the full paragraph text
               textToUse = currentNode.textContent.trim();
-              // Replace the entire paragraph node, not just content
               rangeFrom = $from.before($from.depth);
               rangeTo = $from.after($from.depth);
             }
