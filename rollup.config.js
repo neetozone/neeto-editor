@@ -36,6 +36,13 @@ const emitReadyFile = destination => ({
   },
 });
 
+const watchTranslations = () => ({
+  name: "watch-translations",
+  buildStart() {
+    this.addWatchFile(path.resolve(__dirname, "src/translations"));
+  },
+});
+
 const input = {
   index: "./src/index.js",
   Editor: "./src/components/Editor",
@@ -97,6 +104,7 @@ const config = args => {
       output,
       plugins: [
         cleaner({ targets: ["./dist/"] }),
+        watchTranslations(),
         ...plugins,
         args.app &&
           copy({
@@ -106,7 +114,7 @@ const config = args => {
               { src: "LICENSE.md", dest: destination },
               {
                 src: "src/translations",
-                dest: path.join(destination, "src/translations"),
+                dest: path.join(destination, "src"),
               },
             ],
           }),
