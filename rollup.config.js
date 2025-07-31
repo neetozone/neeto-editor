@@ -25,6 +25,17 @@ const peerDependencies = Object.keys(packageJson.peerDependencies);
 
 const formats = ["esm", "cjs"];
 
+const emitReadyFile = destination => ({
+  name: "emit-ready-file",
+  writeBundle: async () => {
+    const markerPath = path.join(destination, ".ready");
+    require("fs").writeFileSync(
+      markerPath,
+      `Built at ${new Date().toISOString()}`
+    );
+  },
+});
+
 const input = {
   index: "./src/index.js",
   Editor: "./src/components/Editor",
@@ -88,17 +99,18 @@ const config = args => {
         cleaner({ targets: ["./dist/"] }),
         ...plugins,
         args.app &&
-        copy({
-          targets: [
-            { src: "package.json", dest: destination },
-            { src: "types.d.ts", dest: destination },
-            { src: "LICENSE.md", dest: destination },
-            {
-              src: "src/translations",
-              dest: path.join(destination, "src/translations"),
-            },
-          ],
-        }),
+          copy({
+            targets: [
+              { src: "package.json", dest: destination },
+              { src: "types.d.ts", dest: destination },
+              { src: "LICENSE.md", dest: destination },
+              {
+                src: "src/translations",
+                dest: path.join(destination, "src/translations"),
+              },
+            ],
+          }),
+        args.app && emitReadyFile(destination),
         visualizer({ filename: "./dist/editor-stats.html" }),
       ].filter(Boolean),
     },
