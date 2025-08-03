@@ -1,3 +1,4 @@
+import { findParentNode } from "@tiptap/core";
 import {
   Details,
   DetailsContent,
@@ -148,6 +149,47 @@ export const ToggleList = Details.configure({
         },
       }),
     ];
+  },
+
+  addKeyboardShortcuts() {
+    return {
+      ...this.parent?.(),
+
+      Enter: () => {
+        const { editor } = this;
+        const { state } = editor;
+
+        if (!editor.view.endOfTextblock("forward", state)) {
+          return false;
+        }
+
+        const parentDetails = findParentNode(
+          node => node.type.name === this.name
+        )(state.selection);
+
+        if (!parentDetails) {
+          return false;
+        }
+
+        const { node: detailsNode, pos: detailsPos } = parentDetails;
+        const posAfterDetails = detailsPos + detailsNode.nodeSize;
+
+        return editor
+          .chain()
+          .insertContentAt(posAfterDetails, {
+            type: this.name,
+            content: [
+              { type: "detailsSummary", content: [] },
+              {
+                type: "detailsContent",
+                content: [{ type: "paragraph" }],
+              },
+            ],
+          })
+          .setTextSelection(posAfterDetails + 2)
+          .run();
+      },
+    };
   },
 });
 
