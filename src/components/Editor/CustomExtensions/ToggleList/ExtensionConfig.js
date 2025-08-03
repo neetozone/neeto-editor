@@ -5,6 +5,7 @@ import {
 } from "@tiptap/extension-details";
 import Placeholder from "@tiptap/extension-placeholder";
 import { t } from "i18next";
+import { Plugin, PluginKey, TextSelection } from "prosemirror-state";
 
 export const ToggleList = Details.configure({
   persist: true,
@@ -89,12 +90,69 @@ export const ToggleList = Details.configure({
         },
     };
   },
+
+  addProseMirrorPlugins() {
+    return [
+      ...(this.parent?.() || []),
+      new Plugin({
+        key: new PluginKey("focusToggleContentOnOpen"),
+        appendTransaction: (transactions, oldState, newState) => {
+          if (!transactions.some(tr => tr.docChanged)) {
+            return null;
+          }
+
+          let focusPosition = null;
+
+          newState.doc.descendants((node, pos) => {
+            if (focusPosition !== null) {
+              return false;
+            }
+
+            if (node.type.name !== this.name) {
+              return true;
+            }
+
+            if (node.attrs.open) {
+              const oldNode = oldState.doc.nodeAt(pos);
+              if (oldNode && !oldNode.attrs.open) {
+                const summaryNode = node.firstChild;
+                const contentNode = node.child(1);
+
+                if (!summaryNode || !contentNode) return true;
+
+                const isContentEmpty =
+                  contentNode.childCount === 1 &&
+                  contentNode.firstChild?.type.name === "paragraph" &&
+                  contentNode.firstChild?.content.size === 0;
+
+                const contentStartPos = pos + 1 + summaryNode.nodeSize;
+
+                if (isContentEmpty) {
+                  focusPosition = contentStartPos + 2;
+                } else {
+                  focusPosition = contentStartPos + contentNode.nodeSize - 1;
+                }
+              }
+            }
+
+            return true;
+          });
+
+          if (focusPosition !== null) {
+            return newState.tr.setSelection(
+              TextSelection.create(newState.doc, focusPosition)
+            );
+          }
+
+          return null;
+        },
+      }),
+    ];
+  },
 });
 
 export const ToggleListSummary = DetailsSummary;
-
 export const ToggleListContent = DetailsContent;
-
 export const ToggleListPlaceholder = Placeholder.configure({
   includeChildren: true,
   placeholder: ({ node }) => {
