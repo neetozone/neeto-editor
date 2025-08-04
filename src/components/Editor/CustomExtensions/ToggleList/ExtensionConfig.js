@@ -189,6 +189,49 @@ export const ToggleList = Details.configure({
           .setTextSelection(posAfterDetails + 2)
           .run();
       },
+
+      Backspace: () => {
+        const { editor } = this;
+        const { state } = editor;
+        const { selection } = state;
+        const { $from, empty } = selection;
+
+        if (!empty || $from.parentOffset > 0) {
+          return false;
+        }
+
+        const parentDetails = findParentNode(
+          node => node.type.name === this.name
+        )(selection);
+
+        if (!parentDetails) {
+          return false;
+        }
+
+        if (parentDetails.node.firstChild !== $from.parent) {
+          return false;
+        }
+
+        if ($from.parent.content.size > 0) {
+          return false;
+        }
+
+        const from = parentDetails.pos;
+        const to = from + parentDetails.node.nodeSize;
+
+        return editor
+          .chain()
+          .command(({ tr, dispatch }) => {
+            if (dispatch) {
+              const paragraph = state.schema.nodes.paragraph.create();
+              tr.replaceWith(from, to, paragraph);
+              tr.setSelection(TextSelection.create(tr.doc, from + 1));
+            }
+
+            return true;
+          })
+          .run();
+      },
     };
   },
 });
