@@ -1,6 +1,6 @@
 {
   "name": "@bigbinary/neeto-editor",
-  "version": "1.47.32",
+  "version": "1.47.33",
   "types": "./types.d.ts",
   "description": "neetoEditor is the library that drives the rich text experience in all neeto products built at BigBinary",
   "keywords": [
