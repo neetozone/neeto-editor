@@ -95,6 +95,7 @@ export const ToggleList = Details.configure({
   addProseMirrorPlugins() {
     return [
       ...(this.parent?.() || []),
+
       new Plugin({
         key: new PluginKey("focusToggleContentOnOpen"),
         appendTransaction: (transactions, oldState, newState) => {
@@ -103,40 +104,45 @@ export const ToggleList = Details.configure({
           }
 
           let focusPosition = null;
+          transactions.forEach(tr => {
+            tr.steps.forEach(step => {
+              step.getMap().forEach((_oldStart, _oldEnd, newStart, newEnd) => {
+                newState.doc.nodesBetween(
+                  newStart,
+                  newEnd,
+                  (newNode, newPos) => {
+                    if (
+                      !(newNode.type.name === this.name && newNode.attrs.open)
+                    ) {
+                      return;
+                    }
 
-          newState.doc.descendants((node, pos) => {
-            if (focusPosition !== null) {
-              return false;
-            }
+                    const oldNode = oldState.doc.nodeAt(
+                      tr.mapping.invert().map(newPos)
+                    );
+                    if (oldNode && !oldNode.attrs.open) {
+                      const summaryNode = newNode.firstChild;
+                      const contentNode = newNode.child(1);
+                      if (!summaryNode || !contentNode) return;
 
-            if (node.type.name !== this.name) {
-              return true;
-            }
+                      const isContentEmpty =
+                        contentNode.childCount === 1 &&
+                        contentNode.firstChild?.type.name === "paragraph" &&
+                        contentNode.firstChild?.content.size === 0;
 
-            if (node.attrs.open) {
-              const oldNode = oldState.doc.nodeAt(pos);
-              if (oldNode && !oldNode.attrs.open) {
-                const summaryNode = node.firstChild;
-                const contentNode = node.child(1);
+                      const contentStartPos = newPos + 1 + summaryNode.nodeSize;
 
-                if (!summaryNode || !contentNode) return true;
-
-                const isContentEmpty =
-                  contentNode.childCount === 1 &&
-                  contentNode.firstChild?.type.name === "paragraph" &&
-                  contentNode.firstChild?.content.size === 0;
-
-                const contentStartPos = pos + 1 + summaryNode.nodeSize;
-
-                if (isContentEmpty) {
-                  focusPosition = contentStartPos + 2;
-                } else {
-                  focusPosition = contentStartPos + contentNode.nodeSize - 1;
-                }
-              }
-            }
-
-            return true;
+                      if (isContentEmpty) {
+                        focusPosition = contentStartPos + 2;
+                      } else {
+                        focusPosition =
+                          contentStartPos + contentNode.nodeSize - 1;
+                      }
+                    }
+                  }
+                );
+              });
+            });
           });
 
           if (focusPosition !== null) {
@@ -146,6 +152,40 @@ export const ToggleList = Details.configure({
           }
 
           return null;
+        },
+      }),
+
+      new Plugin({
+        key: new PluginKey("detailsClickSync"),
+        props: {
+          handleDOMEvents: {
+            mousedown(view, event) {
+              const target = event.target;
+              if (!target || !(target instanceof Element)) return false;
+
+              const details = target.closest(".neeto-editor-toggle-list");
+
+              if (details && target.closest("summary") === details.firstChild) {
+                requestAnimationFrame(() => {
+                  const pos = view.posAtDOM(details, 0);
+                  const node = view.state.doc.nodeAt(pos);
+
+                  const isOpenInDOM = details.hasAttribute("open");
+
+                  if (node && node.attrs.open !== isOpenInDOM) {
+                    const tr = view.state.tr.setNodeAttribute(
+                      pos,
+                      "open",
+                      isOpenInDOM
+                    );
+                    view.dispatch(tr);
+                  }
+                });
+              }
+
+              return false;
+            },
+          },
         },
       }),
     ];
@@ -158,19 +198,15 @@ export const ToggleList = Details.configure({
       Enter: () => {
         const { editor } = this;
         const { state } = editor;
-
-        if (!editor.view.endOfTextblock("forward", state)) {
-          return false;
-        }
-
+        if (!editor.view.endOfTextblock("forward", state)) return false;
         const parentDetails = findParentNode(
           node => node.type.name === this.name
         )(state.selection);
+        if (!parentDetails) return false;
 
-        if (!parentDetails) {
+        if (state.selection.$from.parent.type.name !== "detailsSummary") {
           return false;
         }
-
         const { node: detailsNode, pos: detailsPos } = parentDetails;
         const posAfterDetails = detailsPos + detailsNode.nodeSize;
 
@@ -180,10 +216,7 @@ export const ToggleList = Details.configure({
             type: this.name,
             content: [
               { type: "detailsSummary", content: [] },
-              {
-                type: "detailsContent",
-                content: [{ type: "paragraph" }],
-              },
+              { type: "detailsContent", content: [{ type: "paragraph" }] },
             ],
           })
           .setTextSelection(posAfterDetails + 2)
