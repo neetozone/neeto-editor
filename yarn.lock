@@ -4023,11 +4023,6 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-list-item/-/extension-list-item-2.6.6.tgz#fedb7d5b3293d487eb5b9773abe8eb8a0a395428"
   integrity sha512-k+oEzZu2cgVKqPqOP1HzASOKLpTEV9m7mRVPAbuaaX8mSyvIgD6f+JUx9PvgYv//D918wk98LMoRBFX53tDJ4w==
 
-"@tiptap/extension-list-keymap@2.11.7":
-  version "2.11.7"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-list-keymap/-/extension-list-keymap-2.11.7.tgz#a89a94e961c69d89c06b5071417f9adb78659787"
-  integrity sha512-t1XgD6+NNxEW9KrI7eK/RnXV/zBsHbYwzn4g0V3+NYQS7siaeCHHN0JwGhVPx1RojYeg+zq9NEj+fr4f3G7XAw==
-
 "@tiptap/extension-mention@2.6.6":
   version "2.6.6"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-mention/-/extension-mention-2.6.6.tgz#c46878bed263eb0ddb8f57b33530dd4ae7000920"

@@ -211,7 +211,7 @@ export default Node.create({
 
               event.preventDefault();
 
-              let currentPos = pos;
+              const currentPos = pos;
 
               images.forEach(async image => {
                 let emptyImageNode;
@@ -230,14 +230,32 @@ export default Node.create({
 
                   const url = await upload(image, DIRECT_UPLOAD_ENDPOINT);
                   if (url) {
-                    const updateTr = view.state.tr.setNodeMarkup(
-                      currentPos + 1,
-                      null,
-                      { id, src: url, alt: "image" }
-                    );
-                    view.dispatch(updateTr);
+                    const imageNode = schema.nodes.image.create({
+                      id,
+                      src: url,
+                      alt: "image",
+                    });
 
-                    currentPos += emptyImageNode.nodeSize;
+                    const { tr, doc } = view.state;
+                    let nodePos = -1;
+                    doc.descendants((node, pos) => {
+                      if (node.type.name === "image" && node.attrs.id === id) {
+                        nodePos = pos;
+
+                        return false;
+                      }
+
+                      return true;
+                    });
+
+                    if (nodePos !== -1) {
+                      tr.replaceWith(
+                        nodePos,
+                        nodePos + emptyImageNode.nodeSize,
+                        imageNode
+                      ).setMeta("addToHistory", false);
+                      view.dispatch(tr);
+                    }
                   }
                 } catch (error) {
                   // eslint-disable-next-line no-console
