@@ -39,6 +39,12 @@ import {
   TodoListExtension,
   TodoItemExtension,
 } from "../TodoList/ExtensionConfig";
+import {
+  ToggleList,
+  ToggleListContent,
+  ToggleListSummary,
+  ToggleListPlaceholder,
+} from "../ToggleList/ExtensionConfig";
 import Variable from "../Variable/ExtensionConfig";
 import UnifiedVideoExtension from "../Video/ExtensionConfig";
 
@@ -133,6 +139,13 @@ const useCustomExtensions = ({
   if (options.includes(EDITOR_OPTIONS.TODO_LIST)) {
     customExtensions.push(TodoListExtension);
     customExtensions.push(TodoItemExtension);
+  }
+
+  if (options.includes(EDITOR_OPTIONS.TOGGLE_LIST)) {
+    customExtensions.push(ToggleList);
+    customExtensions.push(ToggleListSummary);
+    customExtensions.push(ToggleListContent);
+    customExtensions.push(ToggleListPlaceholder);
   }
 
   if (isSlashCommandsActive) {
