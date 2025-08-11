@@ -45,29 +45,6 @@ const createMenuOptions = ({
   const fontSizeOptions = options.filter(option => option.match(/^h[1-6]$/));
 
   return [
-    // history
-    [
-      {
-        icon: Undo,
-        command: runEditorCommand(editor =>
-          editor.chain().focus().undo().run()
-        ),
-        isEnabled: options.includes(EDITOR_OPTIONS.UNDO),
-        optionName: EDITOR_OPTIONS.UNDO,
-        label: tooltips.undo ?? t("neetoEditor.menu.undo"),
-        type: MENU_ELEMENT_TYPES.BUTTON,
-      },
-      {
-        icon: Redo,
-        command: runEditorCommand(editor =>
-          editor.chain().focus().redo().run()
-        ),
-        isEnabled: options.includes(EDITOR_OPTIONS.REDO),
-        optionName: EDITOR_OPTIONS.REDO,
-        label: tooltips.redo ?? t("neetoEditor.menu.redo"),
-        type: MENU_ELEMENT_TYPES.BUTTON,
-      },
-    ],
     // font
     [
       {
@@ -276,6 +253,29 @@ const createMenuOptions = ({
     ],
     //addons
     [...addonCommandOptions],
+    // history
+    [
+      {
+        icon: Undo,
+        command: runEditorCommand(editor =>
+          editor.chain().focus().undo().run()
+        ),
+        isEnabled: options.includes(EDITOR_OPTIONS.UNDO),
+        optionName: EDITOR_OPTIONS.UNDO,
+        label: tooltips.undo ?? t("neetoEditor.menu.undo"),
+        type: MENU_ELEMENT_TYPES.BUTTON,
+      },
+      {
+        icon: Redo,
+        command: runEditorCommand(editor =>
+          editor.chain().focus().redo().run()
+        ),
+        isEnabled: options.includes(EDITOR_OPTIONS.REDO),
+        optionName: EDITOR_OPTIONS.REDO,
+        label: tooltips.redo ?? t("neetoEditor.menu.redo"),
+        type: MENU_ELEMENT_TYPES.BUTTON,
+      },
+    ],
   ];
 };
 
