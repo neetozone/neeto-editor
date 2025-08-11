@@ -6,7 +6,6 @@ import Color from "@tiptap/extension-color";
 import Document from "@tiptap/extension-document";
 import Focus from "@tiptap/extension-focus";
 import Highlight from "@tiptap/extension-highlight";
-import ListKeymap from "@tiptap/extension-list-keymap";
 import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
@@ -99,7 +98,6 @@ const useCustomExtensions = ({
       shortcuts: keyboardShortcuts,
       isBlockQuoteActive: options.includes(EDITOR_OPTIONS.BLOCKQUOTE),
     }),
-    ListKeymap,
     EmojiSuggestion,
     EmojiPicker,
   ];
