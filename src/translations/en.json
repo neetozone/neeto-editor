@@ -106,6 +106,7 @@
       "todoList": "To-do list",
       "todoListDescription": "Add a to-do list with checkboxes.",
       "image": "Image",
+      "addImage": "Add image",
       "imageDescription": "Add an image block.",
       "video": "Video",
       "videoDescription": "Upload or embed a video",
