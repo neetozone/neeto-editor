@@ -138,7 +138,7 @@ const Editor = (
   useEditorWarnings({ initialValue });
 
   const editorClasses = classnames("neeto-editor", {
-    "fixed-menu-active border": isFixedMenuActive,
+    "fixed-menu-active": isFixedMenuActive,
     "bubble-menu-active": isBubbleMenuActive,
     "placeholder-active": isPlaceholderActive,
     "attachments-active": isAttachmentsActive,
