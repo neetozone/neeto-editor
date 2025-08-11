@@ -42,6 +42,7 @@ const URLForm = ({
         data-cy="neeto-editor-media-upload-url-submit"
         disabled={!urlString}
         label={buttonLabel}
+        size="small"
         onClick={handleSubmit}
       />
     </div>
