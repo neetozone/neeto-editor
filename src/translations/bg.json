@@ -135,7 +135,8 @@
       "tableDescription": "Добавете таблица.",
       "noResults": "Няма резултати",
       "rows": "Редове",
-      "columns": "Колони"
+      "columns": "Колони",
+      "addImage": "Добавяне на изображение"
     },
     "placeholders": {
       "columns": "Въведете колони",

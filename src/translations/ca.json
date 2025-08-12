@@ -135,7 +135,8 @@
       "tableDescription": "Afegeix una taula.",
       "noResults": "Sense resultats",
       "rows": "Files",
-      "columns": "Columnes"
+      "columns": "Columnes",
+      "addImage": "Afegir imatge"
     },
     "placeholders": {
       "columns": "Introdueix columnes",

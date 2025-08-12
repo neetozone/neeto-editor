@@ -135,7 +135,8 @@
       "tableDescription": "Bir tablo ekleyin.",
       "noResults": "Sonuç yok",
       "rows": "Satırlar",
-      "columns": "Sütunlar"
+      "columns": "Sütunlar",
+      "addImage": "Resim ekle"
     },
     "placeholders": {
       "columns": "Sütunları girin",

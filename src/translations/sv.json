@@ -135,7 +135,8 @@
       "tableDescription": "Lägg till en tabell.",
       "noResults": "Inga resultat",
       "rows": "Rader",
-      "columns": "Kolumner"
+      "columns": "Kolumner",
+      "addImage": "Lägg till bild"
     },
     "placeholders": {
       "columns": "Ange kolumner",

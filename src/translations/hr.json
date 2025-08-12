@@ -135,7 +135,8 @@
       "tableDescription": "Dodajte stol.",
       "noResults": "Nema rezultata",
       "rows": "Redovi",
-      "columns": "Stupci"
+      "columns": "Stupci",
+      "addImage": "Dodaj sliku"
     },
     "placeholders": {
       "columns": "Unesite stupce",

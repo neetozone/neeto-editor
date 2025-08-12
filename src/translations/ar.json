@@ -135,7 +135,8 @@
       "tableDescription": "إضافة جدول.",
       "noResults": "لا توجد نتائج",
       "rows": "صفوف",
-      "columns": "أعمدة"
+      "columns": "أعمدة",
+      "addImage": "أضف صورة"
     },
     "placeholders": {
       "columns": "أدخل الأعمدة",

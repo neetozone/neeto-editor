@@ -135,7 +135,8 @@
       "tableDescription": "Tambahkan tabel.",
       "noResults": "Tidak ada hasil",
       "rows": "Baris",
-      "columns": "Kolom"
+      "columns": "Kolom",
+      "addImage": "Tambahkan gambar"
     },
     "placeholders": {
       "columns": "Masukkan kolom",

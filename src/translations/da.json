@@ -135,7 +135,8 @@
       "tableDescription": "Tilføj en tabel.",
       "noResults": "Ingen resultater",
       "rows": "Rækker",
-      "columns": "Kolonner"
+      "columns": "Kolonner",
+      "addImage": "Tilføj billede"
     },
     "placeholders": {
       "columns": "Indtast kolonner",

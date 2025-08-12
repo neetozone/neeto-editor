@@ -135,7 +135,8 @@
       "tableDescription": "Thêm một bảng.",
       "noResults": "Không có kết quả",
       "rows": "Hàng",
-      "columns": "Cột"
+      "columns": "Cột",
+      "addImage": "Thêm hình ảnh"
     },
     "placeholders": {
       "columns": "Nhập cột",

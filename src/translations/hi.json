@@ -135,7 +135,8 @@
       "tableDescription": "एक तालिका जोड़ें।",
       "noResults": "कोई परिणाम नहीं",
       "rows": "पंक्तियाँ",
-      "columns": "स्तंभ"
+      "columns": "स्तंभ",
+      "addImage": "छवि जोड़ें"
     },
     "placeholders": {
       "columns": "स्तंभ दर्ज करें",

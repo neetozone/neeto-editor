@@ -135,7 +135,8 @@
       "tableDescription": "Magdagdag ng isang mesa.",
       "noResults": "Walang resulta",
       "rows": "Mga Row",
-      "columns": "Mga Column"
+      "columns": "Mga Column",
+      "addImage": "Magdagdag ng larawan"
     },
     "placeholders": {
       "columns": "Ilagay ang mga column",
