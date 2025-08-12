@@ -135,7 +135,8 @@
       "tableDescription": "Voeg een tabel toe.",
       "noResults": "Geen resultaten",
       "rows": "Rijen",
-      "columns": "Kolommen"
+      "columns": "Kolommen",
+      "addImage": "Afbeelding toevoegen"
     },
     "placeholders": {
       "columns": "Voer kolommen in",

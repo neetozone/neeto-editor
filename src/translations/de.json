@@ -135,7 +135,8 @@
       "rows": "Zeilen",
       "columns": "Spalten",
       "addVideo": "Video hinzufügen",
-      "addVideoDescription": "Eine Videodatei hochladen oder von URL einbetten"
+      "addVideoDescription": "Eine Videodatei hochladen oder von URL einbetten",
+      "addImage": "Bild hinzufügen"
     },
     "placeholders": {
       "columns": "Spalten eingeben",

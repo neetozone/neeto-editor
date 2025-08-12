@@ -135,7 +135,8 @@
       "tableDescription": "Adaugă un tabel.",
       "noResults": "Nu există rezultate",
       "rows": "Rânduri",
-      "columns": "Coloane"
+      "columns": "Coloane",
+      "addImage": "Adaugă imagine"
     },
     "placeholders": {
       "columns": "Introdu coloanele",

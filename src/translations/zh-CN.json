@@ -135,7 +135,8 @@
       "tableDescription": "添加一个表格。",
       "noResults": "没有结果",
       "rows": "行",
-      "columns": "列"
+      "columns": "列",
+      "addImage": "添加图片"
     },
     "placeholders": {
       "columns": "输入列",

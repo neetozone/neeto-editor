@@ -135,7 +135,8 @@
       "tableDescription": "Přidat tabulku.",
       "noResults": "Žádné výsledky",
       "rows": "Řádky",
-      "columns": "Sloupce"
+      "columns": "Sloupce",
+      "addImage": "Přidat obrázek"
     },
     "placeholders": {
       "columns": "Zadejte sloupce",

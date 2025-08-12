@@ -135,7 +135,8 @@
       "tableDescription": "Добавить таблицу.",
       "noResults": "Нет результатов",
       "rows": "Строки",
-      "columns": "Столбцы"
+      "columns": "Столбцы",
+      "addImage": "Добавить изображение"
     },
     "placeholders": {
       "columns": "Введите столбцы",

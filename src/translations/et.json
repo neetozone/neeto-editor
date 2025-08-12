@@ -135,7 +135,8 @@
       "tableDescription": "Lisa tabel.",
       "noResults": "Ei mingeid tulemusi",
       "rows": "Read",
-      "columns": "Veerud"
+      "columns": "Veerud",
+      "addImage": "Lisa pilt"
     },
     "placeholders": {
       "columns": "Sisesta veerud",

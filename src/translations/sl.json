@@ -135,7 +135,8 @@
       "tableDescription": "Dodajte tabelo.",
       "noResults": "Ni rezultatov",
       "rows": "Vrste",
-      "columns": "Stolpci"
+      "columns": "Stolpci",
+      "addImage": "Dodaj sliko"
     },
     "placeholders": {
       "columns": "Vnesite stolpce",

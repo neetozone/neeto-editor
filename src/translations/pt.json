@@ -135,7 +135,8 @@
       "tableDescription": "Adicionar uma tabela.",
       "noResults": "Sem resultados",
       "rows": "Linhas",
-      "columns": "Colunas"
+      "columns": "Colunas",
+      "addImage": "Adicionar imagem"
     },
     "placeholders": {
       "columns": "Insira colunas",

@@ -135,7 +135,8 @@
       "tableDescription": "Lisää taulukko.",
       "noResults": "Ei tuloksia",
       "rows": "Rivit",
-      "columns": "Sarakkeet"
+      "columns": "Sarakkeet",
+      "addImage": "Lisää kuva"
     },
     "placeholders": {
       "columns": "Syötä sarakkeet",

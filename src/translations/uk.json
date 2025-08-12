@@ -135,7 +135,8 @@
       "tableDescription": "Додати таблицю.",
       "noResults": "Немає результатів",
       "rows": "Рядки",
-      "columns": "Стовпці"
+      "columns": "Стовпці",
+      "addImage": "Додати зображення"
     },
     "placeholders": {
       "columns": "Введіть стовпці",

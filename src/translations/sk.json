@@ -135,7 +135,8 @@
       "tableDescription": "Pridať tabuľku.",
       "noResults": "Žiadne výsledky",
       "rows": "Riadky",
-      "columns": "Stĺpce"
+      "columns": "Stĺpce",
+      "addImage": "Pridať obrázok"
     },
     "placeholders": {
       "columns": "Zadajte stĺpce",

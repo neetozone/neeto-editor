@@ -135,7 +135,8 @@
       "tableDescription": "เพิ่มตาราง",
       "noResults": "ไม่มีผลลัพธ์",
       "rows": "แถว",
-      "columns": "คอลัมน์"
+      "columns": "คอลัมน์",
+      "addImage": "เพิ่มภาพ"
     },
     "placeholders": {
       "columns": "ป้อนคอลัมน์",
