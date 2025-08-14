@@ -10,11 +10,12 @@ import svgr from "@svgr/rollup";
 import { mergeDeepLeft } from "ramda";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import styles from "rollup-plugin-styles";
-import copy from "rollup-plugin-copy";
 import { visualizer } from "rollup-plugin-visualizer";
 import cleaner from "rollup-plugin-cleaner";
 
 import packageJson from "./package.json";
+
+import { getWatchConfig } from "./rollup-config/watchConfig";
 
 const commonResolve = require("@bigbinary/neeto-commons-frontend/configs/nanos/webpack/resolve.js");
 const projectResolve = require("./resolves.js");
@@ -61,9 +62,9 @@ const plugins = [
 ];
 
 const config = args => {
-  const destination = args.app
-    ? path.resolve(__dirname, args.app, "node_modules", packageJson.name)
-    : __dirname;
+  const { watchPlugins, appPath } = getWatchConfig();
+  const destination = args.app ? appPath : __dirname;
+
   const output = formats.map(format => ({
     assetFileNames: "[name][extname]",
     dir: path.join(destination),
@@ -87,18 +88,8 @@ const config = args => {
       plugins: [
         cleaner({ targets: ["./dist/"] }),
         ...plugins,
-        args.app &&
-        copy({
-          targets: [
-            { src: "package.json", dest: destination },
-            { src: "types.d.ts", dest: destination },
-            { src: "LICENSE.md", dest: destination },
-            {
-              src: "src/translations",
-              dest: path.join(destination, "src/translations"),
-            },
-          ],
-        }),
+        // Plugins for local development.
+        ...watchPlugins,
         visualizer({ filename: "./dist/editor-stats.html" }),
       ].filter(Boolean),
     },
