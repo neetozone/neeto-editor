@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import { ImageUploader } from "@bigbinary/neeto-image-uploader-frontend";
 import { isNotPresent } from "neetocist";
 import { Modal, Tab } from "neetoui";
 import { not } from "ramda";
@@ -63,6 +64,11 @@ const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
       .run();
   };
 
+  const handleImageUploadComplete = file => {
+    insertMediaToEditor(file);
+    handleClose();
+  };
+
   return (
     <Modal
       {...{ isOpen }}
@@ -86,7 +92,7 @@ const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
             </h2>
           </div>
         )}
-        {!isNotPresent(tabs) && (
+        {!isNotPresent(tabs) && mediaUploader.video && (
           <Tab>
             {tabs.map(({ key, title }) => (
               <Tab.Item
@@ -101,10 +107,16 @@ const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
           </Tab>
         )}
         <div className="ne-media-uploader__content">
-          {activeTab === "local" && (
+          {mediaUploader.image && (
+            <ImageUploader
+              className="ne-media-uploader__image-uploader"
+              onUploadComplete={handleImageUploadComplete}
+            />
+          )}
+          {activeTab === "local" && mediaUploader.video && (
             <LocalUploader
               {...{ insertMediaToEditor, setIsUploading }}
-              isImage={mediaUploader.image}
+              isImage={false}
               onClose={handleClose}
             />
           )}

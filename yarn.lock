@@ -1539,6 +1539,14 @@
   resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.20.49.tgz#acd240f7ae7d709766a851b2ed6171e9c143dc8f"
   integrity sha512-c+9BDHiFVS1KpTjgvem8EJh15vNg8ITBPQTVFPFRexDvl46Jb9xdBrbyMPd2pbQQQFP0HfnXmj62hIHHLM5N5Q==
 
+"@bigbinary/neeto-image-uploader-frontend@2.3.27":
+  version "2.3.27"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-image-uploader-frontend/-/neeto-image-uploader-frontend-2.3.27.tgz#5e76f304fcf958cf349f62354625d1d48cca9256"
+  integrity sha512-8kHKR6gdwQTQHQ+xOB9OZdE+6ktrHoCtye00ricubP8sHyCbDuxVeHau1IZp5D9EQv3EjmesKYSuNcrCgmXCrw==
+  dependencies:
+    babel-plugin-transform-imports "^2.0.0"
+    react-router-nav-prompt "0.4.1"
+
 "@bigbinary/neeto-molecules@3.3.13":
   version "3.3.13"
   resolved "https://registry.yarnpkg.com/@bigbinary/neeto-molecules/-/neeto-molecules-3.3.13.tgz#ac2f585865f265689f6d407eee3f2b4eb01aa391"
