@@ -23,7 +23,7 @@ const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
   const [tabs, setTabs] = useState([]);
 
   useEffect(() => {
-    isOpen && setTabs(getTabs(mediaUploader, unsplashApiKey));
+    isOpen && setTabs(getTabs(mediaUploader));
   }, [mediaUploader]);
 
   const handleClose = () => {
@@ -92,7 +92,7 @@ const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
             </h2>
           </div>
         )}
-        {!isNotPresent(tabs) && mediaUploader.video && (
+        {!isNotPresent(tabs) && (
           <Tab>
             {tabs.map(({ key, title }) => (
               <Tab.Item
