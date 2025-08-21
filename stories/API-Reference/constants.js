@@ -140,7 +140,7 @@ export const EDITOR_PROPS = [
     "editorSecrets",
     "Accepts an object. Use this prop to pass down API keys and other secrets.",
     `{
-      unsplash: "<unsplash-api-key>"
+
      }`,
   ],
   [

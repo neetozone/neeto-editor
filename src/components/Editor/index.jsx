@@ -247,7 +247,6 @@ const Editor = (
           {isMediaUploaderActive && (
             <MediaUploader
               {...{ editor, mediaUploader }}
-              unsplashApiKey={editorSecrets?.unsplash}
               onClose={() => setMediaUploader({ image: false, video: false })}
             />
           )}

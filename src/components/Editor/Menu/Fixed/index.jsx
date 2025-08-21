@@ -22,7 +22,6 @@ const Fixed = ({
   variables = [],
   setMediaUploader,
   mediaUploader,
-  unsplashApiKey,
   addonCommands = [],
   isIndependant = true,
   className,
@@ -212,7 +211,7 @@ const Fixed = ({
       )}
       {isMediaUploaderActive && (
         <MediaUploader
-          {...{ editor, mediaUploader, unsplashApiKey }}
+          {...{ editor, mediaUploader }}
           onClose={() => setMediaUploader({ image: false, video: false })}
         />
       )}

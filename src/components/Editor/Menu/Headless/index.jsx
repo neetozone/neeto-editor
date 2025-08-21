@@ -12,7 +12,6 @@ const Headless = ({
   tooltips = {},
   setMediaUploader,
   mediaUploader,
-  unsplashApiKey,
   addonCommands = [],
   className,
   attachmentProps,
@@ -50,7 +49,7 @@ const Headless = ({
       ))}
       {isMediaUploaderActive && (
         <MediaUploader
-          {...{ editor, mediaUploader, unsplashApiKey }}
+          {...{ editor, mediaUploader }}
           onClose={() => setMediaUploader({ image: false, video: false })}
         />
       )}
