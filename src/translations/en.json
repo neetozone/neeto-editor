@@ -149,6 +149,7 @@
       "url": "Enter URL",
       "enterText": "Enter text",
       "writeSomething": "Write something …",
+      "writeSlashForCommands": "Write '/' for commands...",
       "searchLanguages": "Search languages"
     },
     "table": {
