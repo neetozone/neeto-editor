@@ -12,6 +12,9 @@ const Placeholder = Extension.create({
       emptyEditorClass: "is-editor-empty",
       emptyNodeClass: "is-empty",
       placeholder: t("neetoEditor.placeholders.writeSomething"),
+      slashCommandsPlaceholder: t(
+        "neetoEditor.placeholders.writeSlashForCommands"
+      ),
       showOnlyWhenEditable: true,
       showOnlyCurrent: false,
       includeChildren: false,
@@ -47,13 +50,22 @@ const Placeholder = Extension.create({
               ) {
                 const classes = [this.options.emptyNodeClass];
 
+                let placeholderText = this.options.placeholder;
+
                 if (this.editor.isEmpty) {
                   classes.push(this.options.emptyEditorClass);
+
+                  if (
+                    this.options.isSlashCommandsActive &&
+                    !this.options.placeholder
+                  ) {
+                    placeholderText = this.options.slashCommandsPlaceholder;
+                  }
                 }
 
                 const decoration = Decoration.node(pos, pos + node.nodeSize, {
                   class: classes.join(" "),
-                  "data-placeholder": this.options.placeholder,
+                  "data-placeholder": placeholderText,
                 });
                 decorations.push(decoration);
               }

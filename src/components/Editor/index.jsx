@@ -88,7 +88,7 @@ const Editor = (
   const isBubbleMenuActive = menuType === "bubble";
   const isSlashCommandsActive =
     !hideSlashCommands || (isBubbleMenuActive && !hideSlashCommands);
-  const isPlaceholderActive = !!placeholder;
+  const isPlaceholderActive = !!placeholder || isSlashCommandsActive;
   const [isAddLinkActive, setIsAddLinkActive] = useState(false);
   const [mediaUploader, setMediaUploader] = useState({
     image: false,
