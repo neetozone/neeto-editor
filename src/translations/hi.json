@@ -149,7 +149,8 @@
       "url": "URL दर्ज करें",
       "enterText": "पाठ दर्ज करें",
       "writeSomething": "कुछ लिखें …",
-      "searchLanguages": "भाषाएँ खोजें"
+      "searchLanguages": "भाषाएँ खोजें",
+      "writeSlashForCommands": "'/' के लिए कमांड लिखें..."
     },
     "table": {
       "delete": "तालिका हटाएँ",

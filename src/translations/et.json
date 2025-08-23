@@ -149,7 +149,8 @@
       "url": "Sisesta URL",
       "enterText": "Sisesta tekst",
       "writeSomething": "Kirjuta midagi ...",
-      "searchLanguages": "Otsi keeli"
+      "searchLanguages": "Otsi keeli",
+      "writeSlashForCommands": "Kiri '/' käskude jaoks..."
     },
     "table": {
       "delete": "Kustuta tabel",

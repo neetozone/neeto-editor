@@ -149,7 +149,8 @@
       "url": "URL girin",
       "enterText": "Metin girin",
       "writeSomething": "Bir şeyler yazın …",
-      "searchLanguages": "Dilleri ara"
+      "searchLanguages": "Dilleri ara",
+      "writeSlashForCommands": "'/' ile komutlar yazın..."
     },
     "table": {
       "delete": "Tabloyu sil",

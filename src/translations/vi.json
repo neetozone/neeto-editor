@@ -149,7 +149,8 @@
       "url": "Nhập URL",
       "enterText": "Nhập văn bản",
       "writeSomething": "Viết gì đó …",
-      "searchLanguages": "Tìm kiếm ngôn ngữ"
+      "searchLanguages": "Tìm kiếm ngôn ngữ",
+      "writeSlashForCommands": "Gõ '/' để xem các lệnh..."
     },
     "table": {
       "delete": "Xóa bảng",

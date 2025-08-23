@@ -149,7 +149,8 @@
       "url": "أدخل رابط",
       "enterText": "أدخل النص",
       "writeSomething": "اكتب شيئًا …",
-      "searchLanguages": "البحث عن اللغات"
+      "searchLanguages": "البحث عن اللغات",
+      "writeSlashForCommands": "اكتب '/' للوصول إلى الأوامر..."
     },
     "table": {
       "delete": "حذف الجدول",

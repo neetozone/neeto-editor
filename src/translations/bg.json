@@ -149,7 +149,8 @@
       "url": "Въведете URL",
       "enterText": "Въведете текст",
       "writeSomething": "Напишете нещо …",
-      "searchLanguages": "Търсене на езици"
+      "searchLanguages": "Търсене на езици",
+      "writeSlashForCommands": "Напишете '/' за команди..."
     },
     "table": {
       "delete": "Изтриване на таблица",

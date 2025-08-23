@@ -149,7 +149,8 @@
       "url": "Ange URL",
       "enterText": "Ange text",
       "writeSomething": "Skriv något …",
-      "searchLanguages": "Sök språk"
+      "searchLanguages": "Sök språk",
+      "writeSlashForCommands": "Skriv '/' för kommandon..."
     },
     "table": {
       "delete": "Ta bort tabell",

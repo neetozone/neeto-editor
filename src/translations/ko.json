@@ -149,7 +149,8 @@
       "url": "URL 입력",
       "enterText": "텍스트 입력",
       "writeSomething": "무언가 쓰세요…",
-      "searchLanguages": "언어 검색"
+      "searchLanguages": "언어 검색",
+      "writeSlashForCommands": "'/'를 입력하여 명령어를 작성하세요..."
     },
     "table": {
       "delete": "테이블 삭제",

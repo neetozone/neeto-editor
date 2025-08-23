@@ -149,7 +149,8 @@
       "url": "Wprowadź URL",
       "enterText": "Wprowadź tekst",
       "writeSomething": "Napisz coś …",
-      "searchLanguages": "Szukaj języków"
+      "searchLanguages": "Szukaj języków",
+      "writeSlashForCommands": "Napisz '/' aby wywołać polecenia..."
     },
     "table": {
       "delete": "Usuń tabelę",

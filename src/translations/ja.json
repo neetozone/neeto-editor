@@ -149,7 +149,8 @@
       "url": "URLを入力",
       "enterText": "テキストを入力",
       "writeSomething": "何かを書く …",
-      "searchLanguages": "言語を検索"
+      "searchLanguages": "言語を検索",
+      "writeSlashForCommands": "'/'を入力してコマンドを使用します..."
     },
     "table": {
       "delete": "テーブルを削除",

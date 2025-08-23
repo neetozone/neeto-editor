@@ -149,7 +149,8 @@
       "url": "Vnesite povezavo",
       "enterText": "Vnesite besedilo",
       "writeSomething": "Napišite nekaj …",
-      "searchLanguages": "Išči jezike"
+      "searchLanguages": "Išči jezike",
+      "writeSlashForCommands": "Napiš '/' za ukaze..."
     },
     "table": {
       "delete": "Izbriši tabelo",

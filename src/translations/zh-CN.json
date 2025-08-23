@@ -149,7 +149,8 @@
       "url": "输入网址",
       "enterText": "输入文本",
       "writeSomething": "写点什么 …",
-      "searchLanguages": "搜索语言"
+      "searchLanguages": "搜索语言",
+      "writeSlashForCommands": "输入'/'以获取命令..."
     },
     "table": {
       "delete": "删除表格",

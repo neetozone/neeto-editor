@@ -149,7 +149,8 @@
       "url": "Zadejte URL",
       "enterText": "Zadejte text",
       "writeSomething": "Napište něco …",
-      "searchLanguages": "Hledat jazyky"
+      "searchLanguages": "Hledat jazyky",
+      "writeSlashForCommands": "Napište '/' pro příkazy..."
     },
     "table": {
       "delete": "Smazat tabulku",

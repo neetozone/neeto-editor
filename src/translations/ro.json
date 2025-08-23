@@ -149,7 +149,8 @@
       "url": "Introdu URL",
       "enterText": "Introdu text",
       "writeSomething": "Scrie ceva …",
-      "searchLanguages": "Caută limbi"
+      "searchLanguages": "Caută limbi",
+      "writeSlashForCommands": "Scrie '/' pentru comenzi..."
     },
     "table": {
       "delete": "Șterge tabelul",
