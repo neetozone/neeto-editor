@@ -149,7 +149,8 @@
       "url": "輸入網址",
       "enterText": "輸入文字",
       "writeSomething": "寫點什麼……",
-      "searchLanguages": "搜索語言"
+      "searchLanguages": "搜索語言",
+      "writeSlashForCommands": "輸入 '/' 以獲取指令..."
     },
     "table": {
       "delete": "刪除表格",

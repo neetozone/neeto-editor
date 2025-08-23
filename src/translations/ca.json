@@ -149,7 +149,8 @@
       "url": "Introdueix la URL",
       "enterText": "Introdueix text",
       "writeSomething": "Escriu alguna cosa …",
-      "searchLanguages": "Cerca idiomes"
+      "searchLanguages": "Cerca idiomes",
+      "writeSlashForCommands": "Escriu '/' per a comandaments..."
     },
     "table": {
       "delete": "Eliminar taula",

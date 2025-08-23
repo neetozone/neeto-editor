@@ -149,7 +149,8 @@
       "url": "Ilagay ang URL",
       "enterText": "Ilagay ang teksto",
       "writeSomething": "Sumulat ng isang bagay …",
-      "searchLanguages": "Maghanap ng mga wika"
+      "searchLanguages": "Maghanap ng mga wika",
+      "writeSlashForCommands": "Isulat ang '/' para sa mga utos..."
     },
     "table": {
       "delete": "Burahin ang mesa",

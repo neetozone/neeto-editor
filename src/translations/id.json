@@ -149,7 +149,8 @@
       "url": "Masukkan URL",
       "enterText": "Masukkan teks",
       "writeSomething": "Tulis sesuatu …",
-      "searchLanguages": "Cari bahasa"
+      "searchLanguages": "Cari bahasa",
+      "writeSlashForCommands": "Tulis '/' untuk perintah..."
     },
     "table": {
       "delete": "Hapus tabel",

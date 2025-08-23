@@ -149,7 +149,8 @@
       "url": "Введіть URL",
       "enterText": "Введіть текст",
       "writeSomething": "Напишіть щось …",
-      "searchLanguages": "Шукати мови"
+      "searchLanguages": "Шукати мови",
+      "writeSlashForCommands": "Напишіть '/' для команд..."
     },
     "table": {
       "delete": "Видалити таблицю",

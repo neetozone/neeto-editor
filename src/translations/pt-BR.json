@@ -149,7 +149,8 @@
       "url": "Digite a URL",
       "enterText": "Digite o texto",
       "writeSomething": "Escreva algo …",
-      "searchLanguages": "Pesquisar idiomas"
+      "searchLanguages": "Pesquisar idiomas",
+      "writeSlashForCommands": "Escreva '/' para comandos..."
     },
     "table": {
       "delete": "Excluir tabela",

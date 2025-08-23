@@ -149,7 +149,8 @@
       "url": "ป้อน URL",
       "enterText": "ป้อนข้อความ",
       "writeSomething": "เขียนอะไรบางอย่าง …",
-      "searchLanguages": "ค้นหาภาษา"
+      "searchLanguages": "ค้นหาภาษา",
+      "writeSlashForCommands": "พิมพ์ '/' เพื่อคำสั่ง..."
     },
     "table": {
       "delete": "ลบตาราง",

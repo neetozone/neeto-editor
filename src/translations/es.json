@@ -149,7 +149,8 @@
       "enterText": "Ingrese texto",
       "writeSomething": "Escriba algo …",
       "searchLanguages": "Buscar idiomas",
-      "embedUrl": "https://"
+      "embedUrl": "https://",
+      "writeSlashForCommands": "Escriba '/' para comandos..."
     },
     "table": {
       "delete": "Eliminar tabla",

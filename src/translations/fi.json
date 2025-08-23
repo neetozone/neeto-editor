@@ -149,7 +149,8 @@
       "url": "Syötä URL",
       "enterText": "Syötä teksti",
       "writeSomething": "Kirjoita jotain …",
-      "searchLanguages": "Hae kieliä"
+      "searchLanguages": "Hae kieliä",
+      "writeSlashForCommands": "Kirjoita '/' komentoja varten..."
     },
     "table": {
       "delete": "Poista taulukko",

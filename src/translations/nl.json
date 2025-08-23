@@ -149,7 +149,8 @@
       "url": "Voer URL in",
       "enterText": "Voer tekst in",
       "writeSomething": "Schrijf iets …",
-      "searchLanguages": "Zoek talen"
+      "searchLanguages": "Zoek talen",
+      "writeSlashForCommands": "Typ '/' voor commando's..."
     },
     "table": {
       "delete": "Tafel verwijderen",

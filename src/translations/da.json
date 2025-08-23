@@ -149,7 +149,8 @@
       "url": "Indtast URL",
       "enterText": "Indtast tekst",
       "writeSomething": "Skriv noget …",
-      "searchLanguages": "Søg sprog"
+      "searchLanguages": "Søg sprog",
+      "writeSlashForCommands": "Skriv '/' for kommandoer..."
     },
     "table": {
       "delete": "Slet tabel",
