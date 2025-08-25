@@ -46,7 +46,7 @@ const EmbedComponent = ({
         onResizeStop={handleResize}
       >
         <Menu {...{ align, deleteNode, editor, updateAttributes }} />
-        <iframe {...node.attrs} />
+        <iframe {...node.attrs} allowFullScreen />
       </Resizable>
     </NodeViewWrapper>
   );
