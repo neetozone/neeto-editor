@@ -13,3 +13,5 @@ export const DEFAULT_EMOJI_PRIORITIES_LIST = [
   "raised_hands",
   "open_mouth",
 ];
+
+export const EMOJI_QUERY_REGEX = /^[a-z0-9_+-]+$/i;
