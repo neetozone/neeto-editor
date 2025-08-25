@@ -135,7 +135,8 @@
       "tableDescription": "Добавить таблицу.",
       "noResults": "Нет результатов",
       "rows": "Строки",
-      "columns": "Столбцы"
+      "columns": "Столбцы",
+      "addImage": "Добавить изображение"
     },
     "placeholders": {
       "columns": "Введите столбцы",
@@ -148,7 +149,8 @@
       "url": "Введите URL",
       "enterText": "Введите текст",
       "writeSomething": "Напишите что-нибудь …",
-      "searchLanguages": "Поиск языков"
+      "searchLanguages": "Поиск языков",
+      "writeSlashForCommands": "Напишите '/' для команд..."
     },
     "table": {
       "delete": "Удалить таблицу",

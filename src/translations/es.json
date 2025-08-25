@@ -135,7 +135,8 @@
       "rows": "Filas",
       "columns": "Columnas",
       "addVideo": "Agregar video",
-      "addVideoDescription": "Sube un archivo de video o embéldalo desde una URL"
+      "addVideoDescription": "Sube un archivo de video o embéldalo desde una URL",
+      "addImage": "Agregar imagen"
     },
     "placeholders": {
       "columns": "Ingrese columnas",
@@ -148,7 +149,8 @@
       "enterText": "Ingrese texto",
       "writeSomething": "Escriba algo …",
       "searchLanguages": "Buscar idiomas",
-      "embedUrl": "https://"
+      "embedUrl": "https://",
+      "writeSlashForCommands": "Escriba '/' para comandos..."
     },
     "table": {
       "delete": "Eliminar tabla",

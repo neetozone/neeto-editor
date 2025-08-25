@@ -135,7 +135,8 @@
       "tableDescription": "Додати таблицю.",
       "noResults": "Немає результатів",
       "rows": "Рядки",
-      "columns": "Стовпці"
+      "columns": "Стовпці",
+      "addImage": "Додати зображення"
     },
     "placeholders": {
       "columns": "Введіть стовпці",
@@ -148,7 +149,8 @@
       "url": "Введіть URL",
       "enterText": "Введіть текст",
       "writeSomething": "Напишіть щось …",
-      "searchLanguages": "Шукати мови"
+      "searchLanguages": "Шукати мови",
+      "writeSlashForCommands": "Напишіть '/' для команд..."
     },
     "table": {
       "delete": "Видалити таблицю",

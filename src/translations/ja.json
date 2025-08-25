@@ -135,7 +135,8 @@
       "tableDescription": "テーブルを追加します。",
       "noResults": "結果がありません",
       "rows": "行",
-      "columns": "列"
+      "columns": "列",
+      "addImage": "画像を追加"
     },
     "placeholders": {
       "columns": "列を入力",
@@ -148,7 +149,8 @@
       "url": "URLを入力",
       "enterText": "テキストを入力",
       "writeSomething": "何かを書く …",
-      "searchLanguages": "言語を検索"
+      "searchLanguages": "言語を検索",
+      "writeSlashForCommands": "'/'を入力してコマンドを使用します..."
     },
     "table": {
       "delete": "テーブルを削除",

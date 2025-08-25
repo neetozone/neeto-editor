@@ -135,7 +135,8 @@
       "tableDescription": "新增表格。",
       "noResults": "沒有結果",
       "rows": "行",
-      "columns": "列"
+      "columns": "列",
+      "addImage": "新增圖片"
     },
     "placeholders": {
       "columns": "輸入列數",
@@ -148,7 +149,8 @@
       "url": "輸入網址",
       "enterText": "輸入文字",
       "writeSomething": "寫點什麼……",
-      "searchLanguages": "搜索語言"
+      "searchLanguages": "搜索語言",
+      "writeSlashForCommands": "輸入 '/' 以獲取指令..."
     },
     "table": {
       "delete": "刪除表格",

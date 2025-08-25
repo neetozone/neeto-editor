@@ -135,7 +135,8 @@
       "tableDescription": "إضافة جدول.",
       "noResults": "لا توجد نتائج",
       "rows": "صفوف",
-      "columns": "أعمدة"
+      "columns": "أعمدة",
+      "addImage": "أضف صورة"
     },
     "placeholders": {
       "columns": "أدخل الأعمدة",
@@ -148,7 +149,8 @@
       "url": "أدخل رابط",
       "enterText": "أدخل النص",
       "writeSomething": "اكتب شيئًا …",
-      "searchLanguages": "البحث عن اللغات"
+      "searchLanguages": "البحث عن اللغات",
+      "writeSlashForCommands": "اكتب '/' للوصول إلى الأوامر..."
     },
     "table": {
       "delete": "حذف الجدول",

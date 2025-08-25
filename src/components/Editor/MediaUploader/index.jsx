@@ -79,6 +79,13 @@ const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
             </h2>
           </div>
         )}
+        {mediaUploader.image && (
+          <div className="ne-media-uploader__header">
+            <h2 className="ne-media-uploader__header-title">
+              {t("neetoEditor.menu.addImage")}
+            </h2>
+          </div>
+        )}
         {!isNotPresent(tabs) && (
           <Tab>
             {tabs.map(({ key, title }) => (

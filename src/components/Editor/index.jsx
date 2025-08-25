@@ -88,7 +88,7 @@ const Editor = (
   const isBubbleMenuActive = menuType === "bubble";
   const isSlashCommandsActive =
     !hideSlashCommands || (isBubbleMenuActive && !hideSlashCommands);
-  const isPlaceholderActive = !!placeholder;
+  const isPlaceholderActive = !!placeholder || isSlashCommandsActive;
   const [isAddLinkActive, setIsAddLinkActive] = useState(false);
   const [mediaUploader, setMediaUploader] = useState({
     image: false,
@@ -138,7 +138,7 @@ const Editor = (
   useEditorWarnings({ initialValue });
 
   const editorClasses = classnames("neeto-editor", {
-    "fixed-menu-active border": isFixedMenuActive,
+    "fixed-menu-active": isFixedMenuActive,
     "bubble-menu-active": isBubbleMenuActive,
     "placeholder-active": isPlaceholderActive,
     "attachments-active": isAttachmentsActive,

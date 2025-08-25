@@ -108,6 +108,7 @@
       "toggleList": "Toggle list",
       "toggleListDescription": "Add a toggle list with collapsible content.",
       "image": "Image",
+      "addImage": "Add image",
       "imageDescription": "Add an image block.",
       "video": "Video",
       "videoDescription": "Upload or embed a video",
@@ -150,6 +151,7 @@
       "url": "Enter URL",
       "enterText": "Enter text",
       "writeSomething": "Write something …",
+      "writeSlashForCommands": "Write '/' for commands...",
       "toggleSummary": "Summary",
       "searchLanguages": "Search languages"
     },

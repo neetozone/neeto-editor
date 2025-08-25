@@ -135,7 +135,8 @@
       "tableDescription": "Bir tablo ekleyin.",
       "noResults": "Sonuç yok",
       "rows": "Satırlar",
-      "columns": "Sütunlar"
+      "columns": "Sütunlar",
+      "addImage": "Resim ekle"
     },
     "placeholders": {
       "columns": "Sütunları girin",
@@ -148,7 +149,8 @@
       "url": "URL girin",
       "enterText": "Metin girin",
       "writeSomething": "Bir şeyler yazın …",
-      "searchLanguages": "Dilleri ara"
+      "searchLanguages": "Dilleri ara",
+      "writeSlashForCommands": "'/' ile komutlar yazın..."
     },
     "table": {
       "delete": "Tabloyu sil",

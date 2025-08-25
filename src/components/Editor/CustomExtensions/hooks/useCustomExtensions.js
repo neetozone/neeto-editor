@@ -84,7 +84,7 @@ const useCustomExtensions = ({
     Link.configure({
       HTMLAttributes: { target: openLinkInNewTab ? "_blank" : null },
     }),
-    Placeholder.configure({ placeholder }),
+    Placeholder.configure({ placeholder, isSlashCommandsActive }),
     StarterKit.configure({
       document: false,
       codeBlock: false,

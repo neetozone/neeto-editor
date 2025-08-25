@@ -135,7 +135,8 @@
       "tableDescription": "테이블 추가.",
       "noResults": "결과 없음",
       "rows": "행",
-      "columns": "열"
+      "columns": "열",
+      "addImage": "이미지 추가"
     },
     "placeholders": {
       "columns": "열 입력",
@@ -148,7 +149,8 @@
       "url": "URL 입력",
       "enterText": "텍스트 입력",
       "writeSomething": "무언가 쓰세요…",
-      "searchLanguages": "언어 검색"
+      "searchLanguages": "언어 검색",
+      "writeSlashForCommands": "'/'를 입력하여 명령어를 작성하세요..."
     },
     "table": {
       "delete": "테이블 삭제",

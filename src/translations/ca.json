@@ -135,7 +135,8 @@
       "tableDescription": "Afegeix una taula.",
       "noResults": "Sense resultats",
       "rows": "Files",
-      "columns": "Columnes"
+      "columns": "Columnes",
+      "addImage": "Afegir imatge"
     },
     "placeholders": {
       "columns": "Introdueix columnes",
@@ -148,7 +149,8 @@
       "url": "Introdueix la URL",
       "enterText": "Introdueix text",
       "writeSomething": "Escriu alguna cosa …",
-      "searchLanguages": "Cerca idiomes"
+      "searchLanguages": "Cerca idiomes",
+      "writeSlashForCommands": "Escriu '/' per a comandaments..."
     },
     "table": {
       "delete": "Eliminar taula",

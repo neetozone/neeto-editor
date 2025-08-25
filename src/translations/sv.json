@@ -135,7 +135,8 @@
       "tableDescription": "Lägg till en tabell.",
       "noResults": "Inga resultat",
       "rows": "Rader",
-      "columns": "Kolumner"
+      "columns": "Kolumner",
+      "addImage": "Lägg till bild"
     },
     "placeholders": {
       "columns": "Ange kolumner",
@@ -148,7 +149,8 @@
       "url": "Ange URL",
       "enterText": "Ange text",
       "writeSomething": "Skriv något …",
-      "searchLanguages": "Sök språk"
+      "searchLanguages": "Sök språk",
+      "writeSlashForCommands": "Skriv '/' för kommandon..."
     },
     "table": {
       "delete": "Ta bort tabell",

@@ -135,7 +135,8 @@
       "tableDescription": "Tilføj en tabel.",
       "noResults": "Ingen resultater",
       "rows": "Rækker",
-      "columns": "Kolonner"
+      "columns": "Kolonner",
+      "addImage": "Tilføj billede"
     },
     "placeholders": {
       "columns": "Indtast kolonner",
@@ -148,7 +149,8 @@
       "url": "Indtast URL",
       "enterText": "Indtast tekst",
       "writeSomething": "Skriv noget …",
-      "searchLanguages": "Søg sprog"
+      "searchLanguages": "Søg sprog",
+      "writeSlashForCommands": "Skriv '/' for kommandoer..."
     },
     "table": {
       "delete": "Slet tabel",

@@ -135,7 +135,8 @@
       "tableDescription": "Pridať tabuľku.",
       "noResults": "Žiadne výsledky",
       "rows": "Riadky",
-      "columns": "Stĺpce"
+      "columns": "Stĺpce",
+      "addImage": "Pridať obrázok"
     },
     "placeholders": {
       "columns": "Zadajte stĺpce",
@@ -148,7 +149,8 @@
       "url": "Zadajte URL",
       "enterText": "Zadajte text",
       "writeSomething": "Napíšte niečo …",
-      "searchLanguages": "Hľadajte jazyky"
+      "searchLanguages": "Hľadajte jazyky",
+      "writeSlashForCommands": "Napíšte '/' pre príkazy..."
     },
     "table": {
       "delete": "Odstrániť tabuľku",

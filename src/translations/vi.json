@@ -135,7 +135,8 @@
       "tableDescription": "Thêm một bảng.",
       "noResults": "Không có kết quả",
       "rows": "Hàng",
-      "columns": "Cột"
+      "columns": "Cột",
+      "addImage": "Thêm hình ảnh"
     },
     "placeholders": {
       "columns": "Nhập cột",
@@ -148,7 +149,8 @@
       "url": "Nhập URL",
       "enterText": "Nhập văn bản",
       "writeSomething": "Viết gì đó …",
-      "searchLanguages": "Tìm kiếm ngôn ngữ"
+      "searchLanguages": "Tìm kiếm ngôn ngữ",
+      "writeSlashForCommands": "Gõ '/' để xem các lệnh..."
     },
     "table": {
       "delete": "Xóa bảng",

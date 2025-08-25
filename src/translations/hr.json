@@ -135,7 +135,8 @@
       "tableDescription": "Dodajte stol.",
       "noResults": "Nema rezultata",
       "rows": "Redovi",
-      "columns": "Stupci"
+      "columns": "Stupci",
+      "addImage": "Dodaj sliku"
     },
     "placeholders": {
       "columns": "Unesite stupce",
@@ -148,7 +149,8 @@
       "url": "Unesite URL",
       "enterText": "Unesite tekst",
       "writeSomething": "Napišite nešto …",
-      "searchLanguages": "Pretraži jezike"
+      "searchLanguages": "Pretraži jezike",
+      "writeSlashForCommands": "Upišite '/' za naredbe..."
     },
     "table": {
       "delete": "Izbriši stol",

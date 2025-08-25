@@ -135,7 +135,8 @@
       "rows": "Lignes",
       "columns": "Colonnes",
       "addVideo": "Ajouter une vidéo",
-      "addVideoDescription": "Téléchargez un fichier vidéo ou intégrez à partir d'une URL"
+      "addVideoDescription": "Téléchargez un fichier vidéo ou intégrez à partir d'une URL",
+      "addImage": "Ajouter une image"
     },
     "placeholders": {
       "columns": "Entrez les colonnes",
@@ -148,7 +149,8 @@
       "enterText": "Entrez le texte",
       "writeSomething": "Écrivez quelque chose ...",
       "searchLanguages": "Rechercher des langues",
-      "embedUrl": "https://"
+      "embedUrl": "https://",
+      "writeSlashForCommands": "Tapez '/' pour les commandes..."
     },
     "table": {
       "delete": "Supprimer le tableau",

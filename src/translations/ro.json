@@ -135,7 +135,8 @@
       "tableDescription": "Adaugă un tabel.",
       "noResults": "Nu există rezultate",
       "rows": "Rânduri",
-      "columns": "Coloane"
+      "columns": "Coloane",
+      "addImage": "Adaugă imagine"
     },
     "placeholders": {
       "columns": "Introdu coloanele",
@@ -148,7 +149,8 @@
       "url": "Introdu URL",
       "enterText": "Introdu text",
       "writeSomething": "Scrie ceva …",
-      "searchLanguages": "Caută limbi"
+      "searchLanguages": "Caută limbi",
+      "writeSlashForCommands": "Scrie '/' pentru comenzi..."
     },
     "table": {
       "delete": "Șterge tabelul",

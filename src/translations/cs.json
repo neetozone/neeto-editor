@@ -135,7 +135,8 @@
       "tableDescription": "Přidat tabulku.",
       "noResults": "Žádné výsledky",
       "rows": "Řádky",
-      "columns": "Sloupce"
+      "columns": "Sloupce",
+      "addImage": "Přidat obrázek"
     },
     "placeholders": {
       "columns": "Zadejte sloupce",
@@ -148,7 +149,8 @@
       "url": "Zadejte URL",
       "enterText": "Zadejte text",
       "writeSomething": "Napište něco …",
-      "searchLanguages": "Hledat jazyky"
+      "searchLanguages": "Hledat jazyky",
+      "writeSlashForCommands": "Napište '/' pro příkazy..."
     },
     "table": {
       "delete": "Smazat tabulku",
