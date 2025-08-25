@@ -11,7 +11,7 @@ const EmbedComponent = ({
   updateAttributes,
   deleteNode,
 }) => {
-  const { figheight, figwidth, align } = node.attrs;
+  const { figheight, figwidth, align, allow } = node.attrs;
   const { view } = editor;
   let height = figheight;
   let width = figwidth;
@@ -46,7 +46,7 @@ const EmbedComponent = ({
         onResizeStop={handleResize}
       >
         <Menu {...{ align, deleteNode, editor, updateAttributes }} />
-        <iframe {...node.attrs} />
+        <iframe {...{ allow, ...node.attrs }} allowFullScreen />
       </Resizable>
     </NodeViewWrapper>
   );

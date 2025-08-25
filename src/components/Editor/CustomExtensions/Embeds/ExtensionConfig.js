@@ -33,7 +33,7 @@ export default Node.create({
 
       allow: {
         default:
-          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen",
       },
 
       allowfullscreen: { default: "allowfullscreen" },
