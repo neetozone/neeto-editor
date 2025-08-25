@@ -5,6 +5,7 @@ import Suggestion from "@tiptap/suggestion";
 import { isNil } from "ramda";
 import tippy from "tippy.js";
 
+import { EMOJI_QUERY_REGEX } from "./constants";
 import EmojiSuggestionMenu from "./EmojiSuggestionMenu";
 
 const EmojiSuggestionPluginKey = new PluginKey("emoji-suggestion");
@@ -69,7 +70,7 @@ const EmojiSuggestion = Node.create({
     return {
       setEmoji:
         emoji =>
-        ({ chain }) => {
+        ({ chain }) =>
           chain()
             .focus()
             .insertContent([
@@ -81,8 +82,7 @@ const EmojiSuggestion = Node.create({
               },
               { type: "text", text: " " },
             ])
-            .run();
-        },
+            .run(),
     };
   },
 
@@ -114,12 +114,14 @@ const suggestionConfig = {
       },
 
       onUpdate(props) {
+        const isArrowNavigation =
+          props.editor.view.input.lastKeyCode === 39 ||
+          props.editor.view.input.lastKeyCode === 37;
+
         if (
-          !(
-            props.editor.view.input.lastKeyCode === 39 ||
-            props.editor.view.input.lastKeyCode === 37
-          ) &&
-          props.query.length === 1
+          !isArrowNavigation &&
+          props.query.length === 1 &&
+          EMOJI_QUERY_REGEX.test(props.query)
         ) {
           reactRenderer = new ReactRenderer(EmojiSuggestionMenu, {
             props,
