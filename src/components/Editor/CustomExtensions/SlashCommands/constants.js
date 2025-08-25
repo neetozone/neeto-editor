@@ -334,7 +334,7 @@ export const MENU_ITEMS = [
     description: t("neetoEditor.menu.toggleListDescription"),
     Icon: Down,
     command: ({ editor, range }) => {
-      editor.chain().focus().deleteRange(range).setDetails().run();
+      editor.chain().focus().deleteRange(range).setToggleList().run();
     },
   },
 ];
