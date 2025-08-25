@@ -31,12 +31,6 @@ export const DEFAULT_VIDEO_UPLOAD_CONFIG = {
   },
 };
 
-export const MEDIA_UPLOAD_OPTIONS = [
-  { title: "Upload", key: "local" },
-  { title: "Link", key: "link" },
-  { title: "Unsplash", key: "unsplash" },
-];
-
 export const VIDEO_EMBED_FORM_VALIDATION_SCHEMA = yup.object().shape({
   videoUrl: yup
     .string()

@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 
+import { ImageUploader } from "@bigbinary/neeto-image-uploader-frontend";
 import { isNotPresent } from "neetocist";
 import { Modal, Tab } from "neetoui";
 import { not } from "ramda";
 import { useTranslation } from "react-i18next";
 
 import LocalUploader from "./LocalUploader";
-import UnsplashImagePicker from "./UnsplashImagePicker";
 import URLForm from "./URLForm";
 import { getTabs } from "./utils";
 import VideoEmbedForm from "./VideoEmbedForm";
 
 import { validateUrl } from "../CustomExtensions/Embeds/utils";
 
-const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
+const MediaUploader = ({ mediaUploader, onClose, editor }) => {
   const { t } = useTranslation();
 
   const [activeTab, setActiveTab] = useState("local");
@@ -22,7 +22,7 @@ const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
   const [tabs, setTabs] = useState([]);
 
   useEffect(() => {
-    isOpen && setTabs(getTabs(mediaUploader, unsplashApiKey));
+    isOpen && setTabs(getTabs(mediaUploader));
   }, [mediaUploader]);
 
   const handleClose = () => {
@@ -63,6 +63,11 @@ const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
       .run();
   };
 
+  const handleImageUploadComplete = file => {
+    insertMediaToEditor(file);
+    handleClose();
+  };
+
   return (
     <Modal
       {...{ isOpen }}
@@ -101,35 +106,34 @@ const MediaUploader = ({ mediaUploader, onClose, editor, unsplashApiKey }) => {
           </Tab>
         )}
         <div className="ne-media-uploader__content">
-          {activeTab === "local" && (
-            <LocalUploader
-              {...{ insertMediaToEditor, setIsUploading }}
-              isImage={mediaUploader.image}
-              onClose={handleClose}
+          {mediaUploader.image ? (
+            <ImageUploader
+              className="ne-media-uploader__image-uploader"
+              onUploadComplete={handleImageUploadComplete}
             />
-          )}
-          {activeTab === "link" && (
-            <URLForm
-              placeholder={t("neetoEditor.placeholders.pasteLink")}
-              buttonLabel={
-                mediaUploader.image
-                  ? t("neetoEditor.localUploader.uploadImage")
-                  : t("neetoEditor.localUploader.uploadVideo")
-              }
-              onSubmit={handleSubmit}
-            />
-          )}
-          {activeTab === "unsplash" && (
-            <UnsplashImagePicker
-              {...{ unsplashApiKey }}
-              onSubmit={handleSubmit}
-            />
-          )}
-          {activeTab === "embed" && mediaUploader.video && (
-            <VideoEmbedForm
-              onCancel={handleClose}
-              onSubmit={handleVideoEmbed}
-            />
+          ) : (
+            <>
+              {activeTab === "local" && mediaUploader.video && (
+                <LocalUploader
+                  {...{ insertMediaToEditor, setIsUploading }}
+                  isImage={false}
+                  onClose={handleClose}
+                />
+              )}
+              {activeTab === "link" && (
+                <URLForm
+                  buttonLabel={t("neetoEditor.localUploader.uploadVideo")}
+                  placeholder={t("neetoEditor.placeholders.pasteLink")}
+                  onSubmit={handleSubmit}
+                />
+              )}
+              {activeTab === "embed" && mediaUploader.video && (
+                <VideoEmbedForm
+                  onCancel={handleClose}
+                  onSubmit={handleVideoEmbed}
+                />
+              )}
+            </>
           )}
         </div>
       </div>
