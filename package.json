@@ -91,6 +91,7 @@
     "@tiptap/extension-highlight": "2.6.6",
     "@tiptap/extension-image": "2.6.6",
     "@tiptap/extension-link": "2.6.6",
+    "@tiptap/extension-list": "^3.3.0",
     "@tiptap/extension-mention": "2.6.6",
     "@tiptap/extension-placeholder": "2.6.6",
     "@tiptap/extension-table": "2.6.6",

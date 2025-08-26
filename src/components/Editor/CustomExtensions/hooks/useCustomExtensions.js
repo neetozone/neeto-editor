@@ -6,6 +6,7 @@ import Color from "@tiptap/extension-color";
 import Document from "@tiptap/extension-document";
 import Focus from "@tiptap/extension-focus";
 import Highlight from "@tiptap/extension-highlight";
+import ListItem from "@tiptap/extension-list-item";
 import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
@@ -30,6 +31,7 @@ import Italic from "../Italic/ExtensionConfig";
 import KeyboardShortcuts from "../KeyboardShortcuts/ExtensionConfig";
 import Link from "../Link/ExtensionConfig";
 import Mention, { createMentionSuggestions } from "../Mention/ExtensionConfig";
+import OrderedList from "../OrderedList/ExtensionConfig";
 import Placeholder from "../Placeholder/ExtensionConfig";
 import SelectionDecoration from "../SelectionDecoration/ExtensionConfig";
 import SlashCommands from "../SlashCommands/ExtensionConfig";
@@ -85,7 +87,7 @@ const useCustomExtensions = ({
       code: false,
       bulletList: false,
       blockquote: options.includes(EDITOR_OPTIONS.BLOCKQUOTE),
-      orderedList: options.includes(EDITOR_OPTIONS.LIST_ORDERED),
+      orderedList: false,
       italic: false,
       history: !collaborationProvider,
       heading: { levels: buildLevelsFromOptions(options) },
@@ -124,6 +126,17 @@ const useCustomExtensions = ({
 
   if (options.includes(EDITOR_OPTIONS.LIST_BULLETS)) {
     customExtensions.push(BulletList);
+  }
+
+  if (options.includes(EDITOR_OPTIONS.LIST_ORDERED)) {
+    customExtensions.push(OrderedList);
+  }
+
+  if (
+    options.includes(EDITOR_OPTIONS.LIST_BULLETS) ||
+    options.includes(EDITOR_OPTIONS.LIST_ORDERED)
+  ) {
+    customExtensions.push(ListItem);
   }
 
   if (options.includes(EDITOR_OPTIONS.CALLOUT)) {
