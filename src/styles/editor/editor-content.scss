@@ -725,8 +725,6 @@
     margin-bottom: var(--neeto-editor-content-list-margin-bottom);
 
     li {
-      margin-top: var(--neeto-editor-content-list-item-margin-top);
-      margin-bottom: var(--neeto-editor-content-list-item-margin-bottom);
       font-size: var(--neeto-editor-content-paragraph-font-size);
       font-weight: var(--neeto-editor-content-paragraph-font-weight);
       line-height: var(--neeto-editor-content-paragraph-line-height);
@@ -736,6 +734,17 @@
     li::before {
       background-color: rgba(var(--neeto-editor-content-paragraph-color));
     }
+  }
+
+  ul li > p,
+  ol li > p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  ul + p,
+  ol + p {
+    margin-top: 0.5rem;
   }
 
   // Link
