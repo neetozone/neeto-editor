@@ -1,6 +1,6 @@
 import { BulletList } from "@tiptap/extension-list";
 
-export default BulletList.extend({
+export default BulletList.configure({
   HTMLAttributes: { class: "bulletList" },
   itemTypeName: "listItem",
 });

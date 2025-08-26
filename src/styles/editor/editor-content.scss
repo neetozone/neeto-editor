@@ -736,14 +736,14 @@
     }
   }
 
-  ul li > p,
-  ol li > p {
+  ul.bulletList li > p,
+  ol.orderedList li > p {
     margin-top: var(--neeto-editor-content-list-item-margin-top);
     margin-bottom: var(--neeto-editor-content-list-item-margin-bottom);
   }
 
-  ul + p,
-  ol + p {
+  ul.bulletList + p,
+  ol.orderedList + p {
     margin-top: var(--neeto-editor-content-list-item-margin-top);
   }
 
