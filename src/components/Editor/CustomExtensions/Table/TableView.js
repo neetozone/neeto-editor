@@ -53,7 +53,10 @@ export class TableView {
     this.node = node;
     this.cellMinWidth = cellMinWidth;
     this.dom = document.createElement("div");
-    this.dom.className = "neeto-editor-table";
+
+    const alignmentSuffix = node.attrs?.textAlign || "left";
+    const alignmentClass = `neeto-editor-table--${alignmentSuffix}`;
+    this.dom.className = `neeto-editor-table ${alignmentClass}`;
     this.wrapper = document.createElement("div");
     this.wrapper.className = "neeto-editor-table__wrapper";
     this.table = this.dom
@@ -84,6 +87,17 @@ export class TableView {
 
     this.node = node;
     updateColumns(node, this.colgroup, this.table, this.cellMinWidth);
+
+    const alignmentSuffix = node.attrs?.textAlign || "left";
+    const currentAlignmentClass = `neeto-editor-table--${alignmentSuffix}`;
+
+    this.dom.classList.remove(
+      "neeto-editor-table--left",
+      "neeto-editor-table--center",
+      "neeto-editor-table--right"
+    );
+
+    this.dom.classList.add(currentAlignmentClass);
 
     return true;
   }

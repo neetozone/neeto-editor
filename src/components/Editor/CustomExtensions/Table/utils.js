@@ -32,7 +32,61 @@ const shouldShowMergeCellToggler = selection => {
   return false;
 };
 
+const setTableAlignment = (editor, alignment) => {
+  const { state, view } = editor;
+  const { selection } = state;
+
+  let tableNode = null;
+  let tablePos = null;
+
+  state.doc.descendants((node, pos) => {
+    if (
+      node.type.name === "table" &&
+      pos <= selection.from &&
+      selection.from <= pos + node.nodeSize
+    ) {
+      tableNode = node;
+      tablePos = pos;
+
+      return false;
+    }
+
+    return true;
+  });
+
+  if (tableNode && tablePos !== null) {
+    const tr = state.tr;
+    const currentAttrs =
+      tableNode && tableNode["attrs"] ? tableNode["attrs"] : {};
+    const newAttrs = { ...currentAttrs, textAlign: alignment };
+
+    tr.setNodeMarkup(tablePos, null, newAttrs);
+    view.dispatch(tr);
+  }
+};
+
 export const tableActions = ({ editor }) => [
+  {
+    type: "dropdown",
+    label: t("neetoEditor.table.textAlign"),
+    items: [
+      {
+        type: "left",
+        command: () => setTableAlignment(editor, "left"),
+        tooltipLabel: t("neetoEditor.table.leftAlign"),
+      },
+      {
+        type: "center",
+        command: () => setTableAlignment(editor, "center"),
+        tooltipLabel: t("neetoEditor.table.centerAlign"),
+      },
+      {
+        type: "right",
+        command: () => setTableAlignment(editor, "right"),
+        tooltipLabel: t("neetoEditor.table.rightAlign"),
+      },
+    ],
+  },
   {
     label: t("neetoEditor.table.insertRow"),
     command: () => editor.commands.addRowAfter(),

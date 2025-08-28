@@ -81,6 +81,27 @@
     flex-direction: column;
     padding: 0px 4px;
   }
+
+  &.neeto-editor-table--left table {
+    th,
+    td {
+      text-align: left !important;
+    }
+  }
+
+  &.neeto-editor-table--center table {
+    th,
+    td {
+      text-align: center !important;
+    }
+  }
+
+  &.neeto-editor-table--right table {
+    th,
+    td {
+      text-align: right !important;
+    }
+  }
 }
 
 .ProseMirror.resize-cursor {
