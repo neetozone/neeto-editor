@@ -14,19 +14,98 @@ const Table = TiptapTable.extend({
       allowTableNodeSelection: true,
     };
   },
-  renderHTML({ node }) {
-    const colgroups = node?.content?.content?.[0]?.content?.content?.map(
-      col => {
-        let style = "min-width: 100px;";
-        if (col.attrs?.colwidth) style += `width: ${col.attrs.colwidth}px;`;
 
-        return ["col", { style }];
+  parseHTML() {
+    const getAlignmentFromElement = element => {
+      if (!element) return null;
+
+      const dataAlign = element.getAttribute("data-text-align");
+      if (dataAlign) return dataAlign;
+
+      if (element.classList.contains("neeto-editor-table--center")) {
+        return "center";
       }
-    );
+
+      if (element.classList.contains("neeto-editor-table--right")) {
+        return "right";
+      }
+
+      if (element.classList.contains("neeto-editor-table--left")) {
+        return "left";
+      }
+
+      return null;
+    };
+
+    return [
+      {
+        tag: "table",
+        priority: 100,
+        getAttrs: node => {
+          const alignment = getAlignmentFromElement(node);
+          if (alignment) {
+            return { textAlign: alignment };
+          }
+
+          const parent = node.parentElement;
+          if (parent && parent.classList.contains("table-responsive")) {
+            const parentAlignment = getAlignmentFromElement(parent);
+            if (parentAlignment) {
+              return { textAlign: parentAlignment };
+            }
+          }
+
+          return { textAlign: "left" };
+        },
+      },
+    ];
+  },
+
+  addAttributes() {
+    return {
+      ...this.parent?.(),
+      textAlign: {
+        default: "left",
+        renderHTML: attributes => {
+          if (!attributes.textAlign) return {};
+
+          return {
+            class: `neeto-editor-table--${attributes.textAlign}`,
+            "data-text-align": attributes.textAlign,
+          };
+        },
+      },
+    };
+  },
+
+  renderHTML({ node }) {
+    const colgroups = [];
+
+    const tableBody = node?.content?.firstChild;
+    if (tableBody && tableBody.firstChild) {
+      const firstRow = tableBody.firstChild;
+      if (firstRow && firstRow.childCount) {
+        for (let i = 0; i < firstRow.childCount; i++) {
+          const cell = firstRow.child(i);
+          let style = "min-width: 100px;";
+          if (cell.attrs?.colwidth) {
+            style += `width: ${cell.attrs.colwidth}px;`;
+          }
+          colgroups.push(["col", { style }]);
+        }
+      }
+    }
+
+    const alignmentClass = node.attrs?.textAlign
+      ? `neeto-editor-table--${node.attrs.textAlign}`
+      : "neeto-editor-table--left";
 
     return [
       "div",
-      { class: "table-responsive" },
+      {
+        class: `table-responsive ${alignmentClass}`,
+        "data-text-align": node.attrs?.textAlign || "left",
+      },
       ["table", {}, ["colgroup", ...colgroups], ["tbody", 0]],
     ];
   },
@@ -39,6 +118,7 @@ const Table = TiptapTable.extend({
           .chain()
           .focus()
           .insertTable({ rows: 3, cols: 3, withHeaderRow: true })
+          .updateAttributes("table", { textAlign: "left" })
           .run(),
     };
   },

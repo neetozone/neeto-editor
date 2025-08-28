@@ -1,10 +1,19 @@
 import { useCallback } from "react";
 
 import { BubbleMenu } from "@tiptap/react";
-import { Button } from "neetoui";
+import { CenterAlign, Down, LeftAlign, RightAlign } from "neetoicons";
+import { Button, Dropdown } from "neetoui";
 import { sticky } from "tippy.js";
 
 import { tableActions } from "./utils";
+
+const { Menu, MenuItem } = Dropdown;
+
+const alignmentIcons = {
+  left: LeftAlign,
+  center: CenterAlign,
+  right: RightAlign,
+};
 
 const TableActionMenu = ({ editor }) => {
   const getReferenceClientRect = useCallback(() => {
@@ -17,7 +26,10 @@ const TableActionMenu = ({ editor }) => {
     return element?.getBoundingClientRect() || new DOMRect(0, 0, 0, 0);
   }, [editor]);
 
-  const shouldShow = useCallback(() => editor?.isActive("table"), [editor]);
+  const shouldShow = useCallback(
+    () => editor?.isFocused && editor?.isActive("table"),
+    [editor]
+  );
 
   if (!editor) return null;
 
@@ -38,26 +50,73 @@ const TableActionMenu = ({ editor }) => {
         sticky: "popper",
       }}
     >
-      {shouldShow &&
-        tableActions({ editor }).map(
-          ({ icon, label, command, isHidden }) =>
-            !isHidden && (
-              <Button
-                {...{ icon }}
-                className="neeto-editor-table-bubble-menu__item"
-                iconSize={18}
-                key={label}
-                size="small"
-                style="text"
-                tooltipProps={{
-                  content: label,
+      {tableActions({ editor }).map(action => {
+        if (action.isHidden) return null;
+
+        if (action.type) {
+          return (
+            <Dropdown
+              appendTo={() => document.body}
+              closeOnSelect={false}
+              key={action.label}
+              position="bottom-start"
+              strategy="fixed"
+              buttonProps={{
+                className: "neeto-editor-table-bubble-menu__item neeto-ui-ml-2",
+                icon: Down,
+                iconPosition: "right",
+                iconSize: 16,
+                label: <LeftAlign />,
+                size: "small",
+                style: "text",
+                tooltipProps: {
+                  content: action.label,
                   position: "top",
                   delay: [500],
-                }}
-                onClick={command}
-              />
-            )
-        )}
+                },
+              }}
+            >
+              <Menu className="neeto-ui-gap-1 flex items-center justify-center">
+                {action.items?.map(({ type, command, tooltipLabel }) => {
+                  const IconComponent = alignmentIcons[type];
+
+                  return (
+                    <MenuItem key={type}>
+                      <Button
+                        icon={IconComponent}
+                        style="text"
+                        tooltipProps={{
+                          content: tooltipLabel,
+                          position: "bottom",
+                          delay: [500],
+                        }}
+                        onClick={command}
+                      />
+                    </MenuItem>
+                  );
+                })}
+              </Menu>
+            </Dropdown>
+          );
+        }
+
+        return (
+          <Button
+            className="neeto-editor-table-bubble-menu__item"
+            icon={action.icon}
+            iconSize={18}
+            key={action.label}
+            size="small"
+            style="text"
+            tooltipProps={{
+              content: action.label,
+              position: "top",
+              delay: [500],
+            }}
+            onClick={action.command}
+          />
+        );
+      })}
     </BubbleMenu>
   );
 };
