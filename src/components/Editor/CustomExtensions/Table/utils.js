@@ -56,8 +56,7 @@ const setTableAlignment = (editor, alignment) => {
 
   if (tableNode && tablePos !== null) {
     const tr = state.tr;
-    const currentAttrs =
-      tableNode && tableNode["attrs"] ? tableNode["attrs"] : {};
+    const currentAttrs = tableNode?.attrs || {};
     const newAttrs = { ...currentAttrs, textAlign: alignment };
 
     tr.setNodeMarkup(tablePos, null, newAttrs);

@@ -830,30 +830,6 @@
   }
 }
 
-.neeto-editor-content {
-  .table-responsive {
-    &.neeto-editor-table--left table {
-      th,
-      td {
-        text-align: left !important;
-      }
-    }
-
-    &.neeto-editor-table--center table {
-      th,
-      td {
-        text-align: center !important;
-      }
-    }
-
-    &.neeto-editor-table--right table {
-      th,
-      td {
-        text-align: right !important;
-      }
-    }
-  }
-}
 
 .neeto-editor-content--hidden {
   display: none;
