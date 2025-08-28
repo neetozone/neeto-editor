@@ -36,7 +36,7 @@ export default Node.create({
           "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen",
       },
 
-      allowfullscreen: { default: "allowfullscreen" },
+      allowfullscreen: { default: true },
 
       figheight: {
         default: 281,
@@ -77,6 +77,7 @@ export default Node.create({
           "iframe",
           mergeAttributes(this.options.HTMLAttributes, {
             ...HTMLAttributes,
+            allowfullscreen: true,
           }),
         ],
       ],
