@@ -85,7 +85,7 @@ const renderEmbedHTML = (node, HTMLAttributes, options) => {
         "iframe",
         mergeAttributes(options.HTMLAttributes, {
           ...HTMLAttributes,
-          allowfullscreen: "",
+          allowfullscreen: true,
         }),
       ],
     ],
