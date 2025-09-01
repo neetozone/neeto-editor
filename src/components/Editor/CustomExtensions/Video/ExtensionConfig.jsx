@@ -63,8 +63,8 @@ const getEmbedAttributes = () => ({
   title: { default: null },
   frameBorder: "0",
   allow:
-    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
-  allowfullscreen: "allowfullscreen",
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen",
+  allowfullscreen: true,
 });
 
 const renderEmbedHTML = (node, HTMLAttributes, options) => {
@@ -81,7 +81,13 @@ const renderEmbedHTML = (node, HTMLAttributes, options) => {
         class: "neeto-editor__video-iframe",
         style: `width: ${figwidth}px; height: ${figheight}px;`,
       },
-      ["iframe", mergeAttributes(options.HTMLAttributes, HTMLAttributes)],
+      [
+        "iframe",
+        mergeAttributes(options.HTMLAttributes, {
+          ...HTMLAttributes,
+          allowfullscreen: true,
+        }),
+      ],
     ],
   ];
 };
