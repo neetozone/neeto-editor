@@ -4,4 +4,7 @@ export default Italic.extend({
   addInputRules() {
     return [];
   },
+  addPasteRules() {
+    return [];
+  },
 });
