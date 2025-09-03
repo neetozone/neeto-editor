@@ -1,6 +1,5 @@
 import { forwardRef, useImperativeHandle, useState, useRef, memo } from "react";
 
-import Link from "@tiptap/extension-link";
 import { EditorView } from "@tiptap/pm/view";
 import { useEditor, EditorContent, useEditorState } from "@tiptap/react";
 import classnames from "classnames";
@@ -181,7 +180,6 @@ const Editor = (
     onUpdate: debouncedOnChangeHandler,
     onFocus,
     onBlur: handleBlur,
-    enablePasteRules: [Link],
   });
 
   useEditorState({
