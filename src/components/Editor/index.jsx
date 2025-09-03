@@ -180,6 +180,7 @@ const Editor = (
     onUpdate: debouncedOnChangeHandler,
     onFocus,
     onBlur: handleBlur,
+    enablePasteRules: false,
   });
 
   useEditorState({
