@@ -61,6 +61,7 @@ const useCustomExtensions = ({
   openLinkInNewTab,
   enableReactNodeViewOptimization,
   collaborationProvider,
+  setIsNeetoKbArticleActive,
 }) => {
   let customExtensions = [
     CharacterCount,
@@ -156,6 +157,7 @@ const useCustomExtensions = ({
         setMediaUploader,
         setIsAddLinkActive,
         attachmentProps,
+        setIsNeetoKbArticleActive,
       })
     );
   }
