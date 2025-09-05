@@ -37,6 +37,12 @@
     margin-right: 8px;
     font-weight: var(--neeto-ui-font-medium);
     font-size: var(--neeto-ui-text-sm);
+
+    // Style for deleted KB articles
+    &[data-neeto-kb-article="true"][data-article-deleted="true"] {
+      color: #dc2626 !important; /* Red color */
+      text-decoration: line-through;
+    }
   }
 }
 

@@ -1,9 +1,4 @@
-import { EDITOR_OPTIONS } from "common/constants";
 import { globalProps } from "neetocommons/initializers";
-
-import { DEFAULT_EDITOR_OPTIONS } from "components/Editor/constants";
-
-export { EDITOR_OPTIONS, DEFAULT_EDITOR_OPTIONS };
 
 export const NEETO_KB_ENDPOINT = globalProps?.kbUrl || "";
 export const NEETO_KB_ARTICLES_URL = "/api/v1/articles";
