@@ -159,7 +159,11 @@
       "insertColumn": "列を挿入",
       "insertRow": "行を挿入",
       "mergeSplit": "セルを結合/分割する",
-      "toggleHeaderRow": "ヘッダー行を切り替える"
+      "toggleHeaderRow": "ヘッダー行を切り替える",
+      "textAlign": "テキストの整列",
+      "leftAlign": "左揃え",
+      "centerAlign": "中央揃え",
+      "rightAlign": "右揃え"
     },
     "unsplash": {
       "errorMessage": "何かがうまくいきませんでした！後で再試行してください。",

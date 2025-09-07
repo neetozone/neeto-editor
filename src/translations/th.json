@@ -159,7 +159,11 @@
       "insertColumn": "แทรกคอลัมน์",
       "insertRow": "แทรกแถว",
       "mergeSplit": "รวม/แยกเซลล์",
-      "toggleHeaderRow": "สับเปลี่ยนแถวหัว"
+      "toggleHeaderRow": "สับเปลี่ยนแถวหัว",
+      "textAlign": "การจัดตำแหน่งข้อความ",
+      "leftAlign": "จัดแนวซ้าย",
+      "centerAlign": "จัดแนกกลาง",
+      "rightAlign": "จัดแนวขวา"
     },
     "unsplash": {
       "errorMessage": "เกิดอะไรขึ้น! กรุณาลองใหม่ในภายหลัง",

@@ -159,7 +159,11 @@
       "insertColumn": "Infoga kolumn",
       "insertRow": "Infoga rad",
       "mergeSplit": "Slå samman/Dela cell",
-      "toggleHeaderRow": "Växla header rad"
+      "toggleHeaderRow": "Växla header rad",
+      "textAlign": "Textjustering",
+      "leftAlign": "Vänsterjustering",
+      "centerAlign": "Centrera",
+      "rightAlign": "Högerjustering"
     },
     "unsplash": {
       "errorMessage": "Något gick fel! Vänligen försök igen senare.",

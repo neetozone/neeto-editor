@@ -159,7 +159,11 @@
       "insertColumn": "Inserează coloană",
       "insertRow": "Inserează rând",
       "mergeSplit": "Îmbină/Desparte celula",
-      "toggleHeaderRow": "Activează/dezactivează rândul de antet"
+      "toggleHeaderRow": "Activează/dezactivează rândul de antet",
+      "textAlign": "Alinierea textului",
+      "leftAlign": "Aliniere la stânga",
+      "centerAlign": "Aliniere la centru",
+      "rightAlign": "Aliniere la dreapta"
     },
     "unsplash": {
       "errorMessage": "Ceva a mers prost! Te rugăm să încerci din nou mai târziu.",

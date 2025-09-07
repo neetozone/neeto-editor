@@ -159,7 +159,11 @@
       "insertColumn": "Sisipkan kolom",
       "insertRow": "Sisipkan baris",
       "mergeSplit": "Gabungkan/Pisahkan sel",
-      "toggleHeaderRow": "Alihkan baris header"
+      "toggleHeaderRow": "Alihkan baris header",
+      "textAlign": "Penyelarasan teks",
+      "leftAlign": "Penyelarasan kiri",
+      "centerAlign": "Penyelarasan tengah",
+      "rightAlign": "Penyelarasan kanan"
     },
     "unsplash": {
       "errorMessage": "Terjadi kesalahan! Silakan coba lagi nanti.",

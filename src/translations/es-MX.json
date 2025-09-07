@@ -159,7 +159,11 @@
       "insertColumn": "Insertar columna",
       "insertRow": "Insertar fila",
       "mergeSplit": "Fusionar/Dividir celda",
-      "toggleHeaderRow": "Alternar fila de encabezado"
+      "toggleHeaderRow": "Alternar fila de encabezado",
+      "textAlign": "Alineación de texto",
+      "leftAlign": "Alinear a la izquierda",
+      "centerAlign": "Alinear al centro",
+      "rightAlign": "Alinear a la derecha"
     },
     "unsplash": {
       "errorMessage": "¡Algo salió mal! Por favor, inténtalo de nuevo más tarde.",

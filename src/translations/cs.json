@@ -159,7 +159,11 @@
       "insertColumn": "Vložit sloupec",
       "insertRow": "Vložit řádek",
       "mergeSplit": "Sloučit/Split buňku",
-      "toggleHeaderRow": "Přepnout hlavičkový řádek"
+      "toggleHeaderRow": "Přepnout hlavičkový řádek",
+      "textAlign": "Zarovnání textu",
+      "leftAlign": "Zarovnat vlevo",
+      "centerAlign": "Zarovnat na střed",
+      "rightAlign": "Zarovnat vpravo"
     },
     "unsplash": {
       "errorMessage": "Něco se pokazilo! Zkuste to prosím znovu později.",

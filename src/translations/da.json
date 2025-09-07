@@ -159,7 +159,11 @@
       "insertColumn": "Indsæt kolonne",
       "insertRow": "Indsæt række",
       "mergeSplit": "Sammenflet/Del celle",
-      "toggleHeaderRow": "Skift header række"
+      "toggleHeaderRow": "Skift header række",
+      "textAlign": "Tekstjustering",
+      "leftAlign": "Venstrejustering",
+      "centerAlign": "Centreret justering",
+      "rightAlign": "Højrejustering"
     },
     "unsplash": {
       "errorMessage": "Noget gik galt! Prøv venligst igen senere.",
