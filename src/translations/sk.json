@@ -159,7 +159,11 @@
       "insertColumn": "Vložiť stĺpec",
       "insertRow": "Vložiť riadok",
       "mergeSplit": "Zlúčiť/rozdeliť bunku",
-      "toggleHeaderRow": "Prepnúť hlavičku riadku"
+      "toggleHeaderRow": "Prepnúť hlavičku riadku",
+      "textAlign": "Zarovnanie textu",
+      "leftAlign": "Zarovnaj vľavo",
+      "centerAlign": "Zarovnaj na stred",
+      "rightAlign": "Zarovnaj vpravo"
     },
     "unsplash": {
       "errorMessage": "Niečo sa pokazilo! Skúste to prosím neskôr.",

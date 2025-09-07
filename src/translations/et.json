@@ -159,7 +159,11 @@
       "insertColumn": "Lisa veerg",
       "insertRow": "Lisa rida",
       "mergeSplit": "Ühenda/jaota rakk",
-      "toggleHeaderRow": "Lülita päiserida"
+      "toggleHeaderRow": "Lülita päiserida",
+      "textAlign": "Teksti joondamine",
+      "leftAlign": "Vasakule joondamine",
+      "centerAlign": "Keskele joondamine",
+      "rightAlign": "Paremale joondamine"
     },
     "unsplash": {
       "errorMessage": "Midagi läks valesti! Palun proovige hiljem uuesti.",

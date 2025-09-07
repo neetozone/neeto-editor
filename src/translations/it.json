@@ -159,7 +159,11 @@
       "insertColumn": "Inserisci colonna",
       "insertRow": "Inserisci riga",
       "mergeSplit": "Unisci/Dividi cella",
-      "toggleHeaderRow": "Attiva/disattiva riga intestazione"
+      "toggleHeaderRow": "Attiva/disattiva riga intestazione",
+      "textAlign": "Allineamento del testo",
+      "leftAlign": "Allinea a sinistra",
+      "centerAlign": "Allinea al centro",
+      "rightAlign": "Allinea a destra"
     },
     "unsplash": {
       "errorMessage": "Qualcosa è andato storto! Riprova più tardi.",

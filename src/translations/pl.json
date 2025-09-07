@@ -159,7 +159,11 @@
       "insertColumn": "Wstaw kolumnę",
       "insertRow": "Wstaw wiersz",
       "mergeSplit": "Scal/Podziel komórkę",
-      "toggleHeaderRow": "Przełącz wiersz nagłówka"
+      "toggleHeaderRow": "Przełącz wiersz nagłówka",
+      "textAlign": "Wyrównanie tekstu",
+      "leftAlign": "Wyrównanie do lewej",
+      "centerAlign": "Wyrównanie do środka",
+      "rightAlign": "Wyrównanie do prawej"
     },
     "unsplash": {
       "errorMessage": "Coś poszło nie tak! Spróbuj ponownie później.",

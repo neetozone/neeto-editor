@@ -159,7 +159,11 @@
       "insertColumn": "Kolom invoegen",
       "insertRow": "Rij invoegen",
       "mergeSplit": "Samenvoegen/Splitsen van cel",
-      "toggleHeaderRow": "Schakel koprij in"
+      "toggleHeaderRow": "Schakel koprij in",
+      "textAlign": "Tekstuitlijning",
+      "leftAlign": "Links uitlijnen",
+      "centerAlign": "Centreren",
+      "rightAlign": "Rechts uitlijnen"
     },
     "unsplash": {
       "errorMessage": "Er is iets misgegaan! Probeer het later opnieuw.",

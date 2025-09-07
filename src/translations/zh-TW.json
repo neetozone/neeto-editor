@@ -159,7 +159,11 @@
       "insertColumn": "插入列",
       "insertRow": "插入行",
       "mergeSplit": "合併/拆分單元格",
-      "toggleHeaderRow": "切換標題行"
+      "toggleHeaderRow": "切換標題行",
+      "textAlign": "文本對齊",
+      "leftAlign": "左對齊",
+      "centerAlign": "居中對齊",
+      "rightAlign": "右對齊"
     },
     "unsplash": {
       "errorMessage": "出錯了！請稍後再試。",
