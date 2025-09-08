@@ -5,6 +5,8 @@ import { Button, Input, Modal, Typography } from "neetoui";
 import { isEmpty } from "ramda";
 import { useTranslation } from "react-i18next";
 
+import { URL_REGEXP } from "src/common/constants";
+
 import { validateUrl } from "./utils";
 
 const EmbedOption = ({ isEmbedModalOpen, setIsEmbedModalOpen, editor }) => {
@@ -16,7 +18,8 @@ const EmbedOption = ({ isEmbedModalOpen, setIsEmbedModalOpen, editor }) => {
   const inputRef = useRef(null);
 
   const handleEmbed = () => {
-    const validatedUrl = validateUrl(embedUrl);
+    const match = embedUrl.match(URL_REGEXP);
+    const validatedUrl = match ? match[0] : null;
 
     if (validatedUrl) {
       editor
