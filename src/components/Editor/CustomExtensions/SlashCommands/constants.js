@@ -25,6 +25,7 @@ import {
   Link,
   Attachment,
   MessageSquare,
+  File,
 } from "neetoicons";
 
 export const MENU_ITEMS = [
@@ -157,6 +158,13 @@ export const MENU_ITEMS = [
     title: t("neetoEditor.menu.link"),
     description: t("neetoEditor.menu.linkDescription"),
     Icon: Link,
+    command: noop,
+  },
+  {
+    optionName: EDITOR_OPTIONS.NEETO_KB_ARTICLE,
+    title: t("neetoEditor.menu.linkToNeetoKbArticle"),
+    description: t("neetoEditor.menu.linkToNeetoKbArticleDescription"),
+    Icon: File,
     command: noop,
   },
   {

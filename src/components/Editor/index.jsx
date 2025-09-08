@@ -1,4 +1,11 @@
-import { forwardRef, useImperativeHandle, useState, useRef, memo } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useState,
+  useRef,
+  memo,
+  useEffect,
+} from "react";
 
 import { EditorView } from "@tiptap/pm/view";
 import { useEditor, EditorContent, useEditorState } from "@tiptap/react";
@@ -7,8 +14,10 @@ import { EDITOR_OPTIONS, EDITOR_SIZES } from "common/constants";
 import { noop, slugify } from "neetocist";
 import { useFuncDebounce } from "neetocommons/react-utils";
 import { Label } from "neetoui";
+import { createPortal } from "react-dom";
 
 import ErrorWrapper from "components/Common/ErrorWrapper";
+import { useDeletedArticles } from "hooks/useDeletedArticles";
 import useEditorWarnings from "hooks/useEditorWarnings";
 import "src/styles/editor/index.scss";
 import { removeEmptyTags } from "src/utils";
@@ -16,6 +25,7 @@ import { removeEmptyTags } from "src/utils";
 import { DEFAULT_EDITOR_OPTIONS } from "./constants";
 import CharacterCountWrapper from "./CustomExtensions/CharacterCount";
 import useCustomExtensions from "./CustomExtensions/hooks/useCustomExtensions";
+import ArticleSelector from "./CustomExtensions/LinkKbArticles/ArticleSelector";
 import TableActionMenu from "./CustomExtensions/Table/TableActionMenu";
 import LinkPopOver from "./LinkPopOver";
 import MediaUploader from "./MediaUploader";
@@ -78,7 +88,6 @@ const Editor = (
   ref
 ) => {
   const [isAttachmentsUploading, setIsAttachmentsUploading] = useState(false);
-
   const wrapperRef = useRef(null);
   const isAttachmentsActive = addons.includes(EDITOR_OPTIONS.ATTACHMENTS);
   const isMediaUploaderActive =
@@ -93,6 +102,13 @@ const Editor = (
   const [mediaUploader, setMediaUploader] = useState({
     image: false,
     video: false,
+  });
+
+  const [neetoKbArticleState, setNeetoKbArticleState] = useState({
+    active: false,
+    editor: null,
+    range: null,
+    cursorPos: null,
   });
 
   const addAttachmentsRef = useRef(null);
@@ -134,6 +150,7 @@ const Editor = (
     openLinkInNewTab,
     enableReactNodeViewOptimization,
     collaborationProvider,
+    setIsNeetoKbArticleActive: setNeetoKbArticleState,
   });
   useEditorWarnings({ initialValue });
 
@@ -190,12 +207,45 @@ const Editor = (
     }),
   });
 
+  const deletedArticlesHook = useDeletedArticles(editor);
+
   /* Make editor object available to the parent */
   useImperativeHandle(
     ref,
     () => ({ editor, focus: () => editor?.commands?.focus?.() }),
     [editor]
   );
+
+  // Cleanup NeetoKB article state when editor changes
+  useEffect(() => {
+    if (!editor && neetoKbArticleState.active) {
+      setNeetoKbArticleState({
+        active: false,
+        editor: null,
+        range: null,
+        cursorPos: null,
+      });
+    }
+  }, [editor, neetoKbArticleState.active]);
+
+  // Update DOM to mark deleted articles
+  useEffect(() => {
+    if (!editor || !deletedArticlesHook.deletedArticleIds.size) return;
+
+    const { view } = editor;
+    const linkElements = view.dom.querySelectorAll(
+      'a[data-neeto-kb-article="true"]'
+    );
+
+    linkElements.forEach(link => {
+      const articleId = link.getAttribute("data-article-id");
+      if (articleId && deletedArticlesHook.isArticleDeleted(articleId)) {
+        link.setAttribute("data-article-deleted", "true");
+      } else {
+        link.removeAttribute("data-article-deleted");
+      }
+    });
+  }, [editor, deletedArticlesHook.deletedArticleIds]);
 
   // https://github.com/ueberdosis/tiptap/issues/1451#issuecomment-953348865
   EditorView.prototype.updateState = function updateState(state) {
@@ -265,7 +315,9 @@ const Editor = (
               {...otherAttachmentProps}
             />
           )}
-          {editor?.isActive("link") && <LinkPopOver {...{ editor }} />}
+          {editor?.isActive("link") && (
+            <LinkPopOver {...{ deletedArticlesHook, editor }} />
+          )}
           {isAddLinkActive && (
             <LinkAddPopOver
               {...{
@@ -276,6 +328,23 @@ const Editor = (
               }}
             />
           )}
+          {neetoKbArticleState.active &&
+            neetoKbArticleState.cursorPos &&
+            createPortal(
+              <ArticleSelector
+                cursorPos={neetoKbArticleState.cursorPos}
+                editor={neetoKbArticleState.editor}
+                onClose={() =>
+                  setNeetoKbArticleState({
+                    active: false,
+                    editor: null,
+                    range: null,
+                    cursorPos: null,
+                  })
+                }
+              />,
+              document.body
+            )}
           <TableActionMenu {...{ editor }} appendTo={wrapperRef} />
           {isCharacterCountActive && <CharacterCountWrapper {...{ editor }} />}
         </>
