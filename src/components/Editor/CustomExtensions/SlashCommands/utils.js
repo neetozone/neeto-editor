@@ -31,12 +31,27 @@ const attachmentCommand =
     editor.chain().focus().deleteRange(range).run();
   };
 
+const neetoKbArticleCommand =
+  setIsNeetoKbArticleActive =>
+  ({ editor, range }) => {
+    // Get cursor position for positioning the modal
+    const cursorPos = editor.view.coordsAtPos(range.from);
+    setIsNeetoKbArticleActive({
+      active: true,
+      editor,
+      range,
+      cursorPos,
+    });
+    editor.chain().focus().deleteRange(range).run();
+  };
+
 export const buildCommandItems = ({
   options,
   addonCommands,
   setMediaUploader,
   setIsAddLinkActive,
   attachmentProps,
+  setIsNeetoKbArticleActive,
 }) => {
   const commandItems = MENU_ITEMS.map(item => {
     if (item.optionName === EDITOR_OPTIONS.IMAGE_UPLOAD) {
@@ -47,6 +62,12 @@ export const buildCommandItems = ({
       return assoc("command", linkCommand(setIsAddLinkActive), item);
     } else if (item.optionName === EDITOR_OPTIONS.ATTACHMENTS) {
       return assoc("command", attachmentCommand(attachmentProps), item);
+    } else if (item.optionName === EDITOR_OPTIONS.NEETO_KB_ARTICLE) {
+      return assoc(
+        "command",
+        neetoKbArticleCommand(setIsNeetoKbArticleActive),
+        item
+      );
     }
 
     return item;
