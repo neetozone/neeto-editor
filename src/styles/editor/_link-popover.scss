@@ -37,6 +37,11 @@
     margin-right: 8px;
     font-weight: var(--neeto-ui-font-medium);
     font-size: var(--neeto-ui-text-sm);
+
+    &[data-neeto-kb-article="true"][data-article-deleted="true"] {
+      color: #dc2626 !important;
+      text-decoration: line-through;
+    }
   }
 }
 
