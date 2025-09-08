@@ -16,7 +16,8 @@
       "url": "Link",
       "editLink": "Edit link",
       "resetToDefault": "Reset to default",
-      "openInNewTab": "Open in new tab"
+      "openInNewTab": "Open in new tab",
+      "close": "Close"
     },
     "attachments": {
       "actionsBlocked": "You are not permitted to update or delete attachments",
@@ -136,7 +137,17 @@
       "tableDescription": "Add a table.",
       "noResults": "No results",
       "rows": "Rows",
-      "columns": "Columns"
+      "columns": "Columns",
+      "linkToNeetoKbArticle": "Link to NeetoKB article",
+      "linkToNeetoKbArticleDescription": "Add a reference to another NeetoKB article."
+    },
+    "linkKb": {
+      "searchPlaceholder": "Search for an article",
+      "articleLabel": "Article",
+      "selectArticle": "Select an Article",
+      "articlesMatching": "Articles matching \"{{entity}}\"",
+      "articleDeletedTitle": "The article has been deleted",
+      "articleDeletedDescription": "This article has been deleted. Please link a valid article."
     },
     "placeholders": {
       "columns": "Enter columns",
@@ -145,6 +156,7 @@
       "pickColor": "Pick a color",
       "rows": "Enter rows",
       "searchUnsplash": "Search Unsplash",
+      "searchArticles": "Search for an article",
       "embedUrl": "https://",
       "url": "Enter URL",
       "enterText": "Enter text",
