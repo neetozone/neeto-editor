@@ -159,7 +159,11 @@
       "insertColumn": "إدراج عمود",
       "insertRow": "إدراج صف",
       "mergeSplit": "دمج/انقسام الخلية",
-      "toggleHeaderRow": "تبديل صف الرأس"
+      "toggleHeaderRow": "تبديل صف الرأس",
+      "textAlign": "محاذاة النص",
+      "leftAlign": "محاذاة اليسار",
+      "centerAlign": "محاذاة مركزية",
+      "rightAlign": "محاذاة اليمين"
     },
     "unsplash": {
       "errorMessage": "حدث خطأ ما! يرجى المحاولة مرة أخرى لاحقًا.",

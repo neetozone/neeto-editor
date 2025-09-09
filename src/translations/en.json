@@ -171,7 +171,11 @@
       "insertColumn": "Insert column",
       "insertRow": "Insert row",
       "mergeSplit": "Merge/Split cell",
-      "toggleHeaderRow": "Toggle header row"
+      "toggleHeaderRow": "Toggle header row",
+      "textAlign": "Text alignment",
+      "leftAlign": "Left align",
+      "centerAlign": "Center align",
+      "rightAlign": "Right align"
     },
     "unsplash": {
       "errorMessage": "Something went wrong! Please try again later.",

@@ -159,7 +159,11 @@
       "insertColumn": "Umetni stupac",
       "insertRow": "Umetni redak",
       "mergeSplit": "Spoji/Razdvoji ćeliju",
-      "toggleHeaderRow": "Prebaci glavni redak"
+      "toggleHeaderRow": "Prebaci glavni redak",
+      "textAlign": "Poravnanje teksta",
+      "leftAlign": "Poravnaj lijevo",
+      "centerAlign": "Poravnaj centrirano",
+      "rightAlign": "Poravnaj desno"
     },
     "unsplash": {
       "errorMessage": "Nešto je pošlo po zlu! Pokušajte ponovno kasnije.",

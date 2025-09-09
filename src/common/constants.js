@@ -61,6 +61,9 @@ export const LOOM_URL_REGEXP =
 export const NEETO_RECORD_URL_REGEXP =
   /((?:http|https):\/\/)?(www\.)?[a-zA-Z0-9-]+\.(neetorecord\.com)\/(watch)\/([0-9a-f]{20})/;
 
+export const NEETO_RECORD_CUSTOM_DOMAIN_URL_REGEXP =
+  /((?:http|https):\/\/)?(www\.)?(\w+(?:[\w-]*\w)?(?:\.\w+(?:[\w-]*\w)?)+)\/(watch)\/([0-9a-f]{20})/;
+
 export const SUPA_DEMO_URL_REGEXP =
   /((?:http|https):\/\/)?(www\.)?([a-zA-Z0-9-]+)\.([a-zA-Z0-9-]+\.[a-zA-Z0-9-]+)\/(demo|embed)\/([0-9a-z]+)/;
 
@@ -70,6 +73,7 @@ export const COMBINED_REGEX = new RegExp(
     VIMEO_URL_REGEXP,
     LOOM_URL_REGEXP,
     NEETO_RECORD_URL_REGEXP,
+    NEETO_RECORD_CUSTOM_DOMAIN_URL_REGEXP,
     SUPA_DEMO_URL_REGEXP,
   ]).join("|"),
   "g"
@@ -95,6 +99,11 @@ export const URL_VALIDATORS = {
   },
   neetoRecord: url => {
     const match = url.match(NEETO_RECORD_URL_REGEXP);
+
+    return match && url.replace("watch", "embeds");
+  },
+  neetoRecordCustom: url => {
+    const match = url.match(NEETO_RECORD_CUSTOM_DOMAIN_URL_REGEXP);
 
     return match && url.replace("watch", "embeds");
   },

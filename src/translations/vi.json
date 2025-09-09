@@ -159,7 +159,11 @@
       "insertColumn": "Chèn cột",
       "insertRow": "Chèn hàng",
       "mergeSplit": "Gộp/Tách ô",
-      "toggleHeaderRow": "Chuyển đổi hàng tiêu đề"
+      "toggleHeaderRow": "Chuyển đổi hàng tiêu đề",
+      "textAlign": "Căn chỉnh văn bản",
+      "leftAlign": "Căn trái",
+      "centerAlign": "Căn giữa",
+      "rightAlign": "Căn phải"
     },
     "unsplash": {
       "errorMessage": "Đã xảy ra sự cố! Vui lòng thử lại sau.",

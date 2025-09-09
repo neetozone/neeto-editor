@@ -159,7 +159,11 @@
       "insertColumn": "Magdagdag ng column",
       "insertRow": "Magdagdag ng row",
       "mergeSplit": "Pagsamahin/Hatiin ang cell",
-      "toggleHeaderRow": "I-toggle ang header row"
+      "toggleHeaderRow": "I-toggle ang header row",
+      "textAlign": "Pagkakaayos ng teksto",
+      "leftAlign": "Kaliwa ang pagkakaayos",
+      "centerAlign": "Gitna ang pagkakaayos",
+      "rightAlign": "Kanan ang pagkakaayos"
     },
     "unsplash": {
       "errorMessage": "May nangyaring mali! Mangyaring subukan muli mamaya.",

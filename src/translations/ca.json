@@ -159,7 +159,11 @@
       "insertColumn": "Inserir columna",
       "insertRow": "Inserir fila",
       "mergeSplit": "Fusionar/Dividir cel·la",
-      "toggleHeaderRow": "Alternar fila d'encapçalament"
+      "toggleHeaderRow": "Alternar fila d'encapçalament",
+      "textAlign": "Alineació del text",
+      "leftAlign": "Alineació a l'esquerra",
+      "centerAlign": "Alineació al centre",
+      "rightAlign": "Alineació a la dreta"
     },
     "unsplash": {
       "errorMessage": "Alguna cosa no ha anat bé! Si us plau, torna a intentar-ho més tard.",

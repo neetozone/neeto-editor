@@ -159,7 +159,11 @@
       "insertColumn": "열 삽입",
       "insertRow": "행 삽입",
       "mergeSplit": "셀 병합/분할",
-      "toggleHeaderRow": "헤더 행 전환"
+      "toggleHeaderRow": "헤더 행 전환",
+      "textAlign": "텍스트 정렬",
+      "leftAlign": "왼쪽 정렬",
+      "centerAlign": "가운데 정렬",
+      "rightAlign": "오른쪽 정렬"
     },
     "unsplash": {
       "errorMessage": "문제가 발생했습니다! 나중에 다시 시도하십시오.",

@@ -159,7 +159,11 @@
       "insertColumn": "Spalte einfügen",
       "insertRow": "Zeile einfügen",
       "mergeSplit": "Zelle zusammenführen/teilen",
-      "toggleHeaderRow": "Headerzeile umschalten"
+      "toggleHeaderRow": "Headerzeile umschalten",
+      "textAlign": "Textausrichtung",
+      "leftAlign": "Links ausrichten",
+      "centerAlign": "Zentriert ausrichten",
+      "rightAlign": "Rechts ausrichten"
     },
     "unsplash": {
       "errorMessage": "Etwas ist schief gelaufen! Bitte versuchen Sie es später erneut.",

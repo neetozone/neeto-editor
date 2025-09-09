@@ -159,7 +159,11 @@
       "insertColumn": "Sütun ekle",
       "insertRow": "Satır ekle",
       "mergeSplit": "Hücreleri birleştir/böl",
-      "toggleHeaderRow": "Başlık satırını aç/kapat"
+      "toggleHeaderRow": "Başlık satırını aç/kapat",
+      "textAlign": "Metin hizalaması",
+      "leftAlign": "Sola hizala",
+      "centerAlign": "Ortala",
+      "rightAlign": "Sağa hizala"
     },
     "unsplash": {
       "errorMessage": "Bir şeyler yanlış gitti! Lütfen tekrar deneyin.",

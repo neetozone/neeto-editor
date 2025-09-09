@@ -159,7 +159,11 @@
       "insertColumn": "स्तंभ जोड़ें",
       "insertRow": "पंक्ति जोड़ें",
       "mergeSplit": "मर्ज/स्प्लिट सेल",
-      "toggleHeaderRow": "हेडर पंक्ति टॉगल करें"
+      "toggleHeaderRow": "हेडर पंक्ति टॉगल करें",
+      "textAlign": "पाठ संरेखण",
+      "leftAlign": "बाएं संरेखित",
+      "centerAlign": "केंद्रित",
+      "rightAlign": "दाएं संरेखित"
     },
     "unsplash": {
       "errorMessage": "कुछ गलत है! कृपया बाद में फिर से प्रयास करें।",

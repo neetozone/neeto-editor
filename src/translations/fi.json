@@ -159,7 +159,11 @@
       "insertColumn": "Lisää sarake",
       "insertRow": "Lisää rivi",
       "mergeSplit": "Yhdistä/jaottele solu",
-      "toggleHeaderRow": "Vaihda otsikkorivi"
+      "toggleHeaderRow": "Vaihda otsikkorivi",
+      "textAlign": "Tekstin tasaus",
+      "leftAlign": "Vasen tasaus",
+      "centerAlign": "Keskitetty tasaus",
+      "rightAlign": "Oikea tasaus"
     },
     "unsplash": {
       "errorMessage": "Jokin meni pieleen! Yritä uudelleen myöhemmin.",

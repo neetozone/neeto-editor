@@ -159,7 +159,11 @@
       "insertColumn": "Vstavi stolpec",
       "insertRow": "Vstavi vrstico",
       "mergeSplit": "Združi/Podzori celico",
-      "toggleHeaderRow": "Preklopi naslovno vrstico"
+      "toggleHeaderRow": "Preklopi naslovno vrstico",
+      "textAlign": "Poravnava besedila",
+      "leftAlign": "Levo poravnano",
+      "centerAlign": "Sredinsko poravnano",
+      "rightAlign": "Desno poravnano"
     },
     "unsplash": {
       "errorMessage": "Nekaj je šlo narobe! Prosimo, poskusite znova pozneje.",
