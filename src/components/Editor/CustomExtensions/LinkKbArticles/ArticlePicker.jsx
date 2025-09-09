@@ -79,20 +79,6 @@ const ArticlePicker = ({
   };
 
   useEffect(() => {
-    if (mode !== "modal") return;
-
-    const handleKeyDown = event => {
-      if (event.key === "Escape") {
-        onClose?.();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-
-    () => document.removeEventListener("keydown", handleKeyDown);
-  }, [mode, onClose]);
-
-  useEffect(() => {
     if (mode !== "modal" || !modalRef.current || !cursorPos) return;
 
     modalRef.current.style.position = "fixed";

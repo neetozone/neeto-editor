@@ -36,8 +36,12 @@ export const useDeletedArticles = editor => {
       await neetoKbApi.fetchArticle(articleId);
 
       return true;
-    } catch {
-      return false;
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        return false;
+      }
+
+      return null;
     }
   }, []);
 
