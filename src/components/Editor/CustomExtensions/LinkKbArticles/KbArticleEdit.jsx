@@ -1,10 +1,12 @@
 import React from "react";
 
 import { withT } from "neetocommons/react-utils";
-import { Button, Input, Select } from "neetoui";
+import { Button, Input } from "neetoui";
 import { Form } from "neetoui/formik";
 
 import { decodeHtmlEntities } from "src/utils/common";
+
+import ArticlePicker from "./ArticlePicker";
 
 const KbArticleEdit = withT(
   ({
@@ -37,6 +39,7 @@ const KbArticleEdit = withT(
         <div className="flex w-full flex-col items-start gap-2">
           <Input
             required
+            unlimitedChars
             className="w-full"
             data-cy="neeto-editor-edit-kb-link-text-input"
             label={t("neetoEditor.common.text")}
@@ -46,12 +49,12 @@ const KbArticleEdit = withT(
             onChange={e => setFieldValue("textContent", e.target.value)}
             onKeyDown={handleKeyDown}
           />
-          <Select
-            isSearchable
-            className="w-ful"
+          <ArticlePicker
+            className="w-full"
             data-cy="neeto-editor-edit-kb-link-page-select"
             isLoading={isLoadingKbData}
             label={t("neetoEditor.linkKb.articleLabel")}
+            mode="select"
             name="pageSelection"
             options={selectOptions}
             placeholder={t("neetoEditor.linkKb.selectArticle")}
