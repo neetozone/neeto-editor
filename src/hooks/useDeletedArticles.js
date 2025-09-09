@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 
+import { noop } from "neetocist";
+
 import neetoKbApi from "src/apis/neeto_kb";
 
 export const useDeletedArticles = editor => {
@@ -67,13 +69,13 @@ export const useDeletedArticles = editor => {
 
   // Check articles when editor content changes (debounced)
   useEffect(() => {
-    if (!editor) return;
+    if (!editor) return noop;
 
     const timeoutId = setTimeout(() => {
       checkAllArticles();
     }, 1000);
 
-    () => clearTimeout(timeoutId);
+    return () => clearTimeout(timeoutId);
   }, [editor?.state.doc, checkAllArticles]);
 
   // Check a specific article (for real-time validation)
