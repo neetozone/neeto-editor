@@ -228,23 +228,12 @@ const Editor = (
     }
   }, [editor, neetoKbArticleState.active]);
 
-  // Update DOM to mark deleted articles
   useEffect(() => {
     if (!editor || !deletedArticlesHook.deletedArticleIds.size) return;
 
-    const { view } = editor;
-    const linkElements = view.dom.querySelectorAll(
-      'a[data-neeto-kb-article="true"]'
+    editor.commands.updateDeletedArticles(
+      deletedArticlesHook.deletedArticleIds
     );
-
-    linkElements.forEach(link => {
-      const articleId = link.getAttribute("data-article-id");
-      if (articleId && deletedArticlesHook.isArticleDeleted(articleId)) {
-        link.setAttribute("data-article-deleted", "true");
-      } else {
-        link.removeAttribute("data-article-deleted");
-      }
-    });
   }, [editor, deletedArticlesHook.deletedArticleIds]);
 
   // https://github.com/ueberdosis/tiptap/issues/1451#issuecomment-953348865

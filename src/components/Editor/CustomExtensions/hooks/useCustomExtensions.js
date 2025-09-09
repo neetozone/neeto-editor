@@ -23,6 +23,7 @@ import BulletList from "../BulletList/ExtensionConfig";
 import Callout from "../Callout/ExtensionConfig";
 import CodeBlock from "../CodeBlock/ExtensionConfig";
 import CustomCommands from "../CustomCommands/ExtensionConfig";
+import DeletedArticleDecoration from "../DeletedArticleDecoration/ExtensionConfig";
 import EmojiPicker from "../Emoji/EmojiPicker/ExtensionConfig";
 import EmojiSuggestion from "../Emoji/EmojiSuggestion/ExtensionConfig";
 import ImageExtension from "../Image/ExtensionConfig";
@@ -92,6 +93,9 @@ const useCustomExtensions = ({
       italic: false,
       history: !collaborationProvider,
       heading: { levels: buildLevelsFromOptions(options) },
+    }),
+    DeletedArticleDecoration.configure({
+      deletedArticleIds: new Set(), // This will be updated dynamically
     }),
     TextStyle,
     Underline,
