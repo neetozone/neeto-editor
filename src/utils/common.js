@@ -1,3 +1,4 @@
+import { decode } from "he";
 import { isNotPresent } from "neetocist";
 
 import { EMPTY_TAGS_TO_REMOVE, NON_EMPTY_TAGS } from "./constants";
@@ -71,10 +72,5 @@ export const isEditorContentWithinLimit = (htmlContent, maxLength) => {
 export const decodeHtmlEntities = text => {
   if (isNotPresent(text)) return text;
 
-  const textArea = document.createElement("textarea");
-  textArea.innerHTML = text;
-  const decodedText = textArea.value;
-  textArea.remove();
-
-  return decodedText;
+  return decode(text);
 };
