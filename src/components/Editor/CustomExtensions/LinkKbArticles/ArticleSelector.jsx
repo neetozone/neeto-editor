@@ -8,7 +8,12 @@ import neetoKbApi from "src/apis/neeto_kb";
 
 import ArticlesList from "./ArticlesList";
 
-const ArticleSelector = ({ editor, cursorPos, onClose }) => {
+const ArticleSelector = ({
+  editor,
+  cursorPos,
+  onClose,
+  deletedArticlesHook,
+}) => {
   const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -72,10 +77,13 @@ const ArticleSelector = ({ editor, cursorPos, onClose }) => {
       const { from, to } = editor.state.selection;
 
       const linkText = detailedArticle.title || article.title;
+      const isDeleted = deletedArticlesHook?.isArticleDeleted(article.id);
+
       const attrs = {
         href: detailedArticle.full_url,
         "data-neeto-kb-article": "true",
         "data-article-id": article.id,
+        "data-article-deleted": isDeleted ? "true" : null,
         title: detailedArticle.title || article.title,
       };
 

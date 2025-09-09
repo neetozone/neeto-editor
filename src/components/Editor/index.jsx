@@ -332,6 +332,7 @@ const Editor = (
             neetoKbArticleState.cursorPos &&
             createPortal(
               <ArticleSelector
+                {...{ deletedArticlesHook }}
                 cursorPos={neetoKbArticleState.cursorPos}
                 editor={neetoKbArticleState.editor}
                 onClose={() =>

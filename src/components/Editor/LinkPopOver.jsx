@@ -151,10 +151,14 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
 
       if (isNil(from) || isNil(to)) return;
 
+      const articleId = linkAttributes?.["data-article-id"];
+      const isDeleted = deletedArticlesHook?.isArticleDeleted(articleId);
+
       const attrs = {
         href: linkAttributes?.href,
         "data-neeto-kb-article": linkAttributes?.["data-neeto-kb-article"],
-        "data-article-id": linkAttributes?.["data-article-id"],
+        "data-article-id": articleId,
+        "data-article-deleted": isDeleted ? "true" : null,
         title: textContent || decodeHtmlEntities(linkAttributes?.title || ""),
       };
 
@@ -194,10 +198,13 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
 
       if (isNil(from) || isNil(to)) return;
 
+      const isDeleted = deletedArticlesHook?.isArticleDeleted(articleData.id);
+
       const attrs = {
         href: articleData.full_url,
         "data-neeto-kb-article": "true",
         "data-article-id": articleData.id,
+        "data-article-deleted": isDeleted ? "true" : null,
         title: decodeHtmlEntities(articleData.title || ""),
       };
 

@@ -21,7 +21,6 @@
 .ProseMirror {
   a[data-neeto-kb-article="true"][data-article-deleted="true"] {
     color: #dc2626 !important;
-    text-decoration: line-through;
     cursor: not-allowed;
 
     &:hover {
