@@ -19,6 +19,11 @@
 }
 
 .ProseMirror {
+  a {
+    text-decoration: underline;
+    color: rgb(var(--neeto-ui-accent-500));
+  }
+
   a[data-neeto-kb-article="true"][data-article-deleted="true"] {
     color: #dc2626 !important;
     cursor: not-allowed;

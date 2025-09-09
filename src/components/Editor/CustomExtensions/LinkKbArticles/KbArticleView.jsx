@@ -17,10 +17,9 @@ const KbArticleView = withT(
           href={linkAttributes?.href}
           rel="noreferrer"
           target="_blank"
-          className={classnames(
-            "flex-1 truncate",
-            isDeleted ? "neeto-ui-text-red-500" : "neeto-ui-text-blue-500"
-          )}
+          className={classnames("ne-link-popover__kb-article-link", {
+            "ne-link-popover__kb-article-link--deleted": isDeleted,
+          })}
           onClick={event => {
             if (!isDeleted) return;
             event.preventDefault();

@@ -39,7 +39,24 @@
     font-size: var(--neeto-ui-text-sm);
 
     &[data-neeto-kb-article="true"][data-article-deleted="true"] {
-      color: #dc2626 !important;
+      color: rgb(var(--neeto-ui-error-600)) !important;
+    }
+  }
+
+  &__kb-article-link {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgb(var(--neeto-ui-accent-500)) !important;
+    text-decoration: none;
+
+    &--deleted {
+      color: rgb(var(--neeto-ui-error-600)) !important;
+    }
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
