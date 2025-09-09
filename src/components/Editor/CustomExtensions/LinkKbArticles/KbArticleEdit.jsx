@@ -34,20 +34,21 @@ const KbArticleEdit = withT(
       }}
     >
       {({ dirty, isSubmitting, setFieldValue, values }) => (
-        <>
+        <div className="flex w-full flex-col items-start gap-2">
           <Input
             required
+            className="w-full"
             data-cy="neeto-editor-edit-kb-link-text-input"
             label={t("neetoEditor.common.text")}
             name="textContent"
             placeholder={t("neetoEditor.placeholders.enterText")}
-            style={{ width: "300px" }}
             value={values.textContent}
             onChange={e => setFieldValue("textContent", e.target.value)}
             onKeyDown={handleKeyDown}
           />
           <Select
             isSearchable
+            className="w-ful"
             data-cy="neeto-editor-edit-kb-link-page-select"
             isLoading={isLoadingKbData}
             label={t("neetoEditor.linkKb.articleLabel")}
@@ -55,7 +56,6 @@ const KbArticleEdit = withT(
             options={selectOptions}
             placeholder={t("neetoEditor.linkKb.selectArticle")}
             strategy="fixed"
-            style={{ width: "300px" }}
             value={values.pageSelection}
             onChange={value => handleSelectChange(value, { setFieldValue })}
           />
@@ -76,7 +76,7 @@ const KbArticleEdit = withT(
               onClick={() => setIsEditing(false)}
             />
           </div>
-        </>
+        </div>
       )}
     </Form>
   )

@@ -143,7 +143,7 @@
     },
     "linkKb": {
       "searchPlaceholder": "Search for an article",
-      "articleLabel": "Article",
+      "articleLabel": "Page",
       "selectArticle": "Select an Article",
       "articlesMatching": "Articles matching \"{{entity}}\"",
       "articleDeletedTitle": "The article has been deleted",
