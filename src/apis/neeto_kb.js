@@ -1,4 +1,5 @@
 import axios from "axios";
+import { globalProps } from "neetocommons/initializers";
 
 import {
   NEETO_KB_ENDPOINT,
@@ -7,7 +8,7 @@ import {
 
 const apiConfig = {
   baseURL: NEETO_KB_ENDPOINT,
-  headers: { "X-Neeto-API-Key": "9099015ee520e11887eb" },
+  headers: { "X-Neeto-API-Key": globalProps?.organization?.apiKey },
   transformResponseCase: false,
   transformRequestCase: false,
 };
