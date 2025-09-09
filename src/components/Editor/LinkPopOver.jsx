@@ -270,6 +270,20 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
     return currentArticleOption || "";
   };
 
+  const getCurrentTextContent = () => {
+    const { state } = editor.view;
+    const type = getMarkType("link", state.schema);
+    const { $to } = state.selection;
+    const { from = null, to = null } = getMarkRange($to, type) || {};
+
+    if (from !== null && to !== null) {
+      return state.doc.textBetween(from, to);
+    }
+    const { $from } = state.selection;
+
+    return state.doc.textBetween($from.pos, $to.pos);
+  };
+
   const renderEditingMode = () => (
     <Form
       formikProps={{
@@ -338,10 +352,10 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
     <KbArticleEdit
       {...{
         getCurrentArticleOption,
+        getCurrentTextContent,
         handleKbArticleSubmit,
         handleKeyDown,
         handleSelectChange,
-        initialTextContent,
         isLoadingKbData,
         linkAttributes,
         selectOptions,
@@ -357,6 +371,7 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
     return (
       <KbArticleView
         {...{ isDeleted, linkAttributes }}
+        currentText={getCurrentTextContent()} // Pass current text from editor
         onEdit={() => setIsEditing(true)}
         onDeletedClick={() => {
           removePopover();

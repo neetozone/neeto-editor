@@ -9,7 +9,7 @@ import { Button } from "neetoui";
 import { decodeHtmlEntities } from "src/utils/common";
 
 const KbArticleView = withT(
-  ({ t, linkAttributes, isDeleted, onEdit, onDeletedClick }) => (
+  ({ t, linkAttributes, isDeleted, onEdit, onDeletedClick, currentText }) => (
     <div>
       <div className="flex items-center gap-2">
         <NeetoUIFormIcon className="neeto-ui-text-gray-600" size={16} />
@@ -26,7 +26,8 @@ const KbArticleView = withT(
             onDeletedClick?.();
           }}
         >
-          {decodeHtmlEntities(linkAttributes?.title || "") ||
+          {currentText ||
+            decodeHtmlEntities(linkAttributes?.title || "") ||
             linkAttributes?.href}
         </a>
         <CopyToClipboardButton

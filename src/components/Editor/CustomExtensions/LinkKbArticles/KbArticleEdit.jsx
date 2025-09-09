@@ -12,7 +12,7 @@ const KbArticleEdit = withT(
   ({
     t,
     linkAttributes,
-    initialTextContent,
+    getCurrentTextContent,
     getCurrentArticleOption,
     handleKbArticleSubmit,
     handleSelectChange,
@@ -25,9 +25,9 @@ const KbArticleEdit = withT(
       formikProps={{
         initialValues: {
           textContent:
+            getCurrentTextContent?.() ||
             (linkAttributes?.title &&
               decodeHtmlEntities(linkAttributes.title)) ||
-            initialTextContent ||
             "",
           pageSelection: getCurrentArticleOption(),
         },
