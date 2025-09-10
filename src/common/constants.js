@@ -35,6 +35,7 @@ export const EDITOR_OPTIONS = {
   PASTE_UNFORMATTED: "paste-unformatted",
   TABLE: "table",
   TEXT_COLOR: "text-color",
+  NEETO_KB_ARTICLE: "neeto-kb-article",
 };
 
 export const UNSPLASH_BASE_URL = "https://api.unsplash.com/search/photos";
