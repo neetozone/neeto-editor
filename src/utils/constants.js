@@ -12,3 +12,15 @@ export const EMPTY_TAGS_TO_REMOVE = [
   "h6",
   "br",
 ];
+
+export const DEFAULT_SEARCH_KEYS = [
+  { name: "title", weight: 0.7 },
+  { name: "optionName", weight: 0.6 },
+  { name: "description", weight: 0.1 },
+];
+
+export const FUZZY_SEARCH = {
+  LIMIT: 4,
+  THRESHOLD: 0.5,
+  DISTANCE: 100,
+};
