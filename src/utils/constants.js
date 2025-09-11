@@ -18,3 +18,9 @@ export const DEFAULT_SEARCH_KEYS = [
   { name: "optionName", weight: 0.6 },
   { name: "description", weight: 0.1 },
 ];
+
+export const FUZZY_SEARCH = {
+  LIMIT: 4,
+  THRESHOLD: 0.5,
+  DISTANCE: 100,
+};

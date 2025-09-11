@@ -1,13 +1,13 @@
 import Fuse from "fuse.js";
 import { isEmpty, pluck } from "ramda";
 
-import { DEFAULT_SEARCH_KEYS } from "./constants";
+import { DEFAULT_SEARCH_KEYS, FUZZY_SEARCH } from "./constants";
 
 export const fuzzySearch = (items, query, options = {}) => {
   const {
-    limit = 10,
-    threshold = 0.4,
-    distance = 100,
+    limit = FUZZY_SEARCH.LIMIT,
+    threshold = FUZZY_SEARCH.THRESHOLD,
+    distance = FUZZY_SEARCH.DISTANCE,
     keys = DEFAULT_SEARCH_KEYS,
     includeMatches = false,
   } = options;
@@ -30,9 +30,9 @@ export const fuzzySearch = (items, query, options = {}) => {
   };
 
   const fuse = new Fuse(items, fuseOptions);
-  const results = fuse.search(query);
+  const results = fuse.search(query, { limit });
 
-  return pluck("item", results).slice(0, limit);
+  return pluck("item", results);
 };
 
 export default fuzzySearch;
