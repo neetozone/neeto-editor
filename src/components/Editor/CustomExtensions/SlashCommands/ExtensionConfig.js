@@ -9,6 +9,7 @@ import {
   highlightFocussedNode,
   resetFocussedNode,
 } from "utils/focusHighlighter";
+import { fuzzySearch } from "utils/fuzzySearch";
 
 import CommandsList from "./CommandsList";
 import { NO_RESULT_MENU_ITEM } from "./constants";
@@ -47,9 +48,15 @@ export default {
             },
 
             items: ({ query }) => {
-              const filteredItems = commandItems.filter(({ title }) =>
-                title.toLowerCase().includes(query.toLowerCase())
-              );
+              if (!query) {
+                return commandItems.slice(0, 10);
+              }
+
+              const filteredItems = fuzzySearch(commandItems, query, {
+                limit: 10,
+                threshold: 0.5,
+                distance: 100,
+              });
 
               return isEmpty(filteredItems)
                 ? [NO_RESULT_MENU_ITEM]
