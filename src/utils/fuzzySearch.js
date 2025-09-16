@@ -1,6 +1,6 @@
 import { isEmpty, isNil, pluck, prop } from "ramda";
 
-import { DEFAULT_SEARCH_KEYS, FUZZY_SEARCH } from "./constants";
+import { DEFAULT_SEARCH_KEYS, FUZZY_SEARCH_DEFAULT_LIMIT } from "./constants";
 
 const calculateScore = (input, target) => {
   const inputLower = input.toLowerCase();
@@ -46,8 +46,13 @@ const calculateScore = (input, target) => {
   return Math.min(score, 0.89);
 };
 
-export const fuzzySearch = (items, query, options = {}) => {
-  const { limit = FUZZY_SEARCH.LIMIT, keys = DEFAULT_SEARCH_KEYS } = options;
+export const fuzzySearch = (
+  items,
+  query,
+  options = { limit: FUZZY_SEARCH_DEFAULT_LIMIT }
+) => {
+  const { limit = FUZZY_SEARCH_DEFAULT_LIMIT, keys = DEFAULT_SEARCH_KEYS } =
+    options;
 
   if (!query || typeof query !== "string" || !items || isEmpty(items)) {
     return items ? items.slice(0, limit) : [];

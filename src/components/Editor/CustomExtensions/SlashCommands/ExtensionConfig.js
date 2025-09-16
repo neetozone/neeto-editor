@@ -5,7 +5,6 @@ import Suggestion from "@tiptap/suggestion";
 import { isEmpty } from "ramda";
 import tippy from "tippy.js";
 
-import { FUZZY_SEARCH } from "utils/constants";
 import {
   highlightFocussedNode,
   resetFocussedNode,
@@ -53,11 +52,7 @@ export default {
                 return commandItems.slice(0, 10);
               }
 
-              const filteredItems = fuzzySearch(commandItems, query, {
-                limit: FUZZY_SEARCH.LIMIT,
-                threshold: FUZZY_SEARCH.THRESHOLD,
-                distance: FUZZY_SEARCH.DISTANCE,
-              });
+              const filteredItems = fuzzySearch(commandItems, query);
 
               return isEmpty(filteredItems)
                 ? [NO_RESULT_MENU_ITEM]
