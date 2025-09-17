@@ -37,10 +37,7 @@ const ArticlePicker = ({
     createArticleOptions,
   } = useArticleFetching();
 
-  const isLoading =
-    mode === "select"
-      ? externalIsLoading ?? internalIsLoading
-      : internalIsLoading;
+  const isLoading = externalIsLoading || internalIsLoading;
 
   const fetchArticles = async (searchTerm = "") => {
     const articlesData = await fetchArticlesData(searchTerm);
@@ -58,7 +55,7 @@ const ArticlePicker = ({
   }, []);
 
   const handleModalArticleSelect = async article => {
-    if (onArticleSelect) {
+    if (mode === "modal") {
       const detailedArticle = await fetchArticleDetails(article.id);
       onArticleSelect(article, detailedArticle);
     }
