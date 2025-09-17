@@ -11,10 +11,8 @@ import ArticlesList from "./ArticlesList";
 
 const ArticlePicker = ({
   mode = "modal",
-  _editor,
   cursorPos,
   onClose,
-  _deletedArticlesHook,
   isLoading: externalIsLoading,
   options: externalOptions,
   value,
