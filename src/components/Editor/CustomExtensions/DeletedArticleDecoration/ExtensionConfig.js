@@ -1,4 +1,3 @@
-// Create: src/components/Editor/CustomExtensions/DeletedArticleDecoration/ExtensionConfig.js
 import { Extension } from "@tiptap/core";
 import { Plugin, PluginKey } from "@tiptap/pm/state";
 import { Decoration, DecorationSet } from "@tiptap/pm/view";
@@ -57,7 +56,6 @@ const DeletedArticleDecoration = Extension.create({
     return {
       updateDeletedArticles: deletedArticleIds => () => {
         this.options.deletedArticleIds = deletedArticleIds;
-        // Force redraw decorations
         this.editor.view.updateState(this.editor.state);
 
         return true;
