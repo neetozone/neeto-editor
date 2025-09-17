@@ -94,9 +94,6 @@ const useCustomExtensions = ({
       history: !collaborationProvider,
       heading: { levels: buildLevelsFromOptions(options) },
     }),
-    DeletedArticleDecoration.configure({
-      deletedArticleIds: new Set(), // This will be updated dynamically
-    }),
     TextStyle,
     Underline,
     Italic,
@@ -111,6 +108,14 @@ const useCustomExtensions = ({
 
   if (options.includes(EDITOR_OPTIONS.VIDEO_UPLOAD)) {
     customExtensions.push(UnifiedVideoExtension);
+  }
+
+  if (options.includes(EDITOR_OPTIONS.NEETO_KB_ARTICLE)) {
+    customExtensions.push(
+      DeletedArticleDecoration.configure({
+        deletedArticleIds: new Set(),
+      })
+    );
   }
 
   if (options.includes(EDITOR_OPTIONS.TABLE)) {
