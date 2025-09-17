@@ -271,12 +271,14 @@ const Editor = (
               editorSecrets,
               mentions,
               menuType,
+              neetoKbArticleState,
               openLinkInNewTab,
               tooltips,
               variables,
             }}
             className={menuClassName}
             isIndependant={isMenuIndependent}
+            setIsNeetoKbArticleActive={setNeetoKbArticleState}
           />
           {children}
           <EditorContent
