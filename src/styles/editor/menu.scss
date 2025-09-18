@@ -468,3 +468,12 @@
     color: rgb(var(--neeto-ui-accent-800)) !important;
   }
 }
+
+.neeto-editor-table-bubble-menu__dropdown .neeto-ui-dropdown__popup {
+  min-width: auto;
+}
+
+.neeto-editor-table-bubble-menu__dropdown .neeto-ui-dropdown__popup .neeto-ui-dropdown__popup-menu {
+  padding: 0;
+  --neeto-ui-btn-border-radius: 0;
+}
