@@ -30,13 +30,15 @@ const Fixed = ({
   isEmojiPickerActive,
   setIsEmojiPickerActive,
   openLinkInNewTab,
+  setIsNeetoKbArticleActive,
+  neetoKbArticleState,
 }) => {
   const [focusedButtonIndex, setFocusedButtonIndex] = useState(0);
   const [isAddLinkActive, setIsAddLinkActive] = useState(false);
   const [menuItems, setMenuItems] = useState([]);
   const [moreMenuItems, setMoreMenuItems] = useState([]);
 
-  useEditorState({ editor });
+  useEditorState({ editor, neetoKbArticleState });
 
   const editorRef = useRef(editor);
 
@@ -100,6 +102,7 @@ const Fixed = ({
         setIsEmojiPickerActive,
         isEmojiPickerActive,
         editor,
+        setIsNeetoKbArticleActive,
       }),
     [isEmojiPickerActive, mentions]
   );

@@ -10,7 +10,7 @@ import { EDITOR_MARKS } from "./constants";
 
 import { FONT_SIZE_OPTIONS } from "../../constants";
 
-const useEditorState = ({ editor }) => {
+const useEditorState = ({ editor, neetoKbArticleState }) => {
   const { setMarksState, marksState } = useEditorStore.pick();
 
   const handleSelectionUpdate = useCallback(
@@ -18,7 +18,13 @@ const useEditorState = ({ editor }) => {
       const activeMarks = {};
 
       EDITOR_MARKS.forEach(mark => {
-        activeMarks[mark] = { isActive: editor.isActive(mark) };
+        if (mark === EDITOR_OPTIONS.NEETO_KB_ARTICLE) {
+          activeMarks[mark] = {
+            isActive: neetoKbArticleState?.active || false,
+          };
+        } else {
+          activeMarks[mark] = { isActive: editor.isActive(mark) };
+        }
       });
 
       const activeFontSizeOption =
@@ -30,7 +36,7 @@ const useEditorState = ({ editor }) => {
 
       setMarksState(activeMarks);
     },
-    [setMarksState]
+    [setMarksState, neetoKbArticleState?.active]
   );
 
   const updateHistoryOptionsState = useCallback(
@@ -63,6 +69,13 @@ const useEditorState = ({ editor }) => {
       editor.off("transaction", handleSelectionUpdate);
     };
   }, [editor, handleSelectionUpdate]);
+
+  // Update editor state when neetoKbArticleState changes
+  useEffect(() => {
+    if (!editor) return;
+
+    handleSelectionUpdate({ editor });
+  }, [editor, neetoKbArticleState?.active, handleSelectionUpdate]);
 };
 
 export default useEditorState;

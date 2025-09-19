@@ -24,6 +24,7 @@ export default {
     setMediaUploader,
     setIsAddLinkActive,
     attachmentProps,
+    setIsNeetoKbArticleActive,
   }) => {
     const commandItems = buildCommandItems({
       options,
@@ -31,6 +32,7 @@ export default {
       setMediaUploader,
       setIsAddLinkActive,
       attachmentProps,
+      setIsNeetoKbArticleActive,
     });
 
     return Extension.create({

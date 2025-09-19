@@ -67,3 +67,14 @@ export const isEditorContentWithinLimit = (htmlContent, maxLength) => {
 
   return isLengthWithinLimit;
 };
+
+export const decodeHtmlEntities = text => {
+  if (isNotPresent(text)) return text;
+
+  const textArea = document.createElement("textarea");
+  textArea.innerHTML = text;
+  const decodedText = textArea.value;
+  textArea.remove();
+
+  return decodedText;
+};

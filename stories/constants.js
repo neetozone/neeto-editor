@@ -20,6 +20,10 @@ export const EDITOR_ADDONS_TABLE_ROWS = [
   ],
   ["text-color", "Change the color of the text."],
   ["todo-list", "Add a to-do list with checkboxes."],
+  [
+    "neeto-kb-article",
+    "Insert links to NeetoKB articles from within the editor.",
+  ],
 ];
 
 export const EDITOR_PROP_TABLE_COLUMNS = [

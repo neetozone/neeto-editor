@@ -23,6 +23,7 @@ import BulletList from "../BulletList/ExtensionConfig";
 import Callout from "../Callout/ExtensionConfig";
 import CodeBlock from "../CodeBlock/ExtensionConfig";
 import CustomCommands from "../CustomCommands/ExtensionConfig";
+import DeletedArticleDecoration from "../DeletedArticleDecoration/ExtensionConfig";
 import EmojiPicker from "../Emoji/EmojiPicker/ExtensionConfig";
 import EmojiSuggestion from "../Emoji/EmojiSuggestion/ExtensionConfig";
 import ImageExtension from "../Image/ExtensionConfig";
@@ -61,6 +62,7 @@ const useCustomExtensions = ({
   openLinkInNewTab,
   enableReactNodeViewOptimization,
   collaborationProvider,
+  setIsNeetoKbArticleActive,
 }) => {
   let customExtensions = [
     CharacterCount,
@@ -106,6 +108,14 @@ const useCustomExtensions = ({
 
   if (options.includes(EDITOR_OPTIONS.VIDEO_UPLOAD)) {
     customExtensions.push(UnifiedVideoExtension);
+  }
+
+  if (options.includes(EDITOR_OPTIONS.NEETO_KB_ARTICLE)) {
+    customExtensions.push(
+      DeletedArticleDecoration.configure({
+        deletedArticleIds: new Set(),
+      })
+    );
   }
 
   if (options.includes(EDITOR_OPTIONS.TABLE)) {
@@ -156,6 +166,7 @@ const useCustomExtensions = ({
         setMediaUploader,
         setIsAddLinkActive,
         attachmentProps,
+        setIsNeetoKbArticleActive,
       })
     );
   }
