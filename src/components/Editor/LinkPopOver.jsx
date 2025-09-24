@@ -180,7 +180,11 @@ const LinkPopOver = ({ editor }) => {
 
   const renderViewMode = () => (
     <>
-      <a href={linkAttributes?.href} rel="noreferrer" target="_blank">
+      <a
+        href={linkAttributes?.href}
+        rel="noreferrer"
+        target={linkAttributes?.target || "_self"}
+      >
         {linkAttributes?.href}
       </a>
       {" - "}
