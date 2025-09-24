@@ -197,7 +197,7 @@ const LinkPopOver = ({ editor }) => {
     <>
       <a
         href={linkAttributes?.href}
-        rel="noreferrer"
+        rel="noreferrer noopener"
         target={linkAttributes?.target || "_self"}
       >
         {linkAttributes?.href}
