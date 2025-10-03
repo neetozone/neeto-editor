@@ -180,8 +180,19 @@ const UnifiedVideoExtension = Node.create({
   parseHTML() {
     return [
       {
-        tag: "figure[data-video]",
-        getAttrs: node => node.style.fontWeight !== "normal" && null,
+        tag: "div.neeto-editor__image-wrapper",
+        getAttrs: node => {
+          const figure = node.querySelector("figure[data-video]");
+
+          if (!figure) return false;
+
+          const videoEl = figure.querySelector("video");
+          const iframeEl = figure.querySelector("iframe");
+
+          if (!videoEl && !iframeEl) return false;
+
+          return node.style.fontWeight !== "normal" && null;
+        },
         contentElement: "figcaption",
       },
       { tag: "iframe[src]" },
