@@ -1,12 +1,5 @@
 import { t } from "i18next";
-import {
-  LeftAlign,
-  CenterAlign,
-  RightAlign,
-  Delete,
-  BorderDisable,
-  BorderEnable,
-} from "neetoicons";
+import { LeftAlign, CenterAlign, RightAlign, Delete } from "neetoicons";
 
 import { FILE_SIZE_UNITS } from "./constants";
 
@@ -24,25 +17,21 @@ export const convertToFileSize = (size = 10 * 1024 * 1024) => {
 export const buildImageOptions = (border = true) => [
   {
     Icon: LeftAlign,
+    type: "button",
     alignPos: "left",
     optionName: t("neetoEditor.menu.alignLeft"),
   },
   {
     Icon: CenterAlign,
+    type: "button",
     alignPos: "center",
     optionName: t("neetoEditor.menu.alignCenter"),
   },
   {
     Icon: RightAlign,
+    type: "button",
     alignPos: "right",
     optionName: t("neetoEditor.menu.alignRight"),
-  },
-  {
-    Icon: border ? BorderDisable : BorderEnable,
-    borderToggle: true,
-    optionName: border
-      ? t("neetoEditor.menu.removeBorder")
-      : t("neetoEditor.menu.addBorder"),
   },
   { Icon: Delete, optionName: t("neetoEditor.menu.delete") },
 ];

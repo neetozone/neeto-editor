@@ -1,4 +1,4 @@
-import { MenuHorizontal } from "neetoicons";
+import { Down, MenuHorizontal, CustomSize } from "neetoicons";
 import { Button, Dropdown } from "neetoui";
 
 import { buildImageOptions } from "../../MediaUploader/utils";
