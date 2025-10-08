@@ -17,7 +17,7 @@ const ImageComponent = ({
   updateAttributes,
   deleteNode,
 }) => {
-  const { src, figheight, figwidth, align, alt } = node.attrs;
+  const { src, figheight, figwidth, align, alt, border } = node.attrs;
 
   const [captionWidth, setCaptionWidth] = useState(figwidth || 0);
   const [previewUrl, setPreviewUrl] = useState(null);
@@ -60,11 +60,15 @@ const ImageComponent = ({
 
   return (
     <NodeViewWrapper
-      className={`neeto-editor__image-wrapper neeto-editor__image--${align}`}
       data-cy="neeto-editor-image-wrapper"
+      className={classNames(
+        "neeto-editor__image-wrapper",
+        `neeto-editor__image--${align}`,
+        { "neeto-editor__image--bordered": border }
+      )}
     >
       <figure ref={figureRef}>
-        <Menu {...{ align, deleteNode, editor, updateAttributes }} />
+        <Menu {...{ align, border, deleteNode, editor, updateAttributes }} />
         {src ? (
           <Resizable
             lockAspectRatio
@@ -79,6 +83,7 @@ const ImageComponent = ({
             <img
               {...{ ...node.attrs, src }}
               alt={caption}
+              data-border={border}
               onClick={e => {
                 e.stopPropagation();
                 setPreviewUrl(src);

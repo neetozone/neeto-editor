@@ -222,6 +222,14 @@
   padding: 0 !important;
 }
 
+.tippy-box[data-theme~=neeto-editor-common-submenu-tippy-box] {
+  box-shadow: none !important;
+}
+
+.tippy-box[data-theme~=neeto-editor-common-submenu-tippy-box] .tippy-content {
+  padding: 0 !important;
+}
+
 .neeto-editor-bubble-menu {
   position: relative;
   display: flex;
