@@ -3,11 +3,17 @@ import { Button, Dropdown } from "neetoui";
 
 import { buildImageOptions } from "../../MediaUploader/utils";
 
-const Menu = ({ align, editor, updateAttributes, deleteNode }) => {
-  const menuOptions = buildImageOptions();
+const Menu = ({ align, border, editor, updateAttributes, deleteNode }) => {
+  const menuOptions = buildImageOptions(border);
 
-  const handleClick = align => {
-    align ? updateAttributes({ align }) : deleteNode();
+  const handleClick = (alignPos, borderToggle) => {
+    if (borderToggle) {
+      updateAttributes({ border: !border });
+    } else if (alignPos) {
+      updateAttributes({ align: alignPos });
+    } else {
+      deleteNode();
+    }
     editor.commands.focus();
   };
 
@@ -21,14 +27,18 @@ const Menu = ({ align, editor, updateAttributes, deleteNode }) => {
       position="top"
       strategy="fixed"
     >
-      {menuOptions.map(({ Icon, optionName, alignPos }) => (
+      {menuOptions.map(({ Icon, optionName, alignPos, borderToggle }) => (
         <Button
           data-cy={`neeto-editor-image-menu-${optionName}`}
           icon={Icon}
           key={optionName}
-          style={alignPos === align ? "secondary" : "text"}
           tooltipProps={{ content: optionName, position: "top" }}
-          onClick={() => handleClick(alignPos)}
+          style={
+            alignPos === align || (borderToggle && border)
+              ? "secondary"
+              : "text"
+          }
+          onClick={() => handleClick(alignPos, borderToggle)}
         />
       ))}
     </Dropdown>
