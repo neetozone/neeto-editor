@@ -206,16 +206,16 @@
   },
   "peerDependencies": {
     "@babel/runtime": "7.23.2",
-    "@bigbinary/babel-preset-neeto": "*",
-    "@bigbinary/neeto-cist": "*",
+    "@bigbinary/babel-preset-neeto": "latest",
+    "@bigbinary/neeto-cist": "latest",
     "@bigbinary/neeto-commons-frontend": "3.4.14",
     "@bigbinary/neeto-filters-frontend": "3.3.1",
     "@bigbinary/neeto-hotkeys": "1.0.4",
-    "@bigbinary/neeto-icons": "*",
+    "@bigbinary/neeto-icons": "latest",
     "@bigbinary/neeto-image-uploader-frontend": "2.3.27",
     "@bigbinary/neeto-molecules": "1.15.15",
     "@bigbinary/neeto-team-members-frontend": "4.6.10",
-    "@bigbinary/neetoui": "*",
+    "@bigbinary/neetoui": "latest",
     "@honeybadger-io/js": "^6.5.3",
     "@honeybadger-io/react": "^6.1.9",
     "@rails/activestorage": "7.0.8-3",
@@ -278,6 +278,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bigbinary/neeto-editor.git"
-  },
-  "packageManager": "yarn@4.9.2+sha512.1fc009bc09d13cfd0e19efa44cbfc2b9cf6ca61482725eb35bbc5e257e093ebf4130db6dfe15d604ff4b79efd8e1e8e99b25fa7d0a6197c9f9826358d4d65c3c"
+  }
 }
