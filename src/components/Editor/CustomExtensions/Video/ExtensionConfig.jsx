@@ -1,6 +1,7 @@
 import { mergeAttributes, Node, PasteRule } from "@tiptap/core";
 import { TextSelection } from "@tiptap/pm/state";
 import { ReactNodeViewRenderer } from "@tiptap/react";
+import classNames from "classnames";
 import { COMBINED_REGEX } from "common/constants";
 
 import VideoComponent from "./VideoComponent";
@@ -79,9 +80,11 @@ const renderEmbedHTML = (node, HTMLAttributes, options) => {
   return [
     "div",
     {
-      class: `neeto-editor__video-wrapper neeto-editor__video--${align} ${
-        border ? "neeto-editor__video--bordered" : ""
-      }`,
+      class: classNames(
+        "neeto-editor__video-wrapper",
+        `neeto-editor__video--${align}`,
+        { "neeto-editor__video--bordered": border }
+      ),
     },
     [
       "div",
@@ -105,9 +108,11 @@ const renderUploadHTML = (node, HTMLAttributes, options) => {
   const { align, vidheight, vidwidth, border } = node.attrs;
 
   const wrapperDivAttrs = {
-    class: `neeto-editor__image-wrapper neeto-editor__image--${align} ${
-      border ? "neeto-editor__image--bordered" : ""
-    }`,
+    class: classNames(
+      "neeto-editor__image-wrapper",
+      `neeto-editor__image--${align}`,
+      { "neeto-editor__image--bordered": border }
+    ),
   };
 
   const heightStyle =

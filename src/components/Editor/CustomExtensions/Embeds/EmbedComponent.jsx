@@ -1,4 +1,5 @@
 import { NodeViewWrapper } from "@tiptap/react";
+import classNames from "classnames";
 import { mergeRight } from "ramda";
 import { Resizable } from "re-resizable";
 
@@ -37,9 +38,11 @@ const EmbedComponent = ({
   return (
     <NodeViewWrapper
       data-cy="neeto-editor-video-wrapper"
-      className={`neeto-editor__video-wrapper neeto-editor__video--${align} ${
-        border ? "neeto-editor__video--bordered" : ""
-      }`}
+      className={classNames(
+        "neeto-editor__video-wrapper",
+        `neeto-editor__video--${align}`,
+        { "neeto-editor__video--bordered": border }
+      )}
     >
       <Resizable
         lockAspectRatio

@@ -61,9 +61,11 @@ const ImageComponent = ({
   return (
     <NodeViewWrapper
       data-cy="neeto-editor-image-wrapper"
-      className={`neeto-editor__image-wrapper neeto-editor__image--${align} ${
-        border ? "neeto-editor__image--bordered" : ""
-      }`}
+      className={classNames(
+        "neeto-editor__image-wrapper",
+        `neeto-editor__image--${align}`,
+        { "neeto-editor__image--bordered": border }
+      )}
     >
       <figure ref={figureRef}>
         <Menu {...{ align, border, deleteNode, editor, updateAttributes }} />
