@@ -22,13 +22,15 @@ const Menu = ({ align, border, editor, updateAttributes, deleteNode }) => {
       buttonProps={{ className: "neeto-editor__image-menu-btn" }}
       buttonSize="large"
       buttonStyle="tertiary"
-      className="neeto-editor__image-menu"
+      className="neeto-editor__image-menu neeto-editor-bubble-menu"
       icon={MenuHorizontal}
       position="top"
       strategy="fixed"
+      theme="light neeto-editor-common-submenu-tippy-box"
     >
       {menuOptions.map(({ Icon, optionName, alignPos, borderToggle }) => (
         <Button
+          className="neeto-editor-bubble-menu__item"
           data-cy={`neeto-editor-image-menu-${optionName}`}
           icon={Icon}
           key={optionName}
