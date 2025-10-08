@@ -755,6 +755,17 @@
 
   // Embed
   .neeto-editor__video-wrapper {
+    &.neeto-editor__video--bordered {
+
+      video,
+      iframe {
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgba(var(--neeto-editor-content-image-border-color));
+        border-radius: var(--neeto-editor-content-image-border-radius);
+      }
+    }
+
     display: flex;
     margin: 1rem 0px;
 

@@ -15,7 +15,7 @@ const VideoComponent = ({
   updateAttributes,
   deleteNode,
 }) => {
-  const { src, vidheight, vidwidth, align } = node.attrs;
+  const { src, vidheight, vidwidth, align, border } = node.attrs;
 
   const [captionWidth, setCaptionWidth] = useState(vidwidth || 0);
 
@@ -58,10 +58,12 @@ const VideoComponent = ({
 
   return (
     <NodeViewWrapper
-      className={`neeto-editor__image-wrapper neeto-editor__image--${align}`}
+      className={`neeto-editor__image-wrapper neeto-editor__image--${align} ${
+        border ? "neeto-editor__image--bordered" : ""
+      }`}
     >
       <figure ref={figureRef}>
-        <Menu {...{ align, deleteNode, editor, updateAttributes }} />
+        <Menu {...{ align, border, deleteNode, editor, updateAttributes }} />
         <Resizable
           lockAspectRatio
           className="neeto-editor__image"
@@ -75,6 +77,7 @@ const VideoComponent = ({
             controls
             {...{ ...node.attrs, src }}
             alt={caption}
+            data-border={border}
             preload="metadata"
           />
         </Resizable>

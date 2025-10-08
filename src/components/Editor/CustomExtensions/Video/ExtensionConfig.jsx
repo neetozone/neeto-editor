@@ -32,6 +32,12 @@ const getSharedAttributes = () => ({
       return iframe ? "embed" : "upload";
     },
   },
+  border: {
+    default: true,
+    parseHTML: element =>
+      element.querySelector("video")?.getAttribute("data-border") === "true" ||
+      element.querySelector("iframe")?.getAttribute("data-border") === "true",
+  },
 });
 
 const getUploadAttributes = () => ({
@@ -68,12 +74,14 @@ const getEmbedAttributes = () => ({
 });
 
 const renderEmbedHTML = (node, HTMLAttributes, options) => {
-  const { align, figheight, figwidth } = node.attrs;
+  const { align, figheight, figwidth, border } = node.attrs;
 
   return [
     "div",
     {
-      class: `neeto-editor__video-wrapper neeto-editor__video--${align}`,
+      class: `neeto-editor__video-wrapper neeto-editor__video--${align} ${
+        border ? "neeto-editor__video--bordered" : ""
+      }`,
     },
     [
       "div",
@@ -86,6 +94,7 @@ const renderEmbedHTML = (node, HTMLAttributes, options) => {
         mergeAttributes(options.HTMLAttributes, {
           ...HTMLAttributes,
           allowfullscreen: true,
+          "data-border": border,
         }),
       ],
     ],
@@ -93,10 +102,12 @@ const renderEmbedHTML = (node, HTMLAttributes, options) => {
 };
 
 const renderUploadHTML = (node, HTMLAttributes, options) => {
-  const { align, vidheight, vidwidth } = node.attrs;
+  const { align, vidheight, vidwidth, border } = node.attrs;
 
   const wrapperDivAttrs = {
-    class: `neeto-editor__image-wrapper neeto-editor__image--${align}`,
+    class: `neeto-editor__image-wrapper neeto-editor__image--${align} ${
+      border ? "neeto-editor__image--bordered" : ""
+    }`,
   };
 
   const heightStyle =
@@ -126,6 +137,7 @@ const renderUploadHTML = (node, HTMLAttributes, options) => {
             controls: true,
             draggable: false,
             contenteditable: false,
+            "data-border": border,
           }),
         ],
       ],
