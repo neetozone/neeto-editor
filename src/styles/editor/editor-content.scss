@@ -853,7 +853,9 @@
   padding-left: 3px;
 
   &.neeto-editor__image--bordered {
-    img {
+
+    img,
+    video {
       border-style: solid;
       border-width: 1px;
       border-color: rgba(var(--neeto-editor-content-image-border-color));
