@@ -1,4 +1,5 @@
 import { NodeViewWrapper } from "@tiptap/react";
+import classnames from "classnames";
 import { mergeRight } from "ramda";
 import { Resizable } from "re-resizable";
 
@@ -11,7 +12,7 @@ const EmbedComponent = ({
   updateAttributes,
   deleteNode,
 }) => {
-  const { figheight, figwidth, align } = node.attrs;
+  const { figheight, figwidth, align, aspectRatio } = node.attrs;
   const { view } = editor;
   let height = figheight;
   let width = figwidth;
@@ -41,8 +42,13 @@ const EmbedComponent = ({
     >
       <Resizable
         lockAspectRatio
-        className="neeto-editor__video-iframe"
         size={{ height, width }}
+        className={classnames("neeto-editor__video-iframe", {
+          "neeto-editor-aspect-square": aspectRatio === "1/1",
+          "neeto-editor-aspect-video": aspectRatio === "16/9",
+          "neeto-editor-aspect-4-3": aspectRatio === "4/3",
+          "neeto-editor-aspect-3-2": aspectRatio === "3/2",
+        })}
         onResizeStop={handleResize}
       >
         <Menu {...{ align, deleteNode, editor, updateAttributes }} />

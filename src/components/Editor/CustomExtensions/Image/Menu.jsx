@@ -1,4 +1,4 @@
-import { Down, MenuHorizontal, CustomSize } from "neetoicons";
+import { MenuHorizontal, CustomSize, Down } from "neetoicons";
 import { Button, Dropdown } from "neetoui";
 
 import { buildImageOptions } from "../../MediaUploader/utils";
@@ -35,45 +35,27 @@ const Menu = ({ align, editor, updateAttributes, deleteNode }) => {
           />
         ) : (
           <Dropdown
-            appendTo={() => document.body}
-            className="neeto-editor-table-bubble-menu__dropdown"
-            closeOnSelect={false}
             key={optionName}
             position="bottom-start"
             strategy="fixed"
-            trigger="hover"
-            buttonProps={{
-              className: "neeto-editor-table-bubble-menu__dropdown-item",
-              icon: Down,
-              iconPosition: "right",
-              iconSize: 16,
-              label: <CustomSize size={16} />,
-              size: "small",
-              style: "text",
-              tooltipProps: {
-                content: optionName,
-                position: "top",
-                delay: [500],
-              },
-            }}
+            customTarget={
+              <MenuItem.Button className="!relative">
+                <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center gap-x-1">
+                  <CustomSize size={16} />
+                  <Down size={16} />
+                </div>
+              </MenuItem.Button>
+            }
+            onClick={event => event.stopPropagation()}
           >
-            <DropdownMenu className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center">
-              {items?.map(({ ratio, tooltipLabel }) => (
-                <MenuItem key={ratio}>
-                  <Button
-                    className="neeto-editor-table-bubble-menu__item"
-                    label={ratio}
-                    style="text"
-                    tooltipProps={{
-                      content: tooltipLabel,
-                      position: "bottom",
-                      delay: [500],
-                    }}
-                    onClick={() => {
-                      editor.commands.focus();
-                    }}
-                  />
-                </MenuItem>
+            <DropdownMenu>
+              {items?.map(({ ratio }) => (
+                <MenuItem.Button
+                  key={ratio}
+                  onClick={() => updateAttributes({ aspectRatio: ratio })}
+                >
+                  {ratio}
+                </MenuItem.Button>
               ))}
             </DropdownMenu>
           </Dropdown>
