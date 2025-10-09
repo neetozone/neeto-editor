@@ -79,6 +79,7 @@
       "alignCenter": "Align center",
       "alignRight": "Align right",
       "delete": "Delete",
+      "aspectRatio": "Aspect ratio",
       "embedVideo": "Embed video",
       "normalText": "Normal text",
       "normalTextDescription": "Add a plain text block.",

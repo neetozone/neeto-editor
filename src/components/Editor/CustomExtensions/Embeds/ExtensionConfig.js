@@ -1,10 +1,13 @@
 import { Node, mergeAttributes, PasteRule } from "@tiptap/core";
 import { TextSelection } from "@tiptap/pm/state";
 import { ReactNodeViewRenderer } from "@tiptap/react";
+import classnames from "classnames";
 import { COMBINED_REGEX } from "common/constants";
 
 import EmbedComponent from "./EmbedComponent";
 import { validateUrl } from "./utils";
+
+import { DEFAULT_ASPECT_RATIO } from "../../MediaUploader/constants";
 
 export default Node.create({
   name: "external-video",
@@ -52,6 +55,17 @@ export default Node.create({
         default: "left",
         parseHTML: element => element.getAttribute("align"),
       },
+
+      aspectRatio: {
+        default: DEFAULT_ASPECT_RATIO,
+        parseHTML: element => {
+          const iframe = element.querySelector(".neeto-editor__video-iframe");
+
+          return (
+            iframe?.getAttribute("data-aspect-ratio") || DEFAULT_ASPECT_RATIO
+          );
+        },
+      },
     };
   },
 
@@ -60,7 +74,7 @@ export default Node.create({
   },
 
   renderHTML({ HTMLAttributes, node }) {
-    const { align, figheight, figwidth } = node.attrs;
+    const { align, figheight, figwidth, aspectRatio } = node.attrs;
 
     return [
       "div",
@@ -70,8 +84,14 @@ export default Node.create({
       [
         "div",
         {
-          class: "neeto-editor__video-iframe",
+          class: classnames("neeto-editor__video-iframe", {
+            "neeto-editor-aspect-square": aspectRatio === "1/1",
+            "neeto-editor-aspect-video": aspectRatio === "16/9",
+            "neeto-editor-aspect-4-3": aspectRatio === "4/3",
+            "neeto-editor-aspect-3-2": aspectRatio === "3/2",
+          }),
           style: `width: ${figwidth}px; height: ${figheight}px;`,
+          "data-aspect-ratio": aspectRatio,
         },
         [
           "iframe",

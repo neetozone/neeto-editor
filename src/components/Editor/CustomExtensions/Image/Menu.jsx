@@ -1,7 +1,9 @@
-import { MenuHorizontal } from "neetoicons";
-import { Button, Dropdown } from "neetoui";
+import { MenuHorizontal, CustomSize, Down } from "neetoicons";
+import { Button, Dropdown, Tooltip } from "neetoui";
 
 import { buildImageOptions } from "../../MediaUploader/utils";
+
+const { Menu: DropdownMenu, MenuItem } = Dropdown;
 
 const Menu = ({ align, editor, updateAttributes, deleteNode }) => {
   const menuOptions = buildImageOptions();
@@ -21,16 +23,53 @@ const Menu = ({ align, editor, updateAttributes, deleteNode }) => {
       position="top"
       strategy="fixed"
     >
-      {menuOptions.map(({ Icon, optionName, alignPos }) => (
-        <Button
-          data-cy={`neeto-editor-image-menu-${optionName}`}
-          icon={Icon}
-          key={optionName}
-          style={alignPos === align ? "secondary" : "text"}
-          tooltipProps={{ content: optionName, position: "top" }}
-          onClick={() => handleClick(alignPos)}
-        />
-      ))}
+      {menuOptions.map(({ Icon, optionName, alignPos, type, items }) =>
+        type === "button" ? (
+          <Button
+            data-cy={`neeto-editor-image-menu-${optionName}`}
+            icon={Icon}
+            key={optionName}
+            style={alignPos === align ? "secondary" : "text"}
+            tooltipProps={{ content: optionName, position: "top" }}
+            onClick={() => handleClick(alignPos)}
+          />
+        ) : (
+          <Dropdown
+            key={optionName}
+            position="bottom-start"
+            strategy="fixed"
+            buttonProps={{
+              tooltipProps: {
+                content: optionName,
+                position: "top",
+                delay: [500],
+              },
+            }}
+            customTarget={
+              <MenuItem.Button className="!relative">
+                <Tooltip content={optionName} position="top">
+                  <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center gap-x-1">
+                    <CustomSize size={16} />
+                    <Down size={14} />
+                  </div>
+                </Tooltip>
+              </MenuItem.Button>
+            }
+            onClick={event => event.stopPropagation()}
+          >
+            <DropdownMenu>
+              {items?.map(({ ratio }) => (
+                <MenuItem.Button
+                  key={ratio}
+                  onClick={() => updateAttributes({ aspectRatio: ratio })}
+                >
+                  {ratio}
+                </MenuItem.Button>
+              ))}
+            </DropdownMenu>
+          </Dropdown>
+        )
+      )}
     </Dropdown>
   );
 };
