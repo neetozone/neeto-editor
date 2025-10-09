@@ -33,7 +33,18 @@ export const buildImageOptions = (border = true) => [
     alignPos: "right",
     optionName: t("neetoEditor.menu.alignRight"),
   },
-  { Icon: Delete, optionName: t("neetoEditor.menu.delete") },
+  {
+    Icon: CustomSize,
+    type: "dropdown",
+    optionName: t("neetoEditor.menu.aspectRatio"),
+    items: [
+      { ratio: "16/9", tooltipLabel: "16/9" },
+      { ratio: "4/3", tooltipLabel: "4/3" },
+      { ratio: "3/2", tooltipLabel: "3/2" },
+      { ratio: "1/1", tooltipLabel: "1/1" },
+    ],
+  },
+  { Icon: Delete, type: "button", optionName: t("neetoEditor.menu.delete") },
 ];
 
 export const getTabs = mediaUploader => {

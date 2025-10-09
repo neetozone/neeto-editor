@@ -41,3 +41,5 @@ export const VIDEO_EMBED_FORM_VALIDATION_SCHEMA = yup.object().shape({
       validateUrl
     ),
 });
+
+export const DEFAULT_ASPECT_RATIO = "16/9";

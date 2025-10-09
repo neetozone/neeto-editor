@@ -777,9 +777,29 @@
       max-width: 100%;
       height: auto !important;
 
-      iframe {
-        width: 100%;
-        aspect-ratio: 16 / 9;
+      &.neeto-editor-aspect-square {
+        iframe {
+          width: 100%;
+          aspect-ratio: 1 / 1;
+        }
+      }
+      &.neeto-editor-aspect-video {
+        iframe {
+          width: 100%;
+          aspect-ratio: 16 / 9;
+        }
+      }
+      &.neeto-editor-aspect-4-3 {
+        iframe {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+        }
+      }
+      &.neeto-editor-aspect-3-2 {
+        iframe {
+          width: 100%;
+          aspect-ratio: 3 / 2;
+        }
       }
     }
   }
