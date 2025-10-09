@@ -1,5 +1,5 @@
 import { MenuHorizontal, CustomSize, Down } from "neetoicons";
-import { Button, Dropdown } from "neetoui";
+import { Button, Dropdown, Tooltip } from "neetoui";
 
 import { buildImageOptions } from "../../MediaUploader/utils";
 
@@ -38,12 +38,21 @@ const Menu = ({ align, editor, updateAttributes, deleteNode }) => {
             key={optionName}
             position="bottom-start"
             strategy="fixed"
+            buttonProps={{
+              tooltipProps: {
+                content: optionName,
+                position: "top",
+                delay: [500],
+              },
+            }}
             customTarget={
               <MenuItem.Button className="!relative">
-                <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center gap-x-1">
-                  <CustomSize size={16} />
-                  <Down size={16} />
-                </div>
+                <Tooltip content={optionName} position="top">
+                  <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center gap-x-1">
+                    <CustomSize size={16} />
+                    <Down size={14} />
+                  </div>
+                </Tooltip>
               </MenuItem.Button>
             }
             onClick={event => event.stopPropagation()}
