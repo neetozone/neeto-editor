@@ -1,5 +1,5 @@
-import { Down, MenuHorizontal, CustomSize } from "neetoicons";
-import { Button, Dropdown } from "neetoui";
+import { MenuHorizontal, CustomSize, Down } from "neetoicons";
+import { Button, Dropdown, Tooltip } from "neetoui";
 
 import { buildImageOptions } from "../../MediaUploader/utils";
 
@@ -48,21 +48,24 @@ const Menu = ({ align, editor, updateAttributes, deleteNode }) => {
             key={optionName}
             position="bottom-start"
             strategy="fixed"
-            trigger="hover"
             buttonProps={{
-              className: "neeto-editor-table-bubble-menu__dropdown-item",
-              icon: Down,
-              iconPosition: "right",
-              iconSize: 16,
-              label: <CustomSize size={16} />,
-              size: "small",
-              style: "text",
               tooltipProps: {
                 content: optionName,
                 position: "top",
                 delay: [500],
               },
             }}
+            customTarget={
+              <MenuItem.Button className="!relative">
+                <Tooltip content={optionName} position="top">
+                  <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center gap-x-1">
+                    <CustomSize size={16} />
+                    <Down size={14} />
+                  </div>
+                </Tooltip>
+              </MenuItem.Button>
+            }
+            onClick={event => event.stopPropagation()}
           >
             <DropdownMenu className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center">
               {items?.map(({ ratio, tooltipLabel }) => (
