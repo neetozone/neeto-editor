@@ -73,6 +73,12 @@ export default Node.create({
         parseHTML: element =>
           element.querySelector("img")?.getAttribute("align"),
       },
+
+      border: {
+        default: true,
+        parseHTML: element =>
+          element.querySelector("img")?.getAttribute("data-border") === "true",
+      },
     };
   },
 
@@ -81,7 +87,7 @@ export default Node.create({
   },
 
   renderHTML({ node, HTMLAttributes }) {
-    const { align, src, figheight, figwidth } = node.attrs;
+    const { align, src, figheight, figwidth, border } = node.attrs;
 
     if (!src) return ["span"];
 
@@ -120,6 +126,7 @@ export default Node.create({
             mergeAttributes(HTMLAttributes, {
               draggable: false,
               contenteditable: false,
+              "data-border": border,
             }),
           ],
         ],
