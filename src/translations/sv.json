@@ -136,7 +136,9 @@
       "noResults": "Inga resultat",
       "rows": "Rader",
       "columns": "Kolumner",
-      "addImage": "Lägg till bild"
+      "addImage": "Lägg till bild",
+      "addBorder": "Lägg till kant",
+      "removeBorder": "Ta bort kant"
     },
     "placeholders": {
       "columns": "Ange kolumner",

@@ -136,7 +136,9 @@
       "noResults": "कोई परिणाम नहीं",
       "rows": "पंक्तियाँ",
       "columns": "स्तंभ",
-      "addImage": "छवि जोड़ें"
+      "addImage": "छवि जोड़ें",
+      "addBorder": "सीमा जोड़ें",
+      "removeBorder": "सीमा हटाएँ"
     },
     "placeholders": {
       "columns": "स्तंभ दर्ज करें",

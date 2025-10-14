@@ -136,7 +136,9 @@
       "noResults": "結果がありません",
       "rows": "行",
       "columns": "列",
-      "addImage": "画像を追加"
+      "addImage": "画像を追加",
+      "addBorder": "境界線を追加",
+      "removeBorder": "境界線を削除"
     },
     "placeholders": {
       "columns": "列を入力",

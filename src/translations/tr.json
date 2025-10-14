@@ -136,7 +136,9 @@
       "noResults": "Sonuç yok",
       "rows": "Satırlar",
       "columns": "Sütunlar",
-      "addImage": "Resim ekle"
+      "addImage": "Resim ekle",
+      "addBorder": "Sınır ekle",
+      "removeBorder": "Sınır kaldır"
     },
     "placeholders": {
       "columns": "Sütunları girin",

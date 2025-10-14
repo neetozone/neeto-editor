@@ -136,7 +136,9 @@
       "noResults": "결과 없음",
       "rows": "행",
       "columns": "열",
-      "addImage": "이미지 추가"
+      "addImage": "이미지 추가",
+      "addBorder": "테두리 추가",
+      "removeBorder": "테두리 제거"
     },
     "placeholders": {
       "columns": "열 입력",

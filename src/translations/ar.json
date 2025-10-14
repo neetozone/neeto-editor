@@ -136,7 +136,9 @@
       "noResults": "لا توجد نتائج",
       "rows": "صفوف",
       "columns": "أعمدة",
-      "addImage": "أضف صورة"
+      "addImage": "أضف صورة",
+      "addBorder": "إضافة حد",
+      "removeBorder": "إزالة الحد"
     },
     "placeholders": {
       "columns": "أدخل الأعمدة",

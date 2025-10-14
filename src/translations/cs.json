@@ -136,7 +136,9 @@
       "noResults": "Žádné výsledky",
       "rows": "Řádky",
       "columns": "Sloupce",
-      "addImage": "Přidat obrázek"
+      "addImage": "Přidat obrázek",
+      "addBorder": "Přidat okraj",
+      "removeBorder": "Odebrat okraj"
     },
     "placeholders": {
       "columns": "Zadejte sloupce",

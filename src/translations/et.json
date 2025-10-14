@@ -136,7 +136,9 @@
       "noResults": "Ei mingeid tulemusi",
       "rows": "Read",
       "columns": "Veerud",
-      "addImage": "Lisa pilt"
+      "addImage": "Lisa pilt",
+      "addBorder": "Lisa piir",
+      "removeBorder": "Eemalda piir"
     },
     "placeholders": {
       "columns": "Sisesta veerud",

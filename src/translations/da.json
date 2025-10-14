@@ -136,7 +136,9 @@
       "noResults": "Ingen resultater",
       "rows": "Rækker",
       "columns": "Kolonner",
-      "addImage": "Tilføj billede"
+      "addImage": "Tilføj billede",
+      "addBorder": "Tilføj kant",
+      "removeBorder": "Fjern kant"
     },
     "placeholders": {
       "columns": "Indtast kolonner",

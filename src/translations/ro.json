@@ -136,7 +136,9 @@
       "noResults": "Nu există rezultate",
       "rows": "Rânduri",
       "columns": "Coloane",
-      "addImage": "Adaugă imagine"
+      "addImage": "Adaugă imagine",
+      "addBorder": "Adaugă bordură",
+      "removeBorder": "Îndepărtează bordura"
     },
     "placeholders": {
       "columns": "Introdu coloanele",

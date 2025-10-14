@@ -136,7 +136,9 @@
       "noResults": "Geen resultaten",
       "rows": "Rijen",
       "columns": "Kolommen",
-      "addImage": "Afbeelding toevoegen"
+      "addImage": "Afbeelding toevoegen",
+      "addBorder": "Rand toevoegen",
+      "removeBorder": "Rand verwijderen"
     },
     "placeholders": {
       "columns": "Voer kolommen in",

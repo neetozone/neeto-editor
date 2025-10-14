@@ -136,7 +136,9 @@
       "noResults": "No hay resultados",
       "rows": "Filas",
       "columns": "Columnas",
-      "addImage": "Agregar imagen"
+      "addImage": "Agregar imagen",
+      "addBorder": "Agregar borde",
+      "removeBorder": "Eliminar borde"
     },
     "placeholders": {
       "columns": "Ingresa columnas",

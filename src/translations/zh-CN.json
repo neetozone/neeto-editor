@@ -136,7 +136,9 @@
       "noResults": "没有结果",
       "rows": "行",
       "columns": "列",
-      "addImage": "添加图片"
+      "addImage": "添加图片",
+      "addBorder": "添加边框",
+      "removeBorder": "移除边框"
     },
     "placeholders": {
       "columns": "输入列",
