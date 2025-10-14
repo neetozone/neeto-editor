@@ -136,7 +136,9 @@
       "columns": "Columnas",
       "addVideo": "Agregar video",
       "addVideoDescription": "Sube un archivo de video o embéldalo desde una URL",
-      "addImage": "Agregar imagen"
+      "addImage": "Agregar imagen",
+      "addBorder": "Agregar borde",
+      "removeBorder": "Eliminar borde"
     },
     "placeholders": {
       "columns": "Ingrese columnas",

@@ -136,7 +136,9 @@
       "noResults": "Žiadne výsledky",
       "rows": "Riadky",
       "columns": "Stĺpce",
-      "addImage": "Pridať obrázok"
+      "addImage": "Pridať obrázok",
+      "addBorder": "Pridať okraj",
+      "removeBorder": "Odstrániť okraj"
     },
     "placeholders": {
       "columns": "Zadajte stĺpce",

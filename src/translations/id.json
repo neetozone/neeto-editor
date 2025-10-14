@@ -136,7 +136,9 @@
       "noResults": "Tidak ada hasil",
       "rows": "Baris",
       "columns": "Kolom",
-      "addImage": "Tambahkan gambar"
+      "addImage": "Tambahkan gambar",
+      "addBorder": "Tambahkan border",
+      "removeBorder": "Hapus border"
     },
     "placeholders": {
       "columns": "Masukkan kolom",

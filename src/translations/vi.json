@@ -136,7 +136,9 @@
       "noResults": "Không có kết quả",
       "rows": "Hàng",
       "columns": "Cột",
-      "addImage": "Thêm hình ảnh"
+      "addImage": "Thêm hình ảnh",
+      "addBorder": "Thêm viền",
+      "removeBorder": "Bỏ viền"
     },
     "placeholders": {
       "columns": "Nhập cột",
