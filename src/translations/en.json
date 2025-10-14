@@ -78,6 +78,8 @@
       "alignLeft": "Align left",
       "alignCenter": "Align center",
       "alignRight": "Align right",
+      "addBorder": "Add border",
+      "removeBorder": "Remove border",
       "delete": "Delete",
       "aspectRatio": "Aspect ratio",
       "embedVideo": "Embed video",

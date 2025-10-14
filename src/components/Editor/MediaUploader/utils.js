@@ -5,6 +5,8 @@ import {
   RightAlign,
   Delete,
   CustomSize,
+  BorderDisable,
+  BorderEnable,
 } from "neetoicons";
 
 import { FILE_SIZE_UNITS } from "./constants";
@@ -20,7 +22,7 @@ export const convertToFileSize = (size = 10 * 1024 * 1024) => {
   return `${fileSize.toFixed(1)} ${FILE_SIZE_UNITS[i]}`;
 };
 
-export const buildImageOptions = () => [
+export const buildImageOptions = (border = true) => [
   {
     Icon: LeftAlign,
     type: "button",
@@ -51,6 +53,14 @@ export const buildImageOptions = () => [
     ],
   },
   { Icon: Delete, type: "button", optionName: t("neetoEditor.menu.delete") },
+  {
+    Icon: border ? BorderDisable : BorderEnable,
+    borderToggle: true,
+    optionName: border
+      ? t("neetoEditor.menu.removeBorder")
+      : t("neetoEditor.menu.addBorder"),
+  },
+  { Icon: Delete, optionName: t("neetoEditor.menu.delete") },
 ];
 
 export const getTabs = mediaUploader => {

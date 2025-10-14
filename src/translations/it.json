@@ -136,7 +136,9 @@
       "noResults": "Nessun risultato",
       "rows": "Righe",
       "columns": "Colonne",
-      "addImage": "Aggiungi immagine"
+      "addImage": "Aggiungi immagine",
+      "addBorder": "Aggiungi bordo",
+      "removeBorder": "Rimuovi bordo"
     },
     "placeholders": {
       "columns": "Inserisci colonne",

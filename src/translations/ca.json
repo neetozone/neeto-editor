@@ -136,7 +136,9 @@
       "noResults": "Sense resultats",
       "rows": "Files",
       "columns": "Columnes",
-      "addImage": "Afegir imatge"
+      "addImage": "Afegir imatge",
+      "addBorder": "Afegir bord",
+      "removeBorder": "Eliminar bord"
     },
     "placeholders": {
       "columns": "Introdueix columnes",

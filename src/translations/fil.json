@@ -136,7 +136,9 @@
       "noResults": "Walang resulta",
       "rows": "Mga Row",
       "columns": "Mga Column",
-      "addImage": "Magdagdag ng larawan"
+      "addImage": "Magdagdag ng larawan",
+      "addBorder": "Magdagdag ng hangganan",
+      "removeBorder": "Alisin ang hangganan"
     },
     "placeholders": {
       "columns": "Ilagay ang mga column",

@@ -136,7 +136,9 @@
       "noResults": "Nema rezultata",
       "rows": "Redovi",
       "columns": "Stupci",
-      "addImage": "Dodaj sliku"
+      "addImage": "Dodaj sliku",
+      "addBorder": "Dodaj granicu",
+      "removeBorder": "Ukloni granicu"
     },
     "placeholders": {
       "columns": "Unesite stupce",
