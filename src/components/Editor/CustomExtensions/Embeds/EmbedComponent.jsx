@@ -12,7 +12,7 @@ const EmbedComponent = ({
   updateAttributes,
   deleteNode,
 }) => {
-  const { figheight, figwidth, align, border } = node.attrs;
+  const { figheight, figwidth, align, border, aspectRatio } = node.attrs;
   const { view } = editor;
   let height = figheight;
   let width = figwidth;
@@ -38,7 +38,7 @@ const EmbedComponent = ({
   return (
     <NodeViewWrapper
       data-cy="neeto-editor-video-wrapper"
-      className={classNames(
+      className={classnames(
         "neeto-editor__video-wrapper",
         `neeto-editor__video--${align}`,
         { "neeto-editor__video--bordered": border }

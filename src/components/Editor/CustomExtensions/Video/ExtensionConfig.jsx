@@ -84,12 +84,12 @@ const getEmbedAttributes = () => ({
 });
 
 const renderEmbedHTML = (node, HTMLAttributes, options) => {
-  const { align, figheight, figwidth, aspectRatio } = node.attrs;
+  const { align, figheight, figwidth, border, aspectRatio } = node.attrs;
 
   return [
     "div",
     {
-      class: classNames(
+      class: classnames(
         "neeto-editor__video-wrapper",
         `neeto-editor__video--${align}`,
         { "neeto-editor__video--bordered": border }
@@ -123,7 +123,7 @@ const renderUploadHTML = (node, HTMLAttributes, options) => {
   const { align, vidheight, vidwidth, border } = node.attrs;
 
   const wrapperDivAttrs = {
-    class: classNames(
+    class: classnames(
       "neeto-editor__image-wrapper",
       `neeto-editor__image--${align}`,
       { "neeto-editor__image--bordered": border }

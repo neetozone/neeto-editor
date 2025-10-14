@@ -5,8 +5,8 @@ import { buildImageOptions } from "../../MediaUploader/utils";
 
 const { Menu: DropdownMenu, MenuItem } = Dropdown;
 
-const Menu = ({ align, editor, updateAttributes, deleteNode }) => {
-  const menuOptions = buildImageOptions();
+const Menu = ({ align, border, editor, updateAttributes, deleteNode }) => {
+  const menuOptions = buildImageOptions(border);
 
   const handleClick = (alignPos, borderToggle) => {
     if (borderToggle) {
@@ -30,64 +30,58 @@ const Menu = ({ align, editor, updateAttributes, deleteNode }) => {
       strategy="fixed"
       theme="light neeto-editor-common-submenu-tippy-box"
     >
-      {menuOptions.map(({ Icon, optionName, alignPos, type, items }) =>
-        type === "button" ? (
-          <Button
-            data-cy={`neeto-editor-image-menu-${optionName}`}
-            icon={Icon}
-            key={optionName}
-            style={alignPos === align ? "secondary" : "text"}
-            tooltipProps={{ content: optionName, position: "top" }}
-            onClick={() => handleClick(alignPos)}
-          />
-        ) : (
-          <Dropdown
-            appendTo={() => document.body}
-            className="neeto-editor-table-bubble-menu__dropdown"
-            closeOnSelect={false}
-            key={optionName}
-            position="bottom-start"
-            strategy="fixed"
-            buttonProps={{
-              tooltipProps: {
-                content: optionName,
-                position: "top",
-                delay: [500],
-              },
-            }}
-            customTarget={
-              <MenuItem.Button className="!relative">
-                <Tooltip content={optionName} position="top">
-                  <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center gap-x-1">
-                    <CustomSize size={16} />
-                    <Down size={14} />
-                  </div>
-                </Tooltip>
-              </MenuItem.Button>
-            }
-            onClick={event => event.stopPropagation()}
-          >
-            <DropdownMenu className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center">
-              {items?.map(({ ratio, tooltipLabel }) => (
-                <MenuItem key={ratio}>
-                  <Button
-                    className="neeto-editor-table-bubble-menu__item"
-                    label={ratio}
-                    style="text"
-                    tooltipProps={{
-                      content: tooltipLabel,
-                      position: "bottom",
-                      delay: [500],
-                    }}
-                    onClick={() => {
-                      editor.commands.focus();
-                    }}
-                  />
-                </MenuItem>
-              ))}
-            </DropdownMenu>
-          </Dropdown>
-        )
+      {menuOptions.map(
+        ({ Icon, optionName, alignPos, type, items, border, borderToggle }) =>
+          type === "button" ? (
+            <Button
+              className="neeto-editor-bubble-menu__item"
+              data-cy={`neeto-editor-image-menu-${optionName}`}
+              icon={Icon}
+              key={optionName}
+              tooltipProps={{ content: optionName, position: "top" }}
+              style={
+                alignPos === align || (borderToggle && border)
+                  ? "secondary"
+                  : "text"
+              }
+              onClick={() => handleClick(alignPos, borderToggle)}
+            />
+          ) : (
+            <Dropdown
+              key={optionName}
+              position="bottom-start"
+              strategy="fixed"
+              buttonProps={{
+                tooltipProps: {
+                  content: optionName,
+                  position: "top",
+                  delay: [500],
+                },
+              }}
+              customTarget={
+                <MenuItem.Button className="!relative">
+                  <Tooltip content={optionName} position="top">
+                    <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center gap-x-1">
+                      <CustomSize size={16} />
+                      <Down size={14} />
+                    </div>
+                  </Tooltip>
+                </MenuItem.Button>
+              }
+              onClick={event => event.stopPropagation()}
+            >
+              <DropdownMenu>
+                {items?.map(({ ratio }) => (
+                  <MenuItem.Button
+                    key={ratio}
+                    onClick={() => updateAttributes({ aspectRatio: ratio })}
+                  >
+                    {ratio}
+                  </MenuItem.Button>
+                ))}
+              </DropdownMenu>
+            </Dropdown>
+          )
       )}
     </Dropdown>
   );
