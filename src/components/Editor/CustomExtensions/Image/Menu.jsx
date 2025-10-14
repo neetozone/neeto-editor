@@ -5,8 +5,15 @@ import { buildImageOptions } from "../../MediaUploader/utils";
 
 const { Menu: DropdownMenu, MenuItem } = Dropdown;
 
-const Menu = ({ align, border, editor, updateAttributes, deleteNode }) => {
-  const menuOptions = buildImageOptions(border);
+const Menu = ({
+  align,
+  border,
+  editor,
+  updateAttributes,
+  deleteNode,
+  showAspectRatio,
+}) => {
+  const menuOptions = buildImageOptions(border, showAspectRatio);
 
   const handleClick = (alignPos, borderToggle) => {
     if (borderToggle) {

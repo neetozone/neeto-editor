@@ -55,7 +55,10 @@ const EmbedComponent = ({
         })}
         onResizeStop={handleResize}
       >
-        <Menu {...{ align, border, deleteNode, editor, updateAttributes }} />
+        <Menu
+          {...{ align, border, deleteNode, editor, updateAttributes }}
+          showAspectRatio
+        />
         <iframe {...node.attrs} allowFullScreen data-border={border} />
       </Resizable>
     </NodeViewWrapper>
