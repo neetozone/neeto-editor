@@ -1,4 +1,4 @@
-import { MenuHorizontal, CustomSize, Down } from "neetoicons";
+import { MenuHorizontal, AspectRatio, Down } from "neetoicons";
 import { Button, Dropdown, Tooltip } from "neetoui";
 
 import { buildImageOptions } from "../../MediaUploader/utils";
@@ -66,10 +66,10 @@ const Menu = ({
                 },
               }}
               customTarget={
-                <MenuItem.Button className="!relative">
+                <MenuItem.Button className="neeto-editor-bubble-menu__item !relative">
                   <Tooltip content={optionName} position="top">
                     <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center gap-x-1">
-                      <CustomSize size={16} />
+                      <AspectRatio size={18} />
                       <Down size={14} />
                     </div>
                   </Tooltip>
@@ -77,7 +77,7 @@ const Menu = ({
               }
               onClick={event => event.stopPropagation()}
             >
-              <DropdownMenu>
+              <DropdownMenu className="mb-0">
                 {items?.map(({ ratio }) => (
                   <MenuItem.Button
                     key={ratio}

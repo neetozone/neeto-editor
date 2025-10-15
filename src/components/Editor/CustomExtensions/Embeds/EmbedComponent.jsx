@@ -48,8 +48,9 @@ const EmbedComponent = ({
         lockAspectRatio
         size={{ height, width }}
         className={classnames("neeto-editor__video-iframe", {
-          "neeto-editor-aspect-square": aspectRatio === "1/1",
-          "neeto-editor-aspect-video": aspectRatio === "16/9",
+          "neeto-editor-aspect-1-1": aspectRatio === "1/1",
+          "neeto-editor-aspect-16-9": aspectRatio === "16/9",
+          "neeto-editor-aspect-9-16": aspectRatio === "9/16",
           "neeto-editor-aspect-4-3": aspectRatio === "4/3",
           "neeto-editor-aspect-3-2": aspectRatio === "3/2",
         })}
