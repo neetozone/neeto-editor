@@ -5,9 +5,10 @@ import Search from "neetomolecules/Search";
 import { Select, Spinner as NeetoUISpinner } from "neetoui";
 import { useTranslation } from "react-i18next";
 
-import { useArticleFetching } from "hooks/useArticleFetching";
+import { useFetchKbArticles } from "hooks/reactQuery/kbArticle/useArticleFetching";
 
 import ArticlesList from "./ArticlesList";
+import { buildArticleFullUrl, createArticleOptions } from "./utils";
 
 const ArticlePicker = ({
   mode = "modal",
@@ -22,43 +23,30 @@ const ArticlePicker = ({
   name,
   className,
   strategy,
-  onArticleSelect, // For modal mode
+  onArticleSelect,
 }) => {
   const { t } = useTranslation();
-  const [articles, setArticles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectOptions, setSelectOptions] = useState([]);
   const modalRef = useRef(null);
 
-  const {
-    isLoading: internalIsLoading,
-    fetchArticles: fetchArticlesData,
-    fetchArticleDetails,
-    createArticleOptions,
-  } = useArticleFetching();
+  const { data: articles = [], isLoading: isLoadingArticles } =
+    useFetchKbArticles({
+      searchTerm,
+      reactQueryOptions: { enabled: !externalOptions },
+    });
 
-  const isLoading = externalIsLoading || internalIsLoading;
+  const isLoading = externalIsLoading || isLoadingArticles;
 
-  const fetchArticles = async (searchTerm = "") => {
-    const articlesData = await fetchArticlesData(searchTerm);
+  const selectOptions = mode === "select" ? createArticleOptions(articles) : [];
 
-    if (mode === "modal") {
-      setArticles(articlesData);
-    } else if (mode === "select") {
-      const articleOptions = createArticleOptions(articlesData);
-      setSelectOptions(articleOptions);
-    }
-  };
+  const handleModalArticleSelect = article => {
+    if (mode !== "modal" || !article) return;
 
-  useEffect(() => {
-    fetchArticles();
-  }, []);
-
-  const handleModalArticleSelect = async article => {
-    if (mode === "modal") {
-      const detailedArticle = await fetchArticleDetails(article.id);
-      onArticleSelect(article, detailedArticle);
-    }
+    const articleWithUrl = {
+      ...article,
+      full_url: buildArticleFullUrl(article.slug),
+    };
+    onArticleSelect(article, articleWithUrl);
     onClose?.();
   };
 
@@ -93,7 +81,9 @@ const ArticlePicker = ({
 
     document.addEventListener("mousedown", handleClickOutside);
 
-    () => document.removeEventListener("mousedown", handleClickOutside);
+    () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [mode, onClose]);
 
   if (mode === "modal") {
@@ -105,11 +95,8 @@ const ArticlePicker = ({
         <div className="mb-4">
           <Search
             autoFocus
-            debounceTime={300}
             placeholder={t("neetoEditor.placeholders.searchArticles")}
-            value={searchTerm}
-            onChange={({ target: { value } }) => setSearchTerm(value)}
-            onSearch={fetchArticles}
+            onSearch={setSearchTerm}
           />
         </div>
         {isLoading ? (

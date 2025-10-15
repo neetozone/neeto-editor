@@ -13,12 +13,9 @@ const apiConfig = {
   transformRequestCase: false,
 };
 
-const fetchArticle = articleId =>
-  axios.get(`${NEETO_KB_ARTICLES_URL}/${articleId}`, apiConfig);
-
 const fetchArticles = params =>
   axios.get(NEETO_KB_ARTICLES_URL, { ...apiConfig, params });
 
-const neetoKbApi = { fetchArticle, fetchArticles };
+const neetoKbApi = { fetchArticles };
 
 export default neetoKbApi;

@@ -17,7 +17,7 @@ import { Label } from "neetoui";
 import { createPortal } from "react-dom";
 
 import ErrorWrapper from "components/Common/ErrorWrapper";
-import { useDeletedArticles } from "hooks/useDeletedArticles";
+import { useDeletedArticles } from "hooks/reactQuery/kbArticle/useDeletedArticles";
 import useEditorWarnings from "hooks/useEditorWarnings";
 import "src/styles/editor/index.scss";
 import { removeEmptyTags } from "src/utils";

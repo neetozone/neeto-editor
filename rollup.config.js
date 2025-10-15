@@ -83,7 +83,7 @@ const config = args => {
   return [
     {
       input,
-      external: peerDependencies,
+      external: [...peerDependencies, "@tanstack/react-query"],
       output,
       plugins: [
         cleaner({ targets: ["./dist/"] }),

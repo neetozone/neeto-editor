@@ -16,6 +16,7 @@ import { LINK_VALIDATION_SCHEMA } from "./constants";
 import KbArticleDeletedModal from "./CustomExtensions/LinkKbArticles/KbArticleDeletedModal";
 import KbArticleEdit from "./CustomExtensions/LinkKbArticles/KbArticleEdit";
 import KbArticleView from "./CustomExtensions/LinkKbArticles/KbArticleView";
+import { buildArticleFullUrl } from "./CustomExtensions/LinkKbArticles/utils";
 import { getLinkPopoverPosition } from "./Menu/Fixed/utils";
 import { validateAndFormatUrl } from "./utils";
 
@@ -142,7 +143,7 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
     editor.commands.extendMarkRange("link");
   };
 
-  const handleKbArticleSubmit = async ({ textContent, pageSelection }) => {
+  const handleKbArticleSubmit = ({ textContent, pageSelection }) => {
     if (!pageSelection || pageSelection === "") {
       const { state, dispatch } = editor.view;
       const type = getMarkType("link", state.schema);
@@ -183,43 +184,41 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
     if (!selectedOption) return;
 
     const { data } = selectedOption;
-    let articleData = null;
 
     if (data?.type === "article") {
-      const response = await neetoKbApi.fetchArticle(data.id);
-      articleData = response.article || response.data?.article || response;
-    }
+      const full_url = buildArticleFullUrl(data.slug);
 
-    if (articleData && articleData.full_url) {
-      const { state, dispatch } = editor.view;
-      const type = getMarkType("link", state.schema);
-      const { $to } = state.selection;
-      const { from = null, to = null } = getMarkRange($to, type) || {};
+      if (full_url) {
+        const { state, dispatch } = editor.view;
+        const type = getMarkType("link", state.schema);
+        const { $to } = state.selection;
+        const { from = null, to = null } = getMarkRange($to, type) || {};
 
-      if (isNil(from) || isNil(to)) return;
+        if (isNil(from) || isNil(to)) return;
 
-      const isDeleted = deletedArticlesHook?.isArticleDeleted(articleData.id);
+        const isDeleted = deletedArticlesHook?.isArticleDeleted(data.id);
 
-      const attrs = {
-        href: articleData.full_url,
-        "data-neeto-kb-article": "true",
-        "data-article-id": articleData.id,
-        "data-article-deleted": isDeleted ? "true" : null,
-        title: decodeHtmlEntities(articleData.title || ""),
-      };
+        const attrs = {
+          href: full_url,
+          "data-neeto-kb-article": "true",
+          "data-article-id": data.id,
+          "data-article-deleted": isDeleted ? "true" : null,
+          title: decodeHtmlEntities(data.title || ""),
+        };
 
-      const linkMark = state.schema.marks.link.create(attrs);
-      const linkTextWithMark = state.schema.text(
-        textContent || decodeHtmlEntities(articleData.title || ""),
-        [linkMark]
-      );
+        const linkMark = state.schema.marks.link.create(attrs);
+        const linkTextWithMark = state.schema.text(
+          textContent || decodeHtmlEntities(data.title || ""),
+          [linkMark]
+        );
 
-      const tr = state.tr.replaceWith(from, to, linkTextWithMark);
-      dispatch(tr);
+        const tr = state.tr.replaceWith(from, to, linkTextWithMark);
+        dispatch(tr);
 
-      setIsEditing(false);
-      editor.view.focus();
-      editor.commands.extendMarkRange("link");
+        setIsEditing(false);
+        editor.view.focus();
+        editor.commands.extendMarkRange("link");
+      }
     }
   };
 
@@ -371,7 +370,7 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
     return (
       <KbArticleView
         {...{ isDeleted, linkAttributes }}
-        currentText={getCurrentTextContent()} // Pass current text from editor
+        currentText={getCurrentTextContent()}
         onEdit={() => setIsEditing(true)}
         onDeletedClick={() => {
           removePopover();
