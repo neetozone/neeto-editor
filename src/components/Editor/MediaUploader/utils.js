@@ -52,6 +52,7 @@ export const buildImageOptions = (border = true, showAspectRatio = false) => {
       optionName: t("neetoEditor.menu.aspectRatio"),
       items: [
         { ratio: "16/9", tooltipLabel: "16/9" },
+        { ratio: "9/16", tooltipLabel: "9/16" },
         { ratio: "4/3", tooltipLabel: "4/3" },
         { ratio: "3/2", tooltipLabel: "3/2" },
         { ratio: "1/1", tooltipLabel: "1/1" },
