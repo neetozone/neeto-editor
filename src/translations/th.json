@@ -136,7 +136,9 @@
       "noResults": "ไม่มีผลลัพธ์",
       "rows": "แถว",
       "columns": "คอลัมน์",
-      "addImage": "เพิ่มภาพ"
+      "addImage": "เพิ่มภาพ",
+      "addBorder": "เพิ่มเส้นขอบ",
+      "removeBorder": "ลบเส้นขอบ"
     },
     "placeholders": {
       "columns": "ป้อนคอลัมน์",

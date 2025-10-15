@@ -29,6 +29,9 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
   const [popoverPosition, setPopoverPosition] = useState({ top: 0, left: 0 });
   const [isEditing, setIsEditing] = useState(false);
   const [isLinkActive, setIsLinkActive] = useState(editor?.isActive("link"));
+  const [linkAttributes, setLinkAttributes] = useState(
+    editor?.getAttributes("link")
+  );
 
   const [isLoadingKbData, setIsLoadingKbData] = useState(false);
   const [selectOptions, setSelectOptions] = useState([]);
@@ -38,8 +41,6 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
   const popoverRef = useRef(null);
 
   const { t } = useTranslation();
-
-  const linkAttributes = editor?.getAttributes("link");
   const isNeetoKbArticle = linkAttributes?.["data-neeto-kb-article"] === "true";
 
   useEffect(() => {
@@ -114,8 +115,12 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
         .chain()
         .focus()
         .extendMarkRange("link")
-        .setLink({ href: formattedUrl, target: openInNewTab ? "_blank" : null })
+        .setLink({
+          href: formattedUrl,
+          target: openInNewTab ? "_blank" : "_self",
+        })
         .run();
+
       setIsEditing(false);
 
       return;
@@ -129,8 +134,9 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
 
     const attrs = {
       href: formattedUrl,
-      target: openInNewTab ? "_blank" : null,
+      target: openInNewTab ? "_blank" : "_self",
     };
+
     const linkMark = state.schema.marks.link.create(attrs);
     const linkTextWithMark = state.schema.text(textContent, [linkMark]);
 
@@ -244,9 +250,13 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
 
   useEffect(() => {
     const isActive = editor?.isActive("link");
+
     setIsLinkActive(isActive);
     if (isActive) {
       updatePopoverPosition();
+      const currentLinkAttributes = editor?.getAttributes("link");
+
+      setLinkAttributes(currentLinkAttributes);
     }
   }, [view?.state?.selection?.$from?.pos, isEditing]);
 
@@ -283,69 +293,74 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
     return state.doc.textBetween($from.pos, $to.pos);
   };
 
-  const renderEditingMode = () => (
-    <Form
-      formikProps={{
-        initialValues: {
-          textContent: initialTextContent,
-          urlString: linkAttributes?.href || "",
-          openInNewTab: linkAttributes?.target === "_blank",
-        },
-        onSubmit: handleSubmit,
-        validationSchema: LINK_VALIDATION_SCHEMA,
-      }}
-    >
-      {({ dirty, isSubmitting, setFieldValue, values }) => (
-        <>
-          <Input
-            required
-            data-cy="neeto-editor-edit-link-text-input"
-            label={t("neetoEditor.common.text")}
-            name="textContent"
-            placeholder={t("neetoEditor.placeholders.enterText")}
-            style={{ width: "250px" }}
-            onKeyDown={handleKeyDown}
-          />
-          <Input
-            autoFocus
-            required
-            className="ne-link-popover__url-input"
-            data-cy="neeto-editor-edit-link-url-input"
-            label={t("neetoEditor.common.url")}
-            name="urlString"
-            placeholder={t("neetoEditor.placeholders.url")}
-            style={{ width: "250px" }}
-            onKeyDown={handleKeyDown}
-          />
-          <Checkbox
-            checked={values.openInNewTab}
-            className="ne-link-popover__checkbox"
-            label={t("neetoEditor.common.openInNewTab")}
-            onChange={() => {
-              setFieldValue("openInNewTab", !values.openInNewTab);
-            }}
-          />
-          <div className="ne-link-popover__edit-prompt-buttons">
-            <Button
-              data-cy="neeto-editor-edit-link"
-              disabled={!dirty}
-              label={t("neetoEditor.menu.link")}
-              loading={isSubmitting}
-              size="small"
-              type="submit"
+  const renderEditingMode = () => {
+    const initialValues = {
+      textContent: initialTextContent,
+      urlString: linkAttributes?.href || "",
+      openInNewTab: linkAttributes?.target === "_blank",
+    };
+
+    return (
+      <Form
+        key={`${linkAttributes?.href}-${linkAttributes?.target}`}
+        formikProps={{
+          initialValues,
+          onSubmit: handleSubmit,
+          validationSchema: LINK_VALIDATION_SCHEMA,
+        }}
+      >
+        {({ dirty, isSubmitting, setFieldValue, values }) => (
+          <>
+            <Input
+              required
+              data-cy="neeto-editor-edit-link-text-input"
+              label={t("neetoEditor.common.text")}
+              name="textContent"
+              placeholder={t("neetoEditor.placeholders.enterText")}
+              style={{ width: "250px" }}
+              onKeyDown={handleKeyDown}
             />
-            <Button
-              data-cy="neeto-editor-edit-link-cancel"
-              label={t("neetoEditor.common.cancel")}
-              size="small"
-              style="text"
-              onClick={() => setIsEditing(false)}
+            <Input
+              autoFocus
+              required
+              className="ne-link-popover__url-input"
+              data-cy="neeto-editor-edit-link-url-input"
+              label={t("neetoEditor.common.url")}
+              name="urlString"
+              placeholder={t("neetoEditor.placeholders.url")}
+              style={{ width: "250px" }}
+              onKeyDown={handleKeyDown}
             />
-          </div>
-        </>
-      )}
-    </Form>
-  );
+            <Checkbox
+              checked={values.openInNewTab}
+              className="ne-link-popover__checkbox"
+              label={t("neetoEditor.common.openInNewTab")}
+              onChange={() => {
+                setFieldValue("openInNewTab", !values.openInNewTab);
+              }}
+            />
+            <div className="ne-link-popover__edit-prompt-buttons">
+              <Button
+                data-cy="neeto-editor-edit-link"
+                disabled={!dirty}
+                label={t("neetoEditor.menu.link")}
+                loading={isSubmitting}
+                size="small"
+                type="submit"
+              />
+              <Button
+                data-cy="neeto-editor-edit-link-cancel"
+                label={t("neetoEditor.common.cancel")}
+                size="small"
+                style="text"
+                onClick={() => setIsEditing(false)}
+              />
+            </div>
+          </>
+        )}
+      </Form>
+    );
+  };
 
   const renderEditingModeForKbArticle = () => (
     <KbArticleEdit
@@ -382,7 +397,11 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
 
   const renderViewMode = () => (
     <>
-      <a href={linkAttributes?.href} rel="noreferrer" target="_blank">
+      <a
+        href={linkAttributes?.href}
+        rel="noreferrer noopener"
+        target={linkAttributes?.target || "_self"}
+      >
         {linkAttributes?.href}
       </a>
       {" - "}

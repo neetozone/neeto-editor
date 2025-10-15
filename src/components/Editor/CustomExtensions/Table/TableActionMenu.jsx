@@ -57,12 +57,13 @@ const TableActionMenu = ({ editor }) => {
           return (
             <Dropdown
               appendTo={() => document.body}
+              className="neeto-editor-table-bubble-menu__dropdown"
               closeOnSelect={false}
               key={action.label}
               position="bottom-start"
               strategy="fixed"
               buttonProps={{
-                className: "neeto-editor-table-bubble-menu__item neeto-ui-ml-2",
+                className: "neeto-editor-table-bubble-menu__dropdown-item",
                 icon: Down,
                 iconPosition: "right",
                 iconSize: 16,
@@ -76,13 +77,14 @@ const TableActionMenu = ({ editor }) => {
                 },
               }}
             >
-              <Menu className="neeto-ui-gap-1 flex items-center justify-center">
+              <Menu className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center">
                 {action.items?.map(({ type, command, tooltipLabel }) => {
                   const IconComponent = alignmentIcons[type];
 
                   return (
                     <MenuItem key={type}>
                       <Button
+                        className="neeto-editor-table-bubble-menu__item"
                         icon={IconComponent}
                         style="text"
                         tooltipProps={{

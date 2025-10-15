@@ -222,6 +222,14 @@
   padding: 0 !important;
 }
 
+.tippy-box[data-theme~=neeto-editor-common-submenu-tippy-box] {
+  box-shadow: none !important;
+}
+
+.tippy-box[data-theme~=neeto-editor-common-submenu-tippy-box] .tippy-content {
+  padding: 0 !important;
+}
+
 .neeto-editor-bubble-menu {
   position: relative;
   display: flex;
@@ -330,7 +338,7 @@
   .neeto-editor-bubble-menu__table {
     max-width: 256px;
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 4px;
     gap: 6px;
@@ -467,4 +475,13 @@
     background-color: rgb(var(--neeto-ui-accent-100)) !important;
     color: rgb(var(--neeto-ui-accent-800)) !important;
   }
+}
+
+.neeto-editor-table-bubble-menu__dropdown .neeto-ui-dropdown__popup {
+  min-width: auto;
+}
+
+.neeto-editor-table-bubble-menu__dropdown .neeto-ui-dropdown__popup .neeto-ui-dropdown__popup-menu {
+  padding: 0;
+  --neeto-ui-btn-border-radius: 0;
 }

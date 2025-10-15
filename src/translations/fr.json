@@ -30,15 +30,15 @@
       "uploading": "Téléchargement"
     },
     "error": {
-      "invalidUrl": "Veuillez entrer une URL valide",
-      "invalidEmbedUrl": "Sources prises en charge : NeetoRecord, YouTube, Vimeo, Loom, Supademo.",
+      "invalidUrl": "Veuillez entrer une URL valide.",
+      "invalidEmbedUrl": "L'URL n'est pas prise en charge pour l'intégration. Utilisez des URLs valides de YouTube, Vimeo, Loom, neetoRecord ou Supademo.",
       "cannotAddFiles": "Impossible d'ajouter des fichiers",
       "onBeforeFileAddedReturn": "Impossible d'ajouter le fichier car onBeforeFileAdded a retourné false.",
       "fileIsTooLarge": "La taille du fichier est trop grande. La taille maximale est {{maxFileSize, anyCase}}.",
       "imageSizeIsShouldBeLess": "La taille de l'image doit être inférieure à {{limit}} MO",
       "urlRequired": "L'URL est requise",
       "textRequired": "Le texte est requis",
-      "uploadFileFailed": "Échec du téléchargement d'une pièce jointe",
+      "uploadFileFailed": "Le téléchargement de la pièce jointe a échoué",
       "fileNotAllowed": "Le type de fichier sélectionné n'est pas autorisé",
       "noResults": "Aucun résultat",
       "imageUploadFailed": "Échec du téléchargement de l'image, veuillez réessayer !",
@@ -108,7 +108,7 @@
       "image": "Image",
       "imageDescription": "Ajouter un bloc d'image.",
       "video": "Vidéo",
-      "videoDescription": "Ajouter un bloc vidéo.",
+      "videoDescription": "Téléchargez ou intégrez une vidéo",
       "blockQuoteDescription": "Ajouter une citation.",
       "codeDescription": "Ajouter un bloc de code.",
       "callout": "Encadré",
@@ -136,7 +136,9 @@
       "columns": "Colonnes",
       "addVideo": "Ajouter une vidéo",
       "addVideoDescription": "Téléchargez un fichier vidéo ou intégrez à partir d'une URL",
-      "addImage": "Ajouter une image"
+      "addImage": "Ajouter une image",
+      "addBorder": "Ajouter une bordure",
+      "removeBorder": "Supprimer la bordure"
     },
     "placeholders": {
       "columns": "Entrez les colonnes",

@@ -59,7 +59,7 @@ const LinkAddPopOver = ({
 
     const attrs = {
       href: formattedUrl,
-      target: openInNewTab ? "_blank" : null,
+      target: openInNewTab ? "_blank" : "_self",
     };
 
     const linkMark = state.schema.marks.link.create(attrs);

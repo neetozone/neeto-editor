@@ -79,6 +79,8 @@
       "alignLeft": "Align left",
       "alignCenter": "Align center",
       "alignRight": "Align right",
+      "addBorder": "Add border",
+      "removeBorder": "Remove border",
       "delete": "Delete",
       "embedVideo": "Embed video",
       "normalText": "Normal text",

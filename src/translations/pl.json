@@ -136,7 +136,9 @@
       "noResults": "Brak wyników",
       "rows": "Wiersze",
       "columns": "Kolumny",
-      "addImage": "Dodaj obraz"
+      "addImage": "Dodaj obraz",
+      "addBorder": "Dodaj obramowanie",
+      "removeBorder": "Usuń obramowanie"
     },
     "placeholders": {
       "columns": "Wprowadź kolumny",

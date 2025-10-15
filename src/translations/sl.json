@@ -136,7 +136,9 @@
       "noResults": "Ni rezultatov",
       "rows": "Vrste",
       "columns": "Stolpci",
-      "addImage": "Dodaj sliko"
+      "addImage": "Dodaj sliko",
+      "addBorder": "Dodaj obrobo",
+      "removeBorder": "Odstrani obrobo"
     },
     "placeholders": {
       "columns": "Vnesite stolpce",
