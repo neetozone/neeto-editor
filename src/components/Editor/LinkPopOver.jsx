@@ -9,14 +9,17 @@ import { equals, isNil } from "ramda";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 
-import neetoKbApi from "src/apis/neeto_kb";
+import { useFetchKbArticles } from "hooks/reactQuery/kbArticle/useArticleFetching";
 import { decodeHtmlEntities } from "src/utils/common";
 
 import { LINK_VALIDATION_SCHEMA } from "./constants";
 import KbArticleDeletedModal from "./CustomExtensions/LinkKbArticles/KbArticleDeletedModal";
 import KbArticleEdit from "./CustomExtensions/LinkKbArticles/KbArticleEdit";
 import KbArticleView from "./CustomExtensions/LinkKbArticles/KbArticleView";
-import { buildArticleFullUrl } from "./CustomExtensions/LinkKbArticles/utils";
+import {
+  buildArticleFullUrl,
+  createArticleOptions,
+} from "./CustomExtensions/LinkKbArticles/utils";
 import { getLinkPopoverPosition } from "./Menu/Fixed/utils";
 import { validateAndFormatUrl } from "./utils";
 
@@ -33,9 +36,6 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
     editor?.getAttributes("link")
   );
 
-  const [isLoadingKbData, setIsLoadingKbData] = useState(false);
-  const [selectOptions, setSelectOptions] = useState([]);
-
   const [showDeletedModal, setShowDeletedModal] = useState(false);
 
   const popoverRef = useRef(null);
@@ -43,27 +43,13 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
   const { t } = useTranslation();
   const isNeetoKbArticle = linkAttributes?.["data-neeto-kb-article"] === "true";
 
-  useEffect(() => {
-    if (isEditing && isNeetoKbArticle) {
-      fetchKbDataForEditing();
-    }
-  }, [isEditing, isNeetoKbArticle]);
+  const { data: articles = [], isLoading: isLoadingKbData } =
+    useFetchKbArticles({
+      searchTerm: "",
+      reactQueryOptions: { enabled: isEditing && isNeetoKbArticle },
+    });
 
-  const fetchKbDataForEditing = async () => {
-    setIsLoadingKbData(true);
-    const articlesResponse = await neetoKbApi.fetchArticles({});
-    const articlesData =
-      articlesResponse.articles || articlesResponse.data?.articles || [];
-
-    const articleOptions = articlesData.map(article => ({
-      label: decodeHtmlEntities(article.title),
-      value: article.id,
-      data: { type: "article", ...article },
-    }));
-
-    setSelectOptions(articleOptions);
-    setIsLoadingKbData(false);
-  };
+  const selectOptions = createArticleOptions(articles);
 
   const handleSelectChange = (value, { setFieldValue }) => {
     const selectedOption = findBy({ value: value?.value }, selectOptions);
