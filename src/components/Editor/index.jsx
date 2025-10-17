@@ -205,6 +205,7 @@ const Editor = (
 
   return (
     <div
+      data-cy="neeto-editor-wrapper"
       ref={wrapperRef}
       className={classnames({
         [className]: className,
