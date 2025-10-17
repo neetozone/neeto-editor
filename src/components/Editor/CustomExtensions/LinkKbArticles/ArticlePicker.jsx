@@ -8,10 +8,11 @@ import { useTranslation } from "react-i18next";
 import { useFetchKbArticles } from "hooks/reactQuery/kbArticle/useArticleFetching";
 
 import ArticlesList from "./ArticlesList";
+import { MODE } from "./constants";
 import { buildArticleFullUrl, createArticleOptions } from "./utils";
 
 const ArticlePicker = ({
-  mode = "modal",
+  mode = MODE.MODAL,
   cursorPos,
   onClose,
   isLoading: externalIsLoading,
@@ -37,10 +38,11 @@ const ArticlePicker = ({
 
   const isLoading = externalIsLoading || isLoadingArticles;
 
-  const selectOptions = mode === "select" ? createArticleOptions(articles) : [];
+  const selectOptions =
+    mode === MODE.SELECT ? createArticleOptions(articles) : [];
 
   const handleModalArticleSelect = article => {
-    if (mode !== "modal" || !article) return;
+    if (mode !== MODE.MODAL || !article) return;
 
     const articleWithUrl = {
       ...article,
@@ -62,7 +64,7 @@ const ArticlePicker = ({
   };
 
   useEffect(() => {
-    if (mode !== "modal" || !modalRef.current || !cursorPos) return;
+    if (mode !== MODE.MODAL || !modalRef.current || !cursorPos) return;
 
     modalRef.current.style.position = "fixed";
     modalRef.current.style.top = `${cursorPos.bottom + 8}px`;
@@ -71,7 +73,7 @@ const ArticlePicker = ({
   }, [mode, cursorPos]);
 
   useEffect(() => {
-    if (mode !== "modal") return;
+    if (mode !== MODE.MODAL) return;
 
     const handleClickOutside = event => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -86,7 +88,7 @@ const ArticlePicker = ({
     };
   }, [mode, onClose]);
 
-  if (mode === "modal") {
+  if (mode === MODE.MODAL) {
     return (
       <div
         className="neeto-ui-shadow-lg neeto-ui-rounded-lg neeto-ui-border-gray-200 neeto-ui-bg-white w-80 border p-4"

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import { noop } from "neetocist";
 import { isEmpty, pluck } from "ramda";
 
 import { extractKbArticleIds } from "src/components/Editor/CustomExtensions/LinkKbArticles/utils";
@@ -31,15 +30,10 @@ export const useDeletedArticles = editor => {
   };
 
   useEffect(() => {
-    if (!editor || isEmpty(allArticles)) return noop;
+    if (!editor || isEmpty(allArticles)) return;
 
-    const timeoutId = setTimeout(() => {
-      checkAllArticles();
-    }, 1000);
-
-    return () => clearTimeout(timeoutId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [editor?.state.doc, allArticles]);
+    checkAllArticles();
+  }, [allArticles]);
 
   return {
     deletedArticleIds,

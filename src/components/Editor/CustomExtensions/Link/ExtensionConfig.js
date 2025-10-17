@@ -30,37 +30,26 @@ export default Link.extend({
       "data-neeto-kb-article": {
         default: null,
         parseHTML: element => element.getAttribute("data-neeto-kb-article"),
-        renderHTML: attributes => {
-          if (!attributes["data-neeto-kb-article"]) {
-            return {};
-          }
-
-          return {
-            "data-neeto-kb-article": attributes["data-neeto-kb-article"],
-          };
-        },
+        renderHTML: attributes =>
+          attributes["data-neeto-kb-article"]
+            ? { "data-neeto-kb-article": attributes["data-neeto-kb-article"] }
+            : {},
       },
       "data-article-id": {
         default: null,
         parseHTML: element => element.getAttribute("data-article-id"),
-        renderHTML: attributes => {
-          if (!attributes["data-article-id"]) {
-            return {};
-          }
-
-          return { "data-article-id": attributes["data-article-id"] };
-        },
+        renderHTML: attributes =>
+          attributes["data-article-id"]
+            ? { "data-article-id": attributes["data-article-id"] }
+            : {},
       },
       "data-article-deleted": {
         default: null,
         parseHTML: element => element.getAttribute("data-article-deleted"),
-        renderHTML: attributes => {
-          if (!attributes["data-article-deleted"]) {
-            return {};
-          }
-
-          return { "data-article-deleted": attributes["data-article-deleted"] };
-        },
+        renderHTML: attributes =>
+          attributes["data-article-deleted"]
+            ? { "data-article-deleted": attributes["data-article-deleted"] }
+            : {},
       },
     };
   },

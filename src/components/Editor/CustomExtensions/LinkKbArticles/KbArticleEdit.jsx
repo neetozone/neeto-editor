@@ -1,36 +1,39 @@
 import React from "react";
 
-import { withT } from "neetocommons/react-utils";
-import { Button, Input } from "neetoui";
-import { Form } from "neetoui/formik";
+import { Button } from "neetoui";
+import { Form, Input } from "neetoui/formik";
+import { useTranslation } from "react-i18next";
 
 import { decodeHtmlEntities } from "src/utils/common";
 
 import ArticlePicker from "./ArticlePicker";
+import { MODE } from "./constants";
 
-const KbArticleEdit = withT(
-  ({
-    t,
-    linkAttributes,
-    getCurrentTextContent,
-    getCurrentArticleOption,
-    handleKbArticleSubmit,
-    handleSelectChange,
-    handleKeyDown,
-    isLoadingKbData,
-    selectOptions,
-    setIsEditing,
-  }) => (
+const KbArticleEdit = ({
+  linkAttributes,
+  getCurrentTextContent,
+  getCurrentArticleOption,
+  handleKbArticleSubmit,
+  handleSelectChange,
+  handleKeyDown,
+  isLoadingKbData,
+  selectOptions,
+  setIsEditing,
+}) => {
+  const initialValues = {
+    textContent:
+      getCurrentTextContent?.() ||
+      decodeHtmlEntities(linkAttributes?.title || "") ||
+      "",
+    pageSelection: getCurrentArticleOption(),
+  };
+
+  const { t } = useTranslation();
+
+  return (
     <Form
       formikProps={{
-        initialValues: {
-          textContent:
-            getCurrentTextContent?.() ||
-            (linkAttributes?.title &&
-              decodeHtmlEntities(linkAttributes.title)) ||
-            "",
-          pageSelection: getCurrentArticleOption(),
-        },
+        initialValues,
         onSubmit: handleKbArticleSubmit,
         enableReinitialize: true,
       }}
@@ -45,8 +48,6 @@ const KbArticleEdit = withT(
             label={t("neetoEditor.common.text")}
             name="textContent"
             placeholder={t("neetoEditor.placeholders.enterText")}
-            value={values.textContent}
-            onChange={e => setFieldValue("textContent", e.target.value)}
             onKeyDown={handleKeyDown}
           />
           <ArticlePicker
@@ -54,7 +55,7 @@ const KbArticleEdit = withT(
             data-cy="neeto-editor-edit-kb-link-page-select"
             isLoading={isLoadingKbData}
             label={t("neetoEditor.linkKb.articleLabel")}
-            mode="select"
+            mode={MODE.SELECT}
             name="pageSelection"
             options={selectOptions}
             placeholder={t("neetoEditor.linkKb.selectArticle")}
@@ -82,7 +83,7 @@ const KbArticleEdit = withT(
         </div>
       )}
     </Form>
-  )
-);
+  );
+};
 
 export default KbArticleEdit;

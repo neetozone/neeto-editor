@@ -1,6 +1,7 @@
 import React from "react";
 
 import ArticlePicker from "./ArticlePicker";
+import { MODE } from "./constants";
 
 const ArticleSelector = ({
   editor,
@@ -34,7 +35,7 @@ const ArticleSelector = ({
   return (
     <ArticlePicker
       {...{ cursorPos, deletedArticlesHook, editor, onClose }}
-      mode="modal"
+      mode={MODE.MODAL}
       onArticleSelect={handleArticleSelect}
     />
   );

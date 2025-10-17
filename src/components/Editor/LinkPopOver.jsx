@@ -219,21 +219,6 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
 
   useOnClickOutside(popoverRef, removePopover, { enabled: true });
 
-  // DISABLED because this was interfering with any popover in the editor and closing it which also includes the
-  // components inside the Popover. This may not cause any other issue.
-
-  /*
-  useEffect(() => {
-    window.addEventListener("resize", removePopover);
-    window.addEventListener("wheel", removePopover);
-
-    return () => {
-      window.removeEventListener("resize", removePopover);
-      window.removeEventListener("wheel", removePopover);
-    };
-  }, []);
-  */
-
   useEffect(() => {
     const isActive = editor?.isActive("link");
 

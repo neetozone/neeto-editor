@@ -18,31 +18,28 @@ const DeletedArticleDecoration = Extension.create({
             const decorations = [];
 
             doc.descendants((node, pos) => {
-              if (node.marks) {
-                node.marks.forEach(mark => {
-                  if (
-                    !(
-                      mark.type.name === "link" &&
-                      mark.attrs["data-neeto-kb-article"] === "true" &&
-                      mark.attrs["data-article-id"]
-                    )
-                  ) {
-                    return;
-                  }
-                  const articleId = mark.attrs["data-article-id"];
-                  if (this.options.deletedArticleIds.has(articleId)) {
-                    const decoration = Decoration.inline(
-                      pos,
-                      pos + node.nodeSize,
-                      {
-                        "data-article-deleted": "true",
-                        class: "neeto-kb-article-deleted",
-                      }
-                    );
-                    decorations.push(decoration);
-                  }
+              if (!node.marks) return;
+
+              node.marks.forEach(mark => {
+                if (
+                  !(
+                    mark.type.name === "link" &&
+                    mark.attrs["data-neeto-kb-article"] === "true" &&
+                    mark.attrs["data-article-id"]
+                  )
+                ) {
+                  return;
+                }
+
+                const articleId = mark.attrs["data-article-id"];
+                if (!this.options.deletedArticleIds.has(articleId)) return;
+
+                const decoration = Decoration.inline(pos, pos + node.nodeSize, {
+                  "data-article-deleted": "true",
+                  class: "neeto-kb-article-deleted",
                 });
-              }
+                decorations.push(decoration);
+              });
             });
 
             return DecorationSet.create(doc, decorations);
