@@ -73,7 +73,6 @@ export const buildImageOptions = (border = true, showAspectRatio = false) => {
     {
       Icon: Delete,
       type: "button",
-      alignPos: "center",
       optionName: t("neetoEditor.menu.delete"),
     }
   );
