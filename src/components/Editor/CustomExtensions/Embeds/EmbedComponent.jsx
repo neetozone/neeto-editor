@@ -12,7 +12,7 @@ const EmbedComponent = ({
   updateAttributes,
   deleteNode,
 }) => {
-  const { figheight, figwidth, align, aspectRatio } = node.attrs;
+  const { figheight, figwidth, align, border, aspectRatio } = node.attrs;
   const { view } = editor;
   let height = figheight;
   let width = figwidth;
@@ -37,22 +37,30 @@ const EmbedComponent = ({
 
   return (
     <NodeViewWrapper
-      className={`neeto-editor__video-wrapper neeto-editor__video--${align}`}
       data-cy="neeto-editor-video-wrapper"
+      className={classnames(
+        "neeto-editor__video-wrapper",
+        `neeto-editor__video--${align}`,
+        { "neeto-editor__video--bordered": border }
+      )}
     >
       <Resizable
         lockAspectRatio
         size={{ height, width }}
         className={classnames("neeto-editor__video-iframe", {
-          "neeto-editor-aspect-square": aspectRatio === "1/1",
-          "neeto-editor-aspect-video": aspectRatio === "16/9",
+          "neeto-editor-aspect-1-1": aspectRatio === "1/1",
+          "neeto-editor-aspect-16-9": aspectRatio === "16/9",
+          "neeto-editor-aspect-9-16": aspectRatio === "9/16",
           "neeto-editor-aspect-4-3": aspectRatio === "4/3",
           "neeto-editor-aspect-3-2": aspectRatio === "3/2",
         })}
         onResizeStop={handleResize}
       >
-        <Menu {...{ align, deleteNode, editor, updateAttributes }} />
-        <iframe {...node.attrs} allowFullScreen />
+        <Menu
+          {...{ align, border, deleteNode, editor, updateAttributes }}
+          showAspectRatio
+        />
+        <iframe {...node.attrs} allowFullScreen data-border={border} />
       </Resizable>
     </NodeViewWrapper>
   );
