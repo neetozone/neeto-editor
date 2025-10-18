@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 
 import { getMarkRange, getMarkType } from "@tiptap/react";
+import { findBy } from "neetocist";
 import { useOnClickOutside } from "neetocommons/react-utils";
 import { Button, Checkbox } from "neetoui";
 import { Form, Input } from "neetoui/formik";
@@ -8,11 +9,21 @@ import { equals, isNil } from "ramda";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 
+import { useFetchKbArticles } from "hooks/reactQuery/kbArticle/useArticleFetching";
+import { decodeHtmlEntities } from "src/utils/common";
+
 import { LINK_VALIDATION_SCHEMA } from "./constants";
+import KbArticleDeletedModal from "./CustomExtensions/LinkKbArticles/KbArticleDeletedModal";
+import KbArticleEdit from "./CustomExtensions/LinkKbArticles/KbArticleEdit";
+import KbArticleView from "./CustomExtensions/LinkKbArticles/KbArticleView";
+import {
+  buildArticleFullUrl,
+  createArticleOptions,
+} from "./CustomExtensions/LinkKbArticles/utils";
 import { getLinkPopoverPosition } from "./Menu/Fixed/utils";
 import { validateAndFormatUrl } from "./utils";
 
-const LinkPopOver = ({ editor }) => {
+const LinkPopOver = ({ editor, deletedArticlesHook }) => {
   const { view } = editor || {};
   const { from } = editor.state.selection;
   const initialTextContent = view?.state?.doc?.nodeAt(from)?.text || "";
@@ -25,9 +36,28 @@ const LinkPopOver = ({ editor }) => {
     editor?.getAttributes("link")
   );
 
+  const [showDeletedModal, setShowDeletedModal] = useState(false);
+
   const popoverRef = useRef(null);
 
   const { t } = useTranslation();
+  const isNeetoKbArticle = linkAttributes?.["data-neeto-kb-article"] === "true";
+
+  const { data: articles = [], isLoading: isLoadingKbData } =
+    useFetchKbArticles({
+      searchTerm: "",
+      reactQueryOptions: { enabled: isEditing && isNeetoKbArticle },
+    });
+
+  const selectOptions = createArticleOptions(articles);
+
+  const handleSelectChange = (value, { setFieldValue }) => {
+    const selectedOption = findBy({ value: value?.value }, selectOptions);
+
+    if (selectedOption?.data?.type === "article") {
+      setFieldValue("pageSelection", value);
+    }
+  };
 
   const updatePopoverPosition = () => {
     if (!view) return;
@@ -36,8 +66,16 @@ const LinkPopOver = ({ editor }) => {
       editor,
       popoverRef
     );
-    setPopoverPosition(popoverPosition);
-    setArrowPosition(arrowPosition);
+
+    setPopoverPosition({
+      top: parseInt(popoverPosition.top),
+      left: parseInt(popoverPosition.left),
+    });
+
+    setArrowPosition({
+      top: parseInt(arrowPosition.top),
+      left: parseInt(arrowPosition.left),
+    });
   };
 
   const handleUnlink = () =>
@@ -97,20 +135,89 @@ const LinkPopOver = ({ editor }) => {
     editor.commands.extendMarkRange("link");
   };
 
+  const handleKbArticleSubmit = ({ textContent, pageSelection }) => {
+    if (!pageSelection || pageSelection === "") {
+      const { state, dispatch } = editor.view;
+      const type = getMarkType("link", state.schema);
+      const { $to } = state.selection;
+      const { from = null, to = null } = getMarkRange($to, type) || {};
+
+      if (isNil(from) || isNil(to)) return;
+
+      const articleId = linkAttributes?.["data-article-id"];
+      const isDeleted = deletedArticlesHook?.isArticleDeleted(articleId);
+
+      const attrs = {
+        href: linkAttributes?.href,
+        "data-neeto-kb-article": linkAttributes?.["data-neeto-kb-article"],
+        "data-article-id": articleId,
+        "data-article-deleted": isDeleted ? "true" : null,
+        title: textContent || decodeHtmlEntities(linkAttributes?.title || ""),
+      };
+
+      const linkMark = state.schema.marks.link.create(attrs);
+      const linkTextWithMark = state.schema.text(textContent, [linkMark]);
+
+      const tr = state.tr.replaceWith(from, to, linkTextWithMark);
+      dispatch(tr);
+
+      setIsEditing(false);
+      editor.view.focus();
+      editor.commands.extendMarkRange("link");
+
+      return;
+    }
+
+    const selectedOption = findBy(
+      { value: pageSelection?.value },
+      selectOptions
+    );
+
+    if (!selectedOption) return;
+
+    const { data } = selectedOption;
+
+    if (data?.type === "article") {
+      const full_url = buildArticleFullUrl(data.slug);
+
+      if (full_url) {
+        const { state, dispatch } = editor.view;
+        const type = getMarkType("link", state.schema);
+        const { $to } = state.selection;
+        const { from = null, to = null } = getMarkRange($to, type) || {};
+
+        if (isNil(from) || isNil(to)) return;
+
+        const isDeleted = deletedArticlesHook?.isArticleDeleted(data.id);
+
+        const attrs = {
+          href: full_url,
+          "data-neeto-kb-article": "true",
+          "data-article-id": data.id,
+          "data-article-deleted": isDeleted ? "true" : null,
+          title: decodeHtmlEntities(data.title || ""),
+        };
+
+        const linkMark = state.schema.marks.link.create(attrs);
+        const linkTextWithMark = state.schema.text(
+          textContent || decodeHtmlEntities(data.title || ""),
+          [linkMark]
+        );
+
+        const tr = state.tr.replaceWith(from, to, linkTextWithMark);
+        dispatch(tr);
+
+        setIsEditing(false);
+        editor.view.focus();
+        editor.commands.extendMarkRange("link");
+      }
+    }
+  };
+
   const handleKeyDown = event =>
     equals(event.key, "Escape") && setIsEditing(false);
 
-  useOnClickOutside(popoverRef, removePopover);
-
-  useEffect(() => {
-    window.addEventListener("resize", removePopover);
-    window.addEventListener("wheel", removePopover);
-
-    return () => {
-      window.removeEventListener("resize", removePopover);
-      window.removeEventListener("wheel", removePopover);
-    };
-  }, []);
+  useOnClickOutside(popoverRef, removePopover, { enabled: true });
 
   useEffect(() => {
     const isActive = editor?.isActive("link");
@@ -123,6 +230,39 @@ const LinkPopOver = ({ editor }) => {
       setLinkAttributes(currentLinkAttributes);
     }
   }, [view?.state?.selection?.$from?.pos, isEditing]);
+
+  const getCurrentArticleOption = () => {
+    const articleId = linkAttributes?.["data-article-id"];
+    if (!articleId) return "";
+
+    const currentArticleOption = findBy(
+      { data: { type: "article", id: articleId } },
+      selectOptions || []
+    );
+
+    if (!currentArticleOption && linkAttributes?.title) {
+      return {
+        label: decodeHtmlEntities(linkAttributes.title),
+        value: articleId,
+      };
+    }
+
+    return currentArticleOption || "";
+  };
+
+  const getCurrentTextContent = () => {
+    const { state } = editor.view;
+    const type = getMarkType("link", state.schema);
+    const { $to } = state.selection;
+    const { from = null, to = null } = getMarkRange($to, type) || {};
+
+    if (from !== null && to !== null) {
+      return state.doc.textBetween(from, to);
+    }
+    const { $from } = state.selection;
+
+    return state.doc.textBetween($from.pos, $to.pos);
+  };
 
   const renderEditingMode = () => {
     const initialValues = {
@@ -193,6 +333,39 @@ const LinkPopOver = ({ editor }) => {
     );
   };
 
+  const renderEditingModeForKbArticle = () => (
+    <KbArticleEdit
+      {...{
+        getCurrentArticleOption,
+        getCurrentTextContent,
+        handleKbArticleSubmit,
+        handleKeyDown,
+        handleSelectChange,
+        isLoadingKbData,
+        linkAttributes,
+        selectOptions,
+        setIsEditing,
+      }}
+    />
+  );
+
+  const renderViewModeForKbArticle = () => {
+    const articleId = linkAttributes?.["data-article-id"];
+    const isDeleted = deletedArticlesHook?.isArticleDeleted(articleId);
+
+    return (
+      <KbArticleView
+        {...{ isDeleted, linkAttributes }}
+        currentText={getCurrentTextContent()}
+        onEdit={() => setIsEditing(true)}
+        onDeletedClick={() => {
+          removePopover();
+          setShowDeletedModal(true);
+        }}
+      />
+    );
+  };
+
   const renderViewMode = () => (
     <>
       <a
@@ -223,24 +396,42 @@ const LinkPopOver = ({ editor }) => {
     </>
   );
 
-  return createPortal(
-    isLinkActive ? (
-      <>
-        <div
-          className="ne-link-arrow fade-in"
-          style={{ top: arrowPosition.top, left: arrowPosition.left }}
-        />
-        <div
-          className="ne-link-popover fade-in"
-          id="ne-link-view-popover"
-          ref={popoverRef}
-          style={popoverStyle}
-        >
-          {isEditing ? renderEditingMode() : renderViewMode()}
-        </div>
-      </>
-    ) : null,
-    document.body
+  const renderPopoverContent = () => {
+    if (isEditing) {
+      return isNeetoKbArticle
+        ? renderEditingModeForKbArticle()
+        : renderEditingMode();
+    }
+
+    return isNeetoKbArticle ? renderViewModeForKbArticle() : renderViewMode();
+  };
+
+  return (
+    <>
+      {createPortal(
+        isLinkActive ? (
+          <>
+            <div
+              className="ne-link-arrow fade-in"
+              style={{ top: arrowPosition.top, left: arrowPosition.left }}
+            />
+            <div
+              className="ne-link-popover fade-in"
+              id="ne-link-view-popover"
+              ref={popoverRef}
+              style={popoverStyle}
+            >
+              {renderPopoverContent()}
+            </div>
+          </>
+        ) : null,
+        document.body
+      )}
+      <KbArticleDeletedModal
+        isOpen={showDeletedModal}
+        onClose={() => setShowDeletedModal(false)}
+      />
+    </>
   );
 };
 

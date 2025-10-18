@@ -18,6 +18,7 @@ import {
   CodeBlock,
   Attachment,
   Link,
+  File,
 } from "neetoicons";
 import { prop, not, assoc } from "ramda";
 
@@ -41,6 +42,7 @@ const createMenuOptions = ({
   isEmojiPickerActive,
   runEditorCommand,
   editor,
+  setIsNeetoKbArticleActive,
 }) => {
   const fontSizeOptions = options.filter(option => option.match(/^h[1-6]$/));
 
@@ -182,6 +184,27 @@ const createMenuOptions = ({
       },
       {
         type: MENU_ELEMENT_TYPES.BUTTON,
+        icon: File,
+        command: () => {
+          if (!editor || !setIsNeetoKbArticleActive) return;
+
+          const { from, to } = editor.state.selection;
+          const cursorPos = editor.view.coordsAtPos(from);
+
+          setIsNeetoKbArticleActive({
+            active: true,
+            editor,
+            range: { from, to },
+            cursorPos,
+          });
+        },
+        isEnabled: options.includes(EDITOR_OPTIONS.NEETO_KB_ARTICLE),
+        optionName: EDITOR_OPTIONS.NEETO_KB_ARTICLE,
+        label:
+          tooltips.neetoKbArticle ?? t("neetoEditor.menu.linkToNeetoKbArticle"),
+      },
+      {
+        type: MENU_ELEMENT_TYPES.BUTTON,
         icon: ImageUpload,
         command: () => setMediaUploader(assoc("image", true)),
         isEnabled: options.includes(EDITOR_OPTIONS.IMAGE_UPLOAD),
@@ -306,6 +329,7 @@ export const buildMenuOptions = ({
   isEmojiPickerActive,
   runEditorCommand,
   editor,
+  setIsNeetoKbArticleActive,
 }) => {
   const addonCommandOptions = buildOptionsFromAddonCommands({
     commands: addonCommands,
@@ -324,6 +348,7 @@ export const buildMenuOptions = ({
     isEmojiPickerActive,
     runEditorCommand,
     editor,
+    setIsNeetoKbArticleActive,
   });
 
   return menuOptions.map(option => option.filter(prop("isEnabled")));

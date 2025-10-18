@@ -24,7 +24,34 @@ const linkInputRule = config => {
 export default Link.extend({
   inclusive: false,
   addAttributes() {
-    return { ...this.parent?.(), title: { default: null } };
+    return {
+      ...this.parent?.(),
+      title: { default: null },
+      "data-neeto-kb-article": {
+        default: null,
+        parseHTML: element => element.getAttribute("data-neeto-kb-article"),
+        renderHTML: attributes =>
+          attributes["data-neeto-kb-article"]
+            ? { "data-neeto-kb-article": attributes["data-neeto-kb-article"] }
+            : {},
+      },
+      "data-article-id": {
+        default: null,
+        parseHTML: element => element.getAttribute("data-article-id"),
+        renderHTML: attributes =>
+          attributes["data-article-id"]
+            ? { "data-article-id": attributes["data-article-id"] }
+            : {},
+      },
+      "data-article-deleted": {
+        default: null,
+        parseHTML: element => element.getAttribute("data-article-deleted"),
+        renderHTML: attributes =>
+          attributes["data-article-deleted"]
+            ? { "data-article-deleted": attributes["data-article-deleted"] }
+            : {},
+      },
+    };
   },
 
   parseHTML() {
@@ -34,7 +61,6 @@ export default Link.extend({
       },
     ];
   },
-
   renderHTML({ HTMLAttributes }) {
     return [
       "a",
