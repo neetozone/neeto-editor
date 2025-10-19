@@ -16,7 +16,8 @@
       "url": "链接",
       "editLink": "编辑链接",
       "resetToDefault": "重置为默认",
-      "openInNewTab": "在新标签页中打开"
+      "openInNewTab": "在新标签页中打开",
+      "close": "关闭"
     },
     "attachments": {
       "actionsBlocked": "您无权更新或删除附件",
@@ -138,7 +139,10 @@
       "columns": "列",
       "addImage": "添加图片",
       "addBorder": "添加边框",
-      "removeBorder": "移除边框"
+      "removeBorder": "移除边框",
+      "aspectRatio": "纵横比",
+      "linkToNeetoKbArticle": "链接到 NeetoKB 文章",
+      "linkToNeetoKbArticleDescription": "添加对另一个 NeetoKB 文章的引用。"
     },
     "placeholders": {
       "columns": "输入列",
@@ -152,7 +156,8 @@
       "enterText": "输入文本",
       "writeSomething": "写点什么 …",
       "searchLanguages": "搜索语言",
-      "writeSlashForCommands": "输入'/'以获取命令..."
+      "writeSlashForCommands": "输入'/'以获取命令...",
+      "searchArticles": "搜索文章"
     },
     "table": {
       "delete": "删除表格",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "显示行号",
       "hideLineNumbers": "隐藏行号"
+    },
+    "linkKb": {
+      "searchPlaceholder": "搜索文章",
+      "articleLabel": "页面",
+      "selectArticle": "选择一篇文章",
+      "articlesMatching": "匹配 \"{{entity}}\" 的文章",
+      "articleDeletedTitle": "文章已被删除",
+      "articleDeletedDescription": "此文章已被删除。请链接有效的文章。"
     }
   }
 }

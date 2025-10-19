@@ -16,7 +16,8 @@
       "url": "Liên kết",
       "editLink": "Chỉnh sửa liên kết",
       "resetToDefault": "Đặt lại về mặc định",
-      "openInNewTab": "Mở trong tab mới"
+      "openInNewTab": "Mở trong tab mới",
+      "close": "Đóng"
     },
     "attachments": {
       "actionsBlocked": "Bạn không có quyền cập nhật hoặc xóa đính kèm",
@@ -138,7 +139,10 @@
       "columns": "Cột",
       "addImage": "Thêm hình ảnh",
       "addBorder": "Thêm viền",
-      "removeBorder": "Bỏ viền"
+      "removeBorder": "Bỏ viền",
+      "aspectRatio": "Tỷ lệ khung hình",
+      "linkToNeetoKbArticle": "Liên kết đến bài viết NeetoKB",
+      "linkToNeetoKbArticleDescription": "Thêm một tham chiếu đến bài viết NeetoKB khác."
     },
     "placeholders": {
       "columns": "Nhập cột",
@@ -152,7 +156,8 @@
       "enterText": "Nhập văn bản",
       "writeSomething": "Viết gì đó …",
       "searchLanguages": "Tìm kiếm ngôn ngữ",
-      "writeSlashForCommands": "Gõ '/' để xem các lệnh..."
+      "writeSlashForCommands": "Gõ '/' để xem các lệnh...",
+      "searchArticles": "Tìm kiếm bài viết"
     },
     "table": {
       "delete": "Xóa bảng",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Hiện số dòng",
       "hideLineNumbers": "Ẩn số dòng"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Tìm kiếm bài viết",
+      "articleLabel": "Trang",
+      "selectArticle": "Chọn một bài viết",
+      "articlesMatching": "Bài viết phù hợp với \"{{entity}}\"",
+      "articleDeletedTitle": "Bài viết đã bị xóa",
+      "articleDeletedDescription": "Bài viết này đã bị xóa. Vui lòng liên kết một bài viết hợp lệ."
     }
   }
 }

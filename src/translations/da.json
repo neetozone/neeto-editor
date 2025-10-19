@@ -16,7 +16,8 @@
       "url": "Link",
       "editLink": "Rediger link",
       "resetToDefault": "Nulstil til standard",
-      "openInNewTab": "Åbn i ny fane"
+      "openInNewTab": "Åbn i ny fane",
+      "close": "Luk"
     },
     "attachments": {
       "actionsBlocked": "Du har ikke tilladelse til at opdatere eller slette vedhæftninger",
@@ -138,7 +139,10 @@
       "columns": "Kolonner",
       "addImage": "Tilføj billede",
       "addBorder": "Tilføj kant",
-      "removeBorder": "Fjern kant"
+      "removeBorder": "Fjern kant",
+      "aspectRatio": "Aspectforhold",
+      "linkToNeetoKbArticle": "Link til NeetoKB artikel",
+      "linkToNeetoKbArticleDescription": "Tilføj en reference til en anden NeetoKB artikel."
     },
     "placeholders": {
       "columns": "Indtast kolonner",
@@ -152,7 +156,8 @@
       "enterText": "Indtast tekst",
       "writeSomething": "Skriv noget …",
       "searchLanguages": "Søg sprog",
-      "writeSlashForCommands": "Skriv '/' for kommandoer..."
+      "writeSlashForCommands": "Skriv '/' for kommandoer...",
+      "searchArticles": "Søg efter en artikel"
     },
     "table": {
       "delete": "Slet tabel",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Vis linjenumre",
       "hideLineNumbers": "Skjul linjenumre"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Søg efter en artikel",
+      "articleLabel": "Side",
+      "selectArticle": "Vælg en artikel",
+      "articlesMatching": "Artikler der matcher \"{{entity}}\"",
+      "articleDeletedTitle": "Artiklen er blevet slettet",
+      "articleDeletedDescription": "Denne artikel er blevet slettet. Venligst link en gyldig artikel."
     }
   }
 }

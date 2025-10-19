@@ -16,7 +16,8 @@
       "url": "Link",
       "editLink": "Editează linkul",
       "resetToDefault": "Resetează la default",
-      "openInNewTab": "Deschide în fila nouă"
+      "openInNewTab": "Deschide în fila nouă",
+      "close": "Închide"
     },
     "attachments": {
       "actionsBlocked": "Nu ai permisiunea de a actualiza sau șterge atașamentele",
@@ -138,7 +139,10 @@
       "columns": "Coloane",
       "addImage": "Adaugă imagine",
       "addBorder": "Adaugă bordură",
-      "removeBorder": "Îndepărtează bordura"
+      "removeBorder": "Îndepărtează bordura",
+      "aspectRatio": "Raport de aspect",
+      "linkToNeetoKbArticle": "Link către articolul NeetoKB",
+      "linkToNeetoKbArticleDescription": "Adaugă o referință la un alt articol NeetoKB."
     },
     "placeholders": {
       "columns": "Introdu coloanele",
@@ -152,7 +156,8 @@
       "enterText": "Introdu text",
       "writeSomething": "Scrie ceva …",
       "searchLanguages": "Caută limbi",
-      "writeSlashForCommands": "Scrie '/' pentru comenzi..."
+      "writeSlashForCommands": "Scrie '/' pentru comenzi...",
+      "searchArticles": "Caută un articol"
     },
     "table": {
       "delete": "Șterge tabelul",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Arată numerele de linie",
       "hideLineNumbers": "Ascunde numerele de linie"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Caută un articol",
+      "articleLabel": "Pagina",
+      "selectArticle": "Selectează un articol",
+      "articlesMatching": "Articole care se potrivesc cu \"{{entity}}\"",
+      "articleDeletedTitle": "Articolul a fost șters",
+      "articleDeletedDescription": "Acest articol a fost șters. Te rog să legeți un articol valid."
     }
   }
 }

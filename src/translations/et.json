@@ -16,7 +16,8 @@
       "url": "Link",
       "editLink": "Muuda linki",
       "resetToDefault": "Lähtesta vaikeseaded",
-      "openInNewTab": "Ava uues vahekaardis"
+      "openInNewTab": "Ava uues vahekaardis",
+      "close": "Sulge"
     },
     "attachments": {
       "actionsBlocked": "Te ei saa manuseid uuendada ega kustutada",
@@ -138,7 +139,10 @@
       "columns": "Veerud",
       "addImage": "Lisa pilt",
       "addBorder": "Lisa piir",
-      "removeBorder": "Eemalda piir"
+      "removeBorder": "Eemalda piir",
+      "aspectRatio": "Kuurisuhe",
+      "linkToNeetoKbArticle": "Lingid NeetoKB artiklile",
+      "linkToNeetoKbArticleDescription": "Lisa viide teisele NeetoKB artiklile."
     },
     "placeholders": {
       "columns": "Sisesta veerud",
@@ -152,7 +156,8 @@
       "enterText": "Sisesta tekst",
       "writeSomething": "Kirjuta midagi ...",
       "searchLanguages": "Otsi keeli",
-      "writeSlashForCommands": "Kiri '/' käskude jaoks..."
+      "writeSlashForCommands": "Kiri '/' käskude jaoks...",
+      "searchArticles": "Otsi artiklit"
     },
     "table": {
       "delete": "Kustuta tabel",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Näita realugusid",
       "hideLineNumbers": "Peida realugusid"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Otsi artiklit",
+      "articleLabel": "Leht",
+      "selectArticle": "Vali artikkel",
+      "articlesMatching": "Artiklid, mis vastavad \"{{entity}}\"",
+      "articleDeletedTitle": "Artikkel on kustutatud",
+      "articleDeletedDescription": "See artikkel on kustutatud. Palun lingi kehtiv artikkel."
     }
   }
 }

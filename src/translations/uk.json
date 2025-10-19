@@ -16,7 +16,8 @@
       "url": "Посилання",
       "editLink": "Редагувати посилання",
       "resetToDefault": "Скинути до значення за замовчуванням",
-      "openInNewTab": "Відкрити в новій вкладці"
+      "openInNewTab": "Відкрити в новій вкладці",
+      "close": "Закрити"
     },
     "attachments": {
       "actionsBlocked": "Вам не дозволено оновлювати або видаляти вкладення",
@@ -138,7 +139,10 @@
       "columns": "Стовпці",
       "addImage": "Додати зображення",
       "addBorder": "Додати обрамлення",
-      "removeBorder": "Видалити обрамлення"
+      "removeBorder": "Видалити обрамлення",
+      "aspectRatio": "Співвідношення сторін",
+      "linkToNeetoKbArticle": "Посилання на статтю NeetoKB",
+      "linkToNeetoKbArticleDescription": "Додати посилання на іншу статтю NeetoKB."
     },
     "placeholders": {
       "columns": "Введіть стовпці",
@@ -152,7 +156,8 @@
       "enterText": "Введіть текст",
       "writeSomething": "Напишіть щось …",
       "searchLanguages": "Шукати мови",
-      "writeSlashForCommands": "Напишіть '/' для команд..."
+      "writeSlashForCommands": "Напишіть '/' для команд...",
+      "searchArticles": "Шукати статтю"
     },
     "table": {
       "delete": "Видалити таблицю",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Показати номери рядків",
       "hideLineNumbers": "Сховати номери рядків"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Шукати статтю",
+      "articleLabel": "Сторінка",
+      "selectArticle": "Вибрати статтю",
+      "articlesMatching": "Статті, що відповідають \"{{entity}}\"",
+      "articleDeletedTitle": "Статтю видалено",
+      "articleDeletedDescription": "Цю статтю видалено. Будь ласка, пов'яжіть дійсну статтю."
     }
   }
 }

@@ -16,7 +16,8 @@
       "url": "Bağlantı",
       "editLink": "Bağlantıyı düzenle",
       "resetToDefault": "Varsayılan ayarlara sıfırla",
-      "openInNewTab": "Yeni sekmede aç"
+      "openInNewTab": "Yeni sekmede aç",
+      "close": "Kapat"
     },
     "attachments": {
       "actionsBlocked": "Ekleri güncelleme veya silme izniniz yok",
@@ -138,7 +139,10 @@
       "columns": "Sütunlar",
       "addImage": "Resim ekle",
       "addBorder": "Sınır ekle",
-      "removeBorder": "Sınır kaldır"
+      "removeBorder": "Sınır kaldır",
+      "aspectRatio": "Görüntü oranı",
+      "linkToNeetoKbArticle": "NeetoKB makalesine bağlantı",
+      "linkToNeetoKbArticleDescription": "Başka bir NeetoKB makalesine referans ekleyin."
     },
     "placeholders": {
       "columns": "Sütunları girin",
@@ -152,7 +156,8 @@
       "enterText": "Metin girin",
       "writeSomething": "Bir şeyler yazın …",
       "searchLanguages": "Dilleri ara",
-      "writeSlashForCommands": "'/' ile komutlar yazın..."
+      "writeSlashForCommands": "'/' ile komutlar yazın...",
+      "searchArticles": "Bir makale arayın"
     },
     "table": {
       "delete": "Tabloyu sil",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Satır numaralarını göster",
       "hideLineNumbers": "Satır numaralarını gizle"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Bir makale arayın",
+      "articleLabel": "Sayfa",
+      "selectArticle": "Bir Makale Seçin",
+      "articlesMatching": "\"{{entity}}\" ile eşleşen makaleler",
+      "articleDeletedTitle": "Makale silindi",
+      "articleDeletedDescription": "Bu makale silindi. Lütfen geçerli bir makale bağlantısı ekleyin."
     }
   }
 }

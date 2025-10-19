@@ -16,7 +16,8 @@
       "url": "Ссылка",
       "editLink": "Редактировать ссылку",
       "resetToDefault": "Сбросить к настройкам по умолчанию",
-      "openInNewTab": "Открыть в новой вкладке"
+      "openInNewTab": "Открыть в новой вкладке",
+      "close": "Закрыть"
     },
     "attachments": {
       "actionsBlocked": "Вам не разрешено обновлять или удалять вложения",
@@ -138,7 +139,10 @@
       "columns": "Столбцы",
       "addImage": "Добавить изображение",
       "addBorder": "Добавить границу",
-      "removeBorder": "Убрать границу"
+      "removeBorder": "Убрать границу",
+      "aspectRatio": "Соотношение сторон",
+      "linkToNeetoKbArticle": "Ссылка на статью NeetoKB",
+      "linkToNeetoKbArticleDescription": "Добавьте ссылку на другую статью NeetoKB."
     },
     "placeholders": {
       "columns": "Введите столбцы",
@@ -152,7 +156,8 @@
       "enterText": "Введите текст",
       "writeSomething": "Напишите что-нибудь …",
       "searchLanguages": "Поиск языков",
-      "writeSlashForCommands": "Напишите '/' для команд..."
+      "writeSlashForCommands": "Напишите '/' для команд...",
+      "searchArticles": "Поиск статьи"
     },
     "table": {
       "delete": "Удалить таблицу",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Показать номера строк",
       "hideLineNumbers": "Скрыть номера строк"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Поиск статьи",
+      "articleLabel": "Страница",
+      "selectArticle": "Выберите статью",
+      "articlesMatching": "Статьи, соответствующие \"{{entity}}\"",
+      "articleDeletedTitle": "Статья была удалена",
+      "articleDeletedDescription": "Эта статья была удалена. Пожалуйста, укажите действительную статью."
     }
   }
 }

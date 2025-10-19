@@ -16,7 +16,8 @@
       "url": "लिंक",
       "editLink": "लिंक संपादित करें",
       "resetToDefault": "डिफ़ॉल्ट पर रीसेट करें",
-      "openInNewTab": "नए टैब में खोलें"
+      "openInNewTab": "नए टैब में खोलें",
+      "close": "बंद करें"
     },
     "attachments": {
       "actionsBlocked": "आपको अटैचमेंट को अपडेट या हटाने की अनुमति नहीं है",
@@ -138,7 +139,10 @@
       "columns": "स्तंभ",
       "addImage": "छवि जोड़ें",
       "addBorder": "सीमा जोड़ें",
-      "removeBorder": "सीमा हटाएँ"
+      "removeBorder": "सीमा हटाएँ",
+      "aspectRatio": "आस्पेक्ट रेशियो",
+      "linkToNeetoKbArticle": "NeetoKB लेख से लिंक करें",
+      "linkToNeetoKbArticleDescription": "एक अन्य NeetoKB लेख का संदर्भ जोड़ें।"
     },
     "placeholders": {
       "columns": "स्तंभ दर्ज करें",
@@ -152,7 +156,8 @@
       "enterText": "पाठ दर्ज करें",
       "writeSomething": "कुछ लिखें …",
       "searchLanguages": "भाषाएँ खोजें",
-      "writeSlashForCommands": "'/' के लिए कमांड लिखें..."
+      "writeSlashForCommands": "'/' के लिए कमांड लिखें...",
+      "searchArticles": "लेख के लिए खोजें"
     },
     "table": {
       "delete": "तालिका हटाएँ",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "लाइन नंबर दिखाएँ",
       "hideLineNumbers": "लाइन नंबर छिपाएँ"
+    },
+    "linkKb": {
+      "searchPlaceholder": "लेख के लिए खोजें",
+      "articleLabel": "पृष्ठ",
+      "selectArticle": "एक लेख चुनें",
+      "articlesMatching": "\"{{entity}}\" से मेल खाने वाले लेख",
+      "articleDeletedTitle": "लेख हटा दिया गया है",
+      "articleDeletedDescription": "यह लेख हटा दिया गया है। कृपया एक मान्य लेख से लिंक करें।"
     }
   }
 }

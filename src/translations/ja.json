@@ -16,7 +16,8 @@
       "url": "リンク",
       "editLink": "リンクを編集",
       "resetToDefault": "デフォルトにリセット",
-      "openInNewTab": "新しいタブで開く"
+      "openInNewTab": "新しいタブで開く",
+      "close": "閉じる"
     },
     "attachments": {
       "actionsBlocked": "添付ファイルを更新または削除することはできません",
@@ -138,7 +139,10 @@
       "columns": "列",
       "addImage": "画像を追加",
       "addBorder": "境界線を追加",
-      "removeBorder": "境界線を削除"
+      "removeBorder": "境界線を削除",
+      "aspectRatio": "アスペクト比",
+      "linkToNeetoKbArticle": "NeetoKB記事へのリンク",
+      "linkToNeetoKbArticleDescription": "別のNeetoKB記事への参照を追加します。"
     },
     "placeholders": {
       "columns": "列を入力",
@@ -152,7 +156,8 @@
       "enterText": "テキストを入力",
       "writeSomething": "何かを書く …",
       "searchLanguages": "言語を検索",
-      "writeSlashForCommands": "'/'を入力してコマンドを使用します..."
+      "writeSlashForCommands": "'/'を入力してコマンドを使用します...",
+      "searchArticles": "記事を検索"
     },
     "table": {
       "delete": "テーブルを削除",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "行番号を表示",
       "hideLineNumbers": "行番号を非表示"
+    },
+    "linkKb": {
+      "searchPlaceholder": "記事を検索",
+      "articleLabel": "ページ",
+      "selectArticle": "記事を選択",
+      "articlesMatching": "\"{{entity}}\" に一致する記事",
+      "articleDeletedTitle": "記事は削除されました",
+      "articleDeletedDescription": "この記事は削除されました。 有効な記事をリンクしてください。"
     }
   }
 }

@@ -16,7 +16,8 @@
       "url": "Link",
       "editLink": "Link bewerken",
       "resetToDefault": "Terugzetten naar standaard",
-      "openInNewTab": "Openen in nieuw tabblad"
+      "openInNewTab": "Openen in nieuw tabblad",
+      "close": "Sluiten"
     },
     "attachments": {
       "actionsBlocked": "Je bent niet toegestaan om bijlagen te bewerken of te verwijderen",
@@ -138,7 +139,10 @@
       "columns": "Kolommen",
       "addImage": "Afbeelding toevoegen",
       "addBorder": "Rand toevoegen",
-      "removeBorder": "Rand verwijderen"
+      "removeBorder": "Rand verwijderen",
+      "aspectRatio": "Beeldverhouding",
+      "linkToNeetoKbArticle": "Link naar NeetoKB-artikel",
+      "linkToNeetoKbArticleDescription": "Voeg een verwijzing toe naar een ander NeetoKB-artikel."
     },
     "placeholders": {
       "columns": "Voer kolommen in",
@@ -152,7 +156,8 @@
       "enterText": "Voer tekst in",
       "writeSomething": "Schrijf iets …",
       "searchLanguages": "Zoek talen",
-      "writeSlashForCommands": "Typ '/' voor commando's..."
+      "writeSlashForCommands": "Typ '/' voor commando's...",
+      "searchArticles": "Zoek een artikel"
     },
     "table": {
       "delete": "Tafel verwijderen",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Regelnummers weergeven",
       "hideLineNumbers": "Regelnummers verbergen"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Zoek een artikel",
+      "articleLabel": "Pagina",
+      "selectArticle": "Selecteer een artikel",
+      "articlesMatching": "Artikelen die overeenkomen met \"{{entity}}\"",
+      "articleDeletedTitle": "Het artikel is verwijderd",
+      "articleDeletedDescription": "Dit artikel is verwijderd. Koppel een geldig artikel."
     }
   }
 }
