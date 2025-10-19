@@ -16,7 +16,8 @@
       "url": "Linkki",
       "editLink": "Muokkaa linkkiä",
       "resetToDefault": "Nollaa oletusarvoihin",
-      "openInNewTab": "Avaa uuteen välilehteen"
+      "openInNewTab": "Avaa uuteen välilehteen",
+      "close": "Sulje"
     },
     "attachments": {
       "actionsBlocked": "Et saa päivittää tai poistaa liitteitä",
@@ -138,7 +139,10 @@
       "columns": "Sarakkeet",
       "addImage": "Lisää kuva",
       "addBorder": "Lisää reuna",
-      "removeBorder": "Poista reuna"
+      "removeBorder": "Poista reuna",
+      "aspectRatio": "Kuvan suhde",
+      "linkToNeetoKbArticle": "Linkitä NeetoKB-artikkeliin",
+      "linkToNeetoKbArticleDescription": "Lisää viittaus toiseen NeetoKB-artikkeliin."
     },
     "placeholders": {
       "columns": "Syötä sarakkeet",
@@ -152,7 +156,8 @@
       "enterText": "Syötä teksti",
       "writeSomething": "Kirjoita jotain …",
       "searchLanguages": "Hae kieliä",
-      "writeSlashForCommands": "Kirjoita '/' komentoja varten..."
+      "writeSlashForCommands": "Kirjoita '/' komentoja varten...",
+      "searchArticles": "Etsi artikkelia"
     },
     "table": {
       "delete": "Poista taulukko",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Näytä rivinumerot",
       "hideLineNumbers": "Piilota rivinumerot"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Etsi artikkelia",
+      "articleLabel": "Sivu",
+      "selectArticle": "Valitse artikkeli",
+      "articlesMatching": "Artikkelit vastaavat \"{{entity}}\"",
+      "articleDeletedTitle": "Artikkeli on poistettu",
+      "articleDeletedDescription": "Tämä artikkeli on poistettu. Linkitä voimassa oleva artikkeli."
     }
   }
 }

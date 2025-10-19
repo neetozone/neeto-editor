@@ -16,7 +16,8 @@
       "url": "Odkaz",
       "editLink": "Upravit odkaz",
       "resetToDefault": "Obnovit na výchozí",
-      "openInNewTab": "Otevřít v novém okně"
+      "openInNewTab": "Otevřít v novém okně",
+      "close": "Zavřít"
     },
     "attachments": {
       "actionsBlocked": "Nemáte povolení aktualizovat nebo mazat přílohy",
@@ -138,7 +139,10 @@
       "columns": "Sloupce",
       "addImage": "Přidat obrázek",
       "addBorder": "Přidat okraj",
-      "removeBorder": "Odebrat okraj"
+      "removeBorder": "Odebrat okraj",
+      "aspectRatio": "Poměr stran",
+      "linkToNeetoKbArticle": "Odkaz na článek NeetoKB",
+      "linkToNeetoKbArticleDescription": "Přidejte odkaz na jiný článek NeetoKB."
     },
     "placeholders": {
       "columns": "Zadejte sloupce",
@@ -152,7 +156,8 @@
       "enterText": "Zadejte text",
       "writeSomething": "Napište něco …",
       "searchLanguages": "Hledat jazyky",
-      "writeSlashForCommands": "Napište '/' pro příkazy..."
+      "writeSlashForCommands": "Napište '/' pro příkazy...",
+      "searchArticles": "Hledat článek"
     },
     "table": {
       "delete": "Smazat tabulku",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Zobrazit čísla řádků",
       "hideLineNumbers": "Skrýt čísla řádků"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Hledat článek",
+      "articleLabel": "Stránka",
+      "selectArticle": "Vybrat článek",
+      "articlesMatching": "Články odpovídající \"{{entity}}\"",
+      "articleDeletedTitle": "Článek byl smazán",
+      "articleDeletedDescription": "Tento článek byl smazán. Prosím, odkazujte na platný článek."
     }
   }
 }

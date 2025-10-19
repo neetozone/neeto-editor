@@ -16,7 +16,8 @@
       "url": "ลิงก์",
       "editLink": "แก้ไขลิงก์",
       "resetToDefault": "ตั้งค่าใหม่เป็นค่าเริ่มต้น",
-      "openInNewTab": "เปิดในแท็บใหม่"
+      "openInNewTab": "เปิดในแท็บใหม่",
+      "close": "ปิด"
     },
     "attachments": {
       "actionsBlocked": "คุณไม่มีสิทธิ์ในการอัปเดตหรือลบไฟล์แนบ",
@@ -138,7 +139,10 @@
       "columns": "คอลัมน์",
       "addImage": "เพิ่มภาพ",
       "addBorder": "เพิ่มเส้นขอบ",
-      "removeBorder": "ลบเส้นขอบ"
+      "removeBorder": "ลบเส้นขอบ",
+      "aspectRatio": "อัตราส่วนภาพ",
+      "linkToNeetoKbArticle": "ลิงก์ไปยังบทความ NeetoKB",
+      "linkToNeetoKbArticleDescription": "เพิ่มการอ้างอิงไปยังบทความ NeetoKB อื่น"
     },
     "placeholders": {
       "columns": "ป้อนคอลัมน์",
@@ -152,7 +156,8 @@
       "enterText": "ป้อนข้อความ",
       "writeSomething": "เขียนอะไรบางอย่าง …",
       "searchLanguages": "ค้นหาภาษา",
-      "writeSlashForCommands": "พิมพ์ '/' เพื่อคำสั่ง..."
+      "writeSlashForCommands": "พิมพ์ '/' เพื่อคำสั่ง...",
+      "searchArticles": "ค้นหาบทความ"
     },
     "table": {
       "delete": "ลบตาราง",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "แสดงหมายเลขบรรทัด",
       "hideLineNumbers": "ซ่อนหมายเลขบรรทัด"
+    },
+    "linkKb": {
+      "searchPlaceholder": "ค้นหาบทความ",
+      "articleLabel": "หน้า",
+      "selectArticle": "เลือกบทความ",
+      "articlesMatching": "บทความที่ตรงกับ \"{{entity}}\"",
+      "articleDeletedTitle": "บทความได้ถูกลบแล้ว",
+      "articleDeletedDescription": "บทความนี้ถูกลบแล้ว กรุณาลิงก์ไปยังบทความที่ถูกต้อง"
     }
   }
 }

@@ -16,7 +16,8 @@
       "url": "Enllaç",
       "editLink": "Editar enllaç",
       "resetToDefault": "Restablir a la configuració per defecte",
-      "openInNewTab": "Obrir en una nova pestanya"
+      "openInNewTab": "Obrir en una nova pestanya",
+      "close": "Tancar"
     },
     "attachments": {
       "actionsBlocked": "No estàs permès d'actualitzar o eliminar fitxers adjunts",
@@ -138,7 +139,10 @@
       "columns": "Columnes",
       "addImage": "Afegir imatge",
       "addBorder": "Afegir bord",
-      "removeBorder": "Eliminar bord"
+      "removeBorder": "Eliminar bord",
+      "aspectRatio": "Rati de forma",
+      "linkToNeetoKbArticle": "Enllaç a l'article de NeetoKB",
+      "linkToNeetoKbArticleDescription": "Afegiu una referència a un altre article de NeetoKB."
     },
     "placeholders": {
       "columns": "Introdueix columnes",
@@ -152,7 +156,8 @@
       "enterText": "Introdueix text",
       "writeSomething": "Escriu alguna cosa …",
       "searchLanguages": "Cerca idiomes",
-      "writeSlashForCommands": "Escriu '/' per a comandaments..."
+      "writeSlashForCommands": "Escriu '/' per a comandaments...",
+      "searchArticles": "Cerca un article"
     },
     "table": {
       "delete": "Eliminar taula",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Mostrar números de línia",
       "hideLineNumbers": "Amagar números de línia"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Cerca un article",
+      "articleLabel": "Pàgina",
+      "selectArticle": "Selecciona un article",
+      "articlesMatching": "Articles que coincideixen amb \"{{entity}}\"",
+      "articleDeletedTitle": "L'article ha estat eliminat",
+      "articleDeletedDescription": "Aquest article ha estat eliminat. Si us plau, enllaçeu un article vàlid."
     }
   }
 }

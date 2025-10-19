@@ -16,7 +16,8 @@
       "url": "Povezava",
       "editLink": "Uredi povezavo",
       "resetToDefault": "Ponastavi na privzeto",
-      "openInNewTab": "Odpri v novem zavihku"
+      "openInNewTab": "Odpri v novem zavihku",
+      "close": "Zapri"
     },
     "attachments": {
       "actionsBlocked": "Nimate dovoljenja za posodobitev ali izbris prilog",
@@ -138,7 +139,10 @@
       "columns": "Stolpci",
       "addImage": "Dodaj sliko",
       "addBorder": "Dodaj obrobo",
-      "removeBorder": "Odstrani obrobo"
+      "removeBorder": "Odstrani obrobo",
+      "aspectRatio": "Razmer slike",
+      "linkToNeetoKbArticle": "Povezava do članka NeetoKB",
+      "linkToNeetoKbArticleDescription": "Dodajte referenco na drug članek NeetoKB."
     },
     "placeholders": {
       "columns": "Vnesite stolpce",
@@ -152,7 +156,8 @@
       "enterText": "Vnesite besedilo",
       "writeSomething": "Napišite nekaj …",
       "searchLanguages": "Išči jezike",
-      "writeSlashForCommands": "Napiš '/' za ukaze..."
+      "writeSlashForCommands": "Napiš '/' za ukaze...",
+      "searchArticles": "Išči članek"
     },
     "table": {
       "delete": "Izbriši tabelo",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Prikaži številke vrstic",
       "hideLineNumbers": "Skrij številke vrstic"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Išči članek",
+      "articleLabel": "Stran",
+      "selectArticle": "Izberi članek",
+      "articlesMatching": "Članki, ki ustrezajo \"{{entity}}\"",
+      "articleDeletedTitle": "Članek je bil izbrisan",
+      "articleDeletedDescription": "Ta članek je bil izbrisan. Prosim povežite veljaven članek."
     }
   }
 }

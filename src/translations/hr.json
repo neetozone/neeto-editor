@@ -16,7 +16,8 @@
       "url": "Veza",
       "editLink": "Uredi vezu",
       "resetToDefault": "Vrati na zadano",
-      "openInNewTab": "Otvori u novoj kartici"
+      "openInNewTab": "Otvori u novoj kartici",
+      "close": "Zatvori"
     },
     "attachments": {
       "actionsBlocked": "Nemate dopuštenje za ažuriranje ili brisanje privitaka",
@@ -138,7 +139,10 @@
       "columns": "Stupci",
       "addImage": "Dodaj sliku",
       "addBorder": "Dodaj granicu",
-      "removeBorder": "Ukloni granicu"
+      "removeBorder": "Ukloni granicu",
+      "aspectRatio": "Omjer aspekta",
+      "linkToNeetoKbArticle": "Poveži s NeetoKB člankom",
+      "linkToNeetoKbArticleDescription": "Dodaj referencu na drugi NeetoKB članak."
     },
     "placeholders": {
       "columns": "Unesite stupce",
@@ -152,7 +156,8 @@
       "enterText": "Unesite tekst",
       "writeSomething": "Napišite nešto …",
       "searchLanguages": "Pretraži jezike",
-      "writeSlashForCommands": "Upišite '/' za naredbe..."
+      "writeSlashForCommands": "Upišite '/' za naredbe...",
+      "searchArticles": "Pretraži članak"
     },
     "table": {
       "delete": "Izbriši stol",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Prikaži brojeve linija",
       "hideLineNumbers": "Sakrij brojeve linija"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Pretraži članak",
+      "articleLabel": "Stranica",
+      "selectArticle": "Odaberi članak",
+      "articlesMatching": "Članci koji odgovaraju \"{{entity}}\"",
+      "articleDeletedTitle": "Članak je izbrisan",
+      "articleDeletedDescription": "Ovaj članak je izbrisan. Poveži valjani članak."
     }
   }
 }

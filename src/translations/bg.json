@@ -16,7 +16,8 @@
       "url": "Връзка",
       "editLink": "Редактиране на връзка",
       "resetToDefault": "Нулиране до подразбиране",
-      "openInNewTab": "Отваряне в нов раздел"
+      "openInNewTab": "Отваряне в нов раздел",
+      "close": "Затвори"
     },
     "attachments": {
       "actionsBlocked": "Нямате разрешение да актуализирате или изтривате прикачени файлове",
@@ -138,7 +139,10 @@
       "columns": "Колони",
       "addImage": "Добавяне на изображение",
       "addBorder": "Добави рамка",
-      "removeBorder": "Премахни рамка"
+      "removeBorder": "Премахни рамка",
+      "aspectRatio": "Съотношение на страните",
+      "linkToNeetoKbArticle": "Връзка към статия в NeetoKB",
+      "linkToNeetoKbArticleDescription": "Добавете референция към друга статия в NeetoKB."
     },
     "placeholders": {
       "columns": "Въведете колони",
@@ -152,7 +156,8 @@
       "enterText": "Въведете текст",
       "writeSomething": "Напишете нещо …",
       "searchLanguages": "Търсене на езици",
-      "writeSlashForCommands": "Напишете '/' за команди..."
+      "writeSlashForCommands": "Напишете '/' за команди...",
+      "searchArticles": "Търсете статия"
     },
     "table": {
       "delete": "Изтриване на таблица",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Показване на номера на редове",
       "hideLineNumbers": "Скриване на номера на редове"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Търсете статия",
+      "articleLabel": "Страница",
+      "selectArticle": "Изберете статия",
+      "articlesMatching": "Статии, съвпадащи с \"{{entity}}\"",
+      "articleDeletedTitle": "Статията е изтрита",
+      "articleDeletedDescription": "Тази статия е изтрита. Моля, свържете валидна статия."
     }
   }
 }

@@ -16,7 +16,8 @@
       "editLink": "Editar enlace",
       "resetToDefault": "Restablecer a los valores predeterminados",
       "openInNewTab": "Abrir en una nueva pestaña",
-      "saveChanges": "Guardar cambios"
+      "saveChanges": "Guardar cambios",
+      "close": "Cerrar"
     },
     "attachments": {
       "actionsBlocked": "No tiene permiso para actualizar o eliminar archivos adjuntos",
@@ -138,7 +139,10 @@
       "addVideoDescription": "Sube un archivo de video o embéldalo desde una URL",
       "addImage": "Agregar imagen",
       "addBorder": "Agregar borde",
-      "removeBorder": "Eliminar borde"
+      "removeBorder": "Eliminar borde",
+      "aspectRatio": "Relación de aspecto",
+      "linkToNeetoKbArticle": "Enlace al artículo de NeetoKB",
+      "linkToNeetoKbArticleDescription": "Agrega una referencia a otro artículo de NeetoKB."
     },
     "placeholders": {
       "columns": "Ingrese columnas",
@@ -152,7 +156,8 @@
       "writeSomething": "Escriba algo …",
       "searchLanguages": "Buscar idiomas",
       "embedUrl": "https://",
-      "writeSlashForCommands": "Escriba '/' para comandos..."
+      "writeSlashForCommands": "Escriba '/' para comandos...",
+      "searchArticles": "Buscar un artículo"
     },
     "table": {
       "delete": "Eliminar tabla",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Mostrar números de línea",
       "hideLineNumbers": "Ocultar números de línea"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Buscar un artículo",
+      "articleLabel": "Página",
+      "selectArticle": "Seleccionar un artículo",
+      "articlesMatching": "Artículos que coinciden con \"{{entity}}\"",
+      "articleDeletedTitle": "El artículo ha sido eliminado",
+      "articleDeletedDescription": "Este artículo ha sido eliminado. Por favor, enlaza un artículo válido."
     }
   }
 }

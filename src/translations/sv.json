@@ -16,7 +16,8 @@
       "url": "Länk",
       "editLink": "Redigera länk",
       "resetToDefault": "Återställ till standard",
-      "openInNewTab": "Öppna i ny flik"
+      "openInNewTab": "Öppna i ny flik",
+      "close": "Stäng"
     },
     "attachments": {
       "actionsBlocked": "Du har inte tillåtelse att uppdatera eller ta bort bilagor",
@@ -138,7 +139,10 @@
       "columns": "Kolumner",
       "addImage": "Lägg till bild",
       "addBorder": "Lägg till kant",
-      "removeBorder": "Ta bort kant"
+      "removeBorder": "Ta bort kant",
+      "aspectRatio": "Bildförhållande",
+      "linkToNeetoKbArticle": "Länka till NeetoKB-artikel",
+      "linkToNeetoKbArticleDescription": "Lägg till en referens till en annan NeetoKB-artikel."
     },
     "placeholders": {
       "columns": "Ange kolumner",
@@ -152,7 +156,8 @@
       "enterText": "Ange text",
       "writeSomething": "Skriv något …",
       "searchLanguages": "Sök språk",
-      "writeSlashForCommands": "Skriv '/' för kommandon..."
+      "writeSlashForCommands": "Skriv '/' för kommandon...",
+      "searchArticles": "Sök efter en artikel"
     },
     "table": {
       "delete": "Ta bort tabell",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Visa radnummer",
       "hideLineNumbers": "Dölj radnummer"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Sök efter en artikel",
+      "articleLabel": "Sida",
+      "selectArticle": "Välj en artikel",
+      "articlesMatching": "Artiklar som matchar \"{{entity}}\"",
+      "articleDeletedTitle": "Artikeln har tagits bort",
+      "articleDeletedDescription": "Denna artikel har tagits bort. Vänligen länka en giltig artikel."
     }
   }
 }

@@ -16,7 +16,8 @@
       "url": "Odkaz",
       "editLink": "Upraviť odkaz",
       "resetToDefault": "Obnoviť na predvolené",
-      "openInNewTab": "Otvoriť na novej karte"
+      "openInNewTab": "Otvoriť na novej karte",
+      "close": "Zavrieť"
     },
     "attachments": {
       "actionsBlocked": "Nemáte povolenie aktualizovať alebo odstrániť prílohy",
@@ -138,7 +139,10 @@
       "columns": "Stĺpce",
       "addImage": "Pridať obrázok",
       "addBorder": "Pridať okraj",
-      "removeBorder": "Odstrániť okraj"
+      "removeBorder": "Odstrániť okraj",
+      "aspectRatio": "Poměr stran",
+      "linkToNeetoKbArticle": "Odkaz na článok NeetoKB",
+      "linkToNeetoKbArticleDescription": "Pridať odkaz na iný článok NeetoKB."
     },
     "placeholders": {
       "columns": "Zadajte stĺpce",
@@ -152,7 +156,8 @@
       "enterText": "Zadajte text",
       "writeSomething": "Napíšte niečo …",
       "searchLanguages": "Hľadajte jazyky",
-      "writeSlashForCommands": "Napíšte '/' pre príkazy..."
+      "writeSlashForCommands": "Napíšte '/' pre príkazy...",
+      "searchArticles": "Hľadať článok"
     },
     "table": {
       "delete": "Odstrániť tabuľku",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Zobraziť čísla riadkov",
       "hideLineNumbers": "Skryť čísla riadkov"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Hľadať článok",
+      "articleLabel": "Stránka",
+      "selectArticle": "Vybrať článok",
+      "articlesMatching": "Články zodpovedajúce \"{{entity}}\"",
+      "articleDeletedTitle": "Článok bol vymazaný",
+      "articleDeletedDescription": "Tento článok bol vymazaný. Prosím, prepojte platný článok."
     }
   }
 }

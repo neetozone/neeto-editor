@@ -16,7 +16,8 @@
       "url": "Tautan",
       "editLink": "Edit tautan",
       "resetToDefault": "Atur ulang ke default",
-      "openInNewTab": "Buka di tab baru"
+      "openInNewTab": "Buka di tab baru",
+      "close": "Tutup"
     },
     "attachments": {
       "actionsBlocked": "Anda tidak diizinkan untuk memperbarui atau menghapus lampiran",
@@ -138,7 +139,10 @@
       "columns": "Kolom",
       "addImage": "Tambahkan gambar",
       "addBorder": "Tambahkan border",
-      "removeBorder": "Hapus border"
+      "removeBorder": "Hapus border",
+      "aspectRatio": "Rasio aspek",
+      "linkToNeetoKbArticle": "Tautkan ke artikel NeetoKB",
+      "linkToNeetoKbArticleDescription": "Tambahkan referensi ke artikel NeetoKB lainnya."
     },
     "placeholders": {
       "columns": "Masukkan kolom",
@@ -152,7 +156,8 @@
       "enterText": "Masukkan teks",
       "writeSomething": "Tulis sesuatu …",
       "searchLanguages": "Cari bahasa",
-      "writeSlashForCommands": "Tulis '/' untuk perintah..."
+      "writeSlashForCommands": "Tulis '/' untuk perintah...",
+      "searchArticles": "Cari artikel"
     },
     "table": {
       "delete": "Hapus tabel",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Tampilkan nomor baris",
       "hideLineNumbers": "Sembunyikan nomor baris"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Cari artikel",
+      "articleLabel": "Halaman",
+      "selectArticle": "Pilih Artikel",
+      "articlesMatching": "Artikel yang cocok dengan \"{{entity}}\"",
+      "articleDeletedTitle": "Artikel telah dihapus",
+      "articleDeletedDescription": "Artikel ini telah dihapus. Silakan tautkan artikel yang valid."
     }
   }
 }

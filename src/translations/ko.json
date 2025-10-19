@@ -16,7 +16,8 @@
       "url": "링크",
       "editLink": "링크 편집",
       "resetToDefault": "기본값으로 초기화",
-      "openInNewTab": "새 탭에서 열기"
+      "openInNewTab": "새 탭에서 열기",
+      "close": "닫기"
     },
     "attachments": {
       "actionsBlocked": "첨부 파일을 업데이트하거나 삭제할 수 없습니다.",
@@ -138,7 +139,10 @@
       "columns": "열",
       "addImage": "이미지 추가",
       "addBorder": "테두리 추가",
-      "removeBorder": "테두리 제거"
+      "removeBorder": "테두리 제거",
+      "aspectRatio": "비율",
+      "linkToNeetoKbArticle": "NeetoKB 기사 링크",
+      "linkToNeetoKbArticleDescription": "다른 NeetoKB 기사를 참조로 추가합니다."
     },
     "placeholders": {
       "columns": "열 입력",
@@ -152,7 +156,8 @@
       "enterText": "텍스트 입력",
       "writeSomething": "무언가 쓰세요…",
       "searchLanguages": "언어 검색",
-      "writeSlashForCommands": "'/'를 입력하여 명령어를 작성하세요..."
+      "writeSlashForCommands": "'/'를 입력하여 명령어를 작성하세요...",
+      "searchArticles": "기사 검색"
     },
     "table": {
       "delete": "테이블 삭제",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "행 번호 표시",
       "hideLineNumbers": "행 번호 숨기기"
+    },
+    "linkKb": {
+      "searchPlaceholder": "기사 검색",
+      "articleLabel": "페이지",
+      "selectArticle": "기사 선택",
+      "articlesMatching": "\"{{entity}}\"와 일치하는 기사",
+      "articleDeletedTitle": "기사 삭제됨",
+      "articleDeletedDescription": "이 기사는 삭제되었습니다. 유효한 기사를 링크해 주십시오."
     }
   }
 }

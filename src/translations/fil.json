@@ -16,7 +16,8 @@
       "url": "Link",
       "editLink": "I-edit ang link",
       "resetToDefault": "I-reset sa default",
-      "openInNewTab": "Buksan sa bagong tab"
+      "openInNewTab": "Buksan sa bagong tab",
+      "close": "Isara"
     },
     "attachments": {
       "actionsBlocked": "Wala kang pahintulot na i-update o i-delete ang mga attachment",
@@ -138,7 +139,10 @@
       "columns": "Mga Column",
       "addImage": "Magdagdag ng larawan",
       "addBorder": "Magdagdag ng hangganan",
-      "removeBorder": "Alisin ang hangganan"
+      "removeBorder": "Alisin ang hangganan",
+      "aspectRatio": "Aspekto ng ratio",
+      "linkToNeetoKbArticle": "Link sa artikulo ng NeetoKB",
+      "linkToNeetoKbArticleDescription": "Magdagdag ng sanggunian sa ibang artikulo ng NeetoKB."
     },
     "placeholders": {
       "columns": "Ilagay ang mga column",
@@ -152,7 +156,8 @@
       "enterText": "Ilagay ang teksto",
       "writeSomething": "Sumulat ng isang bagay …",
       "searchLanguages": "Maghanap ng mga wika",
-      "writeSlashForCommands": "Isulat ang '/' para sa mga utos..."
+      "writeSlashForCommands": "Isulat ang '/' para sa mga utos...",
+      "searchArticles": "Maghanap ng artikulo"
     },
     "table": {
       "delete": "Burahin ang mesa",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "Ipakita ang mga numero ng linya",
       "hideLineNumbers": "Itago ang mga numero ng linya"
+    },
+    "linkKb": {
+      "searchPlaceholder": "Maghanap ng artikulo",
+      "articleLabel": "Pahina",
+      "selectArticle": "Pumili ng Artikulo",
+      "articlesMatching": "Mga artikulong tumutugma sa \"{{entity}}\"",
+      "articleDeletedTitle": "Nabura na ang artikulo",
+      "articleDeletedDescription": "Ang artikulong ito ay nabura na. Mangyaring mag-link sa isang wastong artikulo."
     }
   }
 }

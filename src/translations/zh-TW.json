@@ -16,7 +16,8 @@
       "url": "連結",
       "editLink": "編輯連結",
       "resetToDefault": "重置為預設值",
-      "openInNewTab": "在新標籤頁中開啟"
+      "openInNewTab": "在新標籤頁中開啟",
+      "close": "關閉"
     },
     "attachments": {
       "actionsBlocked": "您沒有權限更新或刪除附件",
@@ -138,7 +139,10 @@
       "columns": "列",
       "addImage": "新增圖片",
       "addBorder": "添加邊框",
-      "removeBorder": "移除邊框"
+      "removeBorder": "移除邊框",
+      "aspectRatio": "長寬比",
+      "linkToNeetoKbArticle": "連結到 NeetoKB 文章",
+      "linkToNeetoKbArticleDescription": "新增對另一篇 NeetoKB 文章的參考。"
     },
     "placeholders": {
       "columns": "輸入列數",
@@ -152,7 +156,8 @@
       "enterText": "輸入文字",
       "writeSomething": "寫點什麼……",
       "searchLanguages": "搜索語言",
-      "writeSlashForCommands": "輸入 '/' 以獲取指令..."
+      "writeSlashForCommands": "輸入 '/' 以獲取指令...",
+      "searchArticles": "搜尋文章"
     },
     "table": {
       "delete": "刪除表格",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "顯示行號",
       "hideLineNumbers": "隱藏行號"
+    },
+    "linkKb": {
+      "searchPlaceholder": "搜尋文章",
+      "articleLabel": "頁面",
+      "selectArticle": "選擇一篇文章",
+      "articlesMatching": "符合 \"{{entity}}\" 的文章",
+      "articleDeletedTitle": "該文章已被刪除",
+      "articleDeletedDescription": "這篇文章已被刪除。請連結一篇有效的文章。"
     }
   }
 }

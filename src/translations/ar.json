@@ -16,7 +16,8 @@
       "url": "رابط",
       "editLink": "تحرير الرابط",
       "resetToDefault": "إعادة ضبط إلى الافتراضي",
-      "openInNewTab": "فتح في علامة تبويب جديدة"
+      "openInNewTab": "فتح في علامة تبويب جديدة",
+      "close": "إغلاق"
     },
     "attachments": {
       "actionsBlocked": "ليس لديك إذن لتحديث أو حذف المرفقات",
@@ -138,7 +139,10 @@
       "columns": "أعمدة",
       "addImage": "أضف صورة",
       "addBorder": "إضافة حد",
-      "removeBorder": "إزالة الحد"
+      "removeBorder": "إزالة الحد",
+      "aspectRatio": "نسبة العرض إلى الارتفاع",
+      "linkToNeetoKbArticle": "رابط لمقالة NeetoKB",
+      "linkToNeetoKbArticleDescription": "إضافة مرجع لمقالة أخرى في NeetoKB."
     },
     "placeholders": {
       "columns": "أدخل الأعمدة",
@@ -152,7 +156,8 @@
       "enterText": "أدخل النص",
       "writeSomething": "اكتب شيئًا …",
       "searchLanguages": "البحث عن اللغات",
-      "writeSlashForCommands": "اكتب '/' للوصول إلى الأوامر..."
+      "writeSlashForCommands": "اكتب '/' للوصول إلى الأوامر...",
+      "searchArticles": "ابحث عن مقالة"
     },
     "table": {
       "delete": "حذف الجدول",
@@ -185,6 +190,14 @@
     "codeblock": {
       "showLineNumbers": "عرض أرقام الأسطر",
       "hideLineNumbers": "إخفاء أرقام الأسطر"
+    },
+    "linkKb": {
+      "searchPlaceholder": "ابحث عن مقالة",
+      "articleLabel": "صفحة",
+      "selectArticle": "اختر مقالة",
+      "articlesMatching": "مقالات متوافقة مع \"{{entity}}\"",
+      "articleDeletedTitle": "تم حذف المقالة",
+      "articleDeletedDescription": "تم حذف هذه المقالة. يرجى ربط مقالة صالحة."
     }
   }
 }
