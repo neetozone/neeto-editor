@@ -1,5 +1,5 @@
 import { NodeViewWrapper } from "@tiptap/react";
-import classNames from "classnames";
+import classnames from "classnames";
 import { mergeRight } from "ramda";
 import { Resizable } from "re-resizable";
 
