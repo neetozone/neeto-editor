@@ -10,9 +10,14 @@ export const useDeletedArticles = editor => {
   const [deletedArticleIds, setDeletedArticleIds] = useState(new Set());
 
   const { data: allArticles = [], isLoading: isCheckingDeleted } =
-    useFetchKbArticles({ searchTerm: "" });
+    useFetchKbArticles({
+      searchTerm: "",
+      reactQueryOptions: { enabled: !!editor },
+    });
 
   const checkAllArticles = () => {
+    if (!editor) return;
+
     const articleIdsInEditor = extractKbArticleIds(editor);
     if (isEmpty(articleIdsInEditor)) {
       setDeletedArticleIds(new Set());
@@ -33,7 +38,7 @@ export const useDeletedArticles = editor => {
     if (!editor || isEmpty(allArticles)) return;
 
     checkAllArticles();
-  }, [allArticles]);
+  }, [allArticles, editor]);
 
   return {
     deletedArticleIds,

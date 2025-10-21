@@ -89,6 +89,7 @@ const Editor = (
 ) => {
   const [isAttachmentsUploading, setIsAttachmentsUploading] = useState(false);
   const wrapperRef = useRef(null);
+  const isArticleOptActive = addons.includes(EDITOR_OPTIONS.NEETO_KB_ARTICLE);
   const isAttachmentsActive = addons.includes(EDITOR_OPTIONS.ATTACHMENTS);
   const isMediaUploaderActive =
     addons.includes(EDITOR_OPTIONS.IMAGE_UPLOAD) ||
@@ -207,7 +208,9 @@ const Editor = (
     }),
   });
 
-  const deletedArticlesHook = useDeletedArticles(editor);
+  const deletedArticlesHook = useDeletedArticles(
+    isArticleOptActive ? editor : null
+  );
 
   /* Make editor object available to the parent */
   useImperativeHandle(
