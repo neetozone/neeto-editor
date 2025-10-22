@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 
 import { ImageUploader } from "@bigbinary/neeto-image-uploader-frontend";
 import { isNotPresent } from "neetocist";
-import { Modal, Tab } from "neetoui";
+import { Modal, Tab, Toastr } from "neetoui";
 import { not } from "ramda";
 import { useTranslation } from "react-i18next";
+
+import directUploadsApi from "apis/direct_uploads";
 
 import LocalUploader from "./LocalUploader";
 import URLForm from "./URLForm";
@@ -63,9 +65,15 @@ const MediaUploader = ({ mediaUploader, onClose, editor }) => {
       .run();
   };
 
-  const handleImageUploadComplete = file => {
-    insertMediaToEditor(file);
-    handleClose();
+  const handleImageUploadComplete = async file => {
+    try {
+      await directUploadsApi.attach({ id: file.id, signed_id: file.signedId });
+
+      insertMediaToEditor(file);
+      handleClose();
+    } catch (error) {
+      Toastr.error(error);
+    }
   };
 
   return (
