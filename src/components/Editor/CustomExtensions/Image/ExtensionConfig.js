@@ -1,6 +1,7 @@
 import { mergeAttributes, Node } from "@tiptap/core";
 import { Plugin } from "@tiptap/pm/state";
 import { ReactNodeViewRenderer } from "@tiptap/react";
+import classnames from "classnames";
 import { t } from "i18next";
 import { globalProps } from "neetocommons/initializers";
 import { Toastr } from "neetoui";
@@ -94,7 +95,11 @@ export default Node.create({
     const openImageInNewTab = this.options.openImageInNewTab;
 
     const wrapperDivAttrs = {
-      class: `neeto-editor__image-wrapper neeto-editor__image--${align}`,
+      class: classnames(
+        "neeto-editor__image-wrapper",
+        `neeto-editor__image--${align}`,
+        { "neeto-editor__image--bordered": border }
+      ),
     };
 
     const wrapperLinkPointerEventsStyle = openImageInNewTab
