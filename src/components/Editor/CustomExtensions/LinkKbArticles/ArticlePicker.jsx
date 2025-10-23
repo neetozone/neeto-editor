@@ -8,7 +8,15 @@ import { useTranslation } from "react-i18next";
 import { useFetchKbArticles } from "hooks/reactQuery/kbArticle/useArticleFetching";
 
 import ArticlesList from "./ArticlesList";
-import { MODE } from "./constants";
+import {
+  MODE,
+  MODAL_BOTTOM_MARGIN,
+  MODAL_LEFT_OFFSET,
+  MODAL_TOP_OFFSET,
+  MODAL_TRANSFORM_Y,
+  MODAL_TRANSFORM_X,
+} from "./constants";
+import useArticleNavigation from "./hooks/useArticleNavigation";
 import { buildArticleFullUrl, createArticleOptions } from "./utils";
 
 const ArticlePicker = ({
@@ -29,6 +37,7 @@ const ArticlePicker = ({
   const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState("");
   const modalRef = useRef(null);
+  const articlesContainerRef = useRef(null);
 
   const { data: articles = [], isLoading: isLoadingArticles } =
     useFetchKbArticles({
@@ -48,9 +57,19 @@ const ArticlePicker = ({
       ...article,
       full_url: buildArticleFullUrl(article.slug),
     };
+
     onArticleSelect(article, articleWithUrl);
     onClose?.();
   };
+
+  const { highlightedIndex } = useArticleNavigation({
+    articles,
+    articlesContainerRef,
+    mode,
+    onClose,
+    handleModalArticleSelect,
+    searchTerm,
+  });
 
   const handleSelectChange = (selectedValue, formikHelpers) => {
     const selectedOption = findBy(
@@ -66,14 +85,29 @@ const ArticlePicker = ({
   useEffect(() => {
     if (mode !== MODE.MODAL || !modalRef.current || !cursorPos) return;
 
-    modalRef.current.style.position = "fixed";
-    modalRef.current.style.top = `${cursorPos.bottom + 8}px`;
-    modalRef.current.style.left = `${cursorPos.left}px`;
-    modalRef.current.style.zIndex = "99999";
+    const modal = modalRef.current;
+
+    const modalRect = modal.getBoundingClientRect();
+    const modalWidth = modalRect.width || 320;
+    const modalHeight = modalRect.height || 200;
+
+    const maxLeft = window.innerWidth - modalWidth;
+    const maxTop = window.innerHeight - modalHeight - MODAL_BOTTOM_MARGIN;
+
+    const adjustedLeft = Math.min(cursorPos.left - MODAL_LEFT_OFFSET, maxLeft);
+    const adjustedTop = Math.min(cursorPos.top - MODAL_TOP_OFFSET, maxTop);
+
+    Object.assign(modal.style, {
+      position: "fixed",
+      top: `${adjustedTop}px`,
+      left: `${adjustedLeft}px`,
+      transform: `translateY(${MODAL_TRANSFORM_Y}px) translateX(${MODAL_TRANSFORM_X}px)`,
+      zIndex: 99999,
+    });
   }, [mode, cursorPos]);
 
   useEffect(() => {
-    if (mode !== MODE.MODAL) return;
+    if (mode !== MODE.MODAL) return undefined;
 
     const handleClickOutside = event => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -83,7 +117,7 @@ const ArticlePicker = ({
 
     document.addEventListener("mousedown", handleClickOutside);
 
-    () => {
+    return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [mode, onClose]);
@@ -108,7 +142,8 @@ const ArticlePicker = ({
         ) : (
           <div>
             <ArticlesList
-              {...{ articles, searchTerm }}
+              {...{ articles, highlightedIndex, searchTerm }}
+              containerRef={articlesContainerRef}
               onSelectArticle={handleModalArticleSelect}
             />
           </div>
