@@ -147,7 +147,7 @@
     "linkKb": {
       "searchPlaceholder": "Search for an article",
       "articleLabel": "Page",
-      "selectArticle": "Select an Article",
+      "selectArticle": "Select an article",
       "articlesMatching": "Articles matching \"{{entity}}\"",
       "articleDeletedTitle": "The article has been deleted",
       "articleDeletedDescription": "This article has been deleted. Please link a valid article."
