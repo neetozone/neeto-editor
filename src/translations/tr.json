@@ -194,7 +194,7 @@
     "linkKb": {
       "searchPlaceholder": "Bir makale arayın",
       "articleLabel": "Sayfa",
-      "selectArticle": "Bir Makale Seçin",
+      "selectArticle": "Bir makale seçin",
       "articlesMatching": "\"{{entity}}\" ile eşleşen makaleler",
       "articleDeletedTitle": "Makale silindi",
       "articleDeletedDescription": "Bu makale silindi. Lütfen geçerli bir makale bağlantısı ekleyin."

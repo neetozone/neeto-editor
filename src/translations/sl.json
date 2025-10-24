@@ -194,7 +194,7 @@
     "linkKb": {
       "searchPlaceholder": "Išči članek",
       "articleLabel": "Stran",
-      "selectArticle": "Izberi članek",
+      "selectArticle": "Izberite članek",
       "articlesMatching": "Članki, ki ustrezajo \"{{entity}}\"",
       "articleDeletedTitle": "Članek je bil izbrisan",
       "articleDeletedDescription": "Ta članek je bil izbrisan. Prosim povežite veljaven članek."

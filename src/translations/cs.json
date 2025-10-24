@@ -194,7 +194,7 @@
     "linkKb": {
       "searchPlaceholder": "Hledat článek",
       "articleLabel": "Stránka",
-      "selectArticle": "Vybrat článek",
+      "selectArticle": "Vyberte článek",
       "articlesMatching": "Články odpovídající \"{{entity}}\"",
       "articleDeletedTitle": "Článek byl smazán",
       "articleDeletedDescription": "Tento článek byl smazán. Prosím, odkazujte na platný článek."

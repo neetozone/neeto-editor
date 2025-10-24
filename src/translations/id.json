@@ -194,7 +194,7 @@
     "linkKb": {
       "searchPlaceholder": "Cari artikel",
       "articleLabel": "Halaman",
-      "selectArticle": "Pilih Artikel",
+      "selectArticle": "Pilih artikel",
       "articlesMatching": "Artikel yang cocok dengan \"{{entity}}\"",
       "articleDeletedTitle": "Artikel telah dihapus",
       "articleDeletedDescription": "Artikel ini telah dihapus. Silakan tautkan artikel yang valid."

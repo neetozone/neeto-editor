@@ -194,7 +194,7 @@
     "linkKb": {
       "searchPlaceholder": "Buscar un artículo",
       "articleLabel": "Página",
-      "selectArticle": "Seleccionar un artículo",
+      "selectArticle": "Selecciona un artículo",
       "articlesMatching": "Artículos que coinciden con \"{{entity}}\"",
       "articleDeletedTitle": "El artículo ha sido eliminado",
       "articleDeletedDescription": "Este artículo ha sido eliminado. Por favor, enlaza un artículo válido."

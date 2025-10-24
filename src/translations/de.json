@@ -194,7 +194,7 @@
     "linkKb": {
       "searchPlaceholder": "Artikel suchen",
       "articleLabel": "Seite",
-      "selectArticle": "Artikel auswählen",
+      "selectArticle": "Wählen Sie einen Artikel aus",
       "articlesMatching": "Artikel, die \"{{entity}}\" entsprechen",
       "articleDeletedTitle": "Der Artikel wurde gelöscht",
       "articleDeletedDescription": "Dieser Artikel wurde gelöscht. Bitte verlinken Sie einen gültigen Artikel."

@@ -194,7 +194,7 @@
     "linkKb": {
       "searchPlaceholder": "Caută un articol",
       "articleLabel": "Pagina",
-      "selectArticle": "Selectează un articol",
+      "selectArticle": "Selectați un articol",
       "articlesMatching": "Articole care se potrivesc cu \"{{entity}}\"",
       "articleDeletedTitle": "Articolul a fost șters",
       "articleDeletedDescription": "Acest articol a fost șters. Te rog să legeți un articol valid."

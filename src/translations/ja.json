@@ -194,7 +194,7 @@
     "linkKb": {
       "searchPlaceholder": "記事を検索",
       "articleLabel": "ページ",
-      "selectArticle": "記事を選択",
+      "selectArticle": "記事を選択する",
       "articlesMatching": "\"{{entity}}\" に一致する記事",
       "articleDeletedTitle": "記事は削除されました",
       "articleDeletedDescription": "この記事は削除されました。 有効な記事をリンクしてください。"
