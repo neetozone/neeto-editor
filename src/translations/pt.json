@@ -194,7 +194,7 @@
     "linkKb": {
       "searchPlaceholder": "Pesquisar um artigo",
       "articleLabel": "Página",
-      "selectArticle": "Selecionar um artigo",
+      "selectArticle": "Selecione um artigo",
       "articlesMatching": "Artigos correspondentes a \"{{entity}}\"",
       "articleDeletedTitle": "O artigo foi deletado",
       "articleDeletedDescription": "Este artigo foi deletado. Por favor, vincule um artigo válido."

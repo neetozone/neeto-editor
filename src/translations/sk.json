@@ -194,7 +194,7 @@
     "linkKb": {
       "searchPlaceholder": "Hľadať článok",
       "articleLabel": "Stránka",
-      "selectArticle": "Vybrať článok",
+      "selectArticle": "Vyberte článok",
       "articlesMatching": "Články zodpovedajúce \"{{entity}}\"",
       "articleDeletedTitle": "Článok bol vymazaný",
       "articleDeletedDescription": "Tento článok bol vymazaný. Prosím, prepojte platný článok."

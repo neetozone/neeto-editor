@@ -194,7 +194,7 @@
     "linkKb": {
       "searchPlaceholder": "Шукати статтю",
       "articleLabel": "Сторінка",
-      "selectArticle": "Вибрати статтю",
+      "selectArticle": "Виберіть статтю",
       "articlesMatching": "Статті, що відповідають \"{{entity}}\"",
       "articleDeletedTitle": "Статтю видалено",
       "articleDeletedDescription": "Цю статтю видалено. Будь ласка, пов'яжіть дійсну статтю."

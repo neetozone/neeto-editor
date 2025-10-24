@@ -194,7 +194,7 @@
     "linkKb": {
       "searchPlaceholder": "Maghanap ng artikulo",
       "articleLabel": "Pahina",
-      "selectArticle": "Pumili ng Artikulo",
+      "selectArticle": "Pumili ng isang artikulo",
       "articlesMatching": "Mga artikulong tumutugma sa \"{{entity}}\"",
       "articleDeletedTitle": "Nabura na ang artikulo",
       "articleDeletedDescription": "Ang artikulong ito ay nabura na. Mangyaring mag-link sa isang wastong artikulo."
