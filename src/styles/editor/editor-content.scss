@@ -239,7 +239,7 @@
   --neeto-editor-content-paragraph-color: 54, 55, 55, 1;
   --neeto-editor-content-paragraph-font-weight: 400;
   --neeto-editor-content-paragraph-line-height: 1.6;
-  --neeto-editor-content-list-left-padding: 2rem;
+  --neeto-editor-content-list-padding-inline-start: 2rem;
   --neeto-editor-content-list-margin-bottom: 1rem;
   --neeto-editor-content-list-item-margin-bottom: 0.5rem;
   --neeto-editor-content-list-item-margin-top: 0.5rem;
@@ -250,9 +250,9 @@
   --neeto-editor-content-code-padding: 0.2em 0.4em;
   --neeto-editor-content-blockquote-color: 89, 99, 110, 1;
   --neeto-editor-content-blockquote-border-color: 209, 217, 224, 1;
-  --neeto-editor-content-blockquote-border-left-width: 4px;
+  --neeto-editor-content-blockquote-border-inline-start-width: 4px;
   --neeto-editor-content-blockquote-margin-bottom: 1rem;
-  --neeto-editor-content-blockquote-padding-left: 0.75rem;
+  --neeto-editor-content-blockquote-padding-inline-start: 0.75rem;
   --neeto-editor-content-image-border-color: 228, 228, 231;
   --neeto-editor-content-image-border-radius: 8px;
   /* Highlight text colors */
@@ -399,7 +399,7 @@
     --neeto-editor-content-h6-font-size: 0.74375rem;
     --neeto-editor-content-paragraph-font-size: 0.875rem;
     --neeto-editor-content-paragraph-line-height: 1.5;
-    --neeto-editor-content-list-left-padding: 1.5rem;
+    --neeto-editor-content-list-padding-inline-start: 1.5rem;
     --neeto-editor-content-list-item-margin-bottom: 0.25rem;
     --neeto-editor-content-list-item-margin-top: 0.25rem;
   }
@@ -506,7 +506,7 @@
 
     .header-link-icon-wrapper {
       position: absolute;
-      left: -1.5625rem;
+      inset-inline-start: -1.5625rem;
       height: 100%;
       width: 1.5625rem;
       display: flex;
@@ -611,7 +611,7 @@
       gap: 0.25rem;
       align-items: center;
       top: 0.25rem;
-      right: 0.25rem;
+      inset-inline-end: 0.25rem;
       visibility: hidden;
       opacity: 0;
 
@@ -641,7 +641,7 @@
     .copy-button {
       position: absolute;
       top: 0.25rem;
-      right: 0.25rem;
+      inset-inline-end: 0.25rem;
       visibility: hidden;
       opacity: 0;
     }
@@ -651,7 +651,7 @@
 
   pre[data-linenumbers] .highlight-line {
     position: relative;
-    padding-left: 3.125rem;
+    padding-inline-start: 3.125rem;
 
     &::before {
       color: rgba(var(--neeto-editor-content-code-line-number-color));
@@ -660,9 +660,9 @@
       font-size: 85%;
       font-weight: 400;
       position: absolute;
-      left: 0;
-      padding-left: 0.625rem;
-      padding-right: 1rem;
+      inset-inline-start: 0;
+      padding-inline-start: 0.625rem;
+      padding-inline-end: 1rem;
       width: 3.125rem;
       height: 100%;
       display: flex;
@@ -691,18 +691,18 @@
   }
 
   pre[data-linenumbers]>code {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   // Blockquote
   blockquote {
     font-weight: var(--neeto-editor-font-medium);
     color: rgba(var(--neeto-editor-content-blockquote-color));
-    border-left-width: var(--neeto-editor-content-blockquote-border-left-width);
-    border-left-color: rgba(var(--neeto-editor-content-blockquote-border-color));
+    border-inline-start-width: var(--neeto-editor-content-blockquote-border-inline-start-width);
+    border-inline-start-color: rgba(var(--neeto-editor-content-blockquote-border-color));
     quotes: "\201C" "\201D" "\2018" "\2019";
     margin-bottom: var(--neeto-editor-content-blockquote-margin-bottom);
-    padding-left: var(--neeto-editor-content-blockquote-padding-left);
+    padding-inline-start: var(--neeto-editor-content-blockquote-padding-inline-start);
 
     div,
     p {
@@ -721,7 +721,7 @@
   ul,
   ol {
     list-style: revert;
-    padding-left: var(--neeto-editor-content-list-left-padding);
+    padding-inline-start: var(--neeto-editor-content-list-padding-inline-start);
     margin-bottom: var(--neeto-editor-content-list-margin-bottom);
 
     li {
@@ -755,7 +755,7 @@
 
   // Embed
   .neeto-editor__video-wrapper {
-    padding-left: 3px;
+    padding-inline-start: 3px;
 
     &.neeto-editor__video--bordered {
 
@@ -855,16 +855,17 @@
 
     th,
     td {
-      border-left: 1px solid rgba(var(--neeto-editor-gray-300));
+      border-inline-start: 1px solid rgba(var(--neeto-editor-gray-300));
       border-top: 1px solid rgba(var(--neeto-editor-gray-300));
-      padding: 8px 12px;
+      padding-block: 8px;
+      padding-inline: 12px;
       position: relative;
-      text-align: left;
+      text-align: start;
     }
 
     td:first-child,
     th:first-child {
-      border-left: none;
+      border-inline-start: none;
     }
 
     th {
@@ -887,7 +888,7 @@
   margin: 1rem 0;
   display: flex;
   text-decoration: none;
-  padding-left: 3px;
+  padding-inline-start: 3px;
 
   &.neeto-editor__image--bordered {
 
@@ -999,14 +1000,15 @@
 }
 
 .selected-text {
-  padding: 2px 0px;
+  padding-inline: 0px;
+  padding-block: 2px;
   background-color: rgb(var(--neeto-editor-gray-300));
 }
 
 .ne-image-preview-wrapper {
   position: fixed;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   width: 100%;
   height: 100%;
   background: rgba(var(--neeto-editor-gray-800), 0.5);
@@ -1059,7 +1061,7 @@
   .close-button {
     position: absolute;
     top: 12px;
-    right: 12px;
+    inset-inline-end: 12px;
     background-color: rgb(var(--neeto-editor-white));
     border-radius: var(--neeto-editor-rounded-full);
     width: 30px;

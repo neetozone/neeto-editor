@@ -3,7 +3,8 @@
   z-index: 99999;
   background-color: rgb(var(--neeto-ui-white));
   color: rgb(var(--neeto-ui-gray-800));
-  padding: 10px 16px;
+  padding-block: 10px;
+  padding-inline: 16px;
   border-radius: 5px;
   border: 1px solid var(--neeto-ui-popover-light-theme-border-color);
   box-shadow: var(--neeto-ui-tooltip-light-theme-box-shadow);
@@ -34,7 +35,7 @@
     color: rgb(var(--neeto-ui-gray-800));
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-right: 8px;
+    margin-inline-end: 8px;
     font-weight: var(--neeto-ui-font-medium);
     font-size: var(--neeto-ui-text-sm);
 
@@ -66,7 +67,7 @@
   content: "";
   position: fixed;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   border-style: solid;
   border-width: 6px;
   border-color: rgba(0, 0, 0, 0.2) transparent transparent transparent;

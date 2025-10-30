@@ -14,8 +14,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 16px 16px 0 16px;
-    min-height: 56px; 
+    padding-block: 16px 0;
+    padding-inline: 16px;
+    min-height: 56px;
 
     &-title {
       font-size: 1.125rem;
@@ -23,7 +24,7 @@
       color: rgb(var(--neeto-ui-gray-800));
       margin: 0;
       line-height: 1.5;
-      text-align: left;
+      text-align: start;
     }
   }
 
@@ -101,7 +102,8 @@
       flex-direction: column;
       position: relative;
       justify-content: space-between;
-      padding: 4px 8px;
+      padding-block: 4px;
+      padding-inline: 8px;
       border-radius: var(--neeto-ui-rounded-sm);
       border: 1px solid rgb(var(--neeto-ui-gray-200));
       background-color: rgb(var(--neeto-ui-white));
@@ -114,7 +116,7 @@
       &__cancel-button-wrapper {
         position: absolute;
         top: 4px;
-        right: 4px;
+        inset-inline-end: 4px;
       }
 
       &__info {
@@ -169,13 +171,13 @@
     }
 
     .neeto-editor-unsplash-search {
-      padding: 0px 8px;
+      padding-inline: 8px;
       margin-bottom: 16px;
     }
 
     .neeto-editor-unsplash-gallery {
       width: 100%;
-      right: -8px;
+      inset-inline-end: -8px;
     }
 
     .neeto-editor-unsplash-gallery__loader {
@@ -185,7 +187,7 @@
 
     .neeto-editor-unsplash-gallery__item {
       width: 33.3%;
-      padding-right: 16px;
+      padding-inline-end: 16px;
       padding-bottom: 16px;
       float: left;
     }
@@ -214,7 +216,7 @@
         a {
           opacity: 0;
           position: absolute;
-          left: 8px;
+          inset-inline-start: 8px;
           bottom: 8px;
           margin: auto;
 
