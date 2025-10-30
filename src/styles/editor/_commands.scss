@@ -25,7 +25,8 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    padding: 8px 12px;
+    padding-block: 8px;
+    padding-inline: 12px;
     gap: 8px;
     border-radius: var(--neeto-ui-rounded);
     transition: var(--neeto-ui-transition);
@@ -46,20 +47,20 @@
     }
 
     .neeto-editor-slash-commands__item-content {
-      text-align: left;
+      text-align: start;
 
       .neeto-editor-slash-commands__item-title {
         font-size: 14px;
         font-weight: 400;
         line-height: 1.2;
-        text-align: left;
+        text-align: start;
       }
 
       .neeto-editor-slash-commands__item-description {
         font-size: 14px;
         font-weight: 400;
         line-height: 1.2;
-        text-align: left;
+        text-align: start;
       }
     }
   }

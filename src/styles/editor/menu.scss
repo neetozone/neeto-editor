@@ -77,7 +77,7 @@
 
   &__variables {
     position: absolute;
-    right: 8px;
+    inset-inline-end: 8px;
     bottom: -42px;
     z-index: 10;
 
@@ -111,14 +111,15 @@
     }
 
     span:first-child {
-      border-right: 1px solid rgb(var(--neeto-ui-gray-200));
+      border-inline-end: 1px solid rgb(var(--neeto-ui-gray-200));
     }
   }
 }
 
 .neeto-editor-text-color-option {
   &__options-group {
-    margin: 8px 4px;
+    margin-block: 8px;
+    margin-inline: 4px;
     display: flex;
     gap: 8px;
     align-items: center;
@@ -210,8 +211,8 @@
 .neeto-editor-font-size__wrapper {
   font-size: 16px;
   font-weight: var(--neeto-ui-font-normal) !important;
-  padding-left: 4px !important;
-  padding-right: 4px !important;
+  padding-inline-start: 4px !important;
+  padding-inline-end: 4px !important;
 }
 
 .tippy-box[data-theme~=neeto-editor-bubble-menu-tippy-box] {
@@ -354,7 +355,8 @@
       line-height: 1.2;
       width: 60px;
       height: 28px;
-      padding: 3px 5px;
+      padding-block: 3px;
+      padding-inline: 5px;
 
       &::placeholder {
         color: rgb(var(--neeto-ui-gray-500));
@@ -403,8 +405,9 @@
 
     .neeto-editor-bubble-menu__dropdown-item {
       width: 100%;
-      text-align: left;
-      padding: 8px 12px;
+      text-align: start;
+      padding-block: 8px;
+      padding-inline: 12px;
       font-size: var(--neeto-ui-text-xs);
 
       &:first-child {
@@ -447,7 +450,7 @@
   &-btn {
     position: absolute !important;
     top: 6px;
-    right: 6px;
+    inset-inline-end: 6px;
     z-index: 1;
     border-radius: 100%;
   }
@@ -461,8 +464,8 @@
   }
 
   .neeto-editor-menu-font-size-options__item-btn {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
+    padding-inline-start: 0px !important;
+    padding-inline-end: 0px !important;
     min-width: 34px;
     min-height: 34px;
     border-radius: var(--neeto-ui-btn-border-radius) !important;

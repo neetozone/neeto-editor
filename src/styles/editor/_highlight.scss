@@ -43,9 +43,13 @@
 .neeto-editor-highlight-dropdown__color-dot-text {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset-inline-start: 50%;
+  transform: translateX(-50%) translateY(-50%);
   color: currentColor;
+}
+
+:dir(rtl) .neeto-editor-highlight-dropdown__color-dot-text {
+  transform: translateX(50%) translateY(-50%);
 }
 
 .neeto-editor-highlight-dropdown__color-dot--selected {
