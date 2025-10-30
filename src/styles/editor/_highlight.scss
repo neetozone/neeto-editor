@@ -48,7 +48,7 @@
   color: currentColor;
 }
 
-:dir(rtl) .neeto-editor-highlight-dropdown__color-dot-text {
+[dir="rtl"] .neeto-editor-highlight-dropdown__color-dot-text {
   transform: translateX(50%) translateY(-50%);
 }
 
