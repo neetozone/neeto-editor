@@ -1,6 +1,6 @@
 @mixin show-placeholder {
   content: attr(data-placeholder);
-  float: left;
+  float: inline-start;
   color: #ced4da;
   pointer-events: none;
   height: 0;
@@ -30,7 +30,8 @@
     background-color: rgb(var(--neeto-ui-gray-200));
     border-radius: var(--neeto-ui-rounded-sm);
     line-height: 1;
-    padding: 4px 6px;
+    padding-block: 4px;
+    padding-inline: 6px;
   }
 
   .ProseMirror-separator {
@@ -83,7 +84,7 @@
   padding: 4px;
   color: rgb(var(--neeto-ui-gray-600));
   font-size: 12px;
-  text-align: right;
+  text-align: end;
   width: 100%;
 }
 
@@ -104,10 +105,12 @@
 
 .neeto-editor-mentions {
   &__wrapper {
-    padding: 4px 0px;
+    padding-inline: 0px;
+    padding-block: 4px;
   }
 
   &__item {
-    padding: 8px 12px;
+    padding-block: 8px;
+    padding-inline: 12px;
   }
 }
