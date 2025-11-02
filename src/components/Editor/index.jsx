@@ -14,6 +14,7 @@ import { EDITOR_OPTIONS, EDITOR_SIZES } from "common/constants";
 import { noop, slugify } from "neetocist";
 import { useFuncDebounce } from "neetocommons/react-utils";
 import { Label } from "neetoui";
+import { isEmpty } from "ramda";
 import { createPortal } from "react-dom";
 
 import ErrorWrapper from "components/Common/ErrorWrapper";
@@ -30,6 +31,7 @@ import TableActionMenu from "./CustomExtensions/Table/TableActionMenu";
 import LinkPopOver from "./LinkPopOver";
 import MediaUploader from "./MediaUploader";
 import Menu from "./Menu";
+import MenuDynamicVariables from "./Menu/DynamicVariables";
 import LinkAddPopOver from "./Menu/Fixed/components/LinkAddPopOver";
 import {
   getEditorStyles,
@@ -265,30 +267,37 @@ const Editor = (
       )}
       <ErrorWrapper {...{ error }} className={errorWrapperClassName}>
         <>
-          <Menu
-            {...{
-              addonCommands,
-              addons,
-              attachmentProps,
-              defaults,
-              editor,
-              editorSecrets,
-              mentions,
-              menuType,
-              neetoKbArticleState,
-              openLinkInNewTab,
-              tooltips,
-              variables,
-            }}
-            className={menuClassName}
-            isIndependant={isMenuIndependent}
-            setIsNeetoKbArticleActive={setNeetoKbArticleState}
-          />
+          {menuType !== "none" && (
+            <Menu
+              {...{
+                addonCommands,
+                addons,
+                attachmentProps,
+                defaults,
+                editor,
+                editorSecrets,
+                mentions,
+                menuType,
+                neetoKbArticleState,
+                openLinkInNewTab,
+                tooltips,
+                variables,
+              }}
+              className={menuClassName}
+              isIndependant={isMenuIndependent}
+              setIsNeetoKbArticleActive={setNeetoKbArticleState}
+            />
+          )}
           {children}
-          <EditorContent
-            className={contentWrapperClassName}
-            {...{ editor, ...otherProps }}
-          />
+          <div style={{ position: "relative" }}>
+            {menuType === "none" && !isEmpty(variables) && (
+              <MenuDynamicVariables {...{ editor, variables }} standalone />
+            )}
+            <EditorContent
+              className={contentWrapperClassName}
+              {...{ editor, ...otherProps }}
+            />
+          </div>
           {isMediaUploaderActive && (
             <MediaUploader
               {...{ editor, mediaUploader }}
