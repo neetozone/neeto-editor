@@ -165,7 +165,9 @@ const Fixed = ({
           <MoreMenu {...{ editor }} groups={moreMenuItems} />
         )}
       </div>
-      <MenuDynamicVariables {...{ editor, variables }} />
+      {isNotEmpty(variables) && (
+        <MenuDynamicVariables {...{ editor, variables }} />
+      )}
       {isAddLinkActive && (
         <LinkAddPopOver
           {...{
