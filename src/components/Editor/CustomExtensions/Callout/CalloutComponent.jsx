@@ -17,7 +17,10 @@ const CalloutComponent = ({ node }) => {
         <span className="callout-emoji">
           <Icon />
         </span>
-        <NodeViewContent className="callout-content" />
+        <NodeViewContent
+          className="callout-content"
+          data-cy="callout-content"
+        />
       </div>
     </NodeViewWrapper>
   );
