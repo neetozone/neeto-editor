@@ -9,7 +9,10 @@ const CalloutTypeOption = ({ calloutType, isSelected, onClick }) => {
 
   return (
     <div {...{ onClick }} className={optionClass}>
-      <span className="neeto-editor-callout-dropdown__type-emoji">
+      <span
+        className="neeto-editor-callout-dropdown__type-emoji"
+        data-cy="callout-type-emoji"
+      >
         <Icon />
       </span>
       <Typography
