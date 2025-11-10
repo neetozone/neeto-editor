@@ -1,4 +1,5 @@
 import DynamicVariables from "neetomolecules/DynamicVariables";
+import { isEmpty } from "ramda";
 import { useTranslation } from "react-i18next";
 
 const MenuDynamicVariables = ({
@@ -7,6 +8,9 @@ const MenuDynamicVariables = ({
   standalone = false,
 }) => {
   const { t } = useTranslation();
+
+  if (isEmpty(variables)) return null;
+
   const handleVariableClick = item => {
     const { category, categoryLabel, key, label } = item;
     const variableName = category ? `${category}.${key}` : key;

@@ -14,7 +14,6 @@ import { EDITOR_OPTIONS, EDITOR_SIZES } from "common/constants";
 import { noop, slugify } from "neetocist";
 import { useFuncDebounce } from "neetocommons/react-utils";
 import { Label } from "neetoui";
-import { isEmpty } from "ramda";
 import { createPortal } from "react-dom";
 
 import ErrorWrapper from "components/Common/ErrorWrapper";
@@ -290,7 +289,7 @@ const Editor = (
           )}
           {children}
           <div style={{ position: "relative" }}>
-            {menuType === "none" && !isEmpty(variables) && (
+            {menuType === "none" && (
               <MenuDynamicVariables {...{ editor, variables }} standalone />
             )}
             <EditorContent
