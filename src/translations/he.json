@@ -1,0 +1,97 @@
+{
+  "neetoEditor": {
+    "menu": {
+      "todoList": "רשימת משימות",
+      "todoListDescription": "הוסף רשימת משימות עם תיבות סימון.",
+      "image": "תמונה",
+      "addImage": "הוסף תמונה",
+      "imageDescription": "הוסף בלוק של תמונה.",
+      "video": "וידאו",
+      "videoDescription": "העלה או הטמע וידאו",
+      "addVideo": "הוסף וידאו",
+      "addVideoDescription": "העלה קובץ וידאו או הטמע מ-URL",
+      "blockQuoteDescription": "הוסף ציטוט בלוק.",
+      "codeDescription": "הוסף בלוק של קוד.",
+      "callout": "קריאה",
+      "calloutDescription": "הוסף בלוק קריאה כדי להדגיש מידע חשוב.",
+      "selectCalloutType": "בחר סוג קריאה",
+      "calloutDefault": "מוגדרות",
+      "calloutInfo": "מידע",
+      "calloutWarning": "אזהרה",
+      "calloutError": "שגיאה",
+      "calloutSuccess": "בהצלחה",
+      "calloutInfoDescription": "הוסף בלוק קריאה למידע.",
+      "calloutWarningDescription": "הוסף בלוק קריאה לאזהרה.",
+      "calloutErrorDescription": "הוסף בלוק קריאה לשגיאה.",
+      "calloutSuccessDescription": "הוסף בלוק קריאה להצלחה.",
+      "emojiDescription": "הוסף אימוג'י.",
+      "divider": "מפריד",
+      "dividerDescription": "הוסף קו אופקי להפרדת חלקים.",
+      "embed": "הטמע Youtube/Loom/Vimeo/Supademo",
+      "embedDescription": "הטמע וידאו משירותים עיקריים.",
+      "pasteUnformatted": "הדבק ללא עיצוב",
+      "pasteUnformattedDescription": "הדבק על ידי הסרת כל הסגנונות.",
+      "tableDescription": "הוסף טבלה.",
+      "noResults": "אין תוצאות",
+      "rows": "שורות",
+      "columns": "עמודות",
+      "linkToNeetoKbArticle": "קישור למאמר NeetoKB",
+      "linkToNeetoKbArticleDescription": "הוסף הפניה למאמר אחר ב-NeetoKB."
+    },
+    "linkKb": {
+      "searchPlaceholder": "חפש מאמר",
+      "articleLabel": "דף",
+      "selectArticle": "בחר מאמר",
+      "articlesMatching": "מאמרים תואמים \"{{entity}}\"",
+      "articleDeletedTitle": "המאמר נמחק",
+      "articleDeletedDescription": "מאמר זה נמחק. אנא קישור מאמר תקף."
+    },
+    "placeholders": {
+      "columns": "הזן עמודות",
+      "linkInput": "הדבק או הקלד קישור...",
+      "pasteLink": "הדבק את הקישור כאן...",
+      "pickColor": "בחר צבע",
+      "rows": "הזן שורות",
+      "searchUnsplash": "חפש ב-Unsplash",
+      "searchArticles": "חפש מאמר",
+      "embedUrl": "https://",
+      "url": "הזן URL",
+      "enterText": "הזן טקסט",
+      "writeSomething": "כתוב משהו …",
+      "writeSlashForCommands": "כתוב '/' לפקודות...",
+      "searchLanguages": "חפש שפות"
+    },
+    "table": {
+      "delete": "מחק טבלה",
+      "deleteColumn": "מחק עמודה",
+      "deleteRow": "מחק שורה",
+      "insertColumn": "הוסף עמודה",
+      "insertRow": "הוסף שורה",
+      "mergeSplit": "מזג/פצל תא",
+      "toggleHeaderRow": "החלף שורת כותרת",
+      "textAlign": "יישור טקסט",
+      "leftAlign": "יישור שמאלה",
+      "centerAlign": "יישור במרכז",
+      "rightAlign": "יישור ימינה"
+    },
+    "unsplash": {
+      "errorMessage": "משהו השתבש! אנא נסה שוב מאוחר יותר.",
+      "noResults": "אין תוצאות",
+      "end": "סוף התוצאות"
+    },
+    "localUploader": {
+      "dropFilesHere": "גרור את הקובץ/קבצים שלך כאן או דפדף.",
+      "maxFileSize": "גודל קובץ מרבי: {{entity, anyCase}}",
+      "completed": "הושלם",
+      "uploadImage": "העלה תמונה",
+      "uploadVideo": "העלה וידאו"
+    },
+    "editorContent": {
+      "imagePreviewAltText": "תצוגה מקדימה של תמונה"
+    },
+    "codeblock": {
+      "showLineNumbers": "הצג מספרי שורות",
+      "hideLineNumbers": "הסתר מספרי שורות"
+    }
+  }
+}
