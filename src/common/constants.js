@@ -59,10 +59,10 @@ export const LOOM_URL_REGEXP =
   /((?:http|https):\/\/)?(www\.)?loom\.com\/(share|embed)\/([a-f0-9]{32})(?:\?sid=([a-f0-9-]{36}))?(?:\?t=(\d+))?(\?[^#]*)?/;
 
 export const NEETO_RECORD_URL_REGEXP =
-  /((?:http|https):\/\/)?(www\.)?[a-zA-Z0-9-]+\.(neetorecord\.com)\/(watch)\/([0-9a-f]{20})/;
+  /((?:http|https):\/\/)?(www\.)?[a-zA-Z0-9-]+\.(neetorecord\.com)\/(watch)\/([^/\s?#]+)/;
 
 export const NEETO_RECORD_CUSTOM_DOMAIN_URL_REGEXP =
-  /((?:http|https):\/\/)?(www\.)?(\w+(?:[\w-]*\w)?(?:\.\w+(?:[\w-]*\w)?)+)\/(watch)\/([0-9a-f]{20})/;
+  /((?:http|https):\/\/)?(www\.)?(\w+(?:[\w-]*\w)?(?:\.\w+(?:[\w-]*\w)?)+)\/(watch)\/([^/\s?#]+)/;
 
 export const SUPA_DEMO_URL_REGEXP =
   /((?:http|https):\/\/)?(www\.)?([a-zA-Z0-9-]+)\.([a-zA-Z0-9-]+\.[a-zA-Z0-9-]+)\/(demo|embed)\/([0-9a-z]+)/;
