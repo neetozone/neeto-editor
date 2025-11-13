@@ -124,10 +124,7 @@ const ArticlePicker = ({
 
   if (mode === MODE.MODAL) {
     return (
-      <div
-        className="neeto-ui-shadow-lg neeto-ui-rounded-lg neeto-ui-border-gray-200 neeto-ui-bg-white w-80 border p-4"
-        ref={modalRef}
-      >
+      <div className="ne-article-picker-popover w-80 border" ref={modalRef}>
         <div className="mb-4">
           <Search
             autoFocus

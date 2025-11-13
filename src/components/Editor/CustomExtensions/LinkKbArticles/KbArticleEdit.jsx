@@ -32,6 +32,7 @@ const KbArticleEdit = ({
 
   return (
     <Form
+      className="w-64"
       formikProps={{
         initialValues,
         onSubmit: handleKbArticleSubmit,
