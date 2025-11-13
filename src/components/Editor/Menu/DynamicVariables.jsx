@@ -1,3 +1,4 @@
+import classnames from "classnames";
 import DynamicVariables from "neetomolecules/DynamicVariables";
 import { isEmpty } from "ramda";
 import { useTranslation } from "react-i18next";
@@ -27,19 +28,10 @@ const MenuDynamicVariables = ({
 
   return (
     <div
-      className="neeto-editor-fixed-menu__variables"
       data-cy="neeto-editor-fixed-menu-variables"
-      style={
-        standalone
-          ? {
-              position: "absolute",
-              right: "0px",
-              top: "8px",
-              bottom: "auto",
-              zIndex: 10,
-            }
-          : undefined
-      }
+      className={classnames("neeto-editor-fixed-menu__variables", {
+        "neeto-editor-fixed-menu__variables--standalone": standalone,
+      })}
     >
       <DynamicVariables
         {...{ variables }}

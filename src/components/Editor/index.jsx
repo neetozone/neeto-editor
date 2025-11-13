@@ -288,15 +288,15 @@ const Editor = (
             />
           )}
           {children}
-          <div style={{ position: "relative" }}>
-            {menuType === "none" && (
+          {menuType === "none" && (
+            <div className="neeto-editor-fixed-menu-standalone-variables-wrapper">
               <MenuDynamicVariables {...{ editor, variables }} standalone />
-            )}
-            <EditorContent
-              className={contentWrapperClassName}
-              {...{ editor, ...otherProps }}
-            />
-          </div>
+            </div>
+          )}
+          <EditorContent
+            className={contentWrapperClassName}
+            {...{ editor, ...otherProps }}
+          />
           {isMediaUploaderActive && (
             <MediaUploader
               {...{ editor, mediaUploader }}

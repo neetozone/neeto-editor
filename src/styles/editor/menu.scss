@@ -93,6 +93,14 @@
     }
   }
 
+  &__variables--standalone {
+    position: absolute;
+    inset-inline-end: 0px;
+    top: 8px;
+    bottom: auto;
+    z-index: 10;
+  }
+
   &__right-options {
     display: flex;
   }
@@ -487,4 +495,8 @@
 .neeto-editor-table-bubble-menu__dropdown .neeto-ui-dropdown__popup .neeto-ui-dropdown__popup-menu {
   padding: 0;
   --neeto-ui-btn-border-radius: 0;
+}
+
+.neeto-editor-fixed-menu-standalone-variables-wrapper {
+  position: relative;
 }
