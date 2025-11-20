@@ -50,10 +50,7 @@ export default {
             },
 
             items: ({ query }) => {
-              if (!query) {
-                return commandItems.slice(0, 10);
-              }
-
+              if (!query) return commandItems;
               const filteredItems = fuzzySearch(commandItems, query);
 
               return isEmpty(filteredItems)
