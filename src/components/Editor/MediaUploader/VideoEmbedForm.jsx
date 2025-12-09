@@ -11,7 +11,8 @@ const VideoEmbedForm = ({ onEmbedVideo, onAttachVideo, onClose }) => {
   const initialValues = { url: "" };
 
   const onSubmit = ({ url }) => {
-    if (validateUrl(url)) onEmbedVideo(url);
+    const embedUrl = validateUrl(url); // False when current url is not "embeddable"
+    if (embedUrl) onEmbedVideo(embedUrl);
     else onAttachVideo(url);
     onClose();
   };
