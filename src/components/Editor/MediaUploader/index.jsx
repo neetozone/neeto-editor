@@ -9,11 +9,8 @@ import { useTranslation } from "react-i18next";
 import directUploadsApi from "apis/direct_uploads";
 
 import LocalUploader from "./LocalUploader";
-import URLForm from "./URLForm";
 import { getTabs } from "./utils";
 import VideoEmbedForm from "./VideoEmbedForm";
-
-import { validateUrl } from "../CustomExtensions/Embeds/utils";
 
 const MediaUploader = ({ mediaUploader, onClose, editor }) => {
   const { t } = useTranslation();
@@ -33,20 +30,8 @@ const MediaUploader = ({ mediaUploader, onClose, editor }) => {
     editor.commands.focus();
   };
 
-  const handleSubmit = url => {
-    insertMediaToEditor({ url, alt: "image" });
-    handleClose();
-  };
-
-  const handleVideoEmbed = url => {
-    const validatedUrl = validateUrl(url);
-    if (validatedUrl) {
-      editor.chain().focus().setExternalVideo({ src: validatedUrl }).run();
-      handleClose();
-    }
-  };
-
   const insertMediaToEditor = file => {
+    if (!editor) return;
     const { url, filename = "image", caption = "" } = file;
     const mediaAttrs = { src: url, caption, alt: filename };
     const setMedia = mediaUploader.image
@@ -65,15 +50,24 @@ const MediaUploader = ({ mediaUploader, onClose, editor }) => {
       .run();
   };
 
-  const handleImageUploadComplete = async file => {
+  const onUploadComplete = async file => {
     try {
       await directUploadsApi.attach({ id: file.id, signed_id: file.signedId });
-
       insertMediaToEditor(file);
       handleClose();
     } catch (error) {
       Toastr.error(error);
     }
+  };
+
+  const onAttachVideo = url => {
+    const file = { url, alt: "image" };
+    insertMediaToEditor(file);
+  };
+
+  const onEmbedVideo = url => {
+    if (!editor) return;
+    editor.chain().focus().setExternalVideo({ src: url }).run();
   };
 
   return (
@@ -114,31 +108,25 @@ const MediaUploader = ({ mediaUploader, onClose, editor }) => {
           </Tab>
         )}
         <div className="ne-media-uploader__content">
-          {mediaUploader.image ? (
+          {mediaUploader.image && (
             <ImageUploader
+              {...{ onUploadComplete }}
               className="ne-media-uploader__image-uploader"
-              onUploadComplete={handleImageUploadComplete}
             />
-          ) : (
+          )}
+          {mediaUploader.video && (
             <>
-              {activeTab === "local" && mediaUploader.video && (
+              {activeTab === "local" && (
                 <LocalUploader
                   {...{ insertMediaToEditor, setIsUploading }}
                   isImage={false}
                   onClose={handleClose}
                 />
               )}
-              {activeTab === "link" && (
-                <URLForm
-                  buttonLabel={t("neetoEditor.localUploader.uploadVideo")}
-                  placeholder={t("neetoEditor.placeholders.pasteLink")}
-                  onSubmit={handleSubmit}
-                />
-              )}
-              {activeTab === "embed" && mediaUploader.video && (
+              {activeTab === "embed" && (
                 <VideoEmbedForm
-                  onCancel={handleClose}
-                  onSubmit={handleVideoEmbed}
+                  {...{ onAttachVideo, onEmbedVideo }}
+                  onClose={handleClose}
                 />
               )}
             </>
