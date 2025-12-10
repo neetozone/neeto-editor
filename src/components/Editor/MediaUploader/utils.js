@@ -84,7 +84,6 @@ export const getTabs = mediaUploader => {
   if (mediaUploader.video) {
     return [
       { title: "Upload", key: "local" },
-      { title: "Link", key: "link" },
       { title: "Embed", key: "embed" },
     ];
   }

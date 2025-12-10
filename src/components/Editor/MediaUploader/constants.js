@@ -2,9 +2,7 @@ import { t } from "i18next";
 import { globalProps } from "neetocommons/initializers";
 import * as yup from "yup";
 
-import { DIRECT_UPLOAD_ENDPOINT } from "src/common/constants";
-
-import { validateUrl } from "../CustomExtensions/Embeds/utils";
+import { DIRECT_UPLOAD_ENDPOINT, URL_REGEXP } from "src/common/constants";
 
 const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100 MB
 
@@ -32,14 +30,10 @@ export const DEFAULT_VIDEO_UPLOAD_CONFIG = {
 };
 
 export const VIDEO_EMBED_FORM_VALIDATION_SCHEMA = yup.object().shape({
-  videoUrl: yup
+  url: yup
     .string()
     .required(t("neetoEditor.error.fieldRequired"))
-    .test(
-      "is-valid-video-url",
-      t("neetoEditor.error.invalidEmbedUrl"),
-      validateUrl
-    ),
+    .matches(URL_REGEXP, t("neetoEditor.error.invalidUrl")),
 });
 
 export const DEFAULT_ASPECT_RATIO = "16/9";
