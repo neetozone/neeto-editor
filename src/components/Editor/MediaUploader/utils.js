@@ -7,6 +7,11 @@ import {
   CustomSize,
   BorderDisable,
   BorderEnable,
+  AspectRatio169,
+  AspectRatio916,
+  AspectRatio43,
+  AspectRatio32,
+  AspectRatio11,
 } from "neetoicons";
 
 import { FILE_SIZE_UNITS } from "./constants";
@@ -51,11 +56,11 @@ export const buildImageOptions = (border = true, showAspectRatio = false) => {
       alignPos: "center",
       optionName: t("neetoEditor.menu.aspectRatio"),
       items: [
-        { ratio: "16/9", tooltipLabel: "16/9" },
-        { ratio: "9/16", tooltipLabel: "9/16" },
-        { ratio: "4/3", tooltipLabel: "4/3" },
-        { ratio: "3/2", tooltipLabel: "3/2" },
-        { ratio: "1/1", tooltipLabel: "1/1" },
+        { ratio: "16/9", tooltipLabel: "16/9", icon: AspectRatio169 },
+        { ratio: "9/16", tooltipLabel: "9/16", icon: AspectRatio916 },
+        { ratio: "4/3", tooltipLabel: "4/3", icon: AspectRatio43 },
+        { ratio: "3/2", tooltipLabel: "3/2", icon: AspectRatio32 },
+        { ratio: "1/1", tooltipLabel: "1/1", icon: AspectRatio11 },
       ],
     });
   }
