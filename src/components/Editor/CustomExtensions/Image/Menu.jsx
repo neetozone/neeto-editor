@@ -83,7 +83,7 @@ const Menu = ({
                     key={ratio}
                     onClick={() => updateAttributes({ aspectRatio: ratio })}
                   >
-                    <Icon size={18} />
+                    {Icon && <Icon size={18} />}
                     {ratio}
                   </MenuItem.Button>
                 ))}

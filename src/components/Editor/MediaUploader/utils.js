@@ -7,11 +7,11 @@ import {
   CustomSize,
   BorderDisable,
   BorderEnable,
+  AspectRatio11,
   AspectRatio169,
   AspectRatio916,
   AspectRatio43,
   AspectRatio32,
-  AspectRatio11,
 } from "neetoicons";
 
 import { FILE_SIZE_UNITS } from "./constants";
