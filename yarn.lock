@@ -1534,10 +1534,10 @@
   resolved "https://registry.yarnpkg.com/@bigbinary/neeto-hotkeys/-/neeto-hotkeys-1.0.4.tgz#03358c7eb27c430b69d8bf786a4a278fdf7a280f"
   integrity sha512-/DEbXYPeg/Pbljd/k2GhRvCaDEpQG2JTnSWz0soSlw5m6VkPY7NdC0PR+PIwvHFZUjGtRU7liSBZoWPTleTtHA==
 
-"@bigbinary/neeto-icons@1.20.60":
-  version "1.20.60"
-  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.20.60.tgz#58c6dd6af2f01a7fa6b6b156e43862011fade2e5"
-  integrity sha512-1eLqa2RPD+E0MEHPhxJYHbuZSVDqzhAbbKhZTqh+WfU3MPGxuHrCFH4O9mQH7G3y7cwLK3yVVThswW8VydhfQw==
+"@bigbinary/neeto-icons@1.20.71":
+  version "1.20.71"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-icons/-/neeto-icons-1.20.71.tgz#51cfb254f15a98bdc78ad84c339a19a13a848961"
+  integrity sha512-TtHusWDTdtwn7IYswLv8OU4BaiMTvGH5OAvcdTki8Br73XhG4BzQo18mjgQbU45f9vx5Db7qtvk9FDHDElinsg==
 
 "@bigbinary/neeto-image-uploader-frontend@2.3.27":
   version "2.3.27"

@@ -73,7 +73,7 @@ const ImageComponent = ({
           <Resizable
             lockAspectRatio
             className="neeto-editor__image"
-            minWidth="100px"
+            minWidth="50px"
             size={{ height, width }}
             onResizeStop={handleResizeStop}
             onResize={(_event, _direction, ref) =>

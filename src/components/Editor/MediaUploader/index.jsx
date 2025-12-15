@@ -79,17 +79,11 @@ const MediaUploader = ({ mediaUploader, onClose, editor }) => {
       onClose={handleClose}
     >
       <div className="ne-media-uploader">
-        {mediaUploader.video && (
+        {(mediaUploader.video || mediaUploader.image) && (
           <div className="ne-media-uploader__header">
             <h2 className="ne-media-uploader__header-title">
-              {t("neetoEditor.menu.addVideo")}
-            </h2>
-          </div>
-        )}
-        {mediaUploader.image && (
-          <div className="ne-media-uploader__header">
-            <h2 className="ne-media-uploader__header-title">
-              {t("neetoEditor.menu.addImage")}
+              {mediaUploader.video && t("neetoEditor.menu.addVideo")}
+              {mediaUploader.image && t("neetoEditor.menu.addImage")}
             </h2>
           </div>
         )}

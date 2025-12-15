@@ -24,6 +24,21 @@ const upload = async (file, url) => {
   throw new Error(LARGE_IMAGE_ERROR);
 };
 
+const findNextTextPos = (editor, pos) => {
+  const doc = editor.state.doc;
+  let foundPos = -1;
+
+  doc.nodesBetween(pos, doc.content.size, (node, nodePos) => {
+    if (foundPos >= pos) return false;
+    else if (!node.type.isTextblock) return true;
+    foundPos = nodePos;
+
+    return false;
+  });
+
+  return foundPos;
+};
+
 export default Node.create({
   name: "image",
 
@@ -163,22 +178,23 @@ export default Node.create({
     return {
       Enter: () => {
         const head = this.editor.state.selection.$head;
+        if (head.node().type.name !== "image") return false;
 
-        if (head.node().type.name === "image") {
-          this.editor
-            .chain()
-            .insertContentAt(head.after(), {
-              type: "paragraph",
-              content: "",
-            })
-            .focus()
-            .run();
+        const chain = this.editor.chain();
+        const tail = head.after();
 
-          return true;
+        let nextTextPos = findNextTextPos(this.editor, tail);
+        if (nextTextPos < 0) {
+          chain.insertContentAt(tail, { type: "paragraph", content: "" });
+          nextTextPos = tail;
         }
 
-        // Fallback to TipTap's default behavior
-        return false;
+        chain
+          .setTextSelection(nextTextPos + 1) // Node boundary + 1
+          .focus()
+          .run();
+
+        return true;
       },
     };
   },
