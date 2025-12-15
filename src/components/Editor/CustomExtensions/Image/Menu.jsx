@@ -78,11 +78,12 @@ const Menu = ({
               onClick={event => event.stopPropagation()}
             >
               <DropdownMenu className="mb-0">
-                {items?.map(({ ratio }) => (
+                {items?.map(({ ratio, icon: Icon }) => (
                   <MenuItem.Button
                     key={ratio}
                     onClick={() => updateAttributes({ aspectRatio: ratio })}
                   >
+                    {Icon && <Icon size={18} />}
                     {ratio}
                   </MenuItem.Button>
                 ))}

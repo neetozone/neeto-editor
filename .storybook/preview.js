@@ -6,6 +6,7 @@ import { LIVE_EXAMPLES_ADDON_ID } from "storybook-addon-live-examples";
 import initializeApplication from "neetocommons/initializers";
 import en from "../src/translations/en.json";
 import neetoTheme from "./neetoTheme";
+import DocsContainer from "./docs/container";
 
 initializeApplication({
   skip: { axios: true, globalProps: false, mixpanel: true, logger: true },
@@ -18,6 +19,7 @@ addons.setConfig({
 
 export const parameters = {
   layout: "fullscreen",
+  docs: { container: DocsContainer },
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: { matchers: { color: /(background|color)$/i, date: /Date$/ } },
   options: {
