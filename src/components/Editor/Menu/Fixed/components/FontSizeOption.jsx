@@ -48,7 +48,7 @@ const FontSizeOption = ({
         iconSize: 22,
         label: <Down size={12} />,
         ref: dropdownRef,
-        "data-cy": "neeto-editor-fixed-menu-font-size-option",
+        "data-testid": "neeto-editor-fixed-menu-font-size-option",
         onKeyDown: event =>
           event.key === "ArrowDown" && dropdownRef.current?.click(),
         tooltipProps: { content: tooltipContent ?? label, position: "bottom" },
@@ -62,7 +62,7 @@ const FontSizeOption = ({
         {menuOptions.map(({ label, icon: Icon, value, key }) => (
           <MenuItem.Button
             className="neeto-editor-menu-font-size-options__item-btn"
-            data-cy={`neeto-editor-fixed-menu-font-size-option-${key}`}
+            data-testid={`neeto-editor-fixed-menu-font-size-option-${key}`}
             key={value}
             tooltipProps={{ content: label, position: "bottom" }}
             onClick={() => handleClick(value)}

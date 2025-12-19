@@ -55,7 +55,7 @@ class EmojiPickerMenu extends React.Component {
   render() {
     return (
       <div
-        data-cy="neeto-editor-emoji-picker"
+        data-testid="neeto-editor-emoji-picker"
         ref={this.ref}
         style={{ minWidth: "350px" }}
       />

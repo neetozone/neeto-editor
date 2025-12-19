@@ -6,7 +6,7 @@ const CharacterCountWrapper = ({ editor, children }) => {
       {children}
       <p
         className="neeto-editor-character-count"
-        data-cy="neeto-editor-character-count"
+        data-testid="neeto-editor-character-count"
       >
         {editor.storage.characterCount.characters()} characters
       </p>

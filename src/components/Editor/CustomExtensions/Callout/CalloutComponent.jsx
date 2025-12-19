@@ -19,7 +19,7 @@ const CalloutComponent = ({ node }) => {
         </span>
         <NodeViewContent
           className="callout-content"
-          data-cy="callout-content"
+          data-testid="callout-content"
         />
       </div>
     </NodeViewWrapper>

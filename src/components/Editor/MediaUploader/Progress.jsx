@@ -10,7 +10,7 @@ const Progress = withT(({ t, queuedFiles, cancelUpload }) => (
       <div className="ne-media-uploader__media" key={id}>
         <div className="ne-media-uploader__media__cancel-button-wrapper">
           <Button
-            data-cy="neeto-editor-image-upload-cancel-button"
+            data-testid="neeto-editor-image-upload-cancel-button"
             icon={Close}
             iconSize={18}
             size="small"

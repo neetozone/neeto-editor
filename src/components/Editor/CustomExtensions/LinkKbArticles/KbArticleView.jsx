@@ -38,7 +38,7 @@ const KbArticleView = withT(
           />
           <Button
             className="ne-link-popover__option-button mx-0"
-            data-cy="neeto-editor-link-popover-edit"
+            data-testid="neeto-editor-link-popover-edit"
             icon={Edit}
             size="small"
             style="text"

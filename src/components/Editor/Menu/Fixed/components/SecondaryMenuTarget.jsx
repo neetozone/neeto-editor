@@ -5,7 +5,7 @@ const { MenuItem } = Dropdown;
 
 const SecondaryMenuTarget = ({ icon: Icon, label }) => (
   <MenuItem.Button
-    data-cy={`neeto-editor-fixed-menu-${hyphenate(label)}-option`}
+    data-testid={`neeto-editor-fixed-menu-${hyphenate(label)}-option`}
   >
     <Icon /> {label}
   </MenuItem.Button>

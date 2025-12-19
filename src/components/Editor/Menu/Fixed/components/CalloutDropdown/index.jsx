@@ -56,7 +56,7 @@ const CalloutDropdown = ({ editor, label, tooltipContent }) => {
         iconSize: 20,
         label: <Down size={12} />,
         ref: dropdownRef,
-        "data-cy": "neeto-editor-fixed-menu-callout-option",
+        "data-testid": "neeto-editor-fixed-menu-callout-option",
         onKeyDown: event =>
           event.key === "ArrowDown" && dropdownRef.current?.click(),
         tooltipProps: { content: tooltipContent ?? label, position: "bottom" },

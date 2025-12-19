@@ -140,7 +140,7 @@ class EmojiSuggestionMenu extends React.Component {
           (isNotEmpty(this.state.emojiSuggestions) ? (
             this.state.emojiSuggestions.map((emoji, index) => (
               <div
-                data-cy={`neeto-editor-emoji-suggestion-${emoji.id}`}
+                data-testid={`neeto-editor-emoji-suggestion-${emoji.id}`}
                 key={emoji.id}
                 className={classnames("neeto-editor-emoji-suggestion__item", {
                   "neeto-editor-emoji-suggestion__item--selected":

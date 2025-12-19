@@ -65,17 +65,17 @@ const Preview = ({
     if (isPreviewAvailable) {
       switch (contentType.split("/")[0]) {
         case "image":
-          return <img data-cy={ATTACHMENTS_PREVIEW_DATA_CY} src={url} />;
+          return <img data-testid={ATTACHMENTS_PREVIEW_DATA_CY} src={url} />;
         case "video":
           return (
-            <video controls data-cy={ATTACHMENTS_PREVIEW_DATA_CY} src={url} />
+            <video controls data-testid={ATTACHMENTS_PREVIEW_DATA_CY} src={url} />
           );
         case "application":
         case "text":
           if (contentType === "application/pdf") {
             return (
               <iframe
-                data-cy={ATTACHMENTS_PREVIEW_DATA_CY}
+                data-testid={ATTACHMENTS_PREVIEW_DATA_CY}
                 src={url}
                 width="100%"
               />
@@ -85,7 +85,7 @@ const Preview = ({
           return (
             <DocViewer
               className="ne-attachments-preview__body-docviewer"
-              data-cy={ATTACHMENTS_PREVIEW_DATA_CY}
+              data-testid={ATTACHMENTS_PREVIEW_DATA_CY}
               documents={[{ uri: url, fileType: contentType }]}
               pluginRenderers={DocViewerRenderers}
               config={{

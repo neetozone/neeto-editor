@@ -47,14 +47,14 @@ const TableOption = ({
       {...{ isOpen }}
       buttonStyle={isOpen ? "secondary" : "text"}
       closeOnSelect={false}
-      data-cy="neeto-editor-fixed-menu-link-option"
+      data-testid="neeto-editor-fixed-menu-link-option"
       icon={Column}
       position={isSecondaryMenu ? "left-start" : "bottom"}
       buttonProps={{
         tabIndex: -1,
         tooltipProps: { content: tooltipContent ?? label, position: "bottom" },
         className: "neeto-editor-fixed-menu__item",
-        "data-cy": "neeto-editor-fixed-menu-table-option",
+        "data-testid": "neeto-editor-fixed-menu-table-option",
       }}
       customTarget={
         isSecondaryMenu && <SecondaryMenuTarget {...{ label }} icon={Column} />
@@ -65,7 +65,7 @@ const TableOption = ({
       <Menu className="neeto-editor-table__item">
         <Input
           autoFocus
-          data-cy="neeto-editor-fixed-menu-table-option-input"
+          data-testid="neeto-editor-fixed-menu-table-option-input"
           label={t("neetoEditor.menu.rows")}
           min="1"
           placeholder={t("neetoEditor.placeholders.rows")}
@@ -75,7 +75,7 @@ const TableOption = ({
           onChange={withEventTargetValue(setRows)}
         />
         <Input
-          data-cy="neeto-editor-fixed-menu-table-option-input"
+          data-testid="neeto-editor-fixed-menu-table-option-input"
           label={t("neetoEditor.menu.columns")}
           min="1"
           placeholder={t("neetoEditor.placeholders.rows")}
@@ -87,7 +87,7 @@ const TableOption = ({
         <div className="neeto-editor-table-menu__button">
           <Button
             className="mt-auto"
-            data-cy="neeto-editor-fixed-menu-table-option-create-button"
+            data-testid="neeto-editor-fixed-menu-table-option-create-button"
             label={t("neetoEditor.common.create")}
             size="small"
             onClick={handleSubmit}

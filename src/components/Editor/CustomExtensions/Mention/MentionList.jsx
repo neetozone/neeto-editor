@@ -103,12 +103,12 @@ export class MentionList extends React.Component {
       <div className="neeto-ui-dropdown__popup">
         <Menu
           className="neeto-editor-mentions__wrapper"
-          data-cy="neeto-editor-mention-list"
+          data-testid="neeto-editor-mention-list"
           ref={this.mentionRef}
         >
           {items.map(({ key, name, imageUrl }, index) => (
             <MenuItem.Button
-              data-cy={`neeto-editor-mention-list-${name}`}
+              data-testid={`neeto-editor-mention-list-${name}`}
               key={key}
               type="button"
               className={classNames("neeto-editor-mentions__item", {

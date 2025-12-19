@@ -20,7 +20,7 @@ const Mentions = ({
   return (
     <Dropdown
       buttonStyle="text"
-      data-cy="neeto-editor-mention-option"
+      data-testid="neeto-editor-mention-option"
       icon={Email}
       position={isSecondaryMenu ? "left-start" : "bottom-start"}
       strategy="fixed"
@@ -36,7 +36,7 @@ const Mentions = ({
       <Menu>
         {mentions.map(({ key, name, imageUrl }) => (
           <MenuItem.Button
-            data-cy={`neeto-editor-mention-option-${key}`}
+            data-testid={`neeto-editor-mention-option-${key}`}
             key={key}
             onClick={() => editor.commands.setMention({ id: key, label: name })}
           >

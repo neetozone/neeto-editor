@@ -33,7 +33,7 @@ const ErrorWrapper = ({ error, children, className }) => {
     <>
       <div className={wrapperClasses}>{children}</div>
       {isError && (
-        <p className="neeto-ui-input__error" data-cy="neeto-editor-error-text">
+        <p className="neeto-ui-input__error" data-testid="neeto-editor-error-text">
           {getErrorMessage()}
         </p>
       )}
