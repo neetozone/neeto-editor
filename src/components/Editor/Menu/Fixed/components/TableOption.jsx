@@ -65,7 +65,7 @@ const TableOption = ({
       <Menu className="neeto-editor-table__item">
         <Input
           autoFocus
-          data-testid="neeto-editor-fixed-menu-table-option-input"
+          data-testid="neeto-editor-fixed-menu-table-rows-input"
           label={t("neetoEditor.menu.rows")}
           min="1"
           placeholder={t("neetoEditor.placeholders.rows")}
@@ -75,7 +75,7 @@ const TableOption = ({
           onChange={withEventTargetValue(setRows)}
         />
         <Input
-          data-testid="neeto-editor-fixed-menu-table-option-input"
+          data-testid="neeto-editor-fixed-menu-table-columns-input"
           label={t("neetoEditor.menu.columns")}
           min="1"
           placeholder={t("neetoEditor.placeholders.rows")}
