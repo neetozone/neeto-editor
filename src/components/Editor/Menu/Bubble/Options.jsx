@@ -91,7 +91,7 @@ const Options = ({
           iconPosition: "left",
           iconSize: 22,
           label: <Down size={12} />,
-          "data-cy": "neeto-editor-fixed-menu-font-size-option",
+          "data-testid": "neeto-editor-fixed-menu-font-size-option",
           style: "text",
           size: "small",
           className:

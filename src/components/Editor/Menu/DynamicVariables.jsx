@@ -28,7 +28,7 @@ const MenuDynamicVariables = ({
 
   return (
     <div
-      data-cy="neeto-editor-fixed-menu-variables"
+      data-testid="neeto-editor-fixed-menu-variables"
       className={classnames("neeto-editor-fixed-menu__variables", {
         "neeto-editor-fixed-menu__variables--standalone": standalone,
       })}

@@ -60,7 +60,7 @@ const ImageComponent = ({
 
   return (
     <NodeViewWrapper
-      data-cy="neeto-editor-image-wrapper"
+      data-testid="neeto-editor-image-wrapper"
       className={classNames(
         "neeto-editor__image-wrapper",
         `neeto-editor__image--${align}`,

@@ -118,13 +118,13 @@ const Attachment = ({
 
   return (
     <>
-      <div className="ne-attachments__preview" data-cy="ne-attachments-wrapper">
+      <div className="ne-attachments__preview" data-testid="ne-attachments-wrapper">
         {isRenaming ? (
           <>
             <Tooltip content={newFilename} position="top">
               <Input
                 autoFocus
-                data-cy="neeto-editor-preview-rename-input"
+                data-testid="neeto-editor-preview-rename-input"
                 size="small"
                 value={newFilename}
                 error={
@@ -142,7 +142,7 @@ const Attachment = ({
               />
             </Tooltip>
             <Button
-              data-cy="neeto-editor-preview-rename-cancel-button"
+              data-testid="neeto-editor-preview-rename-cancel-button"
               icon={Close}
               loading={isUpdating}
               size="small"
@@ -179,7 +179,7 @@ const Attachment = ({
                 <Menu>
                   {Object.entries(handlers).map(([label, handler]) => (
                     <MenuItem.Button
-                      data-cy={`neeto-editor-preview-${label.toLowerCase()}-button`}
+                      data-testid={`neeto-editor-preview-${label.toLowerCase()}-button`}
                       key={label}
                       onClick={() => onMenuItemClick({ key: label, handler })}
                     >

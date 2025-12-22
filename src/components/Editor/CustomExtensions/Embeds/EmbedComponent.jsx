@@ -37,7 +37,7 @@ const EmbedComponent = ({
 
   return (
     <NodeViewWrapper
-      data-cy="neeto-editor-video-wrapper"
+      data-testid="neeto-editor-video-wrapper"
       className={classnames(
         "neeto-editor__video-wrapper",
         `neeto-editor__video--${align}`,

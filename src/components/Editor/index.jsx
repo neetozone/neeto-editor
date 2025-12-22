@@ -187,7 +187,7 @@ const Editor = (
       attributes: {
         class: editorClasses,
         style: getEditorStyles({ rows }),
-        "data-cy": "neeto-editor-content",
+        "data-testid": "neeto-editor-content",
         ...ariaAttributes,
         ...contentAttributes,
       },
@@ -248,7 +248,7 @@ const Editor = (
 
   return (
     <div
-      data-cy="neeto-editor-wrapper"
+      data-testid="neeto-editor-wrapper"
       ref={wrapperRef}
       className={classnames({
         [className]: className,
@@ -259,7 +259,7 @@ const Editor = (
         <Label
           {...{ required }}
           className="neeto-ui-mb-2"
-          data-cy={`${slugify(label)}-editor-label`}
+          data-testid={`${slugify(label)}-editor-label`}
         >
           {label}
         </Label>

@@ -19,7 +19,7 @@ const AttachmentProgress = ({ attachment, cancelUpload }) => {
         <Typography style="body2">{progressPercentage}</Typography>
       </div>
       <Button
-        data-cy="neeto-editor-preview-upload-cancel-button"
+        data-testid="neeto-editor-preview-upload-cancel-button"
         icon={Close}
         size="small"
         style="text"

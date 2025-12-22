@@ -45,7 +45,7 @@ const KbArticleEdit = ({
             required
             unlimitedChars
             className="w-full"
-            data-cy="neeto-editor-edit-kb-link-text-input"
+            data-testid="neeto-editor-edit-kb-link-text-input"
             label={t("neetoEditor.common.text")}
             name="textContent"
             placeholder={t("neetoEditor.placeholders.enterText")}
@@ -53,7 +53,7 @@ const KbArticleEdit = ({
           />
           <ArticlePicker
             className="w-full"
-            data-cy="neeto-editor-edit-kb-link-page-select"
+            data-testid="neeto-editor-edit-kb-link-page-select"
             isLoading={isLoadingKbData}
             label={t("neetoEditor.linkKb.articleLabel")}
             mode={MODE.SELECT}
@@ -66,7 +66,7 @@ const KbArticleEdit = ({
           />
           <div className="ne-link-popover__edit-prompt-buttons">
             <Button
-              data-cy="neeto-editor-edit-kb-link-done"
+              data-testid="neeto-editor-edit-kb-link-done"
               disabled={!dirty}
               label={t("neetoEditor.common.done")}
               loading={isSubmitting}
@@ -74,7 +74,7 @@ const KbArticleEdit = ({
               type="submit"
             />
             <Button
-              data-cy="neeto-editor-edit-kb-link-cancel"
+              data-testid="neeto-editor-edit-kb-link-cancel"
               label={t("neetoEditor.common.cancel")}
               size="small"
               style="text"

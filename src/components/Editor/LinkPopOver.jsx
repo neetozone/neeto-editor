@@ -284,7 +284,7 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
           <>
             <Input
               required
-              data-cy="neeto-editor-edit-link-text-input"
+              data-testid="neeto-editor-edit-link-text-input"
               label={t("neetoEditor.common.text")}
               name="textContent"
               placeholder={t("neetoEditor.placeholders.enterText")}
@@ -295,7 +295,7 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
               autoFocus
               required
               className="ne-link-popover__url-input"
-              data-cy="neeto-editor-edit-link-url-input"
+              data-testid="neeto-editor-edit-link-url-input"
               label={t("neetoEditor.common.url")}
               name="urlString"
               placeholder={t("neetoEditor.placeholders.url")}
@@ -312,7 +312,7 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
             />
             <div className="ne-link-popover__edit-prompt-buttons">
               <Button
-                data-cy="neeto-editor-edit-link"
+                data-testid="neeto-editor-edit-link"
                 disabled={!dirty}
                 label={t("neetoEditor.menu.link")}
                 loading={isSubmitting}
@@ -320,7 +320,7 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
                 type="submit"
               />
               <Button
-                data-cy="neeto-editor-edit-link-cancel"
+                data-testid="neeto-editor-edit-link-cancel"
                 label={t("neetoEditor.common.cancel")}
                 size="small"
                 style="text"
@@ -378,7 +378,7 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
       {" - "}
       <Button
         className="ne-link-popover__option-button"
-        data-cy="neeto-editor-link-popover-edit"
+        data-testid="neeto-editor-link-popover-edit"
         label={t("neetoEditor.common.edit")}
         size="small"
         style="link"
@@ -387,7 +387,7 @@ const LinkPopOver = ({ editor, deletedArticlesHook }) => {
       <span>|</span>
       <Button
         className="ne-link-popover__option-button"
-        data-cy="neeto-editor-link-popover-unlink"
+        data-testid="neeto-editor-link-popover-unlink"
         label={t("neetoEditor.common.unlink")}
         size="small"
         style="link"

@@ -32,7 +32,7 @@ const VideoEmbedForm = ({ onEmbedVideo, onAttachVideo, onClose }) => {
               <Input
                 autoFocus
                 unlimitedChars
-                data-cy="neeto-editor-video-embed-input"
+                data-testid="neeto-editor-video-embed-input"
                 label={t("neetoEditor.common.videoUrl")}
                 name="url"
                 placeholder={t("neetoEditor.placeholders.embedUrl")}
@@ -42,7 +42,7 @@ const VideoEmbedForm = ({ onEmbedVideo, onAttachVideo, onClose }) => {
             </div>
             <ActionBlock
               cancelButtonProps={{
-                "data-cy": "neeto-editor-video-embed-cancel",
+                "data-testid": "neeto-editor-video-embed-cancel",
                 label: t("neetoEditor.common.cancel"),
                 size: "small",
                 onClick: () => {
@@ -51,7 +51,7 @@ const VideoEmbedForm = ({ onEmbedVideo, onAttachVideo, onClose }) => {
                 },
               }}
               submitButtonProps={{
-                "data-cy": "neeto-editor-video-embed-submit",
+                "data-testid": "neeto-editor-video-embed-submit",
                 disabled: !dirty,
                 label: t("neetoEditor.common.saveChanges"),
                 loading: isSubmitting,

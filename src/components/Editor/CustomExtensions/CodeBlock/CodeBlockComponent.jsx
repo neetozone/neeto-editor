@@ -99,7 +99,7 @@ const CodeBlockComponent = ({ node, editor, updateAttributes }) => {
   return (
     <NodeViewWrapper
       className="ne-codeblock-nodeview-wrapper"
-      data-cy="neeto-editor-code-block"
+      data-testid="neeto-editor-code-block"
     >
       <div {...{ ref }}>
         <pre ref={handleContentMount}>

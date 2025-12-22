@@ -21,7 +21,7 @@ const ColorDot = ({ colorVar, isSelected, onClick, isTextColor }) => {
       {...{ onClick }}
       className={dotClass}
       style={dotStyle}
-      data-cy={`neeto-editor-highlight-${hyphenize(
+      data-testid={`neeto-editor-highlight-${hyphenize(
         isTextColor ? "text" : "background"
       )}-color-dot-${colorNumber}`}
     >

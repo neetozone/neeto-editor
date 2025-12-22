@@ -105,7 +105,7 @@ const EditorContent = ({
   return (
     <>
       <div
-        data-cy="neeto-editor-content"
+        data-testid="neeto-editor-content"
         ref={editorContentRef}
         className={classnames(EDITOR_CONTENT_CLASS_NAME, {
           [className]: className,

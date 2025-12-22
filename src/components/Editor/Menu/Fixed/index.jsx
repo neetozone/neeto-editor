@@ -144,7 +144,7 @@ const Fixed = ({
     >
       <div
         className="neeto-editor-fixed-menu__wrapper"
-        data-cy="neeto-editor-fixed-menu-wrapper"
+        data-testid="neeto-editor-fixed-menu-wrapper"
         ref={menuRef}
       >
         {menuItems.map(group =>

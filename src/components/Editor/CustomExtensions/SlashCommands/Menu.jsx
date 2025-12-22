@@ -153,7 +153,7 @@ const MenuItem = forwardRef(
     return (
       <button
         {...{ ref }}
-        data-cy={`neeto-editor-command-list-item-${index}`}
+        data-testid={`neeto-editor-command-list-item-${index}`}
         className={classnames("neeto-editor-slash-commands__item", {
           active: index === selectedIndex,
         })}
@@ -164,7 +164,7 @@ const MenuItem = forwardRef(
         <span className="neeto-editor-slash-commands__item-content">
           <span
             className="neeto-editor-slash-commands__item-title"
-            data-cy="neeto-editor-command-list-item-block-heading"
+            data-testid="neeto-editor-command-list-item-block-heading"
           >
             {item.title}
           </span>

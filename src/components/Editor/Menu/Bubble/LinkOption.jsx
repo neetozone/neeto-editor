@@ -52,7 +52,7 @@ const LinkOption = ({ editor, handleClose, handleAnimateInvalidLink }) => {
       <input
         autoFocus
         className="neeto-editor-bubble-menu-link__input"
-        data-cy="neeto-editor-link-input"
+        data-testid="neeto-editor-link-input"
         name="url"
         placeholder={t("neetoEditor.placeholders.linkInput")}
         value={link}
@@ -61,7 +61,7 @@ const LinkOption = ({ editor, handleClose, handleAnimateInvalidLink }) => {
         }
       />
       <Button
-        data-cy="neeto-editor-link-cancel-button"
+        data-testid="neeto-editor-link-cancel-button"
         icon={Close}
         size="small"
         style="secondary"

@@ -24,7 +24,7 @@ const MenuButton = ({
     <Button
       {...{ disabled, icon }}
       className="neeto-editor-fixed-menu__item"
-      data-cy={`neeto-editor-fixed-menu-${optionName}-option`}
+      data-testid={`neeto-editor-fixed-menu-${optionName}-option`}
       style={isActive ? "secondary" : "text"}
       tabIndex="-1"
       tooltipProps={{

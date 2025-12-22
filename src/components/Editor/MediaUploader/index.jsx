@@ -92,7 +92,7 @@ const MediaUploader = ({ mediaUploader, onClose, editor }) => {
             {tabs.map(({ key, title }) => (
               <Tab.Item
                 active={activeTab === key}
-                data-cy={`neeto-editor-media-uploader-${key}-tab`}
+                data-testid={`neeto-editor-media-uploader-${key}-tab`}
                 key={key}
                 onClick={() => setActiveTab(key)}
               >

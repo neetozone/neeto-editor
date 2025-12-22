@@ -80,7 +80,7 @@ const HighlightDropdown = ({
         iconSize: 20,
         label: <Down size={12} />,
         ref: dropdownRef,
-        "data-cy": "neeto-editor-fixed-menu-highlight-option",
+        "data-testid": "neeto-editor-fixed-menu-highlight-option",
         onKeyDown: event =>
           event.key === "ArrowDown" && dropdownRef.current?.click(),
         tooltipProps: { content: tooltipContent ?? label, position: "bottom" },
@@ -101,7 +101,7 @@ const HighlightDropdown = ({
             </Typography>
             <div
               className="neeto-editor-highlight-dropdown__color-grid"
-              data-cy={`neeto-editor-highlight-${hyphenize(title)}-grid`}
+              data-testid={`neeto-editor-highlight-${hyphenize(title)}-grid`}
             >
               {renderColorDots(colors, isTextColor)}
             </div>

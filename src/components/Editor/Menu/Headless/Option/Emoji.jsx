@@ -15,7 +15,7 @@ const Emoji = ({ editor, isActive, setActive, tooltipContent }) => (
         delay: [500],
         position: "bottom",
       },
-      "data-cy": "ne-emoji-picker",
+      "data-testid": "ne-emoji-picker",
     }}
     onClick={() => setActive(active => !active)}
     onClose={() => setActive(false)}

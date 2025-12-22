@@ -42,7 +42,7 @@ const Menu = ({
           type === "button" ? (
             <Button
               className="neeto-editor-bubble-menu__item"
-              data-cy={`neeto-editor-image-menu-${optionName}`}
+              data-testid={`neeto-editor-image-menu-${optionName}`}
               icon={Icon}
               key={optionName}
               tooltipProps={{ content: optionName, position: "top" }}
