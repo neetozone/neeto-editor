@@ -37,8 +37,6 @@ export const checkPreviewAvailability = contentType =>
     contentType === "application/msword" ||
     contentType ===
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ||
-    contentType === "text/htm" ||
-    contentType === "text/html" ||
     contentType === "image/jpg" ||
     contentType === "application/vnd.ms-powerpoint" ||
     contentType ===
