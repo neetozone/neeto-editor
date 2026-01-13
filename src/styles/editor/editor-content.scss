@@ -1,167 +1,249 @@
 @import "callout";
 @import "./todo-list";
 
+// .neeto-ui-theme--light .hljs {
+//   color: #c9d1d9;
+//   background: #0d1117;
+// }
+
+// .neeto-ui-theme--light .hljs-doctag,
+// .neeto-ui-theme--light .hljs-keyword,
+// .neeto-ui-theme--light .hljs-meta .hljs-keyword,
+// .neeto-ui-theme--light .hljs-template-tag,
+// .neeto-ui-theme--light .hljs-template-variable,
+// .neeto-ui-theme--light .hljs-type,
+// .neeto-ui-theme--light .hljs-variable.language_ {
+//   color: #ff7b72;
+// }
+
+// .neeto-ui-theme--light .hljs-title,
+// .neeto-ui-theme--light .hljs-title.class_,
+// .neeto-ui-theme--light .hljs-title.class_.inherited__,
+// .neeto-ui-theme--light .hljs-title.function_ {
+//   color: #d2a8ff;
+// }
+
+// .neeto-ui-theme--light .hljs-attr,
+// .neeto-ui-theme--light .hljs-attribute,
+// .neeto-ui-theme--light .hljs-literal,
+// .neeto-ui-theme--light .hljs-meta,
+// .neeto-ui-theme--light .hljs-number,
+// .neeto-ui-theme--light .hljs-operator,
+// .neeto-ui-theme--light .hljs-selector-attr,
+// .neeto-ui-theme--light .hljs-selector-class,
+// .neeto-ui-theme--light .hljs-selector-id,
+// .neeto-ui-theme--light .hljs-variable {
+//   color: #79c0ff;
+// }
+
+// .neeto-ui-theme--light .hljs-meta .hljs-string,
+// .neeto-ui-theme--light .hljs-regexp,
+// .neeto-ui-theme--light .hljs-string {
+//   color: #a5d6ff;
+// }
+
+// .neeto-ui-theme--light .hljs-built_in,
+// .neeto-ui-theme--light .hljs-symbol {
+//   color: #ffa657;
+// }
+
+// .neeto-ui-theme--light .hljs-code,
+// .neeto-ui-theme--light .hljs-comment,
+// .neeto-ui-theme--light .hljs-formula {
+//   color: #8b949e;
+// }
+
+// .neeto-ui-theme--light .hljs-name,
+// .neeto-ui-theme--light .hljs-quote,
+// .neeto-ui-theme--light .hljs-selector-pseudo,
+// .neeto-ui-theme--light .hljs-selector-tag {
+//   color: #7ee787;
+// }
+
+// .neeto-ui-theme--light .hljs-subst {
+//   color: #c9d1d9;
+// }
+
+// .neeto-ui-theme--light .hljs-section {
+//   color: #1f6feb;
+// }
+
+// .neeto-ui-theme--light .hljs-bullet {
+//   color: #f2cc60;
+// }
+
+// .neeto-ui-theme--light .hljs-emphasis {
+//   color: #c9d1d9;
+// }
+
+// .neeto-ui-theme--light .hljs-strong {
+//   color: #c9d1d9;
+//   font-weight: 700;
+// }
+
+// .neeto-ui-theme--light .hljs-addition {
+//   color: #aff5b4;
+//   background-color: #033a16;
+// }
+
+// .neeto-ui-theme--light .hljs-deletion {
+//   color: #ffdcd7;
+//   background-color: #67060c;
+// }
+
+
+
+
+
+// Dark theme
 .neeto-ui-theme--dark .hljs {
-  color: #c9d1d9;
-  background: #0d1117;
-}
-
-.neeto-ui-theme--dark .hljs-doctag,
-.neeto-ui-theme--dark .hljs-keyword,
-.neeto-ui-theme--dark .hljs-meta .hljs-keyword,
-.neeto-ui-theme--dark .hljs-template-tag,
-.neeto-ui-theme--dark .hljs-template-variable,
-.neeto-ui-theme--dark .hljs-type,
-.neeto-ui-theme--dark .hljs-variable.language_ {
-  color: #ff7b72;
-}
-
-.neeto-ui-theme--dark .hljs-title,
-.neeto-ui-theme--dark .hljs-title.class_,
-.neeto-ui-theme--dark .hljs-title.class_.inherited__,
-.neeto-ui-theme--dark .hljs-title.function_ {
-  color: #d2a8ff;
-}
-
-.neeto-ui-theme--dark .hljs-attr,
-.neeto-ui-theme--dark .hljs-attribute,
-.neeto-ui-theme--dark .hljs-literal,
-.neeto-ui-theme--dark .hljs-meta,
-.neeto-ui-theme--dark .hljs-number,
-.neeto-ui-theme--dark .hljs-operator,
-.neeto-ui-theme--dark .hljs-selector-attr,
-.neeto-ui-theme--dark .hljs-selector-class,
-.neeto-ui-theme--dark .hljs-selector-id,
-.neeto-ui-theme--dark .hljs-variable {
-  color: #79c0ff;
-}
-
-.neeto-ui-theme--dark .hljs-meta .hljs-string,
-.neeto-ui-theme--dark .hljs-regexp,
-.neeto-ui-theme--dark .hljs-string {
-  color: #a5d6ff;
-}
-
-.neeto-ui-theme--dark .hljs-built_in,
-.neeto-ui-theme--dark .hljs-symbol {
-  color: #ffa657;
-}
-
-.neeto-ui-theme--dark .hljs-code,
-.neeto-ui-theme--dark .hljs-comment,
-.neeto-ui-theme--dark .hljs-formula {
-  color: #8b949e;
-}
-
-.neeto-ui-theme--dark .hljs-name,
-.neeto-ui-theme--dark .hljs-quote,
-.neeto-ui-theme--dark .hljs-selector-pseudo,
-.neeto-ui-theme--dark .hljs-selector-tag {
-  color: #7ee787;
-}
-
-.neeto-ui-theme--dark .hljs-subst {
-  color: #c9d1d9;
-}
-
-.neeto-ui-theme--dark .hljs-section {
-  color: #1f6feb;
-}
-
-.neeto-ui-theme--dark .hljs-bullet {
-  color: #f2cc60;
-}
-
-.neeto-ui-theme--dark .hljs-emphasis {
-  color: #c9d1d9;
-}
-
-.neeto-ui-theme--dark .hljs-strong {
-  color: #c9d1d9;
-  font-weight: 700;
-}
-
-.neeto-ui-theme--dark .hljs-addition {
-  color: #aff5b4;
-  background-color: #033a16;
-}
-
-.neeto-ui-theme--dark .hljs-deletion {
-  color: #ffdcd7;
-  background-color: #67060c;
-}
-
-.neeto-ui-theme--light .hljs {
   color: #333;
   background: #f8f8f8;
 }
 
-.neeto-ui-theme--light .hljs-comment,
-.neeto-ui-theme--light .hljs-quote {
+.neeto-ui-theme--dark .hljs-comment,
+.neeto-ui-theme--dark .hljs-quote {
   color: #998;
 }
 
-.neeto-ui-theme--light .hljs-keyword,
-.neeto-ui-theme--light .hljs-selector-tag,
-.neeto-ui-theme--light .hljs-subst {
+.neeto-ui-theme--dark .hljs-keyword,
+.neeto-ui-theme--dark .hljs-selector-tag,
+.neeto-ui-theme--dark .hljs-subst {
   color: #333;
 }
 
-.neeto-ui-theme--light .hljs-literal,
-.neeto-ui-theme--light .hljs-number,
-.neeto-ui-theme--light .hljs-tag .hljs-attr,
-.neeto-ui-theme--light .hljs-template-variable,
-.neeto-ui-theme--light .hljs-variable {
+.neeto-ui-theme--dark .hljs-literal,
+.neeto-ui-theme--dark .hljs-number,
+.neeto-ui-theme--dark .hljs-tag .hljs-attr,
+.neeto-ui-theme--dark .hljs-template-variable,
+.neeto-ui-theme--dark .hljs-variable {
   color: teal;
 }
 
-.neeto-ui-theme--light .hljs-doctag,
-.neeto-ui-theme--light .hljs-string {
+.neeto-ui-theme--dark .hljs-doctag,
+.neeto-ui-theme--dark .hljs-string {
   color: #d14;
 }
 
-.neeto-ui-theme--light .hljs-section,
-.neeto-ui-theme--light .hljs-selector-id,
-.neeto-ui-theme--light .hljs-title {
+.neeto-ui-theme--dark .hljs-section,
+.neeto-ui-theme--dark .hljs-selector-id,
+.neeto-ui-theme--dark .hljs-title {
   color: #900;
 }
 
-.neeto-ui-theme--light .hljs-class .hljs-title,
-.neeto-ui-theme--light .hljs-type {
+.neeto-ui-theme--dark .hljs-class .hljs-title,
+.neeto-ui-theme--dark .hljs-type {
   color: #458;
 }
 
-.neeto-ui-theme--light .hljs-attribute,
-.neeto-ui-theme--light .hljs-name,
-.neeto-ui-theme--light .hljs-tag {
+.neeto-ui-theme--dark .hljs-attribute,
+.neeto-ui-theme--dark .hljs-name,
+.neeto-ui-theme--dark .hljs-tag {
   color: navy;
 }
 
-.neeto-ui-theme--light .hljs-link,
-.neeto-ui-theme--light .hljs-regexp {
+.neeto-ui-theme--dark .hljs-link,
+.neeto-ui-theme--dark .hljs-regexp {
   color: #009926;
 }
 
-.neeto-ui-theme--light .hljs-bullet,
-.neeto-ui-theme--light .hljs-symbol {
+.neeto-ui-theme--dark .hljs-bullet,
+.neeto-ui-theme--dark .hljs-symbol {
   color: #990073;
 }
 
-.neeto-ui-theme--light .hljs-built_in,
-.neeto-ui-theme--light .hljs-builtin-name {
+.neeto-ui-theme--dark .hljs-built_in,
+.neeto-ui-theme--dark .hljs-builtin-name {
   color: #0086b3;
 }
 
-.neeto-ui-theme--light .hljs-meta {
+.neeto-ui-theme--dark .hljs-meta {
   color: #999;
 }
 
-.neeto-ui-theme--light .hljs-deletion {
+.neeto-ui-theme--dark .hljs-deletion {
   background: #fdd;
 }
 
-.neeto-ui-theme--light .hljs-addition {
+.neeto-ui-theme--dark .hljs-addition {
   background: #dfd;
+}
+
+
+// Light theme
+.neeto-ui-theme--light .hljs {
+  color: #abb2bf;
+  background: #282c34;
+}
+
+.neeto-ui-theme--light .hljs-comment,
+.neeto-ui-theme--light .hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.neeto-ui-theme--light .hljs-doctag,
+.neeto-ui-theme--light .hljs-keyword,
+.neeto-ui-theme--light .hljs-formula {
+  color: #c678dd;
+}
+
+.neeto-ui-theme--light .hljs-section,
+.neeto-ui-theme--light .hljs-name,
+.neeto-ui-theme--light .hljs-selector-tag,
+.neeto-ui-theme--light .hljs-deletion,
+.neeto-ui-theme--light .hljs-subst {
+  color: #e06c75;
+}
+
+.neeto-ui-theme--light .hljs-literal {
+  color: #56b6c2;
+}
+
+.neeto-ui-theme--light .hljs-string,
+.neeto-ui-theme--light .hljs-regexp,
+.neeto-ui-theme--light .hljs-addition,
+.neeto-ui-theme--light .hljs-attribute,
+.neeto-ui-theme--light .hljs-meta .hljs-string {
+  color: #98c379;
+}
+
+.neeto-ui-theme--light .hljs-attr,
+.neeto-ui-theme--light .hljs-variable,
+.neeto-ui-theme--light .hljs-template-variable,
+.neeto-ui-theme--light .hljs-type,
+.neeto-ui-theme--light .hljs-selector-class,
+.neeto-ui-theme--light .hljs-selector-attr,
+.neeto-ui-theme--light .hljs-selector-pseudo,
+.neeto-ui-theme--light .hljs-number {
+  color: #d19a66;
+}
+
+.neeto-ui-theme--light .hljs-symbol,
+.neeto-ui-theme--light .hljs-bullet,
+.neeto-ui-theme--light .hljs-link,
+.neeto-ui-theme--light .hljs-meta,
+.neeto-ui-theme--light .hljs-selector-id,
+.neeto-ui-theme--light .hljs-title {
+  color: #61aeee;
+}
+
+.neeto-ui-theme--light .hljs-built_in,
+.neeto-ui-theme--light .hljs-title.class_,
+.neeto-ui-theme--light .hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.neeto-ui-theme--light .hljs-emphasis {
+  font-style: italic;
+}
+
+.neeto-ui-theme--light .hljs-strong {
+  font-weight: bold;
+}
+
+.neeto-ui-theme--light .hljs-link {
+  text-decoration: underline;
 }
 
 :root,
@@ -244,9 +326,9 @@
   --neeto-editor-content-list-item-margin-bottom: 0.5rem;
   --neeto-editor-content-list-item-margin-top: 0.5rem;
   --neeto-editor-content-code-font-size: 85%;
-  --neeto-editor-content-code-background-color: 246, 248, 250, 1;
+  --neeto-editor-content-code-background-color: 40, 44, 52, 1;
   --neeto-editor-content-code-line-number-color: 89, 99, 110, 1;
-  --neeto-editor-content-code-color: 31, 35, 40, 1;
+  --neeto-editor-content-code-color: 171, 178, 191, 1;
   --neeto-editor-content-code-padding: 0.2em 0.4em;
   --neeto-editor-content-blockquote-color: 89, 99, 110, 1;
   --neeto-editor-content-blockquote-border-color: 209, 217, 224, 1;
@@ -326,9 +408,9 @@
   --neeto-editor-pastel-pink: 181, 162, 174;
   --neeto-editor-content-heading-color: 224, 224, 224, 1;
   --neeto-editor-content-paragraph-color: 224, 224, 224, 1;
-  --neeto-editor-content-code-background-color: 21, 27, 35, 1;
+  --neeto-editor-content-code-background-color: 246, 248, 250, 1;
   --neeto-editor-content-code-line-number-color: 89, 99, 110, 1;
-  --neeto-editor-content-code-color: 240, 246, 252, 1;
+  --neeto-editor-content-code-color: 31, 35, 40, 1;
   --neeto-editor-content-blockquote-color: 145, 152, 161, 1;
   --neeto-editor-content-blockquote-border-color: 61, 68, 77, 1;
   /* Highlight text colors */
