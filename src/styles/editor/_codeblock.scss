@@ -1,4 +1,5 @@
 .ne-codeblock-nodeview-wrapper {
+  border-radius: var(--neeto-editor-rounded-sm);
   pre {
     padding-inline-start: 0.75rem;
     padding-inline-end: 0.75rem;
@@ -15,5 +16,9 @@
     inset-inline-end: 0;
     z-index: 0;
     pointer-events: none;
+  }
+
+  .selected-text{
+    background: inherit;
   }
 }
