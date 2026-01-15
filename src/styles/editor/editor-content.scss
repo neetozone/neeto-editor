@@ -238,7 +238,7 @@
   --neeto-editor-content-code-line-number-color: 89, 99, 110, 1;
   --neeto-editor-content-code-color: 171, 178, 191, 1;
   --neeto-editor-content-inline-code-color: 31, 35, 40, 1;
-  --neeto-editor-content-inline-code-background-color:  246, 248, 250, 1;
+  --neeto-editor-content-inline-code-background-color:  239,242,246, 1;
   --neeto-editor-content-code-padding: 0.2em 0.4em;
   --neeto-editor-content-blockquote-color: 89, 99, 110, 1;
   --neeto-editor-content-blockquote-border-color: 209, 217, 224, 1;
@@ -577,10 +577,15 @@
   h4 code,
   h5 code,
   h6 code,
-  p code {
+  p code,
+  ol code,
+  ul code,
+  table th code,
+  table td code {
     font-size: var(--neeto-editor-content-code-font-size);
     color: rgba(var(--neeto-editor-content-inline-code-color));
     background-color: rgba(var(--neeto-editor-content-inline-code-background-color));
+    border-radius: var(--neeto-editor-rounded-sm);
   }
 
   pre {
@@ -593,7 +598,7 @@
     line-height: 1.5;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    border-radius: var(--neeto-editor-rounded-sm);
+    border-radius: var(--neeto-editor-rounded-lg);
     padding: 0;
     position: relative;
 
@@ -684,7 +689,7 @@
     width: 100%;
     overflow-x: auto;
     padding: 0.75rem;
-    border-radius: var(--neeto-editor-rounded-sm);
+    border-radius: var(--neeto-editor-rounded-lg);
   }
 
   pre[data-linenumbers]>code {
