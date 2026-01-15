@@ -1,7 +1,7 @@
 @import "callout";
 @import "./todo-list";
 
-// Codeblock Dark version
+// Codeblock Dark mode
 .neeto-ui-theme--dark .hljs {
   color: #383a42;
   background: #fafafa;
@@ -78,7 +78,7 @@
 }
 
 
-// Codeblock Light version
+// Codeblock Light mode
 .neeto-ui-theme--light .hljs {
   color: #abb2bf;
   background: #282c34;
@@ -578,8 +578,7 @@
   h5 code,
   h6 code,
   p code,
-  ol code,
-  ul code,
+  li code,
   table th code,
   table td code {
     font-size: var(--neeto-editor-content-code-font-size);
