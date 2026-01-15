@@ -684,6 +684,7 @@
     width: 100%;
     overflow-x: auto;
     padding: 0.75rem;
+    border-radius: var(--neeto-editor-rounded-sm);
   }
 
   pre[data-linenumbers]>code {
