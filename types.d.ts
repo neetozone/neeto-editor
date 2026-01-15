@@ -153,7 +153,7 @@ interface AttachmentsProps {
 
 type EditorContentConfigType = {
   enableHeaderLinks?: boolean;
-};
+}
 
 export function Editor(props: EditorProps): JSX.Element;
 
