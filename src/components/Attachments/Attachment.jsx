@@ -55,7 +55,8 @@ const Attachment = ({
   const handleDownload = () =>
     downloadFile(attachment.url, attachment.filename);
 
-  const handleOpenInNewTab = () => window.open(attachment.url, "_blank");
+  const handleOpenInNewTab = () =>
+    window.open(attachment.url, "_blank", "noopener,noreferrer");
 
   const handleRename = async () => {
     try {
@@ -217,7 +218,7 @@ const Attachment = ({
                       key={label}
                       onClick={() => onMenuItemClick({ key: label, handler })}
                     >
-                      {label}
+                      {t(label)}
                     </MenuItem.Button>
                   ))}
                 </Menu>
