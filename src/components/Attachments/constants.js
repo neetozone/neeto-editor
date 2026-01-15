@@ -10,6 +10,7 @@ export const DEFAULT_FILE_UPLOAD_CONFIG = {
 };
 
 export const ATTACHMENT_OPTIONS = {
+  OPEN_IN_NEW_TAB: "Open in new tab",
   DOWNLOAD: "Download",
   RENAME: "Rename",
   DELETE: "Delete",

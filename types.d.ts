@@ -148,11 +148,12 @@ interface AttachmentsProps {
   className?: string;
   showToastr?: boolean;
   allowDelete?: boolean;
+  allowOpenInNewTab?: boolean;
 }
 
 type EditorContentConfigType = {
   enableHeaderLinks?: boolean;
-}
+};
 
 export function Editor(props: EditorProps): JSX.Element;
 

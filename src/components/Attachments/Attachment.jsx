@@ -33,6 +33,7 @@ const Attachment = ({
   setSelectedAttachment,
   isLoading,
   allowDelete,
+  allowOpenInNewTab,
 }) => {
   const { t } = useTranslation();
 
@@ -44,6 +45,8 @@ const Attachment = ({
 
   const handleDownload = () =>
     downloadFile(attachment.url, attachment.filename);
+
+  const handleOpenInNewTab = () => window.open(attachment.url, "_blank");
 
   const handleRename = async () => {
     try {
@@ -84,6 +87,9 @@ const Attachment = ({
   };
 
   const handlers = {
+    ...(allowOpenInNewTab && {
+      [ATTACHMENT_OPTIONS.OPEN_IN_NEW_TAB]: handleOpenInNewTab,
+    }),
     [ATTACHMENT_OPTIONS.DOWNLOAD]: handleDownload,
     [ATTACHMENT_OPTIONS.RENAME]: handleRename,
     ...(allowDelete && { [ATTACHMENT_OPTIONS.DELETE]: handleDelete }),
@@ -118,7 +124,10 @@ const Attachment = ({
 
   return (
     <>
-      <div className="ne-attachments__preview" data-testid="ne-attachments-wrapper">
+      <div
+        className="ne-attachments__preview"
+        data-testid="ne-attachments-wrapper"
+      >
         {isRenaming ? (
           <>
             <Tooltip content={newFilename} position="top">
