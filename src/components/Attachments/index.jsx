@@ -36,7 +36,7 @@ const Attachments = (
     config = {},
     setIsUploading = noop,
     allowDelete = true,
-    allowOpenInNewTab = false,
+    allowOpenInNewTab = true,
   },
   ref
 ) => {
