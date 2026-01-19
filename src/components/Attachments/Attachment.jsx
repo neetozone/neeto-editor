@@ -218,7 +218,7 @@ const Attachment = ({
                       key={label}
                       onClick={() => onMenuItemClick({ key: label, handler })}
                     >
-                      {t(label)}
+                      {label}
                     </MenuItem.Button>
                   ))}
                 </Menu>
