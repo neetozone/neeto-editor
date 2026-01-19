@@ -148,6 +148,7 @@ interface AttachmentsProps {
   className?: string;
   showToastr?: boolean;
   allowDelete?: boolean;
+  allowOpenInNewTab?: boolean;
 }
 
 type EditorContentConfigType = {

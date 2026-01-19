@@ -36,6 +36,7 @@ const Attachments = (
     config = {},
     setIsUploading = noop,
     allowDelete = true,
+    allowOpenInNewTab = true,
   },
   ref
 ) => {
@@ -96,6 +97,7 @@ const Attachments = (
           <Attachment
             {...{
               allowDelete,
+              allowOpenInNewTab,
               attachment,
               attachments,
               disabled,

@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import { removeBy } from "neetocist";
+import useOnClickOutside from "neetocommons/react-utils/useOnClickOutside";
 import { withEventTargetValue } from "neetocommons/utils";
-import { MenuVertical, Close } from "neetoicons";
+import { MenuVertical, Close, Check } from "neetoicons";
 import {
   Dropdown,
   Input,
@@ -33,6 +34,7 @@ const Attachment = ({
   setSelectedAttachment,
   isLoading,
   allowDelete,
+  allowOpenInNewTab,
 }) => {
   const { t } = useTranslation();
 
@@ -42,8 +44,19 @@ const Attachment = ({
   const [isDeleting, setIsDeleting] = useState(false);
   const [newFilename, setNewFilename] = useState("");
 
+  const renameRef = useRef(null);
+
+  useOnClickOutside(renameRef, () => {
+    if (!isRenaming) return;
+    setIsRenaming(false);
+    setNewFilename("");
+  });
+
   const handleDownload = () =>
     downloadFile(attachment.url, attachment.filename);
+
+  const handleOpenInNewTab = () =>
+    window.open(attachment.url, "_blank", "noopener,noreferrer");
 
   const handleRename = async () => {
     try {
@@ -84,6 +97,9 @@ const Attachment = ({
   };
 
   const handlers = {
+    ...(allowOpenInNewTab && {
+      [ATTACHMENT_OPTIONS.OPEN_IN_NEW_TAB]: handleOpenInNewTab,
+    }),
     [ATTACHMENT_OPTIONS.DOWNLOAD]: handleDownload,
     [ATTACHMENT_OPTIONS.RENAME]: handleRename,
     ...(allowDelete && { [ATTACHMENT_OPTIONS.DELETE]: handleDelete }),
@@ -118,9 +134,12 @@ const Attachment = ({
 
   return (
     <>
-      <div className="ne-attachments__preview" data-testid="ne-attachments-wrapper">
+      <div
+        className="ne-attachments__preview"
+        data-testid="ne-attachments-wrapper"
+      >
         {isRenaming ? (
-          <>
+          <div ref={renameRef}>
             <Tooltip content={newFilename} position="top">
               <Input
                 autoFocus
@@ -132,6 +151,30 @@ const Attachment = ({
                     ? t("neetoEditor.attachments.nameEmpty")
                     : ""
                 }
+                suffix={
+                  <div className="flex items-center justify-end">
+                    <Button
+                      data-testid="neeto-editor-preview-rename-submit-button"
+                      disabled={isEmpty(newFilename) || isUpdating}
+                      icon={Check}
+                      loading={isUpdating}
+                      size="small"
+                      style="text"
+                      onClick={handleRename}
+                    />
+                    <Button
+                      data-testid="neeto-editor-preview-rename-cancel-button"
+                      disabled={isUpdating}
+                      icon={Close}
+                      size="small"
+                      style="text"
+                      onClick={() => {
+                        setIsRenaming(false);
+                        setNewFilename("");
+                      }}
+                    />
+                  </div>
+                }
                 onChange={withEventTargetValue(setNewFilename)}
                 onKeyDown={event =>
                   handleKeyDown({
@@ -141,15 +184,7 @@ const Attachment = ({
                 }
               />
             </Tooltip>
-            <Button
-              data-testid="neeto-editor-preview-rename-cancel-button"
-              icon={Close}
-              loading={isUpdating}
-              size="small"
-              style="text"
-              onClick={() => setIsRenaming(false)}
-            />
-          </>
+          </div>
         ) : (
           <>
             <div
