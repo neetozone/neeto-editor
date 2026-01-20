@@ -28,7 +28,8 @@
       "nameEmpty": "Naziv datoteke ne može biti prazan",
       "noPreview": "Pregled nije dostupan, kliknite za <span>preuzi</span>.",
       "oneAttachmentAllowed": "Dozvoljen je samo jedan privitak",
-      "uploading": "Otpremanje"
+      "uploading": "Otpremanje",
+      "rename": "Preimenuj"
     },
     "error": {
       "invalidUrl": "Unesite valjanu URL adresu.",

@@ -28,7 +28,8 @@
       "nameEmpty": "Dosya adı boş olamaz",
       "noPreview": "Önizleme mevcut değil, <span>indir</span>'ye tıklayın.",
       "oneAttachmentAllowed": "Sadece bir ek dosyaya izin verilmektedir",
-      "uploading": "Yükleniyor"
+      "uploading": "Yükleniyor",
+      "rename": "Yeniden Adlandır"
     },
     "error": {
       "invalidUrl": "Lütfen geçerli bir URL girin.",

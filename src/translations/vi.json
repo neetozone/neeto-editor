@@ -28,7 +28,8 @@
       "nameEmpty": "Tên tệp không được để trống",
       "noPreview": "Không có bản xem trước, nhấn để <span>tải xuống</span>.",
       "oneAttachmentAllowed": "Chỉ được phép một đính kèm",
-      "uploading": "Đang tải lên"
+      "uploading": "Đang tải lên",
+      "rename": "Đổi tên"
     },
     "error": {
       "invalidUrl": "Vui lòng nhập một URL hợp lệ.",

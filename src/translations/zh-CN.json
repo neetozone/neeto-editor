@@ -28,7 +28,8 @@
       "nameEmpty": "文件名不能为空",
       "noPreview": "没有可用的预览，点击 <span>下载</span>。",
       "oneAttachmentAllowed": "只允许一个附件",
-      "uploading": "上传中"
+      "uploading": "上传中",
+      "rename": "重命名"
     },
     "error": {
       "invalidUrl": "请输入有效的网址。",
