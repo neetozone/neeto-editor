@@ -28,7 +28,8 @@
       "nameEmpty": "Ime datoteke ne sme biti prazno",
       "noPreview": "Predogled ni na voljo, kliknite za <span>prenos</span>.",
       "oneAttachmentAllowed": "Dovoljena je le ena priloga",
-      "uploading": "Nalaganje"
+      "uploading": "Nalaganje",
+      "rename": "Preimenuj"
     },
     "error": {
       "invalidUrl": "Prosimo, vnesite veljavno povezavo.",

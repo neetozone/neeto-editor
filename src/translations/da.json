@@ -28,7 +28,8 @@
       "nameEmpty": "Filnavn kan ikke være tomt",
       "noPreview": "Der er ingen forhåndsvisning tilgængelig, klik for at <span>downloade</span>.",
       "oneAttachmentAllowed": "Kun én vedhæftning er tilladt",
-      "uploading": "Uploader"
+      "uploading": "Uploader",
+      "rename": "Omdøb"
     },
     "error": {
       "invalidUrl": "Indtast venligst en gyldig URL.",

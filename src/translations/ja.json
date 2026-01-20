@@ -28,7 +28,8 @@
       "nameEmpty": "ファイル名は空にできません",
       "noPreview": "プレビューは利用できません。クリックして<span>ダウンロード</span>してください。",
       "oneAttachmentAllowed": "添付ファイルは1つのみ許可されています",
-      "uploading": "アップロード中"
+      "uploading": "アップロード中",
+      "rename": "名前を変更"
     },
     "error": {
       "invalidUrl": "有効なURLを入力してください。",

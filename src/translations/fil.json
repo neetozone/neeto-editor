@@ -28,7 +28,8 @@
       "nameEmpty": "Ang filename ay hindi maaaring walang laman",
       "noPreview": "Walang available na preview, i-click upang <span>idownload</span>.",
       "oneAttachmentAllowed": "Tanging isang attachment lamang ang pinapayagan",
-      "uploading": "Nai-upload"
+      "uploading": "Nai-upload",
+      "rename": "Palitan ang pangalan"
     },
     "error": {
       "invalidUrl": "Mangyaring maglagay ng wastong URL.",

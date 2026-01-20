@@ -28,7 +28,8 @@
       "nameEmpty": "Dateiname darf nicht leer sein",
       "noPreview": "Es ist keine Vorschau verfügbar, klicken Sie, um <span>herunterzuladen</span>.",
       "oneAttachmentAllowed": "Es ist nur ein Anhang erlaubt",
-      "uploading": "Hochladen"
+      "uploading": "Hochladen",
+      "rename": "Umbenennen"
     },
     "error": {
       "invalidUrl": "Bitte geben Sie eine gültige URL ein.",

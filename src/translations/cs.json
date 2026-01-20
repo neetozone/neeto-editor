@@ -28,7 +28,8 @@
       "nameEmpty": "Název souboru nesmí být prázdný",
       "noPreview": "Není k dispozici žádný náhled, klikněte pro <span>stáhnout</span>.",
       "oneAttachmentAllowed": "Povolená je pouze jedna příloha",
-      "uploading": "Nahrávání"
+      "uploading": "Nahrávání",
+      "rename": "P rename"
     },
     "error": {
       "invalidUrl": "Zadejte prosím platnou URL.",

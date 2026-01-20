@@ -28,7 +28,8 @@
       "nameEmpty": "Il nome del file non può essere vuoto",
       "noPreview": "Non è disponibile nessuna anteprima, clicca per <span>scari</span>.",
       "oneAttachmentAllowed": "È consentito solo un allegato",
-      "uploading": "Caricamento"
+      "uploading": "Caricamento",
+      "rename": "Rinomina"
     },
     "error": {
       "invalidUrl": "Si prega di inserire un URL valido.",

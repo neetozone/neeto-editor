@@ -28,7 +28,8 @@
       "nameEmpty": "파일 이름은 비워둘 수 없습니다.",
       "noPreview": "미리보기가 제공되지 않습니다. 클릭하여 <span>다운로드</span>하십시오.",
       "oneAttachmentAllowed": "하나의 첨부 파일만 허용됩니다.",
-      "uploading": "업로드 중"
+      "uploading": "업로드 중",
+      "rename": "이름 바꾸기"
     },
     "error": {
       "invalidUrl": "유효한 URL을 입력하십시오.",

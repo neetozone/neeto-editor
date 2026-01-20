@@ -28,7 +28,8 @@
       "nameEmpty": "Numele fișierului nu poate fi gol",
       "noPreview": "Nu este disponibilă o previzualizare, fă clic pentru <span>descarcă</span>.",
       "oneAttachmentAllowed": "Este permis doar un atașament",
-      "uploading": "Se încarcă"
+      "uploading": "Se încarcă",
+      "rename": "Renumește"
     },
     "error": {
       "invalidUrl": "Te rugăm să introduci un URL valid.",

@@ -28,7 +28,8 @@
       "nameEmpty": "Nama file tidak boleh kosong",
       "noPreview": "Tidak ada pratinjau yang tersedia, klik untuk <span>download</span>.",
       "oneAttachmentAllowed": "Hanya satu lampiran yang diizinkan",
-      "uploading": "Mengunggah"
+      "uploading": "Mengunggah",
+      "rename": "Ganti nama"
     },
     "error": {
       "invalidUrl": "Silakan masukkan URL yang valid.",

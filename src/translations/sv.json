@@ -28,7 +28,8 @@
       "nameEmpty": "Filnamnet kan inte vara tomt",
       "noPreview": "Ingen förhandsgranskning är tillgänglig, klicka för att <span>ladda ner</span>.",
       "oneAttachmentAllowed": "Bara en bilaga är tillåten",
-      "uploading": "Laddar upp"
+      "uploading": "Laddar upp",
+      "rename": "Byt namn"
     },
     "error": {
       "invalidUrl": "Vänligen ange en giltig URL.",

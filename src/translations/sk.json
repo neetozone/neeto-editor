@@ -28,7 +28,8 @@
       "nameEmpty": "Názov súboru nemôže byť prázdny",
       "noPreview": "Náhľad nie je dostupný, kliknite na <span>stiahnuť</span>.",
       "oneAttachmentAllowed": "Povolená je iba jedna príloha",
-      "uploading": "Nahrávanie"
+      "uploading": "Nahrávanie",
+      "rename": "Premenovať"
     },
     "error": {
       "invalidUrl": "Zadajte platnú URL.",
