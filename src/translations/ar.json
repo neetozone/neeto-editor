@@ -28,7 +28,8 @@
       "nameEmpty": "لا يمكن أن يكون اسم الملف فارغًا",
       "noPreview": "لا توجد معاينة متاحة، انقر لت <span>تحميل</span>.",
       "oneAttachmentAllowed": "يسمح بإرفاق مرفق واحد فقط",
-      "uploading": "يتم التحميل"
+      "uploading": "يتم التحميل",
+      "rename": "إعادة تسمية"
     },
     "error": {
       "invalidUrl": "يرجى إدخال رابط صحيح.",

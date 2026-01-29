@@ -181,7 +181,8 @@
       "nameEmpty": "שם הקובץ אינו יכול להיות ריק",
       "noPreview": "אין תצוגה מקדימה זמינה, לחץ כדי <span>להוריד</span>.",
       "oneAttachmentAllowed": "מת erlaubt רק קובץ מצורף אחד",
-      "uploading": "מעלה"
+      "uploading": "מעלה",
+      "rename": "שנה שם"
     },
     "error": {
       "invalidUrl": "נא להזין כתובת אתר חוקית.",

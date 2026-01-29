@@ -28,7 +28,8 @@
       "nameEmpty": "El nombre del archivo no puede estar vacío",
       "noPreview": "No hay vista previa disponible, haga clic para <span>descargar</span>.",
       "oneAttachmentAllowed": "Solo se permite un archivo adjunto",
-      "uploading": "Subiendo"
+      "uploading": "Subiendo",
+      "rename": "Renombrar"
     },
     "error": {
       "invalidUrl": "Por favor, introduce una URL válida.",

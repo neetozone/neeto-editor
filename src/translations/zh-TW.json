@@ -28,7 +28,8 @@
       "nameEmpty": "檔名不能為空",
       "noPreview": "沒有可用的預覽，點擊以<span>下載</span>。",
       "oneAttachmentAllowed": "只允許一個附件",
-      "uploading": "上傳中"
+      "uploading": "上傳中",
+      "rename": "重命名"
     },
     "error": {
       "invalidUrl": "請輸入有效的網址。",

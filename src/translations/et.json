@@ -28,7 +28,8 @@
       "nameEmpty": "Failinimi ei tohi olla tühi",
       "noPreview": "Eelvaade pole saadaval, kliki, et <span>alla laadida</span>.",
       "oneAttachmentAllowed": "Lubatud on ainult üks manus",
-      "uploading": "Laadimine"
+      "uploading": "Laadimine",
+      "rename": "Nimeta"
     },
     "error": {
       "invalidUrl": "Palun sisestage kehtiv URL.",

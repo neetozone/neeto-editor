@@ -28,7 +28,8 @@
       "nameEmpty": "Le nom de fichier ne peut pas être vide",
       "noPreview": "Aucun aperçu disponible, cliquez pour <span>télécharger</span>.",
       "oneAttachmentAllowed": "Une seule pièce jointe est autorisée",
-      "uploading": "Téléchargement"
+      "uploading": "Téléchargement",
+      "rename": "Renommer"
     },
     "error": {
       "invalidUrl": "Veuillez entrer une URL valide.",

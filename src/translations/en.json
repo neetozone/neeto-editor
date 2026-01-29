@@ -28,7 +28,8 @@
       "nameEmpty": "Filename cannot be empty",
       "noPreview": "There is no preview available, click to <span>download</span>.",
       "oneAttachmentAllowed": "Only one attachment is allowed",
-      "uploading": "Uploading"
+      "uploading": "Uploading",
+      "rename": "Rename"
     },
     "error": {
       "invalidUrl": "Please enter a valid URL.",

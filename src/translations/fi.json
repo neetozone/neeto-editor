@@ -28,7 +28,8 @@
       "nameEmpty": "Tiedostonimi ei voi olla tyhjäv",
       "noPreview": "Esikatselua ei ole saatavilla, napsauta <span>lataa</span>.",
       "oneAttachmentAllowed": "Vain yksi liite on sallittu",
-      "uploading": "Lataaminen"
+      "uploading": "Lataaminen",
+      "rename": "Nimeä"
     },
     "error": {
       "invalidUrl": "Ole hyvä ja syötä voimassa oleva URL.",

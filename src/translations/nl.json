@@ -28,7 +28,8 @@
       "nameEmpty": "Bestandsnaam kan niet leeg zijn",
       "noPreview": "Er is geen voorbeeld beschikbaar, klik om te <span>downloaden</span>.",
       "oneAttachmentAllowed": "Slechts één bijlage is toegestaan",
-      "uploading": "Uploaden"
+      "uploading": "Uploaden",
+      "rename": "Hernoemen"
     },
     "error": {
       "invalidUrl": "Voer een geldige URL in.",

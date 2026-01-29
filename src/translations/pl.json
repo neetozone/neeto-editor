@@ -28,7 +28,8 @@
       "nameEmpty": "Nazwa pliku nie może być pusta",
       "noPreview": "Brak dostępnego podglądu, kliknij, aby <span>pobrać</span>.",
       "oneAttachmentAllowed": "Dozwolony jest tylko jeden załącznik",
-      "uploading": "Przesyłanie"
+      "uploading": "Przesyłanie",
+      "rename": "Zmień nazwę"
     },
     "error": {
       "invalidUrl": "Wprowadź prawidłowy adres URL.",

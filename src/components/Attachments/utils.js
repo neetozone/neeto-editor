@@ -6,19 +6,22 @@ import { DEFAULT_FILE_UPLOAD_CONFIG } from "./constants";
 export const buildFileUploadConfig = config =>
   mergeRight(DEFAULT_FILE_UPLOAD_CONFIG, config);
 
-export const downloadFile = (fileUrl, filename) => {
+export const downloadFile = async (fileUrl, filename) => {
   try {
-    const a = document.createElement("a");
-    a.href = fileUrl;
-    a.setAttribute("download", filename);
-    a.setAttribute("target", "_blank");
+    const response = await fetch(fileUrl);
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
 
+    const a = document.createElement("a");
+    a.href = blobUrl;
+    a.setAttribute("download", filename);
     a.style.display = "none";
     document.body.appendChild(a);
 
     a.click();
 
     document.body.removeChild(a);
+    URL.revokeObjectURL(blobUrl);
   } catch (error) {
     Toastr.error(error);
   }
