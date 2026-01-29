@@ -88,6 +88,7 @@ const useCustomExtensions = ({
       codeBlock: false,
       code: false,
       bulletList: false,
+      listItem: false, // Disable ListItem from StarterKit since we add it conditionally below
       blockquote: options.includes(EDITOR_OPTIONS.BLOCKQUOTE),
       orderedList: false,
       italic: false,
