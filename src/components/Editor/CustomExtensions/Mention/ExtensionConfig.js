@@ -50,7 +50,7 @@ const suggestion = {
       },
 
       onExit() {
-        popup && popup[0].destroy();
+        popup?.[0]?.destroy();
         reactRenderer.destroy();
       },
     };
@@ -62,15 +62,15 @@ const Mentions = Mention.extend({
     return {
       setMention:
         ({ id, label }) =>
-        ({ chain }) => {
-          chain()
-            .focus()
-            .insertContent([
-              { type: this.name, attrs: { id, label } },
-              { type: "text", text: " " },
-            ])
-            .run();
-        },
+          ({ chain }) => {
+            chain()
+              .focus()
+              .insertContent([
+                { type: this.name, attrs: { id, label } },
+                { type: "text", text: " " },
+              ])
+              .run();
+          },
     };
   },
 });
