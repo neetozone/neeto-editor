@@ -79,21 +79,38 @@ const Table = TiptapTable.extend({
   },
 
   renderHTML({ node }) {
-    const colgroups = [];
+    let totalWidth = 0;
+    let fixedWidth = true;
 
-    const tableBody = node?.content?.firstChild;
-    if (tableBody && tableBody.firstChild) {
-      const firstRow = tableBody.firstChild;
-      if (firstRow && firstRow.childCount) {
-        for (let i = 0; i < firstRow.childCount; i++) {
-          const cell = firstRow.child(i);
-          let style = "min-width: 100px;";
-          if (cell.attrs?.colwidth) {
-            style += `width: ${cell.attrs.colwidth}px;`;
-          }
+    const colgroups = [];
+    const cellMinWidth = this.options?.cellMinWidth ?? 100;
+    const firstRow = node.content?.firstChild;
+
+    if (firstRow && firstRow.childCount) {
+      for (let i = 0; i < firstRow.childCount; i++) {
+        const cell = firstRow.child(i);
+        const { colspan, colwidth } = cell.attrs;
+        const span = colspan || 1;
+
+        for (let j = 0; j < span; j++) {
+          const hasWidth = colwidth && colwidth[j];
+          totalWidth += Number(hasWidth) || cellMinWidth;
+          if (!hasWidth) fixedWidth = false;
+
+          const style = hasWidth
+            ? `min-width: ${cellMinWidth}px; width: ${Number(hasWidth)}px;`
+            : `min-width: ${cellMinWidth}px;`;
+
           colgroups.push(["col", { style }]);
         }
       }
+    }
+
+    let tableStyle = "";
+    if (totalWidth > 0) {
+      tableStyle = fixedWidth
+        ? `width: ${totalWidth}px;`
+        : `min-width: ${totalWidth}px;`;
     }
 
     const alignmentClass = node.attrs?.textAlign
@@ -106,7 +123,12 @@ const Table = TiptapTable.extend({
         class: `table-responsive ${alignmentClass}`,
         "data-text-align": node.attrs?.textAlign || "left",
       },
-      ["table", {}, ["colgroup", ...colgroups], ["tbody", 0]],
+      [
+        "table",
+        tableStyle ? { style: tableStyle } : {},
+        ["colgroup", ...colgroups],
+        ["tbody", 0],
+      ],
     ];
   },
 
