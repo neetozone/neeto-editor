@@ -62,15 +62,15 @@ const Mentions = Mention.extend({
     return {
       setMention:
         ({ id, label }) =>
-          ({ chain }) => {
-            chain()
-              .focus()
-              .insertContent([
-                { type: this.name, attrs: { id, label } },
-                { type: "text", text: " " },
-              ])
-              .run();
-          },
+        ({ chain }) => {
+          chain()
+            .focus()
+            .insertContent([
+              { type: this.name, attrs: { id, label } },
+              { type: "text", text: " " },
+            ])
+            .run();
+        },
     };
   },
 });
