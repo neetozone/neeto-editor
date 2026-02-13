@@ -996,7 +996,8 @@
   color: unset !important;
   font-weight: normal !important;
 
-  &:has(img:not([src])) {
+  &:has(img:not([src])),
+  &:has(video:not([src]):not(:has(source[src]))) {
     display: none;
   }
 }
