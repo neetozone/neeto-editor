@@ -98,7 +98,11 @@ class Menu extends React.Component {
     const isCurrentMenuActive = menuIndex === activeMenuIndex;
 
     return (
-      <div className="neeto-editor-slash-commands__wrapper" ref={this.menuRef}>
+      <div
+        className="neeto-editor-slash-commands__wrapper"
+        data-testid="neeto-editor-slash-commands-wrapper"
+        ref={this.menuRef}
+      >
         {items.map((item, index) => {
           const isLeafNode = isNotPresent(item.items);
 
