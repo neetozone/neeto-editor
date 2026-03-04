@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 
 import { hyphenize } from "neetocommons/utils";
-import { Down, ColorPicker } from "neetoicons";
+import { Down, Highlight } from "neetoicons";
 import { Typography, Dropdown } from "neetoui";
 
 import ColorDot from "./ColorDot";
@@ -74,7 +74,7 @@ const HighlightDropdown = ({
       placement="bottom-start"
       strategy="fixed"
       buttonProps={{
-        icon: () => <ColorPicker />,
+        icon: () => <Highlight size={16} />,
         iconPosition: "left",
         iconSize: 16,
         label: <Down size={12} />,
