@@ -1,12 +1,12 @@
 .neeto-ui-dropdown__popup .neeto-ui-dropdown__popup-menu.neeto-editor-highlight-dropdown {
-  width: 295px;
+  width: 320px;
   padding: 12px;
 }
 
 .neeto-editor-highlight-dropdown {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .neeto-editor-highlight-dropdown__section {
@@ -15,13 +15,13 @@
 
 .neeto-editor-highlight-dropdown__section-title {
   color: rgb(var(--neeto-ui-gray-600));
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .neeto-editor-highlight-dropdown__color-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
 }
 
 .neeto-editor-highlight-dropdown__color-dot {
@@ -29,17 +29,17 @@
   height: 26px;
   border-radius: 100%;
   cursor: pointer;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(var(--neeto-ui-gray-300));
-  transition: all 0.2s ease;
+  border: none;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
 
   &:hover {
-    box-shadow: inset 0px 0px 0px 1px rgb(var(--neeto-ui-gray-500));
+    transform: scale(1.07);
   }
 
   &.neeto-editor-highlight-dropdown__color-dot--selected {
-    box-shadow: inset 0px 0px 0px 3px rgb(var(--neeto-ui-gray-500));
+    outline: 2px solid rgb(var(--neeto-ui-gray-400));
+    outline-offset: 2px;
   }
 }
