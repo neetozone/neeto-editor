@@ -74,7 +74,7 @@ const HighlightDropdown = ({
       placement="bottom-start"
       strategy="fixed"
       buttonProps={{
-        icon: () => <Highlight size={16} />,
+        icon: () => <Highlight size={17} />,
         iconPosition: "left",
         iconSize: 16,
         label: <Down size={12} />,
