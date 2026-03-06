@@ -634,6 +634,7 @@
     line-height: var(--neeto-editor-content-paragraph-line-height);
     min-height: 1.3rem;
     color: rgba(var(--neeto-editor-content-paragraph-color));
+    margin-top: 0;
     margin-bottom: var(--neeto-editor-content-paragraph-margin-bottom);
 
     &:empty::after {
