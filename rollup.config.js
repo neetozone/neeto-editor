@@ -78,6 +78,7 @@ const config = args => {
     name: "NeetoEditor",
     sourcemap: true,
     exports: "auto",
+    interop: "auto",
   }));
 
   return [
