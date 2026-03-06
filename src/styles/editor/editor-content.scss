@@ -229,6 +229,7 @@
   --neeto-editor-content-paragraph-color: 54, 55, 55, 1;
   --neeto-editor-content-paragraph-font-weight: 400;
   --neeto-editor-content-paragraph-line-height: 1.6;
+  --neeto-editor-content-paragraph-margin-bottom: 0.5rem;
   --neeto-editor-content-list-padding-inline-start: 2rem;
   --neeto-editor-content-list-margin-bottom: 1rem;
   --neeto-editor-content-list-item-margin-bottom: 0.5rem;
@@ -633,10 +634,15 @@
     line-height: var(--neeto-editor-content-paragraph-line-height);
     min-height: 1.3rem;
     color: rgba(var(--neeto-editor-content-paragraph-color));
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: var(--neeto-editor-content-paragraph-margin-bottom);
 
     &:empty::after {
       content: "\00a0";
+    }
+
+    &:empty {
+      margin-bottom: 0;
     }
 
     &:last-child {
