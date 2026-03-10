@@ -51,7 +51,7 @@ const suggestion = {
 
       onExit() {
         popup?.[0]?.destroy();
-        reactRenderer.destroy();
+        reactRenderer?.destroy();
       },
     };
   },
