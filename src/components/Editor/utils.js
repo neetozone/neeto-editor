@@ -74,7 +74,8 @@ export const isEmojiSuggestionsMenuActive = () =>
   !!document.querySelector(".neeto-editor-emoji-suggestion");
 
 export const transformPastedHTML = content => {
-  const doc = new DOMParser().parseFromString(content, "text/html");
+  const contentWithoutBr = content.replaceAll("<br />", "<p></p>");
+  const doc = new DOMParser().parseFromString(contentWithoutBr, "text/html");
 
   doc.querySelectorAll("[style]").forEach(el => {
     el.style.color = "";
