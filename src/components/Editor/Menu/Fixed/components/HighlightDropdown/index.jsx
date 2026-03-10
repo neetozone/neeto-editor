@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
 
 import { hyphenize } from "neetocommons/utils";
-import { Down, Highlight } from "neetoicons";
+import { Down } from "neetoicons";
 import { Typography, Dropdown } from "neetoui";
 
 import ColorDot from "./ColorDot";
+import ColorDotIcon from "./ColorDotIcon";
 import { COLORS } from "./constants";
 
 const colorSections = [
@@ -74,9 +75,9 @@ const HighlightDropdown = ({
       placement="bottom-start"
       strategy="fixed"
       buttonProps={{
-        icon: () => <Highlight size={18} />,
+        icon: () => <ColorDotIcon {...{ backgroundColor, textColor }} />,
         iconPosition: "left",
-        iconSize: 16,
+        iconSize: 20,
         label: <Down size={12} />,
         ref: dropdownRef,
         "data-testid": "neeto-editor-fixed-menu-highlight-option",
@@ -94,7 +95,7 @@ const HighlightDropdown = ({
             <Typography
               className="neeto-editor-highlight-dropdown__section-title"
               style="body2"
-              weight="medium"
+              weight="normal"
             >
               {title}
             </Typography>
