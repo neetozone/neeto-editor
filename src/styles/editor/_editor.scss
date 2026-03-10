@@ -55,6 +55,12 @@
     position: relative;
   }
 
+  p.is-empty {
+    margin-bottom: 0;
+    line-height: 1;
+    min-height: 1rem;
+  }
+
   &.placeholder-active {
     .is-editor-empty:first-child::before {
       @include show-placeholder;

@@ -643,6 +643,8 @@
 
     &:empty {
       margin-bottom: 0;
+      line-height: 1;
+      min-height: 1rem;
     }
 
     &:last-child {
