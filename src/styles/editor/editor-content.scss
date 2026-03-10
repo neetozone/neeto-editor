@@ -849,15 +849,15 @@
     }
   }
 
-  ul.bulletList li>p,
-  ol.orderedList li>p {
-    margin-top: var(--neeto-editor-content-list-item-margin-top);
-    margin-bottom: var(--neeto-editor-content-list-item-margin-bottom);
+  ul li>p,
+  ol li>p {
+    margin-top: var(--neeto-editor-content-list-item-margin-top) !important;
+    margin-bottom: var(--neeto-editor-content-list-item-margin-bottom) !important;
   }
 
-  ul.bulletList+p,
-  ol.orderedList+p {
-    margin-top: var(--neeto-editor-content-list-item-margin-top);
+  ul+p,
+  ol+p {
+    margin-top: var(--neeto-editor-content-list-item-margin-top) !important;
   }
 
   // Link
