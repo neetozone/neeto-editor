@@ -80,6 +80,7 @@ const Editor = (
     children,
     openImageInNewTab = true,
     openLinkInNewTab = true,
+    showAssetLibrary = true,
     collaborationProvider = null,
     enableReactNodeViewOptimization = false,
     size = EDITOR_SIZES.SMALL,
@@ -299,7 +300,7 @@ const Editor = (
           />
           {isMediaUploaderActive && (
             <MediaUploader
-              {...{ editor, mediaUploader }}
+              {...{ editor, mediaUploader, showAssetLibrary }}
               onClose={() => setMediaUploader({ image: false, video: false })}
             />
           )}
