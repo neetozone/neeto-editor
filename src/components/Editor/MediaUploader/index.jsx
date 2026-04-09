@@ -12,7 +12,12 @@ import LocalUploader from "./LocalUploader";
 import { getTabs } from "./utils";
 import VideoEmbedForm from "./VideoEmbedForm";
 
-const MediaUploader = ({ mediaUploader, onClose, editor }) => {
+const MediaUploader = ({
+  mediaUploader,
+  onClose,
+  editor,
+  showAssetLibrary = true,
+}) => {
   const { t } = useTranslation();
 
   const [activeTab, setActiveTab] = useState("local");
@@ -104,7 +109,7 @@ const MediaUploader = ({ mediaUploader, onClose, editor }) => {
         <div className="ne-media-uploader__content">
           {mediaUploader.image && (
             <ImageUploader
-              {...{ onUploadComplete }}
+              {...{ onUploadComplete, showAssetLibrary }}
               className="ne-media-uploader__image-uploader"
             />
           )}
