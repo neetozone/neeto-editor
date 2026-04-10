@@ -13,7 +13,7 @@ const Placeholder = Extension.create({
       emptyNodeClass: "is-empty",
       placeholder: t("neetoEditor.placeholders.writeSomething"),
       slashCommandsPlaceholder: t(
-        "neetoEditor.placeholders.writeSlashForCommands"
+        "neetoEditor.placeholders.typeSlashForCommands"
       ),
       showOnlyWhenEditable: true,
       showOnlyCurrent: false,
@@ -61,6 +61,13 @@ const Placeholder = Extension.create({
                   ) {
                     placeholderText = this.options.slashCommandsPlaceholder;
                   }
+                } else if (
+                  hasAnchor &&
+                  this.options.isSlashCommandsActive &&
+                  node.type.name === "paragraph"
+                ) {
+                  classes.push("is-current-slash-placeholder");
+                  placeholderText = this.options.slashCommandsPlaceholder;
                 }
 
                 const decoration = Decoration.node(pos, pos + node.nodeSize, {
