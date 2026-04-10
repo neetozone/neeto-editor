@@ -31,6 +31,7 @@ const Fixed = ({
   openLinkInNewTab,
   setIsNeetoKbArticleActive,
   neetoKbArticleState,
+  showAssetLibrary = true,
 }) => {
   const [focusedButtonIndex, setFocusedButtonIndex] = useState(0);
   const [isAddLinkActive, setIsAddLinkActive] = useState(false);
@@ -178,7 +179,7 @@ const Fixed = ({
       )}
       {isMediaUploaderActive && (
         <MediaUploader
-          {...{ editor, mediaUploader }}
+          {...{ editor, mediaUploader, showAssetLibrary }}
           onClose={() => setMediaUploader({ image: false, video: false })}
         />
       )}

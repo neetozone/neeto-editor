@@ -280,6 +280,7 @@ const Editor = (
                 menuType,
                 neetoKbArticleState,
                 openLinkInNewTab,
+                showAssetLibrary,
                 tooltips,
                 variables,
               }}

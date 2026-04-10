@@ -17,6 +17,7 @@ const Headless = ({
   attachmentProps,
   isEmojiPickerActive,
   setIsEmojiPickerActive,
+  showAssetLibrary = true,
 }) => {
   if (!editor) {
     return null;
@@ -49,7 +50,7 @@ const Headless = ({
       ))}
       {isMediaUploaderActive && (
         <MediaUploader
-          {...{ editor, mediaUploader }}
+          {...{ editor, mediaUploader, showAssetLibrary }}
           onClose={() => setMediaUploader({ image: false, video: false })}
         />
       )}
