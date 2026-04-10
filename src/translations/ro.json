@@ -158,7 +158,8 @@
       "writeSomething": "Scrie ceva …",
       "searchLanguages": "Caută limbi",
       "writeSlashForCommands": "Scrie '/' pentru comenzi...",
-      "searchArticles": "Caută un articol"
+      "searchArticles": "Caută un articol",
+      "typeSlashForCommands": "Tastați '/' pentru comenzi."
     },
     "table": {
       "delete": "Șterge tabelul",

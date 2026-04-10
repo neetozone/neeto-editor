@@ -158,7 +158,8 @@
       "writeSomething": "Napisz coś …",
       "searchLanguages": "Szukaj języków",
       "writeSlashForCommands": "Napisz '/' aby wywołać polecenia...",
-      "searchArticles": "Szukaj artykułu"
+      "searchArticles": "Szukaj artykułu",
+      "typeSlashForCommands": "Napisz '/' aby uzyskać polecenia."
     },
     "table": {
       "delete": "Usuń tabelę",

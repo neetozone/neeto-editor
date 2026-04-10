@@ -158,7 +158,8 @@
       "writeSomething": "เขียนอะไรบางอย่าง …",
       "searchLanguages": "ค้นหาภาษา",
       "writeSlashForCommands": "พิมพ์ '/' เพื่อคำสั่ง...",
-      "searchArticles": "ค้นหาบทความ"
+      "searchArticles": "ค้นหาบทความ",
+      "typeSlashForCommands": "พิมพ์ '/' เพื่อคำสั่ง"
     },
     "table": {
       "delete": "ลบตาราง",

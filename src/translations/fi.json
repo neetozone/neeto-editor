@@ -158,7 +158,8 @@
       "writeSomething": "Kirjoita jotain …",
       "searchLanguages": "Hae kieliä",
       "writeSlashForCommands": "Kirjoita '/' komentoja varten...",
-      "searchArticles": "Etsi artikkelia"
+      "searchArticles": "Etsi artikkelia",
+      "typeSlashForCommands": "Kirjoita '/' komentoja varten."
     },
     "table": {
       "delete": "Poista taulukko",

@@ -158,7 +158,8 @@
       "writeSomething": "Bir şeyler yazın …",
       "searchLanguages": "Dilleri ara",
       "writeSlashForCommands": "'/' ile komutlar yazın...",
-      "searchArticles": "Bir makale arayın"
+      "searchArticles": "Bir makale arayın",
+      "typeSlashForCommands": "'/' ile komutları yazın."
     },
     "table": {
       "delete": "Tabloyu sil",

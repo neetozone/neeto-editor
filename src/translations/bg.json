@@ -158,7 +158,8 @@
       "writeSomething": "Напишете нещо …",
       "searchLanguages": "Търсене на езици",
       "writeSlashForCommands": "Напишете '/' за команди...",
-      "searchArticles": "Търсете статия"
+      "searchArticles": "Търсете статия",
+      "typeSlashForCommands": "Напишете '/' за команди."
     },
     "table": {
       "delete": "Изтриване на таблица",

@@ -158,7 +158,8 @@
       "writeSomething": "कुछ लिखें …",
       "searchLanguages": "भाषाएँ खोजें",
       "writeSlashForCommands": "'/' के लिए कमांड लिखें...",
-      "searchArticles": "लेख के लिए खोजें"
+      "searchArticles": "लेख के लिए खोजें",
+      "typeSlashForCommands": "आदेशों के लिए '/' टाइप करें।"
     },
     "table": {
       "delete": "तालिका हटाएँ",

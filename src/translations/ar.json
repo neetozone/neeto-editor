@@ -158,7 +158,8 @@
       "writeSomething": "اكتب شيئًا …",
       "searchLanguages": "البحث عن اللغات",
       "writeSlashForCommands": "اكتب '/' للوصول إلى الأوامر...",
-      "searchArticles": "ابحث عن مقالة"
+      "searchArticles": "ابحث عن مقالة",
+      "typeSlashForCommands": "اكتب '/' للأوامر."
     },
     "table": {
       "delete": "حذف الجدول",

@@ -158,7 +158,8 @@
       "writeSomething": "Skriv något …",
       "searchLanguages": "Sök språk",
       "writeSlashForCommands": "Skriv '/' för kommandon...",
-      "searchArticles": "Sök efter en artikel"
+      "searchArticles": "Sök efter en artikel",
+      "typeSlashForCommands": "Skriv '/' för kommandon."
     },
     "table": {
       "delete": "Ta bort tabell",

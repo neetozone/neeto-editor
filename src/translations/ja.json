@@ -158,7 +158,8 @@
       "writeSomething": "何かを書く …",
       "searchLanguages": "言語を検索",
       "writeSlashForCommands": "'/'を入力してコマンドを使用します...",
-      "searchArticles": "記事を検索"
+      "searchArticles": "記事を検索",
+      "typeSlashForCommands": "コマンドのために '/' を入力してください。"
     },
     "table": {
       "delete": "テーブルを削除",

@@ -158,7 +158,8 @@
       "writeSomething": "Viết gì đó …",
       "searchLanguages": "Tìm kiếm ngôn ngữ",
       "writeSlashForCommands": "Gõ '/' để xem các lệnh...",
-      "searchArticles": "Tìm kiếm bài viết"
+      "searchArticles": "Tìm kiếm bài viết",
+      "typeSlashForCommands": "Gõ '/' để thực hiện các lệnh."
     },
     "table": {
       "delete": "Xóa bảng",
