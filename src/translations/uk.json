@@ -158,7 +158,8 @@
       "writeSomething": "Напишіть щось …",
       "searchLanguages": "Шукати мови",
       "writeSlashForCommands": "Напишіть '/' для команд...",
-      "searchArticles": "Шукати статтю"
+      "searchArticles": "Шукати статтю",
+      "typeSlashForCommands": "Наберіть '/' для команд."
     },
     "table": {
       "delete": "Видалити таблицю",

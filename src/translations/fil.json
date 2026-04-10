@@ -158,7 +158,8 @@
       "writeSomething": "Sumulat ng isang bagay …",
       "searchLanguages": "Maghanap ng mga wika",
       "writeSlashForCommands": "Isulat ang '/' para sa mga utos...",
-      "searchArticles": "Maghanap ng artikulo"
+      "searchArticles": "Maghanap ng artikulo",
+      "typeSlashForCommands": "I-type ang '/' para sa mga utos."
     },
     "table": {
       "delete": "Burahin ang mesa",

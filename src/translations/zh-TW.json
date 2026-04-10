@@ -158,7 +158,8 @@
       "writeSomething": "寫點什麼……",
       "searchLanguages": "搜索語言",
       "writeSlashForCommands": "輸入 '/' 以獲取指令...",
-      "searchArticles": "搜尋文章"
+      "searchArticles": "搜尋文章",
+      "typeSlashForCommands": "輸入 '/' 以便使用指令。"
     },
     "table": {
       "delete": "刪除表格",

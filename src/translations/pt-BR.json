@@ -158,7 +158,8 @@
       "writeSomething": "Escreva algo …",
       "searchLanguages": "Pesquisar idiomas",
       "writeSlashForCommands": "Escreva '/' para comandos...",
-      "searchArticles": "Pesquise por um artigo"
+      "searchArticles": "Pesquise por um artigo",
+      "typeSlashForCommands": "Digite '/' para comandos."
     },
     "table": {
       "delete": "Excluir tabela",

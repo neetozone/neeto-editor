@@ -158,7 +158,8 @@
       "writeSomething": "写点什么 …",
       "searchLanguages": "搜索语言",
       "writeSlashForCommands": "输入'/'以获取命令...",
-      "searchArticles": "搜索文章"
+      "searchArticles": "搜索文章",
+      "typeSlashForCommands": "输入 '/' 以获取命令。"
     },
     "table": {
       "delete": "删除表格",

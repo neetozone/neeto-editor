@@ -158,7 +158,8 @@
       "writeSomething": "Kirjuta midagi ...",
       "searchLanguages": "Otsi keeli",
       "writeSlashForCommands": "Kiri '/' käskude jaoks...",
-      "searchArticles": "Otsi artiklit"
+      "searchArticles": "Otsi artiklit",
+      "typeSlashForCommands": "Tippige '/' käskude jaoks."
     },
     "table": {
       "delete": "Kustuta tabel",

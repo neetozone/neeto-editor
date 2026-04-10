@@ -166,7 +166,8 @@
       "enterText": "Szöveg megadása",
       "writeSomething": "Írjon valamit …",
       "writeSlashForCommands": "Írja be a '/' parancsokat...",
-      "searchLanguages": "Nyelvek keresése"
+      "searchLanguages": "Nyelvek keresése",
+      "typeSlashForCommands": "Írja be a '/' jelet a parancsokhoz."
     },
     "table": {
       "delete": "Táblázat törlése",

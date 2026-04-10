@@ -119,7 +119,8 @@
       "enterText": "הזן טקסט",
       "writeSomething": "כתוב משהו …",
       "writeSlashForCommands": "כתוב '/' לפקודות...",
-      "searchLanguages": "חפש שפות"
+      "searchLanguages": "חפש שפות",
+      "typeSlashForCommands": "הקלד '/' עבור פקודות."
     },
     "table": {
       "delete": "מחק טבלה",

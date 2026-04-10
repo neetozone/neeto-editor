@@ -158,7 +158,8 @@
       "writeSomething": "Napišite nekaj …",
       "searchLanguages": "Išči jezike",
       "writeSlashForCommands": "Napiš '/' za ukaze...",
-      "searchArticles": "Išči članek"
+      "searchArticles": "Išči članek",
+      "typeSlashForCommands": "Vpišite '/' za ukaze."
     },
     "table": {
       "delete": "Izbriši tabelo",

@@ -158,7 +158,8 @@
       "searchLanguages": "Rechercher des langues",
       "embedUrl": "https://",
       "writeSlashForCommands": "Tapez '/' pour les commandes...",
-      "searchArticles": "Rechercher un article"
+      "searchArticles": "Rechercher un article",
+      "typeSlashForCommands": "Tapez '/' pour les commandes."
     },
     "table": {
       "delete": "Supprimer le tableau",

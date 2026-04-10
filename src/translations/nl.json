@@ -158,7 +158,8 @@
       "writeSomething": "Schrijf iets …",
       "searchLanguages": "Zoek talen",
       "writeSlashForCommands": "Typ '/' voor commando's...",
-      "searchArticles": "Zoek een artikel"
+      "searchArticles": "Zoek een artikel",
+      "typeSlashForCommands": "Typ '/' voor commando's."
     },
     "table": {
       "delete": "Tafel verwijderen",

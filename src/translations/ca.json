@@ -158,7 +158,8 @@
       "writeSomething": "Escriu alguna cosa …",
       "searchLanguages": "Cerca idiomes",
       "writeSlashForCommands": "Escriu '/' per a comandaments...",
-      "searchArticles": "Cerca un article"
+      "searchArticles": "Cerca un article",
+      "typeSlashForCommands": "Escriu '/' per a ordres."
     },
     "table": {
       "delete": "Eliminar taula",

@@ -158,7 +158,8 @@
       "writeSomething": "Tulis sesuatu …",
       "searchLanguages": "Cari bahasa",
       "writeSlashForCommands": "Tulis '/' untuk perintah...",
-      "searchArticles": "Cari artikel"
+      "searchArticles": "Cari artikel",
+      "typeSlashForCommands": "Ketik '/' untuk perintah."
     },
     "table": {
       "delete": "Hapus tabel",
