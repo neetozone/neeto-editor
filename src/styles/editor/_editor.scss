@@ -65,6 +65,10 @@
     .is-editor-empty:first-child::before {
       @include show-placeholder;
     }
+
+    p.is-current-slash-placeholder::before {
+      @include show-placeholder;
+    }
   }
 
   .ProseMirror-selectednode {
