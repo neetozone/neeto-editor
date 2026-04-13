@@ -41,6 +41,20 @@ import {
 
 import Attachments from "../Attachments";
 
+// Guard posAtCoords against undefined DOM nodes during drag events.
+// ProseMirror's posAtCoords can crash when caretPositionFromPoint returns an
+// offsetNode of undefined, causing posFromDOM to fail at `dom.nodeType`.
+// Returning null is posAtCoords' own convention for "position not found".
+// See: https://github.com/neetozone/neeto-kb-web/issues/9527
+const originalPosAtCoords = EditorView.prototype.posAtCoords;
+EditorView.prototype.posAtCoords = function safePosAtCoords(coords) {
+  try {
+    return originalPosAtCoords.call(this, coords);
+  } catch {
+    return null;
+  }
+};
+
 const Editor = (
   {
     addonCommands = [],
