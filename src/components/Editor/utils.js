@@ -77,10 +77,19 @@ export const transformPastedHTML = content => {
   const contentWithoutBr = content.replaceAll("<br />", "<p></p>");
   const doc = new DOMParser().parseFromString(contentWithoutBr, "text/html");
 
-  doc.querySelectorAll("[style]").forEach(el => {
-    el.style.color = "";
-    el.style.backgroundColor = "";
-  });
+  // ProseMirror tags clipboard output from any TipTap/ProseMirror editor with
+  // `data-pm-slice`. When present, the paste is coming from another
+  // neeto-editor instance and we preserve the author's color choices. When
+  // absent, the source is external (Word, websites, customer messages) and we
+  // strip inline colors so foreign theming does not bleed into the editor.
+  const isInternalPaste = doc.querySelector("[data-pm-slice]") !== null;
+
+  if (!isInternalPaste) {
+    doc.querySelectorAll("[style]").forEach(el => {
+      el.style.color = "";
+      el.style.backgroundColor = "";
+    });
+  }
 
   return doc.body.innerHTML;
 };
