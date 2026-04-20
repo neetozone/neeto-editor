@@ -1,3 +1,5 @@
+set -e
+
 install_gh() {
   type -p curl >/dev/null || sudo apt install curl -y
   curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
@@ -13,6 +15,10 @@ bump_package() {
   yarn bundle
   yarn config set version-tag-prefix "v"
   yarn version --"$VERSION_LABEL" --no-git-tag-version
+  if [ ! -d "./dist" ]; then
+    echo "ERROR: dist/ directory not found. Aborting publish."
+    exit 1
+  fi
   echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >~/.npmrc
   yarn publish --non-interactive
 }
