@@ -36,7 +36,8 @@
   "resolutions": {
     "jackspeak": "2.1.1",
     "prosemirror-view": "1.33.11",
-    "prosemirror-model": "1.22.3"
+    "prosemirror-model": "1.22.3",
+    "canvas": "npm:empty-npm-package@1.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.23.2",
