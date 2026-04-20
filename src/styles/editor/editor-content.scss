@@ -1,6 +1,82 @@
 @import "callout";
 @import "./todo-list";
 
+// Fallback codeblock theme for pages without .neeto-ui-theme--light/dark wrappers.
+.neeto-editor-content .hljs {
+  color: #abb2bf;
+  background: #282c34;
+}
+
+.neeto-editor-content .hljs-comment,
+.neeto-editor-content .hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.neeto-editor-content .hljs-doctag,
+.neeto-editor-content .hljs-keyword,
+.neeto-editor-content .hljs-formula {
+  color: #c678dd;
+}
+
+.neeto-editor-content .hljs-section,
+.neeto-editor-content .hljs-name,
+.neeto-editor-content .hljs-selector-tag,
+.neeto-editor-content .hljs-deletion,
+.neeto-editor-content .hljs-subst {
+  color: #e06c75;
+}
+
+.neeto-editor-content .hljs-literal {
+  color: #56b6c2;
+}
+
+.neeto-editor-content .hljs-string,
+.neeto-editor-content .hljs-regexp,
+.neeto-editor-content .hljs-addition,
+.neeto-editor-content .hljs-attribute,
+.neeto-editor-content .hljs-meta .hljs-string {
+  color: #98c379;
+}
+
+.neeto-editor-content .hljs-attr,
+.neeto-editor-content .hljs-variable,
+.neeto-editor-content .hljs-template-variable,
+.neeto-editor-content .hljs-type,
+.neeto-editor-content .hljs-selector-class,
+.neeto-editor-content .hljs-selector-attr,
+.neeto-editor-content .hljs-selector-pseudo,
+.neeto-editor-content .hljs-number {
+  color: #d19a66;
+}
+
+.neeto-editor-content .hljs-symbol,
+.neeto-editor-content .hljs-bullet,
+.neeto-editor-content .hljs-link,
+.neeto-editor-content .hljs-meta,
+.neeto-editor-content .hljs-selector-id,
+.neeto-editor-content .hljs-title {
+  color: #61aeee;
+}
+
+.neeto-editor-content .hljs-built_in,
+.neeto-editor-content .hljs-title.class_,
+.neeto-editor-content .hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.neeto-editor-content .hljs-emphasis {
+  font-style: italic;
+}
+
+.neeto-editor-content .hljs-strong {
+  font-weight: bold;
+}
+
+.neeto-editor-content .hljs-link {
+  text-decoration: underline;
+}
+
 // Codeblock Dark mode
 .neeto-ui-theme--dark .hljs {
   color: #383a42;
