@@ -72,6 +72,7 @@ const Editor = (
     rows = 6,
     tooltips = {},
     variables = [],
+    disableTrimOnBlur = false,
     onChange = noop,
     onFocus = noop,
     onBlur = noop,
@@ -129,10 +130,12 @@ const Editor = (
 
   const handleBlur = props => {
     const { editor } = props;
-    const content = editor.getHTML();
-    const trimmedContent = removeEmptyTags(content);
+    if (!disableTrimOnBlur) {
+      const content = editor.getHTML();
+      const trimmedContent = removeEmptyTags(content);
 
-    if (content !== trimmedContent) onChange(trimmedContent);
+      if (content !== trimmedContent) onChange(trimmedContent);
+    }
     onBlur(props);
   };
 

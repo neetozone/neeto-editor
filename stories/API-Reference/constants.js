@@ -112,6 +112,11 @@ export const EDITOR_PROPS = [
     `() => {}`,
   ],
   [
+    "disableTrimOnBlur",
+    "Accepts a boolean. When set to true, the editor will not trim leading and trailing empty tags on blur.",
+    "false",
+  ],
+  [
     "onSubmit",
     "Accepts a function. This function will be invoked when the editor is submitted.",
     "(htmlContent) => {}",

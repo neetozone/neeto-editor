@@ -110,6 +110,7 @@ interface EditorProps {
   contentClassName?: string;
   contentWrapperClassName?: string;
   contentAttributes?: { [key: string]: string };
+  disableTrimOnBlur?: boolean;
   onChange?: (htmlContent: string) => void;
   onFocus?: EditorFocus;
   onBlur?: EditorFocus;
