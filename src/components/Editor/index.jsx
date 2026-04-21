@@ -80,7 +80,7 @@ const Editor = (
     onChangeAttachments = noop,
     children,
     openImageInNewTab = true,
-    openLinkInNewTab = true,
+    openLinkInNewTab = false,
     showAssetLibrary = true,
     collaborationProvider = null,
     enableReactNodeViewOptimization = false,
