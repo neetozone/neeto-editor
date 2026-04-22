@@ -24,8 +24,8 @@ bump_package() {
 }
 
 raise_pr() {
-  git config user.name "Abhay V Ashokan"
-  git config user.email "abhayvashokan@gmail.com"
+  git config user.name "yedhink"
+  git config user.email "yedhin1998@gmail.com"
   git config core.hooksPath /dev/null
   git push origin --delete bump-version || true
   git checkout -b bump-version
