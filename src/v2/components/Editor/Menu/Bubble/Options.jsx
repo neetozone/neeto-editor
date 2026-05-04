@@ -87,20 +87,18 @@ const Options = ({
         buttonProps={{
           "data-testid": "neeto-editor-fixed-menu-font-size-option",
           variant: "ghost",
-          size: "sm",
           className:
-            "neeto-editor-bubble-menu__item neeto-editor-font-size__wrapper",
+            "ne-toolbar-item ne-toolbar-dropdown neeto-editor-font-size__wrapper",
         }}
       >
-        <Menu className="neeto-ui-flex neeto-ui-gap-1 neeto-editor-menu-font-size-options">
+        <Menu>
           {dropdownOptions.map(({ optionName, command, icon: Icon }) => (
             <MenuItem
-              className="neeto-editor-menu-font-size-options__item-btn"
               key={optionName}
-              tooltipProps={{ content: optionName, position: "bottom" }}
+              prefix={<Icon size={16} />}
               onClick={command}
             >
-              <Icon size={22} />
+              {optionName}
             </MenuItem>
           ))}
         </Menu>

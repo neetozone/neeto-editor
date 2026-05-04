@@ -259,7 +259,7 @@ const Editor = (
       {label && (
         <Label
           {...{ required }}
-          className="neeto-ui-mb-2"
+          className="mb-2"
           data-testid={`${slugify(label)}-editor-label`}
         >
           {label}

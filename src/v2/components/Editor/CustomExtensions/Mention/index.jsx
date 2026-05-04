@@ -26,7 +26,7 @@ const Mentions = ({
         variant: "ghost",
         size: "sm",
         tooltipProps: { content: tooltipContent ?? label, position: "bottom" },
-        className: "neeto-editor-fixed-menu__item",
+        className: "ne-toolbar-item",
       }}
       customTarget={
         isSecondaryMenu && <SecondaryMenuTarget {...{ label }} icon={Mail} />

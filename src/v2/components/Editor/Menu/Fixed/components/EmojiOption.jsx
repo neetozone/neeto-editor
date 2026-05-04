@@ -33,17 +33,17 @@ const EmojiOption = ({
       position={isSecondaryMenu ? "left-start" : "bottom-start"}
       buttonProps={{
         variant: "ghost",
-        size: "sm",
         tabIndex: -1,
         tooltipProps: { content: tooltipContent ?? label, position: "bottom" },
-        className: "neeto-editor-fixed-menu__item",
+        className: "ne-toolbar-item ne-toolbar-dropdown",
         "data-testid": "neeto-editor-fixed-menu-emoji-option",
       }}
       customTarget={
         isSecondaryMenu && <SecondaryMenuTarget {...{ label }} icon={Smile} />
       }
       dropdownProps={{
-        className: "neeto-editor-fixed-menu__emoji-dropdown",
+        className:
+          "neeto-editor-fixed-menu__emoji-dropdown min-w-[350px] p-0",
         onClick: e => isSecondaryMenu && e.stopPropagation(),
       }}
       onClose={() => setActive(false)}

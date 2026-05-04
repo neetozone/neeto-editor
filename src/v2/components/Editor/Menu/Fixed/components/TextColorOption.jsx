@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { Button, DropdownMenu, Input } from "@bigbinary/neeto-atoms";
-import { Check, RotateCw, Settings, X } from "lucide-react";
+import { Baseline, Check, RotateCw, X } from "lucide-react";
 import { withEventTargetValue } from "neetocommons/utils";
 import { HexColorPicker } from "react-colorful";
 import { useTranslation } from "react-i18next";
@@ -43,21 +43,21 @@ const TextColorOption = ({
     <DropdownMenu
       key={resetKey}
       closeOnSelect={false}
-      icon={Settings}
+      icon={Baseline}
       position={isSecondaryMenu ? "left-start" : "bottom-start"}
       buttonProps={{
         variant: color ? "secondary" : "ghost",
-        size: "sm",
         tabIndex: -1,
         tooltipProps: { content: tooltipContent ?? label, position: "bottom" },
         className:
-          "neeto-editor-fixed-menu__item neeto-editor-text-color-option",
+          "ne-toolbar-item ne-toolbar-dropdown neeto-editor-text-color-option",
       }}
       customTarget={
         isSecondaryMenu && (
-          <SecondaryMenuTarget {...{ label }} icon={Settings} />
+          <SecondaryMenuTarget {...{ label }} icon={Baseline} />
         )
       }
+      dropdownProps={{ className: "w-[260px] p-2" }}
     >
       <div
         style={{ "min-width": "236px" }}

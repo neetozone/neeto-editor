@@ -1,7 +1,6 @@
 import React from "react";
 
-import { Avatar, DropdownMenu, Typography } from "@bigbinary/neeto-atoms";
-import classNames from "classnames";
+import { Avatar, DropdownMenu } from "@bigbinary/neeto-atoms";
 import { t } from "i18next";
 import { isEmpty } from "ramda";
 
@@ -100,7 +99,7 @@ export class MentionList extends React.Component {
     }
 
     return (
-      <div className="neeto-ui-dropdown__popup">
+      <div className="max-h-[480px]">
         <Menu
           className="neeto-editor-mentions__wrapper"
           data-testid="neeto-editor-mention-list"
@@ -111,13 +110,11 @@ export class MentionList extends React.Component {
               data-testid={`neeto-editor-mention-list-${name}`}
               key={key}
               type="button"
-              className={classNames("neeto-editor-mentions__item", {
-                active: index === selectedIndex,
-              })}
+              isActive={index === selectedIndex}
+              prefix={<Avatar size="sm" user={{ name, imageUrl }} />}
               onClick={() => this.selectItem(index)}
             >
-              <Avatar size="sm" user={{ name, imageUrl }} />
-              <Typography variant="body2">{name}</Typography>
+              {name}
             </MenuItem>
           ))}
         </Menu>

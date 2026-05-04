@@ -237,7 +237,7 @@ export const renderOptionButton = ({
   highlight,
 }) => (
   <Button
-    className="neeto-editor-bubble-menu__item"
+    className="ne-toolbar-item"
     data-testid={`neeto-editor-bubble-menu-${optionName}-option`}
     icon={Icon}
     key={optionName}

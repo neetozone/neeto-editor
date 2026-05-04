@@ -52,13 +52,13 @@ const TableOption = ({
         tabIndex: -1,
         tooltipProps: { content: tooltipContent ?? label, position: "bottom" },
         variant: "ghost",
-        size: "sm",
-        className: "neeto-editor-fixed-menu__item",
+        className: "ne-toolbar-item ne-toolbar-dropdown",
         "data-testid": "neeto-editor-fixed-menu-table-option",
       }}
       customTarget={
         isSecondaryMenu && <SecondaryMenuTarget {...{ label }} icon={Table} />
       }
+      dropdownProps={{ className: "min-w-[210px] p-2" }}
       onClose={handleClose}
     >
       <Menu className="neeto-editor-table__item">

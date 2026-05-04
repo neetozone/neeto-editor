@@ -41,7 +41,7 @@ const Menu = ({
         ({ Icon, optionName, alignPos, type, items, border, borderToggle }) =>
           type === "button" ? (
             <Button
-              className="neeto-editor-bubble-menu__item"
+              className="ne-toolbar-item"
               data-testid={`neeto-editor-image-menu-${optionName}`}
               icon={Icon}
               key={optionName}
@@ -64,9 +64,9 @@ const Menu = ({
                 },
               }}
               customTarget={
-                <MenuItem className="neeto-editor-bubble-menu__item !relative">
+                <MenuItem className="ne-toolbar-item !relative">
                   <Tooltip content={optionName} position="top">
-                    <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center gap-x-1">
+                    <div className="flex items-center justify-center gap-x-1">
                       <Ratio size={18} />
                       <ChevronDown size={14} />
                     </div>

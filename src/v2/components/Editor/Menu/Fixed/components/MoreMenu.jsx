@@ -24,6 +24,7 @@ const MoreMenu = ({ groups, editor }) => (
                 data-testid={`neeto-editor-fixed-menu-${props.optionName}-option`}
                 isActive={editor.isActive(props.optionName)}
                 key={props.optionName}
+                prefix={<Icon size={16} />}
                 tabIndex="-1"
                 onClick={props.command}
                 {...{
@@ -32,7 +33,7 @@ const MoreMenu = ({ groups, editor }) => (
                   editor,
                 }}
               >
-                <Icon /> {props.label}
+                {props.label}
               </MenuItem>
             );
           }

@@ -79,9 +79,9 @@ const HighlightDropdown = ({
           event.key === "ArrowDown" && dropdownRef.current?.click(),
         tooltipProps: { content: tooltipContent ?? label, position: "bottom" },
         variant: "ghost",
-        size: "sm",
-        className: "neeto-editor-fixed-menu__item",
+        className: "ne-toolbar-item ne-toolbar-dropdown",
       }}
+      dropdownProps={{ className: "w-[280px] p-3" }}
     >
       <DropdownMenu.Menu className="neeto-editor-highlight-dropdown">
         {colorSections.map(({ title, colors, isTextColor }) => (

@@ -68,7 +68,7 @@ const Fixed = ({
   };
 
   const menuButtons = useMemo(
-    () => menuRef.current?.querySelectorAll(".neeto-editor-fixed-menu__item"),
+    () => menuRef.current?.querySelectorAll(".ne-toolbar-item"),
     [menuRef.current]
   );
 

@@ -71,14 +71,14 @@ const TableActionMenu = ({ editor }) => {
                 },
               }}
             >
-              <Menu className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center">
+              <Menu className="flex items-center justify-center">
                 {action.items?.map(({ type, command, tooltipLabel }) => {
                   const IconComponent = alignmentIcons[type];
 
                   return (
                     <MenuItem key={type}>
                       <Button
-                        className="neeto-editor-table-bubble-menu__item"
+                        className="ne-toolbar-item"
                         icon={IconComponent}
                         variant="ghost"
                         tooltipProps={{
@@ -97,7 +97,7 @@ const TableActionMenu = ({ editor }) => {
 
         return (
           <Button
-            className="neeto-editor-table-bubble-menu__item"
+            className="ne-toolbar-item"
             icon={action.icon}
             key={action.label}
             size="sm"
