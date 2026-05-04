@@ -1,0 +1,37 @@
+/**
+ * v2 toolbar tweaks.
+ *
+ * The shared editor SCSS (`src/styles/editor/menu.scss`) was written for
+ * neetoUI buttons and hardcodes `width: 36px; height: 36px; padding: 0` on
+ * `button.neeto-editor-fixed-menu__item` (and the bubble/table equivalents)
+ * with specificity (0,2,1). neeto-atoms buttons handle sizing via Tailwind
+ * utilities, so the v1 hardcoded values squash the dropdown triggers.
+ *
+ * Selectors below use `[data-slot="button"]` to outscore the v1 rules.
+ * `!important` is applied to width / height / padding-* because we observed
+ * v1's values still winning in some storybook builds (likely a PostCSS
+ * layer/ordering quirk in the Tailwind v4 + sass-loader pipeline). When the
+ * v1 menu.scss is eventually retired for v2 entrypoints, the !important
+ * markers should come off.
+ */
+
+.neeto-editor-fixed-menu,
+.neeto-editor-bubble-menu {
+  button[data-slot="button"].neeto-editor-fixed-menu__item,
+  button[data-slot="button"].neeto-editor-bubble-menu__item,
+  button[data-slot="button"].neeto-editor-table-bubble-menu__item {
+    width: auto !important;
+    min-width: 2rem !important;
+    height: 2rem !important;
+    padding-block: 0 !important;
+    padding-inline: 0.625rem !important;
+    border-radius: 0 !important;
+
+    // Rich Button wraps icon + trailing chevron in an inner inline-flex span
+    // with `gap-1.5` (6px) hardcoded. Bump to 10px so dropdown triggers
+    // (icon + auto-injected chevron) get visible breathing room.
+    & > span {
+      gap: 0.625rem !important;
+    }
+  }
+}

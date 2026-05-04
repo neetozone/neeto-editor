@@ -26,7 +26,8 @@ const peerDependencies = Object.keys(packageJson.peerDependencies);
 
 const formats = ["esm", "cjs"];
 
-const input = {
+// v1 (neetoUI-based) entries — outputs to `dist/*` and `dist/cjs/*`
+const v1Input = {
   index: "./src/index.js",
   Editor: "./src/components/Editor",
   EditorContent: "./src/components/EditorContent",
@@ -36,6 +37,14 @@ const input = {
   utils: "./src/utils",
   constants: "./src/constants",
 };
+
+// v2 (neeto-atoms-based) entries — outputs to `dist/v2/*` and `dist/cjs/v2/*`.
+// Add a sibling entry per component as it migrates under `src/v2/components/`.
+const v2Input = {
+  "v2/index": "./src/v2/index.js",
+};
+
+const input = { ...v1Input, ...v2Input };
 
 const plugins = [
   peerDepsExternal(),
@@ -109,6 +118,23 @@ const config = args => {
           minimize: true,
         }),
       ],
+    },
+    {
+      input: "./src/v2/styles/index.scss",
+      output: {
+        dir: `${__dirname}/dist/v2`,
+        format: "esm",
+        sourcemap: true,
+        assetFileNames: "[name][extname]",
+      },
+      plugins: [
+        styles({
+          extensions: [".css", ".scss", ".min.css"],
+          mode: ["extract", "styles.css"],
+          minimize: true,
+        }),
+      ],
+      extract: true,
     },
     {
       input: "./src/styles/editor-output-pdf-email.scss",

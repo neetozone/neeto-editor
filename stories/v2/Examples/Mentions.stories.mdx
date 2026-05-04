@@ -1,0 +1,34 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Mentions"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Mentions — v2
+
+Exercises the migrated `Mention` (toolbar) and `MentionList` (suggestion
+popup). Type `@` inside the editor to open the suggestion list.
+
+<Canvas>
+  <Editor
+    mentions={[
+      {
+        name: "Oliver Smith",
+        key: "oliver-smith",
+        imageUrl: "https://i.pravatar.cc/300",
+      },
+      {
+        name: "Eve Smith",
+        key: "eve-smith",
+        imageUrl: "https://i.pravatar.cc/300",
+      },
+    ]}
+    showImageInMention
+  />
+</Canvas>

@@ -1,0 +1,22 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Walkthroughs/Menu types/Bubble menu"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Bubble menu — v2
+
+Exercises the migrated bubble-menu pieces: `Bubble/Options` (the toolbar
+shown on selection), `Bubble/LinkOption` (link insertion popover),
+`Bubble/utils` (icon swaps to lucide), and the shared `Fixed/components/Button`
+helper.
+
+<Canvas>
+  <Editor menuType="bubble" />
+</Canvas>

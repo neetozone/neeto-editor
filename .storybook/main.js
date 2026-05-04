@@ -42,6 +42,15 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       ...alias,
+      // v2: bare entry → src/v2/index.js; sub-paths → src/v2/components/<Name>
+      "@bigbinary/neeto-editor/v2$": path.resolve(
+        __dirname,
+        "../src/v2/index.js"
+      ),
+      "@bigbinary/neeto-editor/v2": path.resolve(
+        __dirname,
+        "../src/v2/components"
+      ),
       "@bigbinary/neeto-editor": path.resolve(__dirname, "../src/components"),
     };
 

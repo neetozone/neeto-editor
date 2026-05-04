@@ -1,0 +1,41 @@
+import { Meta } from "@storybook/addon-docs";
+import { Editor } from "../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Walkthroughs/Editor instance"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Access the editor instance — v2
+
+You need to access the `editor` instance to call the methods specified in the
+[Editor API](?path=/docs/v2-neeto-atoms-api-reference-editor-api--page) section.
+Pass a `ref` to the `Editor` or `FormikEditor` component. If the `ref` is named
+`editorRef`, the `editor` instance can be accessed as
+`editorRef.current.editor`.
+
+### Usage
+
+```jsx
+import React, { useRef } from "react";
+
+import { Editor } from "@bigbinary/neeto-editor/v2";
+
+const App = () => {
+  const editorRef = useRef(null);
+
+  const handleClearEditor = () =>
+    editorRef.current.editor.commands.clearContent();
+
+  return (
+    <div>
+      <Editor ref={editorRef} />
+      <button onClick={handleClearEditor}>Clear content</button>
+    </div>
+  );
+};
+```

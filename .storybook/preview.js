@@ -1,4 +1,6 @@
+import "../src/v2/styles/tailwind.css";
 import "../src/index.scss";
+import "../src/v2/styles/index.scss";
 import "./style.scss";
 import { themes } from "@storybook/theming";
 import { addons } from "@storybook/manager-api";
@@ -47,8 +49,10 @@ export const parameters = {
     // Override the default light theme
     light: { ...themes.normal, ...neetoTheme },
     current: "light",
-    darkClass: "neeto-ui-theme--dark",
-    lightClass: "neeto-ui-theme--light",
+    // Apply both v1 (.neeto-ui-theme--*) and v2 (.dark) classes so stories from
+    // either era render in the correct theme.
+    darkClass: ["neeto-ui-theme--dark", "dark"],
+    lightClass: ["neeto-ui-theme--light"],
     classTarget: "body",
     stylePreview: true,
   },

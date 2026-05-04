@@ -1,0 +1,22 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Customize options/Image upload"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Image upload — v2
+
+Exercises the migrated `MediaUploader` (Modal→Dialog + Tab→Tabs),
+`LocalUploader`, `Progress`, `ImageComponent` (NodeView spinner),
+`ImagePreview`, `ImagePreviewModal`, the per-image `Image/Menu` (with
+aspect-ratio submenu), and `Image/ExtensionConfig` (Toastr on upload error).
+
+<Canvas>
+  <Editor addons={["image-upload"]} />
+</Canvas>

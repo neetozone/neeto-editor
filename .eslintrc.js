@@ -8,6 +8,14 @@ module.exports = mergeDeepLeft(
       "import/extensions": "off",
       "react/react-in-jsx-scope": "off",
     },
+    overrides: [
+      {
+        files: ["src/v2/**/*.{js,jsx,ts,tsx}", "stories/v2/**/*.{js,jsx,ts,tsx}"],
+        rules: {
+          "@bigbinary/neeto/use-neetoui-classes": "off",
+        },
+      },
+    ],
   },
   defaultConfigurations
 );

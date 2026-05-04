@@ -1,0 +1,22 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Character count"
+  parameters={{
+    layout: "padded",
+    viewMode: "docs",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Character count — v2
+
+neetoEditor can be configured to show the character count. This can be enabled
+by passing a truthy value to the `isCharacterCountActive` prop. Renders the v2
+`CharacterCount` extension wrapper.
+
+<Canvas>
+  <Editor isCharacterCountActive />
+</Canvas>

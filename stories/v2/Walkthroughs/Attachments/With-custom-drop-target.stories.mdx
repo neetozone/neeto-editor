@@ -1,0 +1,64 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import CustomDragDropDemo from "./CustomDragDropDemo";
+import { Attachments } from "../../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Walkthroughs/Attachments/Custom drop zone"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Attachments}
+/>
+
+# Custom drop zone for attachments — v2
+
+The drop zone can be specified by providing a ref (`dragDropRef`) to the
+wrapper component and passing it as a prop to the `Attachments` component. In
+the example below, the entire `Sheet` body is a drop zone.
+
+<Canvas>
+  <CustomDragDropDemo />
+</Canvas>
+
+## Usage
+
+```jsx
+import React, { useState, useRef } from "react";
+
+import { Button, Sheet, Typography } from "@bigbinary/neeto-atoms";
+
+import { Attachments } from "@bigbinary/neeto-editor/v2";
+
+const CustomDragDropDemo = () => {
+  const [showSheet, setShowSheet] = useState(false);
+  const [attachments, setAttachments] = useState([]);
+
+  const dragDropRef = useRef(null);
+
+  return (
+    <>
+      <Button onClick={() => setShowSheet(true)}>Show Sheet</Button>
+      <Sheet isOpen={showSheet} onClose={() => setShowSheet(false)}>
+        <Sheet.Header>
+          <Typography style="h2" weight="semibold">
+            Typography
+          </Typography>
+        </Sheet.Header>
+        <Sheet.Body>
+          <div
+            className="flex justify-center w-full h-full ne-attachments__wrapper"
+            ref={dragDropRef}
+          >
+            <Attachments
+              dragDropRef={dragDropRef}
+              attachments={attachments}
+              onChange={setAttachments}
+            />
+          </div>
+        </Sheet.Body>
+      </Sheet>
+    </>
+  );
+};
+```

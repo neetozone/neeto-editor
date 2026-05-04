@@ -1,0 +1,164 @@
+/**
+ * v2 token compatibility shim.
+ *
+ * Existing editor SCSS uses `--neeto-ui-*` variables (gray-50..gray-800,
+ * primary-50..primary-900, accent-*, error-*, font-weights, radii, text sizes,
+ * input/dropdown/popover atoms, etc.). neeto-atoms ships a smaller set of
+ * semantic tokens (--background, --foreground, --primary, --muted, --border,
+ * --destructive, --radius, ...) on `:root` and `.dark`.
+ *
+ * This file maps the editor's neeto-ui var names to the closest neeto-atoms
+ * semantic token so the existing SCSS resolves cleanly under the v2 entry,
+ * without touching v1 stylesheets. Where neeto-atoms has no equivalent (no
+ * scale variants, brand pastels), we fall back to literal hex values pulled
+ * from neeto-ui's own light theme so v2 visuals match v1 baseline.
+ *
+ * The `.neeto-ui-theme--light` / `.neeto-ui-theme--dark` selectors are
+ * mirrored alongside `:root` / `.dark` so consumers that already toggle the
+ * legacy v1 theme classes get the right tokens too.
+ */
+
+%neeto-ui-vars-light {
+  /* Surfaces — pulled from neeto-atoms semantic tokens */
+  --neeto-ui-white: var(--background);
+  --neeto-ui-black: var(--foreground);
+
+  /* Gray scale → mapped to neeto-atoms neutrals + interpolated grays where
+     no semantic equivalent exists. Values are hex hoisted from neetoui's
+     light theme so editor visuals stay parity with v1 until Wave 6 design
+     review approves the neeto-atoms scale shift. */
+  --neeto-ui-gray-50:  #fafafa;
+  --neeto-ui-gray-100: #f6f7f8;
+  --neeto-ui-gray-200: #e9ebed;
+  --neeto-ui-gray-300: #d8dcde;
+  --neeto-ui-gray-400: #c2c8cc;
+  --neeto-ui-gray-500: #87929d;
+  --neeto-ui-gray-600: #344054;
+  --neeto-ui-gray-700: #1d2939;
+  --neeto-ui-gray-800: #101828;
+
+  /* Primary — neeto-atoms `--primary` is monochrome shadcn neutral; for the
+     editor's primary accents we keep the neetoui hex scale. Codify here to
+     preserve highlights (active states, focus rings) until design defines a
+     primary-token bridge. */
+  --neeto-ui-primary-50:  #f0f9f7;
+  --neeto-ui-primary-200: #b3e0d4;
+  --neeto-ui-primary-500: #008068;
+  --neeto-ui-primary-600: #007a64;
+  --neeto-ui-primary-900: #003c30;
+
+  /* Accent (link/secondary blue) */
+  --neeto-ui-accent-100: #e6f4ff;
+  --neeto-ui-accent-500: #1473e6;
+  --neeto-ui-accent-800: #095aba;
+
+  /* Error → mapped to destructive */
+  --neeto-ui-error-500: var(--destructive);
+  --neeto-ui-error-600: var(--destructive);
+
+  /* Neutral atoms */
+  --neeto-ui-pastel-blue: #ecf4ff;
+
+  /* Spacing/radius — bridged to neeto-atoms --radius scale */
+  --neeto-ui-rounded-sm: var(--radius-sm);
+  --neeto-ui-rounded:    var(--radius);
+  --neeto-ui-btn-border-radius: var(--radius);
+
+  /* Typography weights */
+  --neeto-ui-font-light:  300;
+  --neeto-ui-font-normal: 400;
+  --neeto-ui-font-medium: 500;
+
+  /* Typography sizes (tailwind v4 defaults) */
+  --neeto-ui-text-xs:  0.75rem;
+  --neeto-ui-text-sm:  0.875rem;
+  --neeto-ui-text-base: 1rem;
+  --neeto-ui-text-2xl: 1.5rem;
+
+  /* Line height */
+  --neeto-ui-leading-normal: 1.5;
+
+  /* Input atoms — bridge to semantic tokens */
+  --neeto-ui-input-bg-color:     var(--background);
+  --neeto-ui-input-border-color: var(--border);
+  --neeto-ui-input-border-width: 1px;
+  --neeto-ui-input-border-radius: var(--radius);
+  --neeto-ui-input-color:        var(--foreground);
+  --neeto-ui-input-font-size:    0.875rem;
+
+  /* Dropdown / popover atoms */
+  --neeto-ui-dropdown-item-focus-bg-color: var(--accent);
+  --neeto-ui-popover-light-theme-border-color: var(--border);
+  --neeto-ui-tooltip-light-theme-box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+  /* Misc */
+  --neeto-ui-transition: 0.15s ease-in-out;
+}
+
+%neeto-ui-vars-dark {
+  --neeto-ui-white: var(--foreground);
+  --neeto-ui-black: var(--background);
+
+  --neeto-ui-gray-50:  #18181b;
+  --neeto-ui-gray-100: #27272a;
+  --neeto-ui-gray-200: #3f3f46;
+  --neeto-ui-gray-300: #52525b;
+  --neeto-ui-gray-400: #71717a;
+  --neeto-ui-gray-500: #a1a1aa;
+  --neeto-ui-gray-600: #d4d4d8;
+  --neeto-ui-gray-700: #e4e4e7;
+  --neeto-ui-gray-800: #fafafa;
+
+  --neeto-ui-primary-50:  #04211b;
+  --neeto-ui-primary-200: #0a4035;
+  --neeto-ui-primary-500: #14b89c;
+  --neeto-ui-primary-600: #19c7a9;
+  --neeto-ui-primary-900: #ddf6ef;
+
+  --neeto-ui-accent-100: #0b2440;
+  --neeto-ui-accent-500: #4f93f0;
+  --neeto-ui-accent-800: #b5d4fb;
+
+  --neeto-ui-error-500: var(--destructive);
+  --neeto-ui-error-600: var(--destructive);
+
+  --neeto-ui-pastel-blue: #142a42;
+
+  --neeto-ui-rounded-sm: var(--radius-sm);
+  --neeto-ui-rounded:    var(--radius);
+  --neeto-ui-btn-border-radius: var(--radius);
+
+  --neeto-ui-font-light:  300;
+  --neeto-ui-font-normal: 400;
+  --neeto-ui-font-medium: 500;
+
+  --neeto-ui-text-xs:  0.75rem;
+  --neeto-ui-text-sm:  0.875rem;
+  --neeto-ui-text-base: 1rem;
+  --neeto-ui-text-2xl: 1.5rem;
+
+  --neeto-ui-leading-normal: 1.5;
+
+  --neeto-ui-input-bg-color:     var(--background);
+  --neeto-ui-input-border-color: var(--border);
+  --neeto-ui-input-border-width: 1px;
+  --neeto-ui-input-border-radius: var(--radius);
+  --neeto-ui-input-color:        var(--foreground);
+  --neeto-ui-input-font-size:    0.875rem;
+
+  --neeto-ui-dropdown-item-focus-bg-color: var(--accent);
+  --neeto-ui-popover-light-theme-border-color: var(--border);
+  --neeto-ui-tooltip-light-theme-box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+
+  --neeto-ui-transition: 0.15s ease-in-out;
+}
+
+:root,
+.neeto-ui-theme--light {
+  @extend %neeto-ui-vars-light;
+}
+
+.dark,
+.neeto-ui-theme--dark {
+  @extend %neeto-ui-vars-dark;
+}

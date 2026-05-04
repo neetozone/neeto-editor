@@ -1,0 +1,62 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import IndependantMenuComponentDemo from "./IndependantMenuComponentDemo";
+import { Editor } from "../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Independent menu component"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+  component={Editor}
+/>
+
+# Independent menu component — v2
+
+Mounts the v2 `Menu` component independently from the editor. The editor
+renders with `menuType="none"` and the menu is wired to the editor instance
+via a callback ref.
+
+<Canvas>
+  <IndependantMenuComponentDemo />
+</Canvas>
+
+## Usage
+
+```jsx
+import React, { useCallback, useState } from "react";
+
+import { Editor, Menu } from "@bigbinary/neeto-editor/v2";
+
+const IndependantMenuComponent = () => {
+  const [editor, setEditor] = useState(null);
+  const editorRef = useCallback(node => {
+    if (node) setEditor(node.editor);
+  }, []);
+
+  return (
+    <div className="space-y-4">
+      <Menu editor={editor} />
+      <h2>Other components</h2>
+      <Editor
+        autoFocus
+        contentClassName="border"
+        initialValue="<p>Hello World</p>"
+        menuType="none"
+        ref={editorRef}
+      />
+    </div>
+  );
+};
+
+export default IndependantMenuComponent;
+```
+
+> The callback `ref` syntax is intentional. It listens for changes in the
+> editor `ref` and triggers a state update so that the `Menu` component is
+> re-rendered with the latest editor instance.
+
+You may pass an `options` prop instead of `defaults` and `addons` to control
+the options rendered by the independent menu component.

@@ -1,0 +1,58 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../src/v2";
+import CollaborativeNeetoEditor from "./CollaborativeNeetoEditor";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Collaborative editor"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Collaborative editor — v2
+
+Open this page in two different browsers to see the collaboration cursors.
+
+Check [documentation for provider](https://tiptap.dev/docs/hocuspocus/provider/introduction).
+
+<Canvas>
+  <CollaborativeNeetoEditor />
+</Canvas>
+
+```jsx
+import React, { useCallback, useState, useEffect } from "react";
+
+import { TiptapCollabProvider } from "@hocuspocus/provider";
+import { findBy } from "neetocist";
+import * as Y from "yjs";
+
+import { Editor } from "@bigbinary/neeto-editor/v2";
+
+const CollaborativeNeetoEditor = () => {
+  const doc = new Y.Doc();
+  const [editor, setEditor] = useState(null);
+  const editorRef = useCallback(node => {
+    if (node) setEditor(node.editor);
+  }, []);
+
+  const provider = new TiptapCollabProvider({
+    name: "neeto-editor_document.v2.new",
+    appId: "7j9y6m10",
+    token: "notoken",
+    document: doc,
+  });
+
+  return (
+    <div className="space-y-4">
+      <Editor
+        autoFocus
+        collaborationProvider={provider}
+        contentClassName="border"
+        ref={editorRef}
+      />
+    </div>
+  );
+};
+```

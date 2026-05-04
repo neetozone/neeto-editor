@@ -1,0 +1,39 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta
+  title="V2 (neeto-atoms)/FAQs/FAQs"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+/>
+
+# FAQs — v2
+
+<br />
+
+## 1. Image Wrapper vs. Video Wrapper
+
+In neeto-editor, the `neeto-editor__image-wrapper` and
+`neeto-editor__video-wrapper` class names serve distinct purposes. The class
+names are unchanged between v1 and v2:
+
+- **Image wrapper (`neeto-editor__image-wrapper`):** assigned to the `div`
+  element wrapping uploaded images and videos. It provides image and video
+  styles.
+- **Video wrapper (`neeto-editor__video-wrapper`):** assigned to the `div`
+  element wrapping `iframes`. It provides embed styles.
+
+## 2. How does the v2 entry differ from v1?
+
+The v2 build (`@bigbinary/neeto-editor/v2`) replaces every `@bigbinary/neetoui`
+component with a wrapper from `@bigbinary/neeto-atoms` (shadcn-based). It
+ships side-by-side with v1, so consumers can migrate at their own pace by
+switching the import path.
+
+## 3. Is dark mode supported?
+
+Yes. The v2 build maps the legacy `--neeto-ui-*` CSS variables onto the
+neeto-atoms semantic token set, scoped to both `:root`/`.dark` and the legacy
+`.neeto-ui-theme--*` selectors so that consumers using either theming
+mechanism continue to render correctly.

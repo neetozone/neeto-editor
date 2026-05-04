@@ -1,0 +1,32 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../../src/v2";
+
+import Bubble from "../../../assets/slash-command.mp4";
+
+<Meta
+  title="V2 (neeto-atoms)/Walkthroughs/Menu types/Slash command"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Slash commands — v2
+
+Slash commands are actions that can be applied to a block of text. This menu
+is disabled by default. Setting `hideSlashCommands` to `false` enables it; the
+menu appears when the user types `/` at the start of a new line.
+
+<video src={Bubble} playsinline autoPlay muted loop />
+
+#### **Example**
+
+<Canvas>
+  <Editor
+    rows={40}
+    menuType="bubble"
+    heightStrategy="flexible"
+    hideSlashCommands={false}
+  />
+</Canvas>

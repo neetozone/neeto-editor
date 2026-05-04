@@ -1,0 +1,56 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../src/v2";
+import EditorWithOverlayManagerDemo from "./EditorWithOverlayManagerDemo";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Editor with overlay manager"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# With overlay manager — v2
+
+When the editor is auto-focussed inside an overlay surface (Sheet, Dialog), an
+`initialFocusRef` should be passed so the focus is correctly handed off after
+the overlay opens. This story uses neeto-atoms `Sheet` instead of neetoUI
+`Pane`.
+
+```jsx
+import React, { useRef, useState } from "react";
+
+import { Button, Sheet, Typography } from "@bigbinary/neeto-atoms";
+
+import { Editor } from "@bigbinary/neeto-editor/v2";
+
+const EditorWithOverlayManager = () => {
+  const [showSheet, setShowSheet] = useState(false);
+  const initialFocusRef = useRef(null);
+
+  return (
+    <>
+      <Button onClick={() => setShowSheet(true)}>Show Sheet</Button>
+      <Sheet
+        initialFocusRef={initialFocusRef}
+        isOpen={showSheet}
+        onClose={() => setShowSheet(false)}
+      >
+        <Sheet.Header>
+          <Typography style="h2" weight="semibold">
+            Typography
+          </Typography>
+        </Sheet.Header>
+        <Sheet.Body>
+          <Editor ref={initialFocusRef} />
+        </Sheet.Body>
+      </Sheet>
+    </>
+  );
+};
+```
+
+<Canvas>
+  <EditorWithOverlayManagerDemo />
+</Canvas>

@@ -1,0 +1,25 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Variables"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Variables — v2
+
+Exercises the migrated `VariableComponent` chip rendering. Type `{{` inside
+the editor to insert a variable from the suggestion list.
+
+<Canvas>
+  <Editor
+    variables={[
+      { label: "Customer name", key: "customer.name" },
+      { label: "Order id", key: "order.id" },
+    ]}
+  />
+</Canvas>

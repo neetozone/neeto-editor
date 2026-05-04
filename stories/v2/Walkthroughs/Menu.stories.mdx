@@ -1,0 +1,27 @@
+import { Meta } from "@storybook/addon-docs";
+import { MENU_PROPS } from "../../Examples/constants";
+import { Editor } from "../../../src/v2";
+import Table from "../../components/Table";
+
+<Meta
+  title="V2 (neeto-atoms)/Walkthroughs/Menu"
+  parameters={{
+    viewMode: "docs",
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Use Menu as an independent component — v2
+
+Sometimes the editor's menu needs to be rendered separately from the editor
+content. In such cases use the `Menu` component from
+`@bigbinary/neeto-editor/v2`.
+
+### Props
+
+<Table columns={["Name", "Description", "Default"]} rows={MENU_PROPS} />
+
+[Independent menu component](?path=/docs/v2-neeto-atoms-examples-independent-menu-component--page)
+shows an example with the v2 `Menu` component in action.

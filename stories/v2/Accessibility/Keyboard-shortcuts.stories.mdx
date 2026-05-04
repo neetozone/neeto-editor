@@ -1,0 +1,57 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../src/v2";
+import {
+  EDITOR_SHORTCUTS_TABLE_COLUMNS,
+  EDITOR_SHORTCUTS_TABLE_ROWS,
+} from "../../constants";
+import Table from "../../components/Table";
+
+<Meta
+  title="V2 (neeto-atoms)/Accessibility/Keyboard shortcuts"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Keyboard shortcuts — v2
+
+Here is the list of keyboard shortcuts available in the v2 editor. The set is
+identical to v1 — the shortcuts are wired into the same TipTap extensions.
+
+<Table
+  columns={EDITOR_SHORTCUTS_TABLE_COLUMNS}
+  rows={EDITOR_SHORTCUTS_TABLE_ROWS}
+/>
+
+Refer to
+[https://tiptap.dev/api/keyboard-shortcuts](https://tiptap.dev/api/keyboard-shortcuts)
+for the full list of available shortcuts.
+
+<br />
+
+### **Custom keyboard shortcuts**
+
+By default the v2 editor submits the content on `⌘ + Enter` (Mac) or
+`Ctrl + Enter` (Windows). An `onSubmit` prop can be provided to call a function
+when the content is submitted. It accepts the resulting HTML content as the
+argument.
+
+Additional keyboard shortcuts can be registered via the `keyboardShortcuts`
+prop. The key is the key combination, and the value is the function to call
+when it fires. Use `Mod` as a shorthand for `Cmd` on Mac and `Control`
+elsewhere. Return `true` from the handler to prevent the default behavior.
+Keyboard shortcuts are only supported in rich-text mode.
+
+<Canvas>
+  <Editor
+    onSubmit={content => console.log(content)}
+    keyboardShortcuts={{
+      "Shift-Enter": ({ editor }) => {
+        alert(editor.getHTML());
+        return true;
+      },
+    }}
+  />
+</Canvas>

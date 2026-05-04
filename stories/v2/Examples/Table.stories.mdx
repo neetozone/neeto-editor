@@ -1,0 +1,25 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Table addon"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Table addon — v2
+
+The "table" addon allows you to display data in a tabular format. The fixed
+menu shows an icon to insert a table; selecting a table reveals an additional
+settings dropdown with table commands. A default table can also be inserted by
+typing `Mod-alt-t` in the editor.
+
+This story exercises the v2 `Fixed/TableOption`, `Bubble/TableOption`, and
+`TableActionMenu` components together.
+
+<Canvas>
+  <Editor addons={["table"]} />
+</Canvas>

@@ -1,0 +1,56 @@
+import { Canvas, Meta } from "@storybook/addon-docs";
+import { EDITOR_PROPS } from "../../API-Reference/constants";
+import { buildArgValues } from "../../utils";
+import { Editor } from "../../../src/v2";
+import { AllPropsTable } from "../../API-Reference/Tables";
+
+<Meta
+  title="V2 (neeto-atoms)/API Reference/All props"
+  component={Editor}
+  parameters={{
+    layout: "padded",
+    viewMode: "docs",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  argTypes={buildArgValues(EDITOR_PROPS)}
+/>
+
+# **All props — v2**
+<div id="hide-controls-column">
+  <AllPropsTable />
+</div>
+
+<Canvas>
+  <Editor autoFocus />
+</Canvas>
+
+# **FormikEditor props**
+
+#### **shouldFormikEditorUpdate**
+
+The `shouldUpdate` prop in `FormikEditor` decides whether the field should
+re-render when its props change. It receives a function called with two
+arguments:
+
+- `nextProps`: the next set of props.
+- `prevProps`: the previous set of props.
+
+Return `true` to trigger a re-render. Use this to compare props that should
+trigger an update, such as `variables` or `mentions`.
+
+**Example:**
+
+```javascript
+<FormikEditor
+  shouldUpdate={(nextProps, prevProps) => {
+    return nextProps.variables !== prevProps.variables || nextProps.mentions !== prevProps.mentions;
+  }}
+/>
+```
+
+As of now, `shouldUpdate` only considers changes in the `mentions` and
+`variables` props.
+
+#### **Note**
+
+> The empty value or initialValue should always be `<p></p>`.

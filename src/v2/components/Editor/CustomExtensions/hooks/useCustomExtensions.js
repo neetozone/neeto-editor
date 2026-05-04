@@ -1,0 +1,206 @@
+import CharacterCount from "@tiptap/extension-character-count";
+import Code from "@tiptap/extension-code";
+import Collaboration from "@tiptap/extension-collaboration";
+import CollaborationCursor from "@tiptap/extension-collaboration-cursor";
+import Color from "@tiptap/extension-color";
+import Document from "@tiptap/extension-document";
+import Focus from "@tiptap/extension-focus";
+import Highlight from "@tiptap/extension-highlight";
+import ListItem from "@tiptap/extension-list-item";
+import TableCell from "@tiptap/extension-table-cell";
+import TableHeader from "@tiptap/extension-table-header";
+import TableRow from "@tiptap/extension-table-row";
+import TextStyle from "@tiptap/extension-text-style";
+import Underline from "@tiptap/extension-underline";
+import StarterKit from "@tiptap/starter-kit";
+import { EDITOR_OPTIONS } from "common/constants";
+import { isEmpty } from "ramda";
+
+import HighlightInternal from "components/Editor/CustomExtensions/BackgroundColor/ExtensionConfig";
+import BulletList from "components/Editor/CustomExtensions/BulletList/ExtensionConfig";
+import Callout from "components/Editor/CustomExtensions/Callout/ExtensionConfig";
+import CustomCommands from "components/Editor/CustomExtensions/CustomCommands/ExtensionConfig";
+import DeletedArticleDecoration from "components/Editor/CustomExtensions/DeletedArticleDecoration/ExtensionConfig";
+import EmojiPicker from "components/Editor/CustomExtensions/Emoji/EmojiPicker/ExtensionConfig";
+import FigCaption from "components/Editor/CustomExtensions/Image/FigCaption";
+import Italic from "components/Editor/CustomExtensions/Italic/ExtensionConfig";
+import KeyboardShortcuts from "components/Editor/CustomExtensions/KeyboardShortcuts/ExtensionConfig";
+import Link from "components/Editor/CustomExtensions/Link/ExtensionConfig";
+import OrderedList from "components/Editor/CustomExtensions/OrderedList/ExtensionConfig";
+import Placeholder from "components/Editor/CustomExtensions/Placeholder/ExtensionConfig";
+import SelectionDecoration from "components/Editor/CustomExtensions/SelectionDecoration/ExtensionConfig";
+import SlashCommands from "components/Editor/CustomExtensions/SlashCommands/ExtensionConfig";
+import Table from "components/Editor/CustomExtensions/Table/ExtensionConfig";
+import {
+  TodoListExtension,
+  TodoItemExtension,
+} from "components/Editor/CustomExtensions/TodoList/ExtensionConfig";
+import UnifiedVideoExtension from "../Video/ExtensionConfig";
+import { buildLevelsFromOptions } from "components/Editor/utils";
+
+import CodeBlock from "../CodeBlock/ExtensionConfig";
+import EmojiSuggestion from "../Emoji/EmojiSuggestion/ExtensionConfig";
+import ImageExtension from "../Image/ExtensionConfig";
+import Mention, { createMentionSuggestions } from "../Mention/ExtensionConfig";
+import SpecialMentions from "../SpecialMentions/ExtensionConfig";
+import Variable from "../Variable/ExtensionConfig";
+
+const useCustomExtensions = ({
+  placeholder,
+  extensions,
+  mentions,
+  variables,
+  isSlashCommandsActive,
+  options,
+  addonCommands,
+  onSubmit,
+  keyboardShortcuts,
+  setMediaUploader,
+  setIsAddLinkActive,
+  attachmentProps,
+  openImageInNewTab,
+  openLinkInNewTab,
+  enableReactNodeViewOptimization,
+  collaborationProvider,
+  setIsNeetoKbArticleActive,
+}) => {
+  let customExtensions = [
+    CharacterCount,
+    Code,
+    CodeBlock.configure({ enableReactNodeViewOptimization }),
+    CustomCommands,
+    Document,
+    FigCaption,
+    HighlightInternal,
+    SelectionDecoration,
+    Focus.configure({ mode: "shallowest" }),
+    Highlight,
+    ImageExtension.configure({
+      openImageInNewTab,
+      enableReactNodeViewOptimization,
+    }),
+    Link.configure({
+      HTMLAttributes: { target: openLinkInNewTab ? "_blank" : null },
+    }),
+    Placeholder.configure({ placeholder, isSlashCommandsActive }),
+    StarterKit.configure({
+      document: false,
+      codeBlock: false,
+      code: false,
+      bulletList: false,
+      listItem: false,
+      blockquote: options.includes(EDITOR_OPTIONS.BLOCKQUOTE),
+      orderedList: false,
+      italic: false,
+      history: !collaborationProvider,
+      heading: { levels: buildLevelsFromOptions(options) },
+    }),
+    TextStyle,
+    Underline,
+    Italic,
+    KeyboardShortcuts.configure({
+      onSubmit,
+      shortcuts: keyboardShortcuts,
+      isBlockQuoteActive: options.includes(EDITOR_OPTIONS.BLOCKQUOTE),
+    }),
+    EmojiSuggestion,
+    EmojiPicker,
+  ];
+
+  if (options.includes(EDITOR_OPTIONS.VIDEO_UPLOAD)) {
+    customExtensions.push(UnifiedVideoExtension);
+  }
+
+  if (options.includes(EDITOR_OPTIONS.NEETO_KB_ARTICLE)) {
+    customExtensions.push(
+      DeletedArticleDecoration.configure({
+        deletedArticleIds: new Set(),
+      })
+    );
+  }
+
+  if (options.includes(EDITOR_OPTIONS.TABLE)) {
+    customExtensions.push(
+      Table.configure({ resizable: true }),
+      TableRow,
+      TableHeader,
+      TableCell
+    );
+  }
+
+  if (
+    options.includes(EDITOR_OPTIONS.TEXT_COLOR) ||
+    options.includes(EDITOR_OPTIONS.HIGHLIGHT)
+  ) {
+    customExtensions.push(Color);
+  }
+
+  if (options.includes(EDITOR_OPTIONS.LIST_BULLETS)) {
+    customExtensions.push(BulletList);
+  }
+
+  if (options.includes(EDITOR_OPTIONS.LIST_ORDERED)) {
+    customExtensions.push(OrderedList);
+  }
+
+  if (
+    options.includes(EDITOR_OPTIONS.LIST_BULLETS) ||
+    options.includes(EDITOR_OPTIONS.LIST_ORDERED)
+  ) {
+    customExtensions.push(ListItem);
+  }
+
+  if (options.includes(EDITOR_OPTIONS.CALLOUT)) {
+    customExtensions.push(Callout);
+  }
+
+  if (options.includes(EDITOR_OPTIONS.TODO_LIST)) {
+    customExtensions.push(TodoListExtension);
+    customExtensions.push(TodoItemExtension);
+  }
+
+  if (isSlashCommandsActive) {
+    customExtensions.push(
+      SlashCommands.configure({
+        options,
+        addonCommands,
+        setMediaUploader,
+        setIsAddLinkActive,
+        attachmentProps,
+        setIsNeetoKbArticleActive,
+      })
+    );
+  }
+
+  if (!isEmpty(mentions)) {
+    const items = createMentionSuggestions(mentions);
+
+    customExtensions.push(Mention.configure({ suggestion: { items } }));
+
+    customExtensions.push(SpecialMentions.configure({ suggestion: { items } }));
+  }
+
+  if (!isEmpty(variables)) {
+    customExtensions.push(Variable);
+  }
+
+  if (collaborationProvider) {
+    customExtensions.push(
+      Collaboration.configure({
+        document: collaborationProvider.document ?? collaborationProvider.doc,
+      })
+    );
+
+    customExtensions.push(
+      CollaborationCursor.configure({
+        provider: collaborationProvider,
+      })
+    );
+  }
+
+  customExtensions = customExtensions.concat(extensions);
+
+  return customExtensions;
+};
+
+export default useCustomExtensions;

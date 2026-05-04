@@ -1,0 +1,20 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Placeholder"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Placeholder — v2
+
+A placeholder can be provided to the editor by passing a string value to the
+`placeholder` prop.
+
+<Canvas>
+  <Editor placeholder="Input text here" />
+</Canvas>

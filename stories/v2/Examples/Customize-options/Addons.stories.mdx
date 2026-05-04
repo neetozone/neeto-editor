@@ -1,0 +1,48 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../../src/v2";
+import {
+  EDITOR_ADDONS_TABLE_COLUMNS,
+  EDITOR_ADDONS_TABLE_ROWS,
+} from "../../../constants";
+import Table from "../../../components/Table";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Customize options/Addons"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Addons — v2
+
+Additional options can be enabled by passing an array of strings to the
+`addons` prop. This story exercises the v2 fixed-menu cascade with every addon
+turned on.
+
+<Canvas>
+  <Editor
+    addons={[
+      "highlight",
+      "emoji",
+      "code-block",
+      "block-quote",
+      "image-upload",
+      "image-upload-unsplash",
+      "video-upload",
+      "paste-unformatted",
+      "undo",
+      "redo",
+      "attachments",
+      "table",
+      "text-color",
+      "callout",
+      "todo-list",
+    ]}
+  />
+</Canvas>
+
+#### **Available addons**
+
+<Table columns={EDITOR_ADDONS_TABLE_COLUMNS} rows={EDITOR_ADDONS_TABLE_ROWS} />

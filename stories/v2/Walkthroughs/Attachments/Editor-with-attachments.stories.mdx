@@ -1,0 +1,23 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor, Attachments } from "../../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Walkthroughs/Attachments/Integrated to editor"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Attachments}
+/>
+
+# Attachments inside the editor — v2
+
+Exercises the migrated `Attachments` (Button + Toastr), `Attachment`
+(DropdownMenu + Input + Tooltip + Spinner + Alert), `AttachmentProgress`
+(Button + Typography), `Preview` (Dialog + Toastr), and the supporting
+`hooks/useFileUploader`, `hooks/utils/fileUploader`, and `Attachments/utils`
+modules.
+
+<Canvas>
+  <Editor addons={["attachments"]} />
+</Canvas>
