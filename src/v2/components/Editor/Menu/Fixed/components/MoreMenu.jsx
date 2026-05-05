@@ -1,4 +1,4 @@
-import { DropdownMenu } from "@bigbinary/neeto-atoms";
+import { Button, DropdownMenu } from "@bigbinary/neeto-atoms";
 import { Ellipsis } from "lucide-react";
 
 import { MENU_ELEMENTS, MENU_ELEMENT_TYPES } from "../constants";
@@ -8,9 +8,10 @@ const { Menu, MenuItem } = DropdownMenu;
 
 const MoreMenu = ({ groups, editor }) => (
   <DropdownMenu
-    buttonProps={{ className: "flex-shrink-0", variant: "ghost" }}
+    customTarget={
+      <Button className="flex-shrink-0" icon={Ellipsis} variant="ghost" />
+    }
     dropdownProps={{ className: "ne-editor-dropdown" }}
-    icon={Ellipsis}
   >
     <Menu>
       {groups.map(group =>

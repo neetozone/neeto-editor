@@ -58,7 +58,7 @@ const TableOption = ({
       customTarget={
         isSecondaryMenu && <SecondaryMenuTarget {...{ label }} icon={Table} />
       }
-      dropdownProps={{ className: "ne-editor-dropdown min-w-[210px] p-2" }}
+      dropdownProps={{ className: "ne-editor-dropdown w-auto p-2" }}
       onClose={handleClose}
     >
       <Menu className="neeto-editor-table__item">

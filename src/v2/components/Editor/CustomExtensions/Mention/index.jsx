@@ -26,7 +26,7 @@ const Mentions = ({
         variant: "ghost",
         size: "sm",
         tooltipProps: { content: tooltipContent ?? label, position: "bottom" },
-        className: "ne-toolbar-item",
+        className: "ne-toolbar-item ne-toolbar-dropdown",
       }}
       customTarget={
         isSecondaryMenu && <SecondaryMenuTarget {...{ label }} icon={Mail} />

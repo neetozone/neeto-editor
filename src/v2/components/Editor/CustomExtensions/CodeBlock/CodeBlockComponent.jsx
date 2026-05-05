@@ -98,7 +98,7 @@ const CodeBlockComponent = ({ node, editor, updateAttributes }) => {
 
   return (
     <NodeViewWrapper
-      className="ne-codeblock-nodeview-wrapper"
+      className="ne-codeblock-nodeview-wrapper ne-codeblock--v2"
       data-testid="neeto-editor-code-block"
     >
       <div {...{ ref }}>

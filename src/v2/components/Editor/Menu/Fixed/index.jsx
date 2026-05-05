@@ -145,7 +145,7 @@ const Fixed = ({
       })}
     >
       <div
-        className="neeto-editor-fixed-menu__wrapper"
+        className="neeto-editor-fixed-menu__wrapper ne-fixed-menu--v2"
         data-testid="neeto-editor-fixed-menu-wrapper"
         ref={menuRef}
       >

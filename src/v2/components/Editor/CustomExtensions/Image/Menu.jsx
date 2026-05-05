@@ -1,9 +1,78 @@
 import { Button, DropdownMenu, Tooltip } from "@bigbinary/neeto-atoms";
-import { ChevronDown, Ellipsis, Ratio } from "lucide-react";
-
-import { buildImageOptions } from "components/Editor/MediaUploader/utils";
+import { t } from "i18next";
+import {
+  AlignCenter,
+  AlignLeft,
+  AlignRight,
+  ChevronDown,
+  Ellipsis,
+  Ratio,
+  RectangleHorizontal,
+  RectangleVertical,
+  Square,
+  SquareDashed,
+  Trash2,
+} from "lucide-react";
 
 const { Menu: DropdownMenuList, MenuItem } = DropdownMenu;
+
+const buildImageOptions = (border, showAspectRatio) => {
+  const options = [
+    {
+      Icon: AlignLeft,
+      type: "button",
+      alignPos: "left",
+      optionName: t("neetoEditor.menu.alignLeft"),
+    },
+    {
+      Icon: AlignCenter,
+      type: "button",
+      alignPos: "center",
+      optionName: t("neetoEditor.menu.alignCenter"),
+    },
+    {
+      Icon: AlignRight,
+      type: "button",
+      alignPos: "right",
+      optionName: t("neetoEditor.menu.alignRight"),
+    },
+  ];
+
+  if (showAspectRatio) {
+    options.push({
+      Icon: Ratio,
+      type: "dropdown",
+      alignPos: "center",
+      optionName: t("neetoEditor.menu.aspectRatio"),
+      items: [
+        { ratio: "16/9", tooltipLabel: "16/9", icon: RectangleHorizontal },
+        { ratio: "9/16", tooltipLabel: "9/16", icon: RectangleVertical },
+        { ratio: "4/3", tooltipLabel: "4/3", icon: RectangleHorizontal },
+        { ratio: "3/2", tooltipLabel: "3/2", icon: RectangleHorizontal },
+        { ratio: "1/1", tooltipLabel: "1/1", icon: Square },
+      ],
+    });
+  }
+
+  options.push(
+    {
+      Icon: border ? SquareDashed : Square,
+      type: "button",
+      alignPos: "center",
+      borderToggle: true,
+      optionName: border
+        ? t("neetoEditor.menu.removeBorder")
+        : t("neetoEditor.menu.addBorder"),
+    },
+    {
+      Icon: Trash2,
+      type: "button",
+      optionName: t("neetoEditor.menu.delete"),
+    }
+  );
+
+  return options;
+};
 
 const Menu = ({
   align,
@@ -28,15 +97,18 @@ const Menu = ({
 
   return (
     <DropdownMenu
-      buttonProps={{
-        className: "neeto-editor__image-menu-btn",
-        size: "lg",
-        variant: "secondary",
+      customTarget={
+        <Button
+          className="neeto-editor__image-menu-btn"
+          icon={Ellipsis}
+          size="lg"
+          variant="secondary"
+        />
+      }
+      dropdownProps={{
+        className: "ne-editor-dropdown w-auto flex flex-row items-center gap-1",
       }}
-      className="neeto-editor__image-menu neeto-editor-bubble-menu"
-      dropdownProps={{ className: "ne-editor-dropdown" }}
-      icon={Ellipsis}
-      position="top"
+      position="top-end"
     >
       {menuOptions.map(
         ({ Icon, optionName, alignPos, type, items, border, borderToggle }) =>
