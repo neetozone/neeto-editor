@@ -1,55 +1,35 @@
-/**
- * v2 toolbar button styling.
- *
- * v2 toolbar buttons are tagged with `.ne-toolbar-item` instead of v1's
- * `.neeto-editor-fixed-menu__item` / `.neeto-editor-bubble-menu__item` /
- * `.neeto-editor-table-bubble-menu__item`. Different class name → v1's
- * `menu.scss` rules don't match v2 buttons at all, so no cascade fight.
- *
- * `.ne-toolbar-item` is also the DOM marker the keyboard-navigation code in
- * `v2/Editor/Menu/Fixed/index.jsx` queries for via `querySelectorAll`.
- *
- * Plain icon-only toolbar buttons keep neeto-atoms's default `icon` size
- * (32×32). Only override here is square corners — toolbar buttons sit flush.
- *
- * Note: the selector intentionally does NOT include `[data-slot="button"]`.
- * Radix's `DropdownMenuTrigger` (used by neeto-atoms's `<DropdownMenu>` via
- * `asChild`) merges its own `data-slot="dropdown-menu-trigger"` onto the
- * child element, overwriting the Button primitive's `data-slot="button"`.
- * Constraining on `data-slot="button"` would silently miss every dropdown
- * trigger in the toolbar.
- */
+// Selector deliberately omits `[data-slot="button"]`: Radix's
+// DropdownMenuTrigger uses `asChild` and overwrites the Button primitive's
+// data-slot with `dropdown-menu-trigger`, so that filter would skip every
+// dropdown trigger in the toolbar.
 button.ne-toolbar-item {
   border-radius: 0;
 
-  // neetoUI's `dist/index.css` ships an unlayered `button { background-color:
-  // transparent }` reset for v1 compat. Unlayered rules always beat rules
-  // inside `@layer utilities` (where neeto-atoms's `hover:bg-*` Tailwind
-  // utilities live), so the reset silently kills every cva hover background
-  // on v2 toolbar buttons.
-  //
-  // `revert-layer` rolls this property back so the layered cva hover values
-  // (e.g. `hover:bg-secondary/80`, `aria-expanded:bg-muted`) take effect.
-  // We don't override the color ourselves — neeto-atoms's defaults apply.
+  // neetoUI's dist/index.css ships an unlayered `button { background-color:
+  // transparent }` reset that beats Tailwind's @layer utilities and kills
+  // neeto-atoms's hover backgrounds. `revert-layer` restores them.
   background-color: revert-layer;
 }
 
-/**
- * Dropdown trigger surface (FontSize, TextColor, Highlight, Callout, Table,
- * Emoji, etc.). neeto-atoms's Rich Button auto-detects these as icon-only
- * (we pass `icon` but no `label`/`children`) and assigns the `icon` size
- * variant — `size-8` (Tailwind: `width:2rem; height:2rem`). Height of 32px
- * is right, but width of 32px clips the auto-injected trailing chevron.
- *
- * Override: let width grow to fit `icon + chevron + padding`.
- */
+// Round the outer toolbar items to match the wrapper's top corners; their
+// square hover backgrounds otherwise paint past the wrapper's rounded edge.
+// `overflow: hidden` on the wrapper would clip MenuDynamicVariables, which
+// is positioned `absolute; bottom: -42px`.
+.neeto-editor-fixed-menu__wrapper > .ne-toolbar-item:first-child {
+  border-top-left-radius: var(--radius);
+}
+.neeto-editor-fixed-menu__wrapper > .ne-toolbar-item:last-child {
+  border-top-right-radius: var(--radius);
+}
+
+// Rich Button picks the `icon` size (32×32) for icon-only triggers, which
+// clips the auto-injected trailing chevron. Let width grow to fit it.
 button.ne-toolbar-item.ne-toolbar-dropdown {
   width: auto !important;
   min-width: 2rem;
   padding-inline: 0.25rem;
 
-  // Rich Button wraps icon + trailing chevron in an inner inline-flex span
-  // with `gap-1.5` (6px) hardcoded. Bump to 10px for visible separation.
+  // Rich Button hardcodes `gap-1.5` (6px) on the icon+chevron wrapper.
   & > span {
     gap: 0.625rem;
   }

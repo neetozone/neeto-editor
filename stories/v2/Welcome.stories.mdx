@@ -10,58 +10,24 @@ import { Meta } from "@storybook/addon-docs";
 
 # neeto-editor v2 (neeto-atoms)
 
-These stories render the **v2 editor entry** (`@bigbinary/neeto-editor/v2`),
-which is built on `@bigbinary/neeto-atoms` (shadcn-based) instead of
-`@bigbinary/neetoui`. The v1 stories under "Examples", "Walkthroughs", etc.
-continue to render the original neetoUI-based editor.
+The v2 editor is the same `neeto-editor` API rebuilt on top of
+`@bigbinary/neeto-atoms` (shadcn) instead of `@bigbinary/neetoui`. The public
+component surface is unchanged — switching to v2 is a one-line import swap.
 
-> v1 and v2 ship side-by-side from the same npm package. Consumer products
-> migrate at their own pace by switching their import path from
-> `@bigbinary/neeto-editor` to `@bigbinary/neeto-editor/v2`. They never coexist
-> on the same page.
+```js
+import { Editor } from "@bigbinary/neeto-editor/v2";
+```
 
-## Migration status
+v1 and v2 ship side-by-side from the same npm package, so consumer products can
+migrate at their own pace. They never coexist on the same page — pick one entry
+per app.
 
-| Wave | Status | Components |
-|---|---|---|
-| 0. Repo setup | ✅ done | infra |
-| 1. Leaves | ✅ done | Spinner, Tooltip, Typography wrappers |
-| 2. Common atoms | ✅ done | Button, Modal→Dialog, Toastr, Tab→Tabs, Select |
-| 3. Dropdowns | ✅ done | Dropdown→DropdownMenu (15 files) |
-| 4. Formik forms | pending | `/formik` path swap + nesting inversion |
-| 5. Stories | _in progress_ | this scaffold |
-| 6. Theming | pending | 47 CSS vars, codeblock theme rewrite |
-| 7. Icons | pending | `neetoicons` → `lucide-react` cleanup |
-| 8. Visual QA | pending | per-menu Dropdown positioning, dark theme parity |
-| 9. Cutover | pending | drop neetoui peerDep, `2.0.0` |
+## What's different from v1
 
-## Component coverage
+- Renders against neeto-atoms (shadcn) primitives — Button, DropdownMenu,
+  Dialog, Tabs, etc.
+- Theming flows through shadcn CSS variables instead of neeto-ui SCSS tokens.
+- No `@bigbinary/neetoui` peer dependency once cutover lands.
 
-Each story below exercises one or more migrated v2 components — combined they
-exercise every v2 leaf landed so far:
-
-| Story | v2 components exercised |
-|---|---|
-| **Examples/Basic** | `Editor`, fixed menu `Button`, `Spinner`, `Tooltip`, `Typography` |
-| **Examples/Text formatting** | `FontSizeOption`, `HighlightDropdown`, `CalloutDropdown`, `TextColorOption`, `EmojiOption`, `Bubble/Options`, `Bubble/utils`, `MoreMenu`, `SecondaryMenuTarget` |
-| **Examples/Mentions** | `Mention`, `MentionList` |
-| **Examples/Variables** | `VariableComponent` |
-| **Examples/Code block** | `CodeBlockComponent` |
-| **Examples/Image upload** | `MediaUploader`, `MediaUploader/Progress`, `LocalUploader`, `ImageComponent`, `ImagePreview`, `ImagePreviewModal`, `Image/Menu`, `Image/ExtensionConfig` |
-| **Examples/Tables** | `Fixed/TableOption`, `Bubble/TableOption`, `TableActionMenu` |
-| **Examples/Emoji suggestions** | `EmojiSuggestionMenu`, `Headless/Option/UI/Button` |
-| **Walkthroughs/Attachments** | `Attachments`, `Attachment`, `AttachmentProgress`, `Preview`, `Attachments/utils`, `useFileUploader`, `fileUploader` |
-| **Walkthroughs/KB articles** | `KbArticleView`, `KbArticleDeletedModal`, `ArticlePicker`, `ArticlesList` |
-| **Walkthroughs/Bubble menu** | `Bubble/LinkOption`, `Fixed/components/Button` |
-| **Walkthroughs/Callout type** | `Fixed/components/CalloutDropdown/CalloutTypeOption` |
-
-## Known caveats while migration is in flight
-
-- v2 entry currently re-exports the v1 `Editor`, `EditorContent`, `Menu`, and
-  `FormikEditor` because those parents still mount v1 leaf components. As Wave
-  4+ moves more parents over, these stories will progressively switch to
-  pure-v2 internals.
-- Tippy.js still drives the editor's in-canvas popups (BubbleMenu, slash
-  command, image menu). That is intentional — the move to Floating UI is a
-  separate post-migration project.
-- Theming (CSS variables, dark mode polish) lands in Wave 6.
+Browse the **Walkthroughs** and **Examples** sections under this group for
+runnable stories.
