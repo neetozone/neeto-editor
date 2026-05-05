@@ -84,15 +84,77 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
     gap: 8px;
   }
 
+  // Highlight popover groups Text color + Background color sections vertically;
+  // the generic 2px rule squashes them. Restore the v1 16px section gap.
+  .neeto-editor-highlight-dropdown {
+    gap: 16px;
+  }
+
   // Editor SCSS sets `pre div { color: var(--neeto-editor-content-code-color) }`
   // and similar element-level color rules that cascade into the portaled
   // popover when it lands inside the editor surface. Force the popover
   // foreground to win so menu item labels stay legible.
   [data-slot="dropdown-menu-item"],
-  [data-slot="dropdown-menu-label"],
   [data-slot="dropdown-menu-checkbox-item"],
   [data-slot="dropdown-menu-radio-item"] {
     color: var(--popover-foreground);
+  }
+
+  // Section labels (e.g. "Select callout type") should read as a heading,
+  // not as a primary item — drop them to muted-foreground for less weight.
+  [data-slot="dropdown-menu-label"] {
+    color: var(--muted-foreground);
+  }
+}
+
+// Mention suggestions popup (Tippy popover rendered by the Mention extension's
+// `suggestion.render`, outside any Radix DropdownMenu Root). v1 leaned on
+// neetoUI's Dropdown.Menu/MenuItem.Button styles; v2 uses plain <button>s
+// (Radix items would miss their menu scope context here), so we provide the
+// list + item visuals directly. The `__wrapper`/`__item` class names are v2-
+// only — v1 uses neetoUI's classes — so this rule doesn't leak into v1.
+.neeto-editor-mentions__wrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 4px;
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+  border-radius: var(--radius-md);
+}
+
+.neeto-editor-mentions__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 8px;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-sm);
+  text-align: start;
+  cursor: pointer;
+  color: inherit;
+
+  &:hover,
+  &.active {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+// Dynamic variables popup (legacy neetoUI Dropdown via neetomolecules) renders
+// at neetoUI's default narrow width. Widen it so category labels + variable
+// names get reasonable breathing room. The class is passed via
+// `dropdownProps.classNames` on the DynamicVariables wrapper, which neetoUI
+// applies to the `.neeto-ui-dropdown__popup` content div.
+.ne-editor-variables-popup {
+  min-width: 280px;
+
+  .neeto-molecules-dynamic-variables h6:not(:first-child) {
+    margin-top: 8px;
   }
 }
 
@@ -109,6 +171,37 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
     & > * {
       color: inherit;
     }
+  }
+}
+
+// v2 error state. The shared `ErrorWrapper` adds `.neeto-editor-error` to a
+// div wrapping the editor and renders a sibling `<p.neeto-ui-input__error>`
+// for the message. v1's `_editor.scss` paints a 1px wrapper border in error
+// state, which stacks an extra red ring around an editor that already has
+// its own gray-400 border on `.neeto-editor-fixed-menu` + `.neeto-editor`.
+//
+// In v2 we instead repaint the EXISTING menu + content borders with the
+// destructive token and drop the outer ring, so the error renders as a
+// single destructive frame around the editor — no doubled rings.
+//
+// Side note: the v1 SCSS uses `rgb(var(--neeto-ui-error-500))`, which the v2
+// shim maps to `rgb(oklch(...))` — invalid CSS that falls back to
+// `currentColor`. Setting `var(--destructive)` here also fixes that.
+.ne-editor--v2 {
+  > .neeto-editor-error {
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    .neeto-editor-fixed-menu,
+    .neeto-editor.fixed-menu-active {
+      border-color: var(--destructive);
+    }
+  }
+
+  > p[data-testid="neeto-editor-error-text"] {
+    margin-top: 4px;
+    color: var(--destructive);
+    font-size: 0.75rem;
   }
 }
 

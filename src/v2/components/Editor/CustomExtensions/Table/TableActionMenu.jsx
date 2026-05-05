@@ -56,23 +56,23 @@ const TableActionMenu = ({ editor }) => {
         if (action.type) {
           return (
             <DropdownMenu
-              className="neeto-editor-table-bubble-menu__dropdown"
               closeOnSelect={false}
               key={action.label}
               position="bottom-start"
-              icon={AlignLeft}
-              buttonProps={{
-                className: "neeto-editor-table-bubble-menu__dropdown-item",
-                size: "sm",
-                variant: "ghost",
-                tooltipProps: {
-                  content: action.label,
-                  position: "top",
-                },
+              customTarget={
+                <Button
+                  className="ne-toolbar-item"
+                  icon={AlignLeft}
+                  size="sm"
+                  tooltipProps={{ content: action.label, position: "top" }}
+                  variant="ghost"
+                />
+              }
+              dropdownProps={{
+                className: "ne-editor-dropdown w-auto p-1",
               }}
-              dropdownProps={{ className: "ne-editor-dropdown" }}
             >
-              <Menu className="flex items-center justify-center">
+              <Menu className="flex flex-row items-center gap-1">
                 {action.items?.map(({ type, command, tooltipLabel }) => {
                   const IconComponent = alignmentIcons[type];
 

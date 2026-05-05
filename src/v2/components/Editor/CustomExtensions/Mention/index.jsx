@@ -1,7 +1,7 @@
 import { memo } from "react";
 
-import { Avatar, DropdownMenu, Typography } from "@bigbinary/neeto-atoms";
-import { Mail } from "lucide-react";
+import { Avatar, DropdownMenu } from "@bigbinary/neeto-atoms";
+import { AtSign } from "lucide-react";
 import { isEmpty } from "ramda";
 
 import SecondaryMenuTarget from "src/v2/components/Editor/Menu/Fixed/components/SecondaryMenuTarget";
@@ -20,7 +20,7 @@ const Mentions = ({
   return (
     <DropdownMenu
       data-testid="neeto-editor-mention-option"
-      icon={Mail}
+      icon={AtSign}
       position={isSecondaryMenu ? "left-start" : "bottom-start"}
       buttonProps={{
         variant: "ghost",
@@ -29,19 +29,19 @@ const Mentions = ({
         className: "ne-toolbar-item ne-toolbar-dropdown",
       }}
       customTarget={
-        isSecondaryMenu && <SecondaryMenuTarget {...{ label }} icon={Mail} />
+        isSecondaryMenu && <SecondaryMenuTarget {...{ label }} icon={AtSign} />
       }
-      dropdownProps={{ className: "ne-editor-dropdown" }}
+      dropdownProps={{ className: "ne-editor-dropdown min-w-56" }}
     >
       <Menu>
         {mentions.map(({ key, name, imageUrl }) => (
           <MenuItem
             data-testid={`neeto-editor-mention-option-${key}`}
             key={key}
+            prefix={<Avatar size="sm" user={{ name, imageUrl }} />}
             onClick={() => editor.commands.setMention({ id: key, label: name })}
           >
-            <Avatar size="sm" user={{ name, imageUrl }} />
-            <Typography variant="body2">{name}</Typography>
+            {name}
           </MenuItem>
         ))}
       </Menu>

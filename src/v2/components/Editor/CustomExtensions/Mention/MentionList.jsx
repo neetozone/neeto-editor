@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Avatar, DropdownMenu } from "@bigbinary/neeto-atoms";
+import { Avatar, Typography } from "@bigbinary/neeto-atoms";
+import classNames from "classnames";
 import { t } from "i18next";
 import { isEmpty } from "ramda";
 
@@ -86,7 +87,6 @@ export class MentionList extends React.Component {
   render() {
     const { selectedIndex } = this.state;
     const { items } = this.props;
-    const { Menu, MenuItem } = DropdownMenu;
 
     if (isEmpty(items)) {
       return (
@@ -98,26 +98,31 @@ export class MentionList extends React.Component {
       );
     }
 
+    // Plain <button>s instead of `DropdownMenu.MenuItem`. The popup is portaled
+    // into document.body by tippy, so it sits outside any `DropdownMenu` Root
+    // — Radix's `MenuItem` would call `useMenuScope` and throw
+    // "MenuItem must be used within Menu". Styling lives in _v2-toolbar.scss
+    // under `.neeto-editor-mentions__wrapper` / `__item`.
     return (
-      <div className="max-h-[480px]">
-        <Menu
-          className="neeto-editor-mentions__wrapper"
-          data-testid="neeto-editor-mention-list"
-          ref={this.mentionRef}
-        >
-          {items.map(({ key, name, imageUrl }, index) => (
-            <MenuItem
-              data-testid={`neeto-editor-mention-list-${name}`}
-              key={key}
-              type="button"
-              isActive={index === selectedIndex}
-              prefix={<Avatar size="sm" user={{ name, imageUrl }} />}
-              onClick={() => this.selectItem(index)}
-            >
-              {name}
-            </MenuItem>
-          ))}
-        </Menu>
+      <div
+        className="neeto-editor-mentions__wrapper"
+        data-testid="neeto-editor-mention-list"
+        ref={this.mentionRef}
+      >
+        {items.map(({ key, name, imageUrl }, index) => (
+          <button
+            className={classNames("neeto-editor-mentions__item", {
+              active: index === selectedIndex,
+            })}
+            data-testid={`neeto-editor-mention-list-${name}`}
+            key={key}
+            type="button"
+            onClick={() => this.selectItem(index)}
+          >
+            <Avatar size="sm" user={{ name, imageUrl }} />
+            <Typography variant="body2">{name}</Typography>
+          </button>
+        ))}
       </div>
     );
   }

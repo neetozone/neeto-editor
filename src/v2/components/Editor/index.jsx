@@ -251,7 +251,7 @@ const Editor = (
     <div
       data-testid="neeto-editor-wrapper"
       ref={wrapperRef}
-      className={classnames({
+      className={classnames("ne-editor--v2", {
         [className]: className,
         "ne-attachments__wrapper": isAttachmentsActive,
       })}
