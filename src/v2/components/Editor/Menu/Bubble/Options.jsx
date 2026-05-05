@@ -90,6 +90,7 @@ const Options = ({
           className:
             "ne-toolbar-item ne-toolbar-dropdown neeto-editor-font-size__wrapper",
         }}
+        dropdownProps={{ className: "ne-editor-dropdown" }}
       >
         <Menu>
           {dropdownOptions.map(({ optionName, command, icon: Icon }) => (

@@ -108,8 +108,9 @@ const CodeBlockComponent = ({ node, editor, updateAttributes }) => {
             contentEditable={false}
           >
             <DropdownMenu
-              icon={ChevronDown}
               buttonProps={{ size: "sm", variant: "secondary" }}
+              dropdownProps={{ className: "ne-editor-dropdown" }}
+              icon={ChevronDown}
               label={
                 showLineNumbers === "true"
                   ? LINE_NUMBER_OPTIONS[0].label
@@ -131,9 +132,10 @@ const CodeBlockComponent = ({ node, editor, updateAttributes }) => {
               </Menu>
             </DropdownMenu>
             <DropdownMenu
+              buttonProps={{ size: "sm", variant: "secondary" }}
+              dropdownProps={{ className: "ne-editor-dropdown" }}
               icon={ChevronDown}
               label={node.attrs?.language || t("neetoEditor.common.auto")}
-              buttonProps={{ size: "sm", variant: "secondary" }}
             >
               <Input
                 autoFocus
@@ -167,8 +169,8 @@ const CodeBlockComponent = ({ node, editor, updateAttributes }) => {
               <Button
                 icon={Highlighter}
                 size="sm"
-                variant="secondary"
                 tooltipProps={{ content: t("neetoEditor.menu.highlight") }}
+                variant="secondary"
                 onClick={handleHighlight}
               />
             )}

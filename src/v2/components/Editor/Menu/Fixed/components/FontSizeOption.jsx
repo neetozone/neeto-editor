@@ -49,6 +49,7 @@ const FontSizeOption = ({
         className:
           "ne-toolbar-item ne-toolbar-dropdown neeto-editor-font-size__wrapper",
       }}
+      dropdownProps={{ className: "ne-editor-dropdown" }}
     >
       <Menu>
         {menuOptions.map(({ label, icon: Icon, value, key }) => (

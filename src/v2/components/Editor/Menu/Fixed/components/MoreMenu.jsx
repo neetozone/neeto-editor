@@ -9,6 +9,7 @@ const { Menu, MenuItem } = DropdownMenu;
 const MoreMenu = ({ groups, editor }) => (
   <DropdownMenu
     buttonProps={{ className: "flex-shrink-0", variant: "ghost" }}
+    dropdownProps={{ className: "ne-editor-dropdown" }}
     icon={Ellipsis}
   >
     <Menu>

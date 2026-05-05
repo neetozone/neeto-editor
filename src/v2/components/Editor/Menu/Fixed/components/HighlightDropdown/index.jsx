@@ -81,7 +81,7 @@ const HighlightDropdown = ({
         variant: "ghost",
         className: "ne-toolbar-item ne-toolbar-dropdown",
       }}
-      dropdownProps={{ className: "w-[280px] p-3" }}
+      dropdownProps={{ className: "ne-editor-dropdown w-[280px] p-3" }}
     >
       <DropdownMenu.Menu className="neeto-editor-highlight-dropdown">
         {colorSections.map(({ title, colors, isTextColor }) => (

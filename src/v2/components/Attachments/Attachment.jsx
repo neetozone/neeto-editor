@@ -18,9 +18,10 @@ import { isEmpty, assoc } from "ramda";
 import { Trans, useTranslation } from "react-i18next";
 
 import directUploadsApi from "apis/direct_uploads";
+import FileIcon from "components/Common/FileIcon";
+
 import { ATTACHMENT_OPTIONS } from "./constants";
 import { downloadFile } from "./utils";
-import FileIcon from "components/Common/FileIcon";
 
 const { Menu, MenuItem } = DropdownMenu;
 
@@ -205,8 +206,21 @@ const Attachment = ({
             >
               <DropdownMenu
                 {...{ disabled }}
-                buttonProps={{ size: "sm", variant: "ghost" }}
-                icon={EllipsisVertical}
+                // neeto-atoms's default rich trigger always appends a
+                // ChevronDown as trailing icon. For an ellipsis "more
+                // actions" button the ellipsis itself signals a menu —
+                // use customTarget to render the icon-only button without
+                // the redundant chevron.
+                customTarget={
+                  <Button
+                    data-testid="neeto-editor-attachment-actions"
+                    disabled={disabled}
+                    icon={EllipsisVertical}
+                    size="sm"
+                    variant="ghost"
+                  />
+                }
+                dropdownProps={{ className: "ne-editor-dropdown" }}
               >
                 <Menu>
                   {Object.entries(handlers).map(([label, handler]) => (

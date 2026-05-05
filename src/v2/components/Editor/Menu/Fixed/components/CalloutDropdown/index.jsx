@@ -55,7 +55,7 @@ const CalloutDropdown = ({ editor, label, tooltipContent }) => {
         variant: isInCallout ? "secondary" : "ghost",
         className: "ne-toolbar-item ne-toolbar-dropdown",
       }}
-      dropdownProps={{ className: "w-[200px] p-2" }}
+      dropdownProps={{ className: "ne-editor-dropdown w-[200px] p-2" }}
     >
       <DropdownMenu.Menu>
         <DropdownMenu.Label>

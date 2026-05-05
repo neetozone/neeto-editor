@@ -34,6 +34,7 @@ const Menu = ({
         variant: "secondary",
       }}
       className="neeto-editor__image-menu neeto-editor-bubble-menu"
+      dropdownProps={{ className: "ne-editor-dropdown" }}
       icon={Ellipsis}
       position="top"
     >
@@ -73,6 +74,7 @@ const Menu = ({
                   </Tooltip>
                 </MenuItem>
               }
+              dropdownProps={{ className: "ne-editor-dropdown" }}
               onClick={event => event.stopPropagation()}
             >
               <DropdownMenuList className="mb-0">

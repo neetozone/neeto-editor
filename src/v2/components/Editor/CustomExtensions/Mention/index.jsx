@@ -31,6 +31,7 @@ const Mentions = ({
       customTarget={
         isSecondaryMenu && <SecondaryMenuTarget {...{ label }} icon={Mail} />
       }
+      dropdownProps={{ className: "ne-editor-dropdown" }}
     >
       <Menu>
         {mentions.map(({ key, name, imageUrl }) => (

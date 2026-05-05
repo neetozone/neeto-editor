@@ -70,6 +70,7 @@ const TableActionMenu = ({ editor }) => {
                   position: "top",
                 },
               }}
+              dropdownProps={{ className: "ne-editor-dropdown" }}
             >
               <Menu className="flex items-center justify-center">
                 {action.items?.map(({ type, command, tooltipLabel }) => {

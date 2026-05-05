@@ -43,7 +43,7 @@ const EmojiOption = ({
       }
       dropdownProps={{
         className:
-          "neeto-editor-fixed-menu__emoji-dropdown min-w-[350px] p-0",
+          "ne-editor-dropdown neeto-editor-fixed-menu__emoji-dropdown min-w-[350px] p-0",
         onClick: e => isSecondaryMenu && e.stopPropagation(),
       }}
       onClose={() => setActive(false)}

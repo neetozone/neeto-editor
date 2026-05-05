@@ -45,7 +45,11 @@ const Headless = ({
   const allOptions = [...menuOptions, ...addonCommandOptions];
 
   return (
-    <div className={classnames("ne-headless", { [className]: className })}>
+    <div
+      className={classnames("ne-headless ne-headless--v2", {
+        [className]: className,
+      })}
+    >
       {allOptions.map(option => (
         <Option {...{ editor }} key={option.optionName} {...option} />
       ))}

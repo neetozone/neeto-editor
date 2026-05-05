@@ -34,3 +34,60 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
     gap: 0.625rem;
   }
 }
+
+// Small gap between dropdown menu items so adjacent active backgrounds (e.g.
+// H3 + H4 both highlighted) don't visually merge into one continuous pill.
+// Scoped under `.ne-editor-dropdown` (added via dropdownProps on every v2
+// editor DropdownMenu) so the rule never reaches non-editor neeto-atoms
+// dropdowns elsewhere in the host app.
+.ne-editor-dropdown [data-slot="dropdown-menu-group"] {
+  gap: 2px;
+}
+
+// v2 Headless menu: bare row of icon buttons with no chrome by default.
+// All selectors are scoped under `.ne-headless--v2` (added by v2's
+// Headless/index.jsx) so v1's `.ne-headless` instances are untouched.
+.ne-headless--v2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+
+  .ne-headless-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem; // 28px
+    height: 1.75rem;
+    padding: 0;
+    border-radius: var(--radius);
+    background-color: transparent;
+    color: var(--foreground);
+    cursor: pointer;
+    transition: background-color 0.12s ease;
+
+    &:hover:not(:disabled) {
+      background-color: color-mix(in oklab, var(--foreground) 6%, transparent);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--ring);
+      outline-offset: 1px;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    // Tighten the icon to match the smaller hit area.
+    & > svg {
+      width: 0.875rem; // 14px
+      height: 0.875rem;
+    }
+
+    &.ne-headless-btn--active {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+    }
+  }
+}

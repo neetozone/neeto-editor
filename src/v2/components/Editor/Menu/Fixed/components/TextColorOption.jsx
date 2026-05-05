@@ -57,7 +57,7 @@ const TextColorOption = ({
           <SecondaryMenuTarget {...{ label }} icon={Baseline} />
         )
       }
-      dropdownProps={{ className: "w-[260px] p-2" }}
+      dropdownProps={{ className: "ne-editor-dropdown w-[260px] p-2" }}
     >
       <div
         style={{ "min-width": "236px" }}
