@@ -11,10 +11,10 @@ import { Attachments } from "../../../../src/v2";
   component={Attachments}
 />
 
-# Custom upload trigger — v2
+# Custom Attachments — v2
 
-The upload action of the v2 `Attachments` component can be wired to any
-trigger. Forward a ref and call `handleUploadAttachments` on it.
+The Upload function of the `Attachments` component can be mapped to different
+components.
 
 <Canvas>
   <CustomAttachmentsDemo />
@@ -38,7 +38,7 @@ const CustomAttachmentsDemo = () => {
 
   return (
     <>
-      <Button onClick={handleUpload}>Custom upload button</Button>
+      <Button label="Custom upload button" onClick={handleUpload} />
       <Attachments
         className="pt-2"
         isIndependent={false}

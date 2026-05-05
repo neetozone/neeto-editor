@@ -1,14 +1,21 @@
-// Selector deliberately omits `[data-slot="button"]`: Radix's
-// DropdownMenuTrigger uses `asChild` and overwrites the Button primitive's
-// data-slot with `dropdown-menu-trigger`, so that filter would skip every
-// dropdown trigger in the toolbar.
+// neetoUI's dist/index.css ships an unlayered `button { background-color:
+// transparent }` reset that beats Tailwind's @layer utilities and kills the
+// background-color on every neeto-atoms Button (filled, outline, secondary,
+// hover state, etc.). `revert-layer` rolls the property back so the layered
+// cva values apply.
+//
+// Targets the Button primitive's `data-slot="button"`. NOTE: Radix's
+// `asChild` wrappers (e.g. DropdownMenuTrigger) overwrite this slot with
+// their own (`dropdown-menu-trigger`, etc.), so the toolbar selector below
+// includes those cases via `.ne-toolbar-item`.
+button[data-slot="button"],
+button.ne-toolbar-item {
+  background-color: revert-layer;
+}
+
+// Toolbar items sit flush — square corners.
 button.ne-toolbar-item {
   border-radius: 0;
-
-  // neetoUI's dist/index.css ships an unlayered `button { background-color:
-  // transparent }` reset that beats Tailwind's @layer utilities and kills
-  // neeto-atoms's hover backgrounds. `revert-layer` restores them.
-  background-color: revert-layer;
 }
 
 // Round the outer toolbar items to match the wrapper's top corners; their

@@ -10,14 +10,15 @@ import { Editor, Attachments } from "../../../../src/v2";
   component={Attachments}
 />
 
-# Attachments inside the editor — v2
+# Integrated to neetoEditor — v2
 
-Exercises the migrated `Attachments` (Button + Toastr), `Attachment`
-(DropdownMenu + Input + Tooltip + Spinner + Alert), `AttachmentProgress`
-(Button + Typography), `Preview` (Dialog + Toastr), and the supporting
-`hooks/useFileUploader`, `hooks/utils/fileUploader`, and `Attachments/utils`
-modules.
+File attachment feature can be enabled in neetoEditor by adding the
+`attachments` addon to the list of addons. All the files are uploaded using a
+pre-signed URL from the backend. This addon also enables the drag and drop
+feature to upload files.
 
 <Canvas>
   <Editor addons={["attachments"]} />
 </Canvas>
+
+> The file attachment feature uses a procedure similar to image upload feature.

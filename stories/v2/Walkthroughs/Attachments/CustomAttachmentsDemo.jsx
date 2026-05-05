@@ -13,7 +13,7 @@ const CustomAttachmentsDemo = () => {
 
   return (
     <>
-      <Button onClick={handleUpload}>Custom upload button</Button>
+      <Button label="Custom upload button" onClick={handleUpload} />
       <Attachments
         className="pt-2"
         isIndependent={false}

@@ -8,9 +8,9 @@ const EditorContentDemo = () => {
   const [content, setContent] = useState(INITIAL_CONTENT);
 
   return (
-    <div className="neeto-ui-flex neeto-ui-flex-col neeto-ui-gap-4">
+    <div className="flex flex-col gap-4">
       <div
-        className="neeto-ui-border-gray-400 neeto-ui-rounded neeto-ui-border"
+        className="rounded border"
         style={{
           border: "1px solid rgb(var(--neeto-ui-gray-400))",
           padding: "25px",
@@ -18,7 +18,7 @@ const EditorContentDemo = () => {
       >
         <EditorContent
           {...{ content }}
-          className="neeto-ui-p-4"
+          className="p-4"
           configuration={{ enableHeaderLinks: true }}
         />
       </div>
