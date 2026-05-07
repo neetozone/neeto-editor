@@ -20,6 +20,7 @@ const Mentions = ({
   return (
     <DropdownMenu
       data-testid="neeto-editor-mention-option"
+      dropdownProps={{ className: "ne-editor-dropdown min-w-56" }}
       icon={AtSign}
       position={isSecondaryMenu ? "left-start" : "bottom-start"}
       buttonProps={{
@@ -31,7 +32,6 @@ const Mentions = ({
       customTarget={
         isSecondaryMenu && <SecondaryMenuTarget {...{ label }} icon={AtSign} />
       }
-      dropdownProps={{ className: "ne-editor-dropdown min-w-56" }}
     >
       <Menu>
         {mentions.map(({ key, name, imageUrl }) => (

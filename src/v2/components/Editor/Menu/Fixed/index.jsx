@@ -1,16 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import classNames from "classnames";
-import { isNotEmpty } from "neetocist";
-
 import { EDITOR_OPTIONS } from "common/constants";
-import useEditorState from "./hooks/useEditorState";
+import { isNotEmpty } from "neetocist";
 
 import MediaUploader from "src/v2/components/Editor/MediaUploader";
 
 import LinkAddPopOver from "./components/LinkAddPopOver";
 import MoreMenu from "./components/MoreMenu";
 import { MENU_ELEMENTS } from "./constants";
+import useEditorState from "./hooks/useEditorState";
 import { reGroupMenuItems, buildMenuOptions } from "./utils";
 
 import MenuDynamicVariables from "../DynamicVariables";

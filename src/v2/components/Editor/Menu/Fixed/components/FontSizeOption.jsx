@@ -4,8 +4,9 @@ import { DropdownMenu } from "@bigbinary/neeto-atoms";
 import { filterBy } from "neetocist";
 import { last } from "ramda";
 
-import { FONT_SIZE_OPTIONS } from "../../constants";
 import useEditorStore from "src/stores/useEditorStore";
+
+import { FONT_SIZE_OPTIONS } from "../../constants";
 
 const { Menu, MenuItem } = DropdownMenu;
 
@@ -37,6 +38,7 @@ const FontSizeOption = ({
 
   return (
     <DropdownMenu
+      dropdownProps={{ className: "ne-editor-dropdown" }}
       icon={activeOption?.icon}
       position="bottom-start"
       triggerRef={dropdownRef}
@@ -49,14 +51,13 @@ const FontSizeOption = ({
         className:
           "ne-toolbar-item ne-toolbar-dropdown neeto-editor-font-size__wrapper",
       }}
-      dropdownProps={{ className: "ne-editor-dropdown" }}
     >
       <Menu>
         {menuOptions.map(({ label, icon: Icon, value, key }) => (
           <MenuItem
             data-testid={`neeto-editor-fixed-menu-font-size-option-${key}`}
-            key={value}
             isActive={activeOption?.value === value}
+            key={value}
             prefix={<Icon size={16} />}
             onClick={() => handleClick(value)}
           >

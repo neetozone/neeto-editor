@@ -15,14 +15,13 @@ import { isNotEmpty, isPresent, noop } from "neetocist";
 import { isEmpty } from "ramda";
 import { useTranslation } from "react-i18next";
 
-import { buildFileUploadConfig } from "./utils";
 import useDropFiles from "hooks/useDropFiles";
 import "src/styles/components/attachments.scss";
-
 import useFileUploader from "src/v2/hooks/useFileUploader";
 
 import Attachment from "./Attachment";
 import AttachmentProgress from "./AttachmentProgress";
+import { buildFileUploadConfig } from "./utils";
 
 const Preview = lazy(() => import("./Preview"));
 

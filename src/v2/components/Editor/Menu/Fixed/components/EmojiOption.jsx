@@ -3,7 +3,7 @@ import { memo, useState } from "react";
 import { DropdownMenu } from "@bigbinary/neeto-atoms";
 import { Smile } from "lucide-react";
 
-import EmojiPickerMenu from "components/Editor/CustomExtensions/Emoji/EmojiPicker/EmojiPickerMenu";
+import EmojiPickerMenu from "src/v2/components/Editor/CustomExtensions/Emoji/EmojiPicker/EmojiPickerMenu";
 
 import SecondaryMenuTarget from "./SecondaryMenuTarget";
 
@@ -27,9 +27,9 @@ const EmojiOption = ({
 
   return (
     <DropdownMenu
-      key={resetKey}
       closeOnSelect={false}
       icon={Smile}
+      key={resetKey}
       position={isSecondaryMenu ? "left-start" : "bottom-start"}
       buttonProps={{
         variant: "ghost",
@@ -48,7 +48,7 @@ const EmojiOption = ({
       }}
       onClose={() => setActive(false)}
     >
-      <EmojiPickerMenu {...{ editor, setActive: handlePicked }} />
+      <EmojiPickerMenu {...{ editor }} setActive={handlePicked} />
     </DropdownMenu>
   );
 };

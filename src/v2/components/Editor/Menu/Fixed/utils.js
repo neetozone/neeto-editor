@@ -3,7 +3,6 @@ import {
   Bold,
   Code,
   FileText,
-  Heading1,
   Highlighter,
   ImageUp,
   Italic,

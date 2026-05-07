@@ -7,6 +7,7 @@ import { findBy } from "neetocist";
 import Search from "neetomolecules/Search";
 import { useTranslation } from "react-i18next";
 
+import { useFetchKbArticles } from "hooks/reactQuery/kbArticle/useArticleFetching";
 import {
   MODE,
   MODAL_BOTTOM_MARGIN,
@@ -14,13 +15,12 @@ import {
   MODAL_TOP_OFFSET,
   MODAL_TRANSFORM_Y,
   MODAL_TRANSFORM_X,
-} from "components/Editor/CustomExtensions/LinkKbArticles/constants";
-import useArticleNavigation from "components/Editor/CustomExtensions/LinkKbArticles/hooks/useArticleNavigation";
+} from "src/v2/components/Editor/CustomExtensions/LinkKbArticles/constants";
+import useArticleNavigation from "src/v2/components/Editor/CustomExtensions/LinkKbArticles/hooks/useArticleNavigation";
 import {
   buildArticleFullUrl,
   createArticleOptions,
-} from "components/Editor/CustomExtensions/LinkKbArticles/utils";
-import { useFetchKbArticles } from "hooks/reactQuery/kbArticle/useArticleFetching";
+} from "src/v2/components/Editor/CustomExtensions/LinkKbArticles/utils";
 
 import ArticlesList from "./ArticlesList";
 
@@ -157,8 +157,8 @@ const ArticlePicker = ({
   return (
     <Select
       {...{ className, label, name, placeholder }}
-      isDisabled={isLoading}
       isSearchable
+      isDisabled={isLoading}
       options={externalOptions || selectOptions}
       value={typeof value === "object" ? value?.value : value}
       onChange={handleSelectChange}

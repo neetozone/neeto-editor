@@ -7,8 +7,8 @@ import { not } from "ramda";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 
-import { validateAndFormatUrl } from "components/Editor/utils";
 import { ALL_PROTOCOL_URL_REGEXP } from "src/common/constants";
+import { validateAndFormatUrl } from "src/v2/components/Editor/utils";
 
 import { getLinkPopoverPosition, getCursorPos } from "../utils";
 

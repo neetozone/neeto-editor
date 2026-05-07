@@ -41,9 +41,10 @@ const TextColorOption = ({
 
   return (
     <DropdownMenu
-      key={resetKey}
       closeOnSelect={false}
+      dropdownProps={{ className: "ne-editor-dropdown w-[260px] p-2" }}
       icon={Baseline}
+      key={resetKey}
       position={isSecondaryMenu ? "left-start" : "bottom-start"}
       buttonProps={{
         variant: color ? "secondary" : "ghost",
@@ -57,7 +58,6 @@ const TextColorOption = ({
           <SecondaryMenuTarget {...{ label }} icon={Baseline} />
         )
       }
-      dropdownProps={{ className: "ne-editor-dropdown w-[260px] p-2" }}
     >
       <div
         style={{ "min-width": "236px" }}

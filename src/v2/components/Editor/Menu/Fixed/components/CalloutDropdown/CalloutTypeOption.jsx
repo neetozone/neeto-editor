@@ -7,10 +7,10 @@ const CalloutTypeOption = ({ calloutType, isSelected, onClick }) => {
 
   return (
     <MenuItem
+      {...{ onClick }}
       data-testid="callout-type-option"
       isActive={isSelected}
       prefix={<Icon size={16} />}
-      onClick={onClick}
     >
       {calloutType.label}
     </MenuItem>

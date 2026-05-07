@@ -2,7 +2,7 @@ import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import { ReactNodeViewRenderer } from "@tiptap/react";
 import { lowlight } from "lowlight";
 
-import { codeBlockHighlightPlugin } from "components/Editor/CustomExtensions/CodeBlock/plugins";
+import { codeBlockHighlightPlugin } from "src/v2/components/Editor/CustomExtensions/CodeBlock/plugins";
 
 import CodeBlockComponent from "./CodeBlockComponent";
 

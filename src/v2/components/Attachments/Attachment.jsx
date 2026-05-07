@@ -18,7 +18,7 @@ import { isEmpty, assoc } from "ramda";
 import { Trans, useTranslation } from "react-i18next";
 
 import directUploadsApi from "apis/direct_uploads";
-import FileIcon from "components/Common/FileIcon";
+import FileIcon from "src/v2/components/Common/FileIcon";
 
 import { ATTACHMENT_OPTIONS } from "./constants";
 import { downloadFile } from "./utils";
@@ -211,16 +211,16 @@ const Attachment = ({
                 // actions" button the ellipsis itself signals a menu —
                 // use customTarget to render the icon-only button without
                 // the redundant chevron.
+                dropdownProps={{ className: "ne-editor-dropdown" }}
                 customTarget={
                   <Button
+                    {...{ disabled }}
                     data-testid="neeto-editor-attachment-actions"
-                    disabled={disabled}
                     icon={EllipsisVertical}
                     size="sm"
                     variant="ghost"
                   />
                 }
-                dropdownProps={{ className: "ne-editor-dropdown" }}
               >
                 <Menu>
                   {Object.entries(handlers).map(([label, handler]) => (

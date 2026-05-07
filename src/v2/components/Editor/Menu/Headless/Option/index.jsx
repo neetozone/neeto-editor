@@ -1,7 +1,6 @@
 import classnames from "classnames";
-import { hyphenate } from "neetocist";
-
 import { EDITOR_OPTIONS } from "common/constants";
+import { hyphenate } from "neetocist";
 
 import Emoji from "./Emoji";
 import Button from "./UI/Button";

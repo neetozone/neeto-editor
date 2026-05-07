@@ -38,13 +38,13 @@ const MenuDynamicVariables = ({
       <DynamicVariables
         {...{ variables }}
         buttonSize="small"
+        dropdownProps={{ classNames: "ne-editor-variables-popup" }}
         buttonProps={{
           tooltipProps: {
             content: t("neetoEditor.menu.dynamicVariables"),
             position: "bottom",
           },
         }}
-        dropdownProps={{ classNames: "ne-editor-variables-popup" }}
         onVariableClick={handleVariableClick}
       />
     </div>

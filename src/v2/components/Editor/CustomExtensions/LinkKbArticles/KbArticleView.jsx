@@ -43,11 +43,11 @@ const KbArticleView = withT(
             data-testid="neeto-editor-link-popover-edit"
             icon={Pencil}
             size="sm"
+            variant="ghost"
             tooltipProps={{
               content: t("neetoEditor.common.edit"),
               position: "top",
             }}
-            variant="ghost"
             onClick={onEdit}
           />
         </div>

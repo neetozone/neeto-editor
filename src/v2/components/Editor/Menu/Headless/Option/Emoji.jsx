@@ -1,6 +1,6 @@
 import { Smile } from "lucide-react";
 
-import EmojiPicker from "components/Editor/CustomExtensions/Emoji/EmojiPicker/EmojiPickerMenu";
+import EmojiPicker from "src/v2/components/Editor/CustomExtensions/Emoji/EmojiPicker/EmojiPickerMenu";
 
 import Dropdown from "./UI/Dropdown";
 

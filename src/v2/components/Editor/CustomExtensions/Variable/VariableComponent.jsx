@@ -1,7 +1,7 @@
 import { Tooltip } from "@bigbinary/neeto-atoms";
 import { NodeViewWrapper } from "@tiptap/react";
 
-import { MAX_VARIABLE_NAME_DISPLAY_LENGTH } from "components/Editor/CustomExtensions/Variable/constants";
+import { MAX_VARIABLE_NAME_DISPLAY_LENGTH } from "src/v2/components/Editor/CustomExtensions/Variable/constants";
 
 const VariableComponent = ({ node, extension }) => {
   const { id, label } = node.attrs;

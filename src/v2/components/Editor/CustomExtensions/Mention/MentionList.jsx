@@ -111,12 +111,12 @@ export class MentionList extends React.Component {
       >
         {items.map(({ key, name, imageUrl }, index) => (
           <button
-            className={classNames("neeto-editor-mentions__item", {
-              active: index === selectedIndex,
-            })}
             data-testid={`neeto-editor-mention-list-${name}`}
             key={key}
             type="button"
+            className={classNames("neeto-editor-mentions__item", {
+              active: index === selectedIndex,
+            })}
             onClick={() => this.selectItem(index)}
           >
             <Avatar size="sm" user={{ name, imageUrl }} />

@@ -44,6 +44,7 @@ const CalloutDropdown = ({ editor, label, tooltipContent }) => {
 
   return (
     <DropdownMenu
+      dropdownProps={{ className: "ne-editor-dropdown w-[200px] p-2" }}
       icon={<CalloutIcon currentType={isInCallout ? currentType : null} />}
       position="bottom-start"
       triggerRef={dropdownRef}
@@ -55,7 +56,6 @@ const CalloutDropdown = ({ editor, label, tooltipContent }) => {
         variant: isInCallout ? "secondary" : "ghost",
         className: "ne-toolbar-item ne-toolbar-dropdown",
       }}
-      dropdownProps={{ className: "ne-editor-dropdown w-[200px] p-2" }}
     >
       <DropdownMenu.Menu>
         <DropdownMenu.Label>

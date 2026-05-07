@@ -4,8 +4,8 @@ import { Button } from "@bigbinary/neeto-atoms";
 import { Form, Input } from "@bigbinary/neeto-atoms/formik";
 import { useTranslation } from "react-i18next";
 
-import { MODE } from "components/Editor/CustomExtensions/LinkKbArticles/constants";
 import { decodeHtmlEntities } from "src/utils/common";
+import { MODE } from "src/v2/components/Editor/CustomExtensions/LinkKbArticles/constants";
 
 import ArticlePicker from "./ArticlePicker";
 

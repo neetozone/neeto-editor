@@ -7,7 +7,7 @@ import { isNotEmpty } from "neetocist";
 import { isEmpty } from "ramda";
 
 import emojiPickerApi from "apis/emoji_picker";
-import { filterEmojiSuggestions } from "components/Editor/CustomExtensions/Emoji/EmojiSuggestion/utils";
+import { filterEmojiSuggestions } from "src/v2/components/Editor/CustomExtensions/Emoji/EmojiSuggestion/utils";
 
 class EmojiSuggestionMenu extends React.Component {
   state = {
@@ -20,6 +20,7 @@ class EmojiSuggestionMenu extends React.Component {
   componentDidMount() {
     this.setState({
       frequentlyUsedEmojis: Object.keys(
+        // eslint-disable-next-line @bigbinary/neeto/no-local-storage
         JSON.parse(localStorage.getItem("emoji-mart.frequently") || "{}")
       ),
     });
@@ -52,6 +53,7 @@ class EmojiSuggestionMenu extends React.Component {
     }
   };
 
+  // eslint-disable-next-line require-await
   searchEmoji = async () =>
     this.props.query ? SearchIndex.search(this.props.query) : [];
 

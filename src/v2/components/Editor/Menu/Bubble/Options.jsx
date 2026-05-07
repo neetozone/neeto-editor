@@ -1,14 +1,7 @@
 import { DropdownMenu } from "@bigbinary/neeto-atoms";
+import { EDITOR_OPTIONS } from "common/constants";
 import { Link, Table } from "lucide-react";
 import { useTranslation } from "react-i18next";
-
-import { EDITOR_OPTIONS } from "common/constants";
-import {
-  buildBubbleMenuOptions,
-  getNodeIcon,
-  getTextMenuDropdownOptions,
-  renderOptionButton,
-} from "./utils";
 
 import Mentions from "src/v2/components/Editor/CustomExtensions/Mention";
 import EmojiOption from "src/v2/components/Editor/Menu/Fixed/components/EmojiOption";
@@ -16,6 +9,12 @@ import TextColorOption from "src/v2/components/Editor/Menu/Fixed/components/Text
 
 import LinkOption from "./LinkOption";
 import TableOption from "./TableOption";
+import {
+  buildBubbleMenuOptions,
+  getNodeIcon,
+  getTextMenuDropdownOptions,
+  renderOptionButton,
+} from "./utils";
 
 const Options = ({
   editor,
@@ -83,6 +82,7 @@ const Options = ({
   return (
     <>
       <DropdownMenu
+        dropdownProps={{ className: "ne-editor-dropdown" }}
         icon={Icon}
         buttonProps={{
           "data-testid": "neeto-editor-fixed-menu-font-size-option",
@@ -90,7 +90,6 @@ const Options = ({
           className:
             "ne-toolbar-item ne-toolbar-dropdown neeto-editor-font-size__wrapper",
         }}
-        dropdownProps={{ className: "ne-editor-dropdown" }}
       >
         <Menu>
           {dropdownOptions.map(({ optionName, command, icon: Icon }) => (

@@ -5,16 +5,17 @@ import { ImageUp } from "lucide-react";
 import { isEmpty } from "ramda";
 import { useTranslation } from "react-i18next";
 
+import useDropFiles from "hooks/useDropFiles";
 import {
   ALLOWED_IMAGE_TYPES,
   ALLOWED_VIDEO_TYPES,
   DEFAULT_IMAGE_UPLOAD_CONFIG,
   DEFAULT_VIDEO_UPLOAD_CONFIG,
-} from "components/Editor/MediaUploader/constants";
-import Progress from "./Progress";
-import { convertToFileSize } from "components/Editor/MediaUploader/utils";
-import useDropFiles from "hooks/useDropFiles";
+} from "src/v2/components/Editor/MediaUploader/constants";
+import { convertToFileSize } from "src/v2/components/Editor/MediaUploader/utils";
 import useFileUploader from "src/v2/hooks/useFileUploader";
+
+import Progress from "./Progress";
 
 const LocalUploader = ({
   isImage,

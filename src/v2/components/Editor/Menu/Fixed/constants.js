@@ -1,5 +1,4 @@
 import { EDITOR_OPTIONS } from "src/common/constants";
-
 import Mentions from "src/v2/components/Editor/CustomExtensions/Mention";
 
 import MenuButton from "./components/Button";

@@ -44,9 +44,10 @@ const TableOption = ({
 
   return (
     <DropdownMenu
-      key={resetKey}
       closeOnSelect={false}
+      dropdownProps={{ className: "ne-editor-dropdown w-auto p-2" }}
       icon={Table}
+      key={resetKey}
       position={isSecondaryMenu ? "left-start" : "bottom"}
       buttonProps={{
         tabIndex: -1,
@@ -58,7 +59,6 @@ const TableOption = ({
       customTarget={
         isSecondaryMenu && <SecondaryMenuTarget {...{ label }} icon={Table} />
       }
-      dropdownProps={{ className: "ne-editor-dropdown w-auto p-2" }}
       onClose={handleClose}
     >
       <Menu className="neeto-editor-table__item">

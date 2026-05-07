@@ -5,7 +5,7 @@ import { BubbleMenu } from "@tiptap/react";
 import { AlignCenter, AlignLeft, AlignRight } from "lucide-react";
 import { sticky } from "tippy.js";
 
-import { tableActions } from "components/Editor/CustomExtensions/Table/utils";
+import { tableActions } from "src/v2/components/Editor/CustomExtensions/Table/utils";
 
 const { Menu, MenuItem } = DropdownMenu;
 
@@ -102,11 +102,8 @@ const TableActionMenu = ({ editor }) => {
             icon={action.icon}
             key={action.label}
             size="sm"
+            tooltipProps={{ content: action.label, position: "top" }}
             variant="ghost"
-            tooltipProps={{
-              content: action.label,
-              position: "top",
-            }}
             onClick={action.command}
           />
         );

@@ -2,7 +2,7 @@ import { Button, Tooltip, Typography } from "@bigbinary/neeto-atoms";
 import { X } from "lucide-react";
 import { withT } from "neetocommons/react-utils";
 
-import FileIcon from "components/Common/FileIcon";
+import FileIcon from "src/v2/components/Common/FileIcon";
 
 const Progress = withT(({ t, queuedFiles, cancelUpload }) => (
   <div className="ne-media-uploader__wrapper">

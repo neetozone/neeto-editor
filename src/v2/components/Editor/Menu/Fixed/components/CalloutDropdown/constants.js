@@ -1,5 +1,11 @@
 import { t } from "i18next";
-import { Info, AlertTriangle, AlertOctagon, Megaphone, CheckCircle2 } from "lucide-react";
+import {
+  Info,
+  AlertTriangle,
+  AlertOctagon,
+  Megaphone,
+  CheckCircle2,
+} from "lucide-react";
 
 export const CALLOUT_TYPES = [
   {

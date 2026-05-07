@@ -4,7 +4,7 @@ import { isPresent } from "neetocist";
 import { mergeRight } from "ramda";
 
 import { DEFAULT_FILE_UPLOAD_CONFIG } from "src/v2/components/Attachments/constants";
-import { convertToFileSize } from "components/Editor/MediaUploader/utils";
+import { convertToFileSize } from "src/v2/components/Editor/MediaUploader/utils";
 
 const getFileExtension = filename => {
   if (!filename) return "";

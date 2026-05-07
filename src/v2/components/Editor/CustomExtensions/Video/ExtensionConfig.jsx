@@ -4,12 +4,12 @@ import { ReactNodeViewRenderer } from "@tiptap/react";
 import classnames from "classnames";
 import { COMBINED_REGEX } from "common/constants";
 
-import { DEFAULT_ASPECT_RATIO } from "components/Editor/MediaUploader/constants";
-import { validateUrl } from "components/Editor/CustomExtensions/Embeds/utils";
-
-import EmbedComponent from "../Embeds/EmbedComponent";
+import { validateUrl } from "src/v2/components/Editor/CustomExtensions/Embeds/utils";
+import { DEFAULT_ASPECT_RATIO } from "src/v2/components/Editor/MediaUploader/constants";
 
 import VideoComponent from "./VideoComponent";
+
+import EmbedComponent from "../Embeds/EmbedComponent";
 
 const getSharedAttributes = () => ({
   src: {

@@ -1,8 +1,8 @@
 import { ActionBlock, Form, Input } from "@bigbinary/neeto-atoms/formik";
 import { useTranslation } from "react-i18next";
 
-import { VIDEO_EMBED_FORM_VALIDATION_SCHEMA } from "components/Editor/MediaUploader/constants";
-import { validateUrl } from "components/Editor/CustomExtensions/Embeds/utils";
+import { validateUrl } from "src/v2/components/Editor/CustomExtensions/Embeds/utils";
+import { VIDEO_EMBED_FORM_VALIDATION_SCHEMA } from "src/v2/components/Editor/MediaUploader/constants";
 
 const VideoEmbedForm = ({ onEmbedVideo, onAttachVideo, onClose }) => {
   const { t } = useTranslation();

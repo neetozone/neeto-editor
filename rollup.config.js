@@ -39,9 +39,16 @@ const v1Input = {
 };
 
 // v2 (neeto-atoms-based) entries — outputs to `dist/v2/*` and `dist/cjs/v2/*`.
-// Add a sibling entry per component as it migrates under `src/v2/components/`.
+// Mirrors v1Input one-for-one so babel-plugin-transform-imports can rewrite
+// bare-barrel imports (`{ Editor } from "@bigbinary/neeto-editor/v2"`) to
+// subpaths (`@bigbinary/neeto-editor/v2/Editor`) without breaking.
 const v2Input = {
   "v2/index": "./src/v2/index.js",
+  "v2/Editor": "./src/v2/components/Editor",
+  "v2/EditorContent": "./src/v2/components/EditorContent",
+  "v2/Menu": "./src/v2/components/Editor/Menu",
+  "v2/FormikEditor": "./src/v2/components/Editor/FormikEditor",
+  "v2/Attachments": "./src/v2/components/Attachments",
 };
 
 const input = { ...v1Input, ...v2Input };

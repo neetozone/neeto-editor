@@ -1,6 +1,6 @@
 import React from "react";
 
-import { MODE } from "components/Editor/CustomExtensions/LinkKbArticles/constants";
+import { MODE } from "src/v2/components/Editor/CustomExtensions/LinkKbArticles/constants";
 
 import ArticlePicker from "./ArticlePicker";
 

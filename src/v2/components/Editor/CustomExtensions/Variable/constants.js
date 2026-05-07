@@ -1,0 +1,1 @@
+export const MAX_VARIABLE_NAME_DISPLAY_LENGTH = 25;

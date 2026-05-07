@@ -242,10 +242,7 @@ export const renderOptionButton = ({
     icon={Icon}
     key={optionName}
     size="default"
-    tooltipProps={{
-      content: tooltip,
-      position: "bottom",
-    }}
+    tooltipProps={{ content: tooltip, position: "bottom" }}
     variant={active ? "secondary" : "ghost"}
     onClick={command}
     {...generateFocusProps(highlight)}

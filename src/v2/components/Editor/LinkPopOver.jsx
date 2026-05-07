@@ -9,15 +9,15 @@ import { equals, isNil } from "ramda";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 
-import { LINK_VALIDATION_SCHEMA } from "components/Editor/constants";
+import { useFetchKbArticles } from "hooks/reactQuery/kbArticle/useArticleFetching";
+import { decodeHtmlEntities } from "src/utils/common";
+import { LINK_VALIDATION_SCHEMA } from "src/v2/components/Editor/constants";
 import {
   buildArticleFullUrl,
   createArticleOptions,
-} from "components/Editor/CustomExtensions/LinkKbArticles/utils";
+} from "src/v2/components/Editor/CustomExtensions/LinkKbArticles/utils";
 import { getLinkPopoverPosition } from "src/v2/components/Editor/Menu/Fixed/utils";
-import { validateAndFormatUrl } from "components/Editor/utils";
-import { useFetchKbArticles } from "hooks/reactQuery/kbArticle/useArticleFetching";
-import { decodeHtmlEntities } from "src/utils/common";
+import { validateAndFormatUrl } from "src/v2/components/Editor/utils";
 
 import KbArticleDeletedModal from "./CustomExtensions/LinkKbArticles/KbArticleDeletedModal";
 import KbArticleEdit from "./CustomExtensions/LinkKbArticles/KbArticleEdit";

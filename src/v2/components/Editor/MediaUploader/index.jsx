@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-import { ImageUploader } from "@bigbinary/neeto-image-uploader-frontend";
 import { Dialog, Tabs, Toastr } from "@bigbinary/neeto-atoms";
+import { ImageUploader } from "@bigbinary/neeto-image-uploader-frontend";
 import { isNotPresent } from "neetocist";
 import { not } from "ramda";
 import { useTranslation } from "react-i18next";
 
 import directUploadsApi from "apis/direct_uploads";
-import { getTabs } from "components/Editor/MediaUploader/utils";
+import { getTabs } from "src/v2/components/Editor/MediaUploader/utils";
 
 import LocalUploader from "./LocalUploader";
 import VideoEmbedForm from "./VideoEmbedForm";

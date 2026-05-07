@@ -7,9 +7,9 @@ import { isEmpty } from "ramda";
 import DocViewer, { DocViewerRenderers } from "react-doc-viewer";
 import { Trans, useTranslation } from "react-i18next";
 
-import { ATTACHMENTS_PREVIEW_DATA_CY } from "./constants";
-import { convertToFileSize } from "components/Editor/MediaUploader/utils";
+import { convertToFileSize } from "src/v2/components/Editor/MediaUploader/utils";
 
+import { ATTACHMENTS_PREVIEW_DATA_CY } from "./constants";
 import { checkPreviewAvailability, downloadFile } from "./utils";
 
 const Preview = ({
@@ -68,7 +68,11 @@ const Preview = ({
           return <img data-testid={ATTACHMENTS_PREVIEW_DATA_CY} src={url} />;
         case "video":
           return (
-            <video controls data-testid={ATTACHMENTS_PREVIEW_DATA_CY} src={url} />
+            <video
+              controls
+              data-testid={ATTACHMENTS_PREVIEW_DATA_CY}
+              src={url}
+            />
           );
         case "application":
         case "text":

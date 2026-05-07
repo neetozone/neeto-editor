@@ -7,8 +7,8 @@ import { t } from "i18next";
 import { globalProps } from "neetocommons/initializers";
 import { isEmpty } from "ramda";
 
-import { LARGE_IMAGE_ERROR } from "components/Editor/CustomExtensions/Image/constants";
 import { DIRECT_UPLOAD_ENDPOINT } from "src/common/constants";
+import { LARGE_IMAGE_ERROR } from "src/v2/components/Editor/CustomExtensions/Image/constants";
 import DirectUpload from "utils/DirectUpload";
 
 import ImageComponent from "./ImageComponent";

@@ -15,19 +15,19 @@ import { noop, slugify } from "neetocist";
 import { useFuncDebounce } from "neetocommons/react-utils";
 import { createPortal } from "react-dom";
 
-import ErrorWrapper from "components/Common/ErrorWrapper";
-import { DEFAULT_EDITOR_OPTIONS } from "components/Editor/constants";
-import {
-  clipboardTextParser,
-  getEditorStyles,
-  setInitialPosition,
-  transformPastedHTML,
-} from "components/Editor/utils";
 import { useDeletedArticles } from "hooks/reactQuery/kbArticle/useDeletedArticles";
 import useEditorWarnings from "hooks/useEditorWarnings";
 import { EDITOR_OPTIONS, EDITOR_SIZES } from "src/common/constants";
 import "src/styles/editor/index.scss";
 import { removeEmptyTags } from "src/utils";
+import ErrorWrapper from "src/v2/components/Common/ErrorWrapper";
+import { DEFAULT_EDITOR_OPTIONS } from "src/v2/components/Editor/constants";
+import {
+  clipboardTextParser,
+  getEditorStyles,
+  setInitialPosition,
+  transformPastedHTML,
+} from "src/v2/components/Editor/utils";
 
 import CharacterCountWrapper from "./CustomExtensions/CharacterCount";
 import useCustomExtensions from "./CustomExtensions/hooks/useCustomExtensions";

@@ -8,24 +8,24 @@ import CopyToClipboardButton from "neetomolecules/CopyToClipboardButton";
 import { isNil } from "ramda";
 import { createRoot } from "react-dom/client";
 
+import { EDITOR_SIZES } from "src/common/constants";
+import "src/styles/editor/editor-content.scss";
 import {
   EDITOR_CONTENT_CLASS_NAME,
   EDITOR_CONTENT_DEFAULT_CONFIGURATION,
   SANITIZE_OPTIONS,
-} from "components/EditorContent/constants";
+} from "src/v2/components/EditorContent/constants";
 import {
   applyLineHighlighting,
   applySyntaxHighlightingAndLineNumbers,
   convertPlainTextToHtml,
   substituteVariables,
-} from "components/EditorContent/utils";
-import { buildHeaderLinks } from "components/EditorContent/utils/headers";
+} from "src/v2/components/EditorContent/utils";
+import { buildHeaderLinks } from "src/v2/components/EditorContent/utils/headers";
 import {
   handleTodoCheckboxClick,
   syncTodoCheckboxStates,
-} from "components/EditorContent/utils/todoCheckbox";
-import { EDITOR_SIZES } from "src/common/constants";
-import "src/styles/editor/editor-content.scss";
+} from "src/v2/components/EditorContent/utils/todoCheckbox";
 import { removeEmptyTags } from "utils";
 
 import ImagePreview from "./ImagePreview";

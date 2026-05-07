@@ -12,13 +12,13 @@
  */
 import { EDITOR_OPTIONS } from "common/constants";
 
-import { DEFAULT_EDITOR_OPTIONS } from "components/Editor/constants";
+import { DEFAULT_EDITOR_OPTIONS } from "src/v2/components/Editor/constants";
 import {
   isEditorOverlaysActive,
   isEmojiSuggestionsMenuActive,
   transformEditorContent,
-} from "components/Editor/utils";
-import { substituteVariables } from "components/EditorContent/utils";
+} from "src/v2/components/Editor/utils";
+import { substituteVariables } from "src/v2/components/EditorContent/utils";
 import {
   isEditorContentWithinLimit,
   isEditorEmpty,

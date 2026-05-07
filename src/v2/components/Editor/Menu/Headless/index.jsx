@@ -1,5 +1,4 @@
 import classnames from "classnames";
-
 import { EDITOR_OPTIONS } from "common/constants";
 
 import MediaUploader from "src/v2/components/Editor/MediaUploader";

@@ -5,7 +5,7 @@ import Suggestion from "@tiptap/suggestion";
 import { isNil } from "ramda";
 import tippy from "tippy.js";
 
-import { EMOJI_QUERY_REGEX } from "components/Editor/CustomExtensions/Emoji/EmojiSuggestion/constants";
+import { EMOJI_QUERY_REGEX } from "src/v2/components/Editor/CustomExtensions/Emoji/EmojiSuggestion/constants";
 
 import EmojiSuggestionMenu from "./EmojiSuggestionMenu";
 

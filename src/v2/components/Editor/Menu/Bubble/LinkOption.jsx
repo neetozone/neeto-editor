@@ -6,7 +6,7 @@ import { X } from "lucide-react";
 import { isNotPresent } from "neetocist";
 import { useTranslation } from "react-i18next";
 
-import { validateAndFormatUrl } from "components/Editor/utils";
+import { validateAndFormatUrl } from "src/v2/components/Editor/utils";
 
 const LinkOption = ({ editor, handleClose, handleAnimateInvalidLink }) => {
   const { t } = useTranslation();

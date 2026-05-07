@@ -97,6 +97,7 @@ const Menu = ({
 
   return (
     <DropdownMenu
+      position="top-end"
       customTarget={
         <Button
           className="neeto-editor__image-menu-btn"
@@ -108,7 +109,6 @@ const Menu = ({
       dropdownProps={{
         className: "ne-editor-dropdown w-auto flex flex-row items-center gap-1",
       }}
-      position="top-end"
     >
       {menuOptions.map(
         ({ Icon, optionName, alignPos, type, items, border, borderToggle }) =>
@@ -128,6 +128,7 @@ const Menu = ({
             />
           ) : (
             <DropdownMenu
+              dropdownProps={{ className: "ne-editor-dropdown" }}
               key={optionName}
               position="bottom-start"
               buttonProps={{
@@ -146,7 +147,6 @@ const Menu = ({
                   </Tooltip>
                 </MenuItem>
               }
-              dropdownProps={{ className: "ne-editor-dropdown" }}
               onClick={event => event.stopPropagation()}
             >
               <DropdownMenuList className="mb-0">

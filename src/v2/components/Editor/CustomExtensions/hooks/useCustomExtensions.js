@@ -16,34 +16,34 @@ import StarterKit from "@tiptap/starter-kit";
 import { EDITOR_OPTIONS } from "common/constants";
 import { isEmpty } from "ramda";
 
-import HighlightInternal from "components/Editor/CustomExtensions/BackgroundColor/ExtensionConfig";
-import BulletList from "components/Editor/CustomExtensions/BulletList/ExtensionConfig";
-import Callout from "components/Editor/CustomExtensions/Callout/ExtensionConfig";
-import CustomCommands from "components/Editor/CustomExtensions/CustomCommands/ExtensionConfig";
-import DeletedArticleDecoration from "components/Editor/CustomExtensions/DeletedArticleDecoration/ExtensionConfig";
-import EmojiPicker from "components/Editor/CustomExtensions/Emoji/EmojiPicker/ExtensionConfig";
-import FigCaption from "components/Editor/CustomExtensions/Image/FigCaption";
-import Italic from "components/Editor/CustomExtensions/Italic/ExtensionConfig";
-import KeyboardShortcuts from "components/Editor/CustomExtensions/KeyboardShortcuts/ExtensionConfig";
-import Link from "components/Editor/CustomExtensions/Link/ExtensionConfig";
-import OrderedList from "components/Editor/CustomExtensions/OrderedList/ExtensionConfig";
-import Placeholder from "components/Editor/CustomExtensions/Placeholder/ExtensionConfig";
-import SelectionDecoration from "components/Editor/CustomExtensions/SelectionDecoration/ExtensionConfig";
-import SlashCommands from "components/Editor/CustomExtensions/SlashCommands/ExtensionConfig";
-import Table from "components/Editor/CustomExtensions/Table/ExtensionConfig";
+import { buildLevelsFromOptions } from "src/v2/components/Editor/utils";
+
+import HighlightInternal from "../BackgroundColor/ExtensionConfig";
+import BulletList from "../BulletList/ExtensionConfig";
+import Callout from "../Callout/ExtensionConfig";
+import CodeBlock from "../CodeBlock/ExtensionConfig";
+import CustomCommands from "../CustomCommands/ExtensionConfig";
+import DeletedArticleDecoration from "../DeletedArticleDecoration/ExtensionConfig";
+import EmojiPicker from "../Emoji/EmojiPicker/ExtensionConfig";
+import EmojiSuggestion from "../Emoji/EmojiSuggestion/ExtensionConfig";
+import ImageExtension from "../Image/ExtensionConfig";
+import FigCaption from "../Image/FigCaption";
+import Italic from "../Italic/ExtensionConfig";
+import KeyboardShortcuts from "../KeyboardShortcuts/ExtensionConfig";
+import Link from "../Link/ExtensionConfig";
+import Mention, { createMentionSuggestions } from "../Mention/ExtensionConfig";
+import OrderedList from "../OrderedList/ExtensionConfig";
+import Placeholder from "../Placeholder/ExtensionConfig";
+import SelectionDecoration from "../SelectionDecoration/ExtensionConfig";
+import SlashCommands from "../SlashCommands/ExtensionConfig";
+import SpecialMentions from "../SpecialMentions/ExtensionConfig";
+import Table from "../Table/ExtensionConfig";
 import {
   TodoListExtension,
   TodoItemExtension,
-} from "components/Editor/CustomExtensions/TodoList/ExtensionConfig";
-import UnifiedVideoExtension from "../Video/ExtensionConfig";
-import { buildLevelsFromOptions } from "components/Editor/utils";
-
-import CodeBlock from "../CodeBlock/ExtensionConfig";
-import EmojiSuggestion from "../Emoji/EmojiSuggestion/ExtensionConfig";
-import ImageExtension from "../Image/ExtensionConfig";
-import Mention, { createMentionSuggestions } from "../Mention/ExtensionConfig";
-import SpecialMentions from "../SpecialMentions/ExtensionConfig";
+} from "../TodoList/ExtensionConfig";
 import Variable from "../Variable/ExtensionConfig";
+import UnifiedVideoExtension from "../Video/ExtensionConfig";
 
 const useCustomExtensions = ({
   placeholder,

@@ -2,11 +2,10 @@ import { useState } from "react";
 
 import { BubbleMenu as BubbleMenuTipTap } from "@tiptap/react";
 import classnames from "classnames";
+import { EDITOR_OPTIONS } from "common/constants";
 import { isNotPresent } from "neetocist";
 import { roundArrow } from "tippy.js";
 import "tippy.js/dist/svg-arrow.css";
-
-import { EDITOR_OPTIONS } from "common/constants";
 
 import Options from "./Options";
 

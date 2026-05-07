@@ -12,8 +12,8 @@ import { useTranslation } from "react-i18next";
 import {
   LINE_NUMBER_OPTIONS,
   SORTED_LANGUAGE_LIST,
-} from "components/Editor/CustomExtensions/CodeBlock/constants";
-import { codeBlockHighlightKey } from "components/Editor/CustomExtensions/CodeBlock/plugins";
+} from "src/v2/components/Editor/CustomExtensions/CodeBlock/constants";
+import { codeBlockHighlightKey } from "src/v2/components/Editor/CustomExtensions/CodeBlock/plugins";
 
 const { Menu, MenuItem } = DropdownMenu;
 
