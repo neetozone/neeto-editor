@@ -2,9 +2,7 @@ import { memo, useEffect, useRef, useState } from "react";
 
 import classnames from "classnames";
 import DOMPurify from "dompurify";
-// CopyToClipboardButton from molecules v1 — molecules /v2 not available in
-// installed version; revisit during molecules upgrade.
-import CopyToClipboardButton from "neetomolecules/CopyToClipboardButton";
+import CopyToClipboardButton from "neetomolecules/v2/CopyToClipboardButton";
 import { isNil } from "ramda";
 import { createRoot } from "react-dom/client";
 

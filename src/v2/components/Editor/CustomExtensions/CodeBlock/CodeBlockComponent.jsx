@@ -3,9 +3,7 @@ import React, { useRef, useState, useCallback, useEffect } from "react";
 import { Button, DropdownMenu, Input } from "@bigbinary/neeto-atoms";
 import { NodeViewWrapper, NodeViewContent } from "@tiptap/react";
 import { ChevronDown, Highlighter } from "lucide-react";
-// CopyToClipboardButton from molecules v1 — molecules /v2 not available in
-// installed version; revisit during molecules upgrade.
-import CopyToClipboardButton from "neetomolecules/CopyToClipboardButton";
+import CopyToClipboardButton from "neetomolecules/v2/CopyToClipboardButton";
 import { difference, intersection, union } from "ramda";
 import { useTranslation } from "react-i18next";
 

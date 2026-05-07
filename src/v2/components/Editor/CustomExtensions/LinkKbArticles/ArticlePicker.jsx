@@ -2,9 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import { Select, Spinner } from "@bigbinary/neeto-atoms";
 import { findBy } from "neetocist";
-// Search from molecules v1 — molecules /v2 not in installed version; revisit
-// during molecules upgrade.
-import Search from "neetomolecules/Search";
+import Search from "neetomolecules/v2/Search";
 import { useTranslation } from "react-i18next";
 
 import { useFetchKbArticles } from "hooks/reactQuery/kbArticle/useArticleFetching";

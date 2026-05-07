@@ -1,6 +1,6 @@
 import classnames from "classnames";
-// DynamicVariables from molecules v1 — molecules /v2 not available in installed
-// version; revisit during molecules upgrade.
+// TODO: switch to neetomolecules/v2/DynamicVariables once molecules ships v2 of
+// this component (not present as of @bigbinary/neeto-molecules@4.1.74).
 import DynamicVariables from "neetomolecules/DynamicVariables";
 import { isEmpty } from "ramda";
 import { useTranslation } from "react-i18next";
