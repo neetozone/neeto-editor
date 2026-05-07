@@ -4,7 +4,7 @@ import { Button, Checkbox } from "@bigbinary/neeto-atoms";
 import { Form, Input } from "@bigbinary/neeto-atoms/formik";
 import { getMarkRange, getMarkType } from "@tiptap/react";
 import { findBy } from "neetocist";
-import { useOnClickOutside } from "neetocommons/react-utils";
+import { useOnClickOutside } from "neetocommons/v2/react-utils";
 import { equals, isNil } from "ramda";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";

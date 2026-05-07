@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Button, Label } from "@bigbinary/neeto-atoms";
 import { Check, X } from "lucide-react";
-import { withEventTargetValue } from "neetocommons/utils";
+import { withEventTargetValue } from "neetocommons/v2/utils";
 import { useTranslation } from "react-i18next";
 
 const TableOption = ({ editor, handleClose }) => {

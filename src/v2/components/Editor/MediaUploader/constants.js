@@ -1,5 +1,5 @@
 import { t } from "i18next";
-import { globalProps } from "neetocommons/initializers";
+import { globalProps } from "neetocommons/v2/initializers";
 import * as yup from "yup";
 
 import { DIRECT_UPLOAD_ENDPOINT, URL_REGEXP } from "src/common/constants";

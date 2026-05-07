@@ -12,7 +12,7 @@ import { EditorView } from "@tiptap/pm/view";
 import { useEditor, EditorContent, useEditorState } from "@tiptap/react";
 import classnames from "classnames";
 import { noop, slugify } from "neetocist";
-import { useFuncDebounce } from "neetocommons/react-utils";
+import { useFuncDebounce } from "neetocommons/v2/react-utils";
 import { createPortal } from "react-dom";
 
 import { useDeletedArticles } from "hooks/reactQuery/kbArticle/useDeletedArticles";

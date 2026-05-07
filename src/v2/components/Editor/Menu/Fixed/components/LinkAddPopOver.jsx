@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 import { Button, Checkbox, Input } from "@bigbinary/neeto-atoms";
 import { isNotPresent } from "neetocist";
-import { useOnClickOutside } from "neetocommons/react-utils";
+import { useOnClickOutside } from "neetocommons/v2/react-utils";
 import { not } from "ramda";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";

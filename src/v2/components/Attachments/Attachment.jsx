@@ -12,8 +12,8 @@ import {
 } from "@bigbinary/neeto-atoms";
 import { Check, EllipsisVertical, X } from "lucide-react";
 import { removeBy } from "neetocist";
-import useOnClickOutside from "neetocommons/react-utils/useOnClickOutside";
-import { withEventTargetValue } from "neetocommons/utils";
+import useOnClickOutside from "neetocommons/v2/react-utils/useOnClickOutside";
+import { withEventTargetValue } from "neetocommons/v2/utils";
 import { isEmpty, assoc } from "ramda";
 import { Trans, useTranslation } from "react-i18next";
 

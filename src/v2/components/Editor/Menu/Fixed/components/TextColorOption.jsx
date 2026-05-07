@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Button, DropdownMenu, Input } from "@bigbinary/neeto-atoms";
 import { Baseline, Check, RotateCw, X } from "lucide-react";
-import { withEventTargetValue } from "neetocommons/utils";
+import { withEventTargetValue } from "neetocommons/v2/utils";
 import { HexColorPicker } from "react-colorful";
 import { useTranslation } from "react-i18next";
 

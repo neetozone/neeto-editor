@@ -1,4 +1,4 @@
-import { globalProps } from "neetocommons/initializers";
+import { globalProps } from "neetocommons/v2/initializers";
 
 export const NEETO_KB_ENDPOINT = globalProps?.kbUrl;
 export const NEETO_KB_ARTICLES_URL = "/api/v1/articles";

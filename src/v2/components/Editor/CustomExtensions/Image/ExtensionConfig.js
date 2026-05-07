@@ -4,7 +4,7 @@ import { Plugin } from "@tiptap/pm/state";
 import { ReactNodeViewRenderer } from "@tiptap/react";
 import classnames from "classnames";
 import { t } from "i18next";
-import { globalProps } from "neetocommons/initializers";
+import { globalProps } from "neetocommons/v2/initializers";
 import { isEmpty } from "ramda";
 
 import { DIRECT_UPLOAD_ENDPOINT } from "src/common/constants";

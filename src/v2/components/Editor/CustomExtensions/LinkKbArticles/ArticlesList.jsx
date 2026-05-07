@@ -3,7 +3,7 @@ import React from "react";
 import { Typography } from "@bigbinary/neeto-atoms";
 import classNames from "classnames";
 import { isNotEmpty } from "neetocist";
-import { withT } from "neetocommons/react-utils";
+import { withT } from "neetocommons/v2/react-utils";
 
 import { decodeHtmlEntities } from "src/utils/common";
 

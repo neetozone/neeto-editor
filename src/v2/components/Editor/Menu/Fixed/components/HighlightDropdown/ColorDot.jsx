@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { hyphenize } from "neetocommons/utils";
+import { hyphenize } from "neetocommons/v2/utils";
 
 const ColorDot = ({ colorVar, isSelected, onClick, isTextColor }) => {
   const dotClass = classNames("neeto-editor-highlight-dropdown__color-dot", {

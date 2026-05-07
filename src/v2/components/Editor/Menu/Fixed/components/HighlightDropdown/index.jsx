@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 
 import { DropdownMenu, Typography } from "@bigbinary/neeto-atoms";
 import { Highlighter } from "lucide-react";
-import { hyphenize } from "neetocommons/utils";
+import { hyphenize } from "neetocommons/v2/utils";
 
 import ColorDot from "./ColorDot";
 import { COLORS } from "./constants";

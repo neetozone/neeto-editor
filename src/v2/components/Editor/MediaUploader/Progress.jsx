@@ -1,6 +1,6 @@
 import { Button, Tooltip, Typography } from "@bigbinary/neeto-atoms";
 import { X } from "lucide-react";
-import { withT } from "neetocommons/react-utils";
+import { withT } from "neetocommons/v2/react-utils";
 
 import FileIcon from "src/v2/components/Common/FileIcon";
 

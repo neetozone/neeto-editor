@@ -3,7 +3,7 @@ import React from "react";
 import { Button } from "@bigbinary/neeto-atoms";
 import classnames from "classnames";
 import { BookOpen, Pencil } from "lucide-react";
-import { withT } from "neetocommons/react-utils";
+import { withT } from "neetocommons/v2/react-utils";
 // CopyToClipboardButton from molecules v1 — molecules /v2 not available in
 // installed version; revisit during molecules upgrade.
 import CopyToClipboardButton from "neetomolecules/CopyToClipboardButton";

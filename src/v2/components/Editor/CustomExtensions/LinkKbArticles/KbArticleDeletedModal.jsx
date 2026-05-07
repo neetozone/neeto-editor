@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Button, Dialog } from "@bigbinary/neeto-atoms";
-import { withT } from "neetocommons/react-utils";
+import { withT } from "neetocommons/v2/react-utils";
 
 const KbArticleDeletedModal = withT(({ t, isOpen, onClose }) => (
   <Dialog {...{ isOpen, onClose }}>
