@@ -12,6 +12,7 @@ const Menu = ({
   updateAttributes,
   deleteNode,
   showAspectRatio,
+  figwidth,
 }) => {
   const menuOptions = buildImageOptions(border, showAspectRatio);
 
@@ -24,6 +25,28 @@ const Menu = ({
       deleteNode();
     }
     editor.commands.focus();
+  };
+
+  const handleAspectRatio = ratio => {
+    if (ratio === "auto") {
+      updateAttributes({ aspectRatio: "auto" });
+
+      return;
+    }
+
+    const [num, den] = ratio.split("/").map(Number);
+    if (!num || !den || !figwidth) {
+      updateAttributes({ aspectRatio: ratio });
+
+      return;
+    }
+
+    const nextHeight = Math.round((figwidth * den) / num);
+    updateAttributes({
+      aspectRatio: ratio,
+      figheight: nextHeight,
+      height: nextHeight,
+    });
   };
 
   return (
@@ -78,13 +101,13 @@ const Menu = ({
               onClick={event => event.stopPropagation()}
             >
               <DropdownMenu className="mb-0">
-                {items?.map(({ ratio, icon: Icon }) => (
+                {items?.map(({ ratio, tooltipLabel, icon: Icon }) => (
                   <MenuItem.Button
                     key={ratio}
-                    onClick={() => updateAttributes({ aspectRatio: ratio })}
+                    onClick={() => handleAspectRatio(ratio)}
                   >
                     {Icon && <Icon size={18} />}
-                    {ratio}
+                    {tooltipLabel ?? ratio}
                   </MenuItem.Button>
                 ))}
               </DropdownMenu>

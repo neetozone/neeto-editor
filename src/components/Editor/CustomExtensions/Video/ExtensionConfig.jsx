@@ -7,6 +7,7 @@ import { COMBINED_REGEX } from "common/constants";
 import VideoComponent from "./VideoComponent";
 
 import { DEFAULT_ASPECT_RATIO } from "../../MediaUploader/constants";
+import { detectAspectRatio } from "../Embeds/detectAspectRatio";
 import EmbedComponent from "../Embeds/EmbedComponent";
 import { validateUrl } from "../Embeds/utils";
 
@@ -85,6 +86,11 @@ const getEmbedAttributes = () => ({
 
 const renderEmbedHTML = (node, HTMLAttributes, options) => {
   const { align, figheight, figwidth, border, aspectRatio } = node.attrs;
+  const isAuto = aspectRatio === "auto";
+
+  const wrapperStyle = isAuto
+    ? `width: ${figwidth}px; aspect-ratio: ${figwidth} / ${figheight};`
+    : `width: ${figwidth}px; height: ${figheight}px;`;
 
   return [
     "div",
@@ -105,8 +111,8 @@ const renderEmbedHTML = (node, HTMLAttributes, options) => {
           "neeto-editor-aspect-4-3": aspectRatio === "4/3",
           "neeto-editor-aspect-3-2": aspectRatio === "3/2",
         }),
-        style: `width: ${figwidth}px; height: ${figheight}px;`,
-        "data-aspect-ratio": aspectRatio,
+        style: wrapperStyle,
+        "data-aspect-ratio": isAuto ? "auto" : aspectRatio,
       },
       [
         "iframe",
@@ -167,27 +173,50 @@ const renderUploadHTML = (node, HTMLAttributes, options) => {
   ];
 };
 
-const handleVideoPaste = ({ state, range, match }) => {
+const handleVideoPaste = ({ state, range, match, editor }) => {
   state.tr.delete(range.from, range.to);
   state.tr.setSelection(TextSelection.create(state.doc, range.from + 1));
 
   const validatedUrl = validateUrl(match[0]);
-  if (validatedUrl) {
-    const node = state.schema.nodes["unified-video"].create({
-      src: validatedUrl,
-      videoType: "embed",
-    });
+  if (!validatedUrl) return;
 
-    state.tr.insert(range.from, node);
-    state.tr.insert(
-      range.from + node.nodeSize + 1,
-      state.schema.nodes.paragraph.create()
-    );
+  const node = state.schema.nodes["unified-video"].create({
+    src: validatedUrl,
+    videoType: "embed",
+  });
 
-    state.tr.setSelection(
-      TextSelection.create(state.tr.doc, range.from + node.nodeSize + 1)
+  state.tr.insert(range.from, node);
+  state.tr.insert(
+    range.from + node.nodeSize + 1,
+    state.schema.nodes.paragraph.create()
+  );
+
+  state.tr.setSelection(
+    TextSelection.create(state.tr.doc, range.from + node.nodeSize + 1)
+  );
+
+  if (!editor) return;
+
+  const insertedPos = range.from;
+  // Paste-rule handlers must be synchronous, so we kick off the aspect-ratio
+  // detection without awaiting and patch the inserted node when it resolves.
+  // eslint-disable-next-line promise/prefer-await-to-then
+  detectAspectRatio(match[0]).then(({ width, height }) => {
+    if (editor.isDestroyed) return;
+
+    const inserted = editor.state.doc.nodeAt(insertedPos);
+    if (!inserted || inserted.type.name !== "unified-video") return;
+
+    if (inserted.attrs.src !== validatedUrl) return;
+
+    editor.view.dispatch(
+      editor.state.tr.setNodeMarkup(insertedPos, undefined, {
+        ...inserted.attrs,
+        figwidth: width,
+        figheight: height,
+      })
     );
-  }
+  });
 };
 
 const UnifiedVideoExtension = Node.create({
@@ -283,10 +312,12 @@ const UnifiedVideoExtension = Node.create({
   },
 
   addPasteRules() {
+    const { editor } = this;
+
     return [
       new PasteRule({
         find: COMBINED_REGEX,
-        handler: handleVideoPaste,
+        handler: args => handleVideoPaste({ ...args, editor }),
       }),
     ];
   },

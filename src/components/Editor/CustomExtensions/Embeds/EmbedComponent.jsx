@@ -17,6 +17,20 @@ const EmbedComponent = ({
   let height = figheight;
   let width = figwidth;
 
+  const isAuto = aspectRatio === "auto";
+
+  const iframeClassName = classnames("neeto-editor__video-iframe", {
+    "neeto-editor-aspect-1-1": aspectRatio === "1/1",
+    "neeto-editor-aspect-16-9": aspectRatio === "16/9",
+    "neeto-editor-aspect-9-16": aspectRatio === "9/16",
+    "neeto-editor-aspect-4-3": aspectRatio === "4/3",
+    "neeto-editor-aspect-3-2": aspectRatio === "3/2",
+  });
+
+  const wrapperStyle = isAuto
+    ? { aspectRatio: `${figwidth} / ${figheight}` }
+    : undefined;
+
   const handleResize = (_event, _direction, ref) => {
     height = ref.offsetHeight;
     width = ref.offsetWidth;
@@ -46,18 +60,14 @@ const EmbedComponent = ({
     >
       <Resizable
         lockAspectRatio
+        className={iframeClassName}
+        data-aspect-ratio={aspectRatio}
         size={{ height, width }}
-        className={classnames("neeto-editor__video-iframe", {
-          "neeto-editor-aspect-1-1": aspectRatio === "1/1",
-          "neeto-editor-aspect-16-9": aspectRatio === "16/9",
-          "neeto-editor-aspect-9-16": aspectRatio === "9/16",
-          "neeto-editor-aspect-4-3": aspectRatio === "4/3",
-          "neeto-editor-aspect-3-2": aspectRatio === "3/2",
-        })}
+        style={wrapperStyle}
         onResizeStop={handleResize}
       >
         <Menu
-          {...{ align, border, deleteNode, editor, updateAttributes }}
+          {...{ align, border, deleteNode, editor, figwidth, updateAttributes }}
           showAspectRatio
         />
         <iframe {...node.attrs} allowFullScreen data-border={border} />

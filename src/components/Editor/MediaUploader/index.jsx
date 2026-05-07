@@ -70,9 +70,13 @@ const MediaUploader = ({
     insertMediaToEditor(file);
   };
 
-  const onEmbedVideo = url => {
+  const onEmbedVideo = (url, dimensions = {}) => {
     if (!editor) return;
-    editor.chain().focus().setExternalVideo({ src: url }).run();
+    editor
+      .chain()
+      .focus()
+      .setExternalVideo({ src: url, ...dimensions })
+      .run();
   };
 
   return (
