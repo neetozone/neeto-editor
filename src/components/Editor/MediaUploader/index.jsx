@@ -12,6 +12,8 @@ import LocalUploader from "./LocalUploader";
 import { getTabs } from "./utils";
 import VideoEmbedForm from "./VideoEmbedForm";
 
+import { updateEmbedWithDetectedDimensions } from "../CustomExtensions/Embeds/utils";
+
 const MediaUploader = ({
   mediaUploader,
   onClose,
@@ -70,13 +72,14 @@ const MediaUploader = ({
     insertMediaToEditor(file);
   };
 
-  const onEmbedVideo = (url, dimensions = {}) => {
+  const onEmbedVideo = (embedUrl, originalUrl) => {
     if (!editor) return;
-    editor
-      .chain()
-      .focus()
-      .setExternalVideo({ src: url, ...dimensions })
-      .run();
+    editor.chain().focus().setExternalVideo({ src: embedUrl }).run();
+    updateEmbedWithDetectedDimensions({
+      editor,
+      originalUrl: originalUrl ?? embedUrl,
+      validatedSrc: embedUrl,
+    });
   };
 
   return (

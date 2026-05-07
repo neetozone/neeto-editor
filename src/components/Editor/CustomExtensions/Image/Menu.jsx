@@ -13,6 +13,8 @@ const Menu = ({
   deleteNode,
   showAspectRatio,
   figwidth,
+  originalFigwidth,
+  originalFigheight,
 }) => {
   const menuOptions = buildImageOptions(border, showAspectRatio);
 
@@ -29,7 +31,19 @@ const Menu = ({
 
   const handleAspectRatio = ratio => {
     if (ratio === "auto") {
-      updateAttributes({ aspectRatio: "auto" });
+      const restoredWidth = originalFigwidth ?? figwidth;
+      const restoredHeight = originalFigheight;
+      updateAttributes({
+        aspectRatio: "auto",
+        ...(restoredWidth && {
+          figwidth: restoredWidth,
+          width: restoredWidth,
+        }),
+        ...(restoredHeight && {
+          figheight: restoredHeight,
+          height: restoredHeight,
+        }),
+      });
 
       return;
     }

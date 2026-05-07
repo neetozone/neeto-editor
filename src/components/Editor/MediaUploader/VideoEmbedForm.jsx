@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 
 import { VIDEO_EMBED_FORM_VALIDATION_SCHEMA } from "./constants";
 
-import { detectAspectRatio } from "../CustomExtensions/Embeds/detectAspectRatio";
 import { validateUrl } from "../CustomExtensions/Embeds/utils";
 
 const VideoEmbedForm = ({ onEmbedVideo, onAttachVideo, onClose }) => {
@@ -11,14 +10,10 @@ const VideoEmbedForm = ({ onEmbedVideo, onAttachVideo, onClose }) => {
 
   const initialValues = { url: "" };
 
-  const onSubmit = async ({ url }) => {
+  const onSubmit = ({ url }) => {
     const embedUrl = validateUrl(url); // False when current url is not "embeddable"
-    if (embedUrl) {
-      const { width, height } = await detectAspectRatio(url);
-      onEmbedVideo(embedUrl, { figwidth: width, figheight: height });
-    } else {
-      onAttachVideo(url);
-    }
+    if (embedUrl) onEmbedVideo(embedUrl, url);
+    else onAttachVideo(url);
     onClose();
   };
 

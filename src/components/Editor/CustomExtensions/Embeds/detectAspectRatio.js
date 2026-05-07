@@ -1,3 +1,6 @@
+// CORS verified for the three oEmbed providers we use as of 2026-05:
+// YouTube reflects the request Origin; Vimeo and Loom return `*`. Browser
+// `fetch` works without a proxy. Re-verify if a new provider is added.
 import {
   YOUTUBE_URL_REGEXP,
   VIMEO_URL_REGEXP,
@@ -68,14 +71,17 @@ const fetchOembedDimensions = async (provider, url) => {
   }
 };
 
-export const detectAspectRatio = async originalUrl => {
-  if (!originalUrl) return DEFAULT_EMBED_DIMENSIONS;
+// Cache the in-flight Promise so concurrent calls for the same URL share a
+// single network request. Storing the resolved value would let two simultaneous
+// callers both miss the cache and fire duplicate fetches.
+export const detectAspectRatio = originalUrl => {
+  if (!originalUrl) return Promise.resolve(DEFAULT_EMBED_DIMENSIONS);
 
   if (cache.has(originalUrl)) return cache.get(originalUrl);
 
   const provider = getProvider(originalUrl);
-  const result = await fetchOembedDimensions(provider, originalUrl);
-  cache.set(originalUrl, result);
+  const promise = fetchOembedDimensions(provider, originalUrl);
+  cache.set(originalUrl, promise);
 
-  return result;
+  return promise;
 };

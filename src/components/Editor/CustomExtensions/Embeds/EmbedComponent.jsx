@@ -12,7 +12,15 @@ const EmbedComponent = ({
   updateAttributes,
   deleteNode,
 }) => {
-  const { figheight, figwidth, align, border, aspectRatio } = node.attrs;
+  const {
+    figheight,
+    figwidth,
+    originalFigheight,
+    originalFigwidth,
+    align,
+    border,
+    aspectRatio,
+  } = node.attrs;
   const { view } = editor;
   let height = figheight;
   let width = figwidth;
@@ -67,7 +75,16 @@ const EmbedComponent = ({
         onResizeStop={handleResize}
       >
         <Menu
-          {...{ align, border, deleteNode, editor, figwidth, updateAttributes }}
+          {...{
+            align,
+            border,
+            deleteNode,
+            editor,
+            figwidth,
+            originalFigheight,
+            originalFigwidth,
+            updateAttributes,
+          }}
           showAspectRatio
         />
         <iframe {...node.attrs} allowFullScreen data-border={border} />

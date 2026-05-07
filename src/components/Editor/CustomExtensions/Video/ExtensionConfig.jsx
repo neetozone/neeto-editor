@@ -7,9 +7,11 @@ import { COMBINED_REGEX } from "common/constants";
 import VideoComponent from "./VideoComponent";
 
 import { DEFAULT_ASPECT_RATIO } from "../../MediaUploader/constants";
-import { detectAspectRatio } from "../Embeds/detectAspectRatio";
 import EmbedComponent from "../Embeds/EmbedComponent";
-import { validateUrl } from "../Embeds/utils";
+import {
+  validateUrl,
+  updateEmbedWithDetectedDimensions,
+} from "../Embeds/utils";
 
 const getSharedAttributes = () => ({
   src: {
@@ -69,6 +71,18 @@ const getEmbedAttributes = () => ({
     default: 500,
     parseHTML: element => element.getAttribute("figwidth"),
   },
+  originalFigheight: {
+    default: 281,
+    parseHTML: element =>
+      element.getAttribute("originalfigheight") ||
+      element.getAttribute("figheight"),
+  },
+  originalFigwidth: {
+    default: 500,
+    parseHTML: element =>
+      element.getAttribute("originalfigwidth") ||
+      element.getAttribute("figwidth"),
+  },
   aspectRatio: {
     default: DEFAULT_ASPECT_RATIO,
     parseHTML: element => {
@@ -85,7 +99,15 @@ const getEmbedAttributes = () => ({
 });
 
 const renderEmbedHTML = (node, HTMLAttributes, options) => {
-  const { align, figheight, figwidth, border, aspectRatio } = node.attrs;
+  const {
+    align,
+    figheight,
+    figwidth,
+    originalFigheight,
+    originalFigwidth,
+    border,
+    aspectRatio,
+  } = node.attrs;
   const isAuto = aspectRatio === "auto";
 
   const wrapperStyle = isAuto
@@ -113,6 +135,8 @@ const renderEmbedHTML = (node, HTMLAttributes, options) => {
         }),
         style: wrapperStyle,
         "data-aspect-ratio": isAuto ? "auto" : aspectRatio,
+        originalfigwidth: originalFigwidth,
+        originalfigheight: originalFigheight,
       },
       [
         "iframe",
@@ -195,27 +219,12 @@ const handleVideoPaste = ({ state, range, match, editor }) => {
     TextSelection.create(state.tr.doc, range.from + node.nodeSize + 1)
   );
 
-  if (!editor) return;
-
-  const insertedPos = range.from;
-  // Paste-rule handlers must be synchronous, so we kick off the aspect-ratio
-  // detection without awaiting and patch the inserted node when it resolves.
-  // eslint-disable-next-line promise/prefer-await-to-then
-  detectAspectRatio(match[0]).then(({ width, height }) => {
-    if (editor.isDestroyed) return;
-
-    const inserted = editor.state.doc.nodeAt(insertedPos);
-    if (!inserted || inserted.type.name !== "unified-video") return;
-
-    if (inserted.attrs.src !== validatedUrl) return;
-
-    editor.view.dispatch(
-      editor.state.tr.setNodeMarkup(insertedPos, undefined, {
-        ...inserted.attrs,
-        figwidth: width,
-        figheight: height,
-      })
-    );
+  // Paste-rule handlers must be synchronous, so we kick off detection and let
+  // the helper locate and patch the placeholder node when oEmbed resolves.
+  updateEmbedWithDetectedDimensions({
+    editor,
+    originalUrl: match[0],
+    validatedSrc: validatedUrl,
   });
 };
 
