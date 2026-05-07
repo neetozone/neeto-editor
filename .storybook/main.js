@@ -51,6 +51,9 @@ module.exports = {
         __dirname,
         "../src/v2/components"
       ),
+      // Sub-paths that don't live under `src/components/` — must come before
+      // the broad `@bigbinary/neeto-editor` alias so webpack matches them first.
+      "@bigbinary/neeto-editor/utils": path.resolve(__dirname, "../src/utils"),
       "@bigbinary/neeto-editor": path.resolve(__dirname, "../src/components"),
     };
 
