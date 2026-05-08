@@ -2133,10 +2133,10 @@
   resolved "https://registry.yarnpkg.com/@bigbinary/neeto-commons-frontend/-/neeto-commons-frontend-2.1.39.tgz#47e99d4c9330f5de7db59d68e2697b6be167b36b"
   integrity sha512-L2x2K4Nk2VLWV5exgjWUR9gtY/ZQdcvBfDGtfH15YPvRjba4xR/ITy2RUYxIibzOzj/gI2W44GYX7FbF5u3uuA==
 
-"@bigbinary/neeto-commons-frontend@^4.13.125":
-  version "4.13.125"
-  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-commons-frontend/-/neeto-commons-frontend-4.13.125.tgz#52bff321783b3acbe72023171bcd30ee369f4366"
-  integrity sha512-FX5tJukEfnU17cg7UxqExvYUlpeaA48g8P5lcyL7nVaUdgs6QGBL4b4a1d4mKWIPRUIPXsxNwqcuiE9o95dAQQ==
+"@bigbinary/neeto-commons-frontend@^4.13.126":
+  version "4.13.126"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neeto-commons-frontend/-/neeto-commons-frontend-4.13.126.tgz#c90507e9d78b802d0b8c724bae6aa362284e5367"
+  integrity sha512-ee+6RhlVOk8dAAg9nlea3RUr4YZgj8CTq7ukadobfsCW9xcssAhHGqJxkNkVTgLLfkCeEFYlg12mXM3O7hU8wQ==
 
 "@bigbinary/neeto-filters-frontend@3.3.1":
   version "3.3.1"
