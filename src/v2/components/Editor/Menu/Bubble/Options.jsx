@@ -1,6 +1,11 @@
-import { DropdownMenu } from "@bigbinary/neeto-atoms";
+import { Button } from "@bigbinary/neeto-atoms";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@bigbinary/neeto-atoms/primitives/Popover";
 import { EDITOR_OPTIONS } from "common/constants";
-import { Link, Table } from "lucide-react";
+import { ChevronDown, Link, Table } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import Mentions from "src/v2/components/Editor/CustomExtensions/Mention";
@@ -32,7 +37,6 @@ const Options = ({
   setIsEmojiPickerActive,
 }) => {
   const { t } = useTranslation();
-  const { Menu, MenuItem } = DropdownMenu;
 
   const dropdownOptions = getTextMenuDropdownOptions({ editor, options });
   const Icon = getNodeIcon(dropdownOptions);
@@ -81,28 +85,38 @@ const Options = ({
 
   return (
     <>
-      <DropdownMenu
-        dropdownProps={{ className: "ne-editor-dropdown" }}
-        icon={Icon}
-        buttonProps={{
-          "data-testid": "neeto-editor-fixed-menu-font-size-option",
-          variant: "ghost",
-          className:
-            "ne-toolbar-item ne-toolbar-dropdown neeto-editor-font-size__wrapper",
-        }}
-      >
-        <Menu>
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button
+            className="ne-toolbar-item ne-toolbar-dropdown neeto-editor-font-size__wrapper"
+            data-testid="neeto-editor-fixed-menu-font-size-option"
+            icon={Icon}
+            iconPosition="left"
+            trailing={<ChevronDown />}
+            variant="ghost"
+          />
+        </PopoverTrigger>
+        <PopoverContent
+          align="start"
+          className="ne-editor-dropdown data-[state=closed]:hidden w-32 gap-0 p-1"
+          side="bottom"
+          onOpenAutoFocus={e => e.preventDefault()}
+        >
           {dropdownOptions.map(({ optionName, command, icon: Icon }) => (
-            <MenuItem
+            <Button
+              fullWidth
+              className="justify-start"
+              icon={<Icon size={16} />}
+              iconPosition="left"
               key={optionName}
-              prefix={<Icon size={16} />}
+              label={optionName}
+              size="sm"
+              variant="ghost"
               onClick={command}
-            >
-              {optionName}
-            </MenuItem>
+            />
           ))}
-        </Menu>
-      </DropdownMenu>
+        </PopoverContent>
+      </Popover>
       {fontStyleOptions.map(renderOptionButton)}
       {blockStyleOptions.map(renderOptionButton)}
       {isTextColorOptionActive && (

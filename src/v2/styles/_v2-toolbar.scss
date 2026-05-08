@@ -52,16 +52,12 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
 
   // Rich Button hardcodes `gap-1.5` (6px) on the icon+chevron wrapper.
   & > span {
-    gap: 0.625rem;
+    gap: 0.125rem;
   }
 
-  // De-emphasize the trailing chevron — it's a secondary affordance next to
-  // the primary icon. Slightly smaller + dimmer keeps the icon dominant while
-  // still signalling that the button opens a menu.
   & > span > [data-icon="inline-end"] > svg {
     width: 0.75rem;
     height: 0.75rem;
-    opacity: 0.75;
   }
 }
 

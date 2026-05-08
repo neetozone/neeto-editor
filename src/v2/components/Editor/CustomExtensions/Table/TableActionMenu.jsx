@@ -1,13 +1,17 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
-import { Button, DropdownMenu } from "@bigbinary/neeto-atoms";
+import { Button } from "@bigbinary/neeto-atoms";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@bigbinary/neeto-atoms/primitives/Popover";
 import { BubbleMenu } from "@tiptap/react";
 import { AlignCenter, AlignLeft, AlignRight } from "lucide-react";
+import { flushSync } from "react-dom";
 import { sticky } from "tippy.js";
 
 import { tableActions } from "src/v2/components/Editor/CustomExtensions/Table/utils";
-
-const { Menu, MenuItem } = DropdownMenu;
 
 const alignmentIcons = {
   left: AlignLeft,
@@ -16,6 +20,8 @@ const alignmentIcons = {
 };
 
 const TableActionMenu = ({ editor }) => {
+  const [isAlignmentOpen, setIsAlignmentOpen] = useState(false);
+
   const getReferenceClientRect = useCallback(() => {
     if (!editor) return new DOMRect(0, 0, 0, 0);
 
@@ -55,11 +61,12 @@ const TableActionMenu = ({ editor }) => {
 
         if (action.type) {
           return (
-            <DropdownMenu
-              closeOnSelect={false}
+            <Popover
               key={action.label}
-              position="bottom-start"
-              customTarget={
+              open={isAlignmentOpen}
+              onOpenChange={setIsAlignmentOpen}
+            >
+              <PopoverTrigger asChild>
                 <Button
                   className="ne-toolbar-item"
                   icon={AlignLeft}
@@ -67,32 +74,37 @@ const TableActionMenu = ({ editor }) => {
                   tooltipProps={{ content: action.label, position: "top" }}
                   variant="ghost"
                 />
-              }
-              dropdownProps={{
-                className: "ne-editor-dropdown w-auto p-1",
-              }}
-            >
-              <Menu className="flex flex-row items-center gap-1">
-                {action.items?.map(({ type, command, tooltipLabel }) => {
-                  const IconComponent = alignmentIcons[type];
+              </PopoverTrigger>
+              <PopoverContent
+                align="start"
+                className="ne-editor-dropdown data-[state=closed]:hidden w-auto p-1"
+                side="bottom"
+                onOpenAutoFocus={e => e.preventDefault()}
+              >
+                <div className="flex flex-row items-center gap-1">
+                  {action.items?.map(({ type, command, tooltipLabel }) => {
+                    const IconComponent = alignmentIcons[type];
 
-                  return (
-                    <MenuItem key={type}>
+                    return (
                       <Button
                         className="ne-toolbar-item"
                         icon={IconComponent}
-                        variant="ghost"
+                        key={type}
                         tooltipProps={{
                           content: tooltipLabel,
                           position: "bottom",
                         }}
-                        onClick={command}
+                        variant="ghost"
+                        onClick={() => {
+                          flushSync(() => setIsAlignmentOpen(false));
+                          command();
+                        }}
                       />
-                    </MenuItem>
-                  );
-                })}
-              </Menu>
-            </DropdownMenu>
+                    );
+                  })}
+                </div>
+              </PopoverContent>
+            </Popover>
           );
         }
 
