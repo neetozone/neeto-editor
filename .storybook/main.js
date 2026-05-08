@@ -70,8 +70,14 @@ module.exports = {
 
     config.module.rules.push({
       test: /\.js$/,
-      include: /node_modules\/@bigbinary\/neeto-commons-frontend\/initializers/,
-      use: { loader: "babel-loader", options: { plugins: ["preval"] } },
+      include:
+        /node_modules\/@bigbinary\/neeto-commons-frontend\/dist\/initializers/,
+      enforce: "pre",
+      use: {
+        loader: require.resolve(
+          "@bigbinary/neeto-commons-frontend/configs/webpack/prevalLoader.js"
+        ),
+      },
     });
 
     config.resolve.extensions.push(".svg");
