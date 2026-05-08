@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Button } from "@bigbinary/neeto-atoms";
 import classnames from "classnames";
 import { BookOpen, Pencil } from "lucide-react";
@@ -32,9 +30,9 @@ const KbArticleView = withT(
         </a>
         <div className="flex items-center gap-0.5">
           <CopyToClipboardButton
-            size="small"
-            style="text"
+            size="sm"
             value={linkAttributes?.href}
+            variant="ghost"
           />
           <Button
             className="ne-link-popover__option-button mx-0"

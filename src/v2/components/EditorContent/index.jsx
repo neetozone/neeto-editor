@@ -66,9 +66,9 @@ const EditorContent = ({
       const root = createRoot(button);
       root.render(
         <CopyToClipboardButton
-          size="small"
-          style="tertiary"
+          size="sm"
           value={preTag.textContent}
+          variant="ghost"
         />
       );
       preTag.appendChild(button);

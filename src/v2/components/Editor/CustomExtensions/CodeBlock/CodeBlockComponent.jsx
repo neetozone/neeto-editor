@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 
 import { Button, DropdownMenu, Input } from "@bigbinary/neeto-atoms";
 import { NodeViewWrapper, NodeViewContent } from "@tiptap/react";
@@ -159,9 +159,9 @@ const CodeBlockComponent = ({ node, editor, updateAttributes }) => {
               </Menu>
             </DropdownMenu>
             <CopyToClipboardButton
-              size="small"
-              style="tertiary"
+              size="sm"
               value={node?.content?.content[0]?.text}
+              variant="ghost"
             />
             {showHighlightButton && (
               <Button
