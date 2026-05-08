@@ -153,9 +153,9 @@ const Menu = ({
                 {items?.map(({ ratio, icon: Icon }) => (
                   <MenuItem
                     key={ratio}
+                    prefix={Icon ? <Icon size={16} /> : undefined}
                     onClick={() => updateAttributes({ aspectRatio: ratio })}
                   >
-                    {Icon && <Icon size={18} />}
                     {ratio}
                   </MenuItem>
                 ))}

@@ -19,45 +19,43 @@
  */
 
 %neeto-ui-vars-light {
-  /* Surfaces — pulled from neeto-atoms semantic tokens */
-  --neeto-ui-white: var(--background);
-  --neeto-ui-black: var(--foreground);
+  /* Surfaces. Stored as `r,g,b` tuples so `rgb(var(--neeto-ui-white))` in
+     legacy editor SCSS resolves correctly. neeto-atoms semantic tokens
+     (--background/--foreground) are oklch and can't be unwrapped here. */
+  --neeto-ui-white: 255, 255, 255;
+  --neeto-ui-black: 12, 17, 29;
 
-  /* Gray scale → mapped to neeto-atoms neutrals + interpolated grays where
-     no semantic equivalent exists. Values are hex hoisted from neetoui's
-     light theme so editor visuals stay parity with v1 until Wave 6 design
-     review approves the neeto-atoms scale shift. */
-  --neeto-ui-gray-50:  #fafafa;
-  --neeto-ui-gray-100: #f6f7f8;
-  --neeto-ui-gray-200: #e9ebed;
-  --neeto-ui-gray-300: #d8dcde;
-  --neeto-ui-gray-400: #c2c8cc;
-  --neeto-ui-gray-500: #87929d;
-  --neeto-ui-gray-600: #344054;
-  --neeto-ui-gray-700: #1d2939;
-  --neeto-ui-gray-800: #101828;
+  /* Gray scale — hoisted from neetoui as `r,g,b` tuples so legacy editor
+     SCSS that wraps these in `rgb(var(...))` produces valid CSS. */
+  --neeto-ui-gray-50:  250, 250, 250;
+  --neeto-ui-gray-100: 246, 247, 248;
+  --neeto-ui-gray-200: 233, 235, 237;
+  --neeto-ui-gray-300: 216, 220, 222;
+  --neeto-ui-gray-400: 194, 200, 204;
+  --neeto-ui-gray-500: 135, 146, 157;
+  --neeto-ui-gray-600: 52, 64, 84;
+  --neeto-ui-gray-700: 29, 41, 57;
+  --neeto-ui-gray-800: 16, 24, 40;
 
-  /* Primary — neeto-atoms `--primary` is monochrome shadcn neutral; for the
-     editor's primary accents we keep the neetoui hex scale. Codify here to
-     preserve highlights (active states, focus rings) until design defines a
-     primary-token bridge. */
-  --neeto-ui-primary-50:  #f0f9f7;
-  --neeto-ui-primary-200: #b3e0d4;
-  --neeto-ui-primary-500: #008068;
-  --neeto-ui-primary-600: #007a64;
-  --neeto-ui-primary-900: #003c30;
+  /* Primary — neetoui's primary green scale as rgb tuples. */
+  --neeto-ui-primary-50:  240, 249, 247;
+  --neeto-ui-primary-200: 179, 224, 212;
+  --neeto-ui-primary-500: 0, 128, 104;
+  --neeto-ui-primary-600: 0, 122, 100;
+  --neeto-ui-primary-900: 0, 60, 48;
 
   /* Accent (link/secondary blue) */
-  --neeto-ui-accent-100: #e6f4ff;
-  --neeto-ui-accent-500: #1473e6;
-  --neeto-ui-accent-800: #095aba;
+  --neeto-ui-accent-100: 230, 244, 255;
+  --neeto-ui-accent-500: 20, 115, 230;
+  --neeto-ui-accent-800: 9, 90, 186;
 
-  /* Error → mapped to destructive */
-  --neeto-ui-error-500: var(--destructive);
-  --neeto-ui-error-600: var(--destructive);
+  /* Error — neetoui's red scale as rgb tuples (legacy SCSS wraps in
+     `rgb(var(...))`; mapping to atoms `--destructive` (oklch) breaks that). */
+  --neeto-ui-error-500: 215, 55, 63;
+  --neeto-ui-error-600: 201, 37, 45;
 
   /* Neutral atoms */
-  --neeto-ui-pastel-blue: #ecf4ff;
+  --neeto-ui-pastel-blue: 236, 244, 255;
 
   /* Spacing/radius — bridged to neeto-atoms --radius scale */
   --neeto-ui-rounded-sm: var(--radius-sm);
@@ -96,33 +94,33 @@
 }
 
 %neeto-ui-vars-dark {
-  --neeto-ui-white: var(--foreground);
-  --neeto-ui-black: var(--background);
+  --neeto-ui-white: 18, 18, 18;
+  --neeto-ui-black: 224, 224, 224;
 
-  --neeto-ui-gray-50:  #18181b;
-  --neeto-ui-gray-100: #27272a;
-  --neeto-ui-gray-200: #3f3f46;
-  --neeto-ui-gray-300: #52525b;
-  --neeto-ui-gray-400: #71717a;
-  --neeto-ui-gray-500: #a1a1aa;
-  --neeto-ui-gray-600: #d4d4d8;
-  --neeto-ui-gray-700: #e4e4e7;
-  --neeto-ui-gray-800: #fafafa;
+  --neeto-ui-gray-50:  24, 24, 27;
+  --neeto-ui-gray-100: 39, 39, 42;
+  --neeto-ui-gray-200: 63, 63, 70;
+  --neeto-ui-gray-300: 82, 82, 91;
+  --neeto-ui-gray-400: 113, 113, 122;
+  --neeto-ui-gray-500: 161, 161, 170;
+  --neeto-ui-gray-600: 212, 212, 216;
+  --neeto-ui-gray-700: 228, 228, 231;
+  --neeto-ui-gray-800: 250, 250, 250;
 
-  --neeto-ui-primary-50:  #04211b;
-  --neeto-ui-primary-200: #0a4035;
-  --neeto-ui-primary-500: #14b89c;
-  --neeto-ui-primary-600: #19c7a9;
-  --neeto-ui-primary-900: #ddf6ef;
+  --neeto-ui-primary-50:  4, 33, 27;
+  --neeto-ui-primary-200: 10, 64, 53;
+  --neeto-ui-primary-500: 20, 184, 156;
+  --neeto-ui-primary-600: 25, 199, 169;
+  --neeto-ui-primary-900: 221, 246, 239;
 
-  --neeto-ui-accent-100: #0b2440;
-  --neeto-ui-accent-500: #4f93f0;
-  --neeto-ui-accent-800: #b5d4fb;
+  --neeto-ui-accent-100: 11, 36, 64;
+  --neeto-ui-accent-500: 79, 147, 240;
+  --neeto-ui-accent-800: 181, 212, 251;
 
-  --neeto-ui-error-500: var(--destructive);
-  --neeto-ui-error-600: var(--destructive);
+  --neeto-ui-error-500: 247, 109, 116;
+  --neeto-ui-error-600: 236, 91, 98;
 
-  --neeto-ui-pastel-blue: #142a42;
+  --neeto-ui-pastel-blue: 20, 42, 66;
 
   --neeto-ui-rounded-sm: var(--radius-sm);
   --neeto-ui-rounded:    var(--radius);

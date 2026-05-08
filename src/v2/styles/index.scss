@@ -29,6 +29,12 @@
 
 @import "../../styles/editor-output.scss";
 
+// Editor wrapper border + fixed-menu container border. v1 SCSS that uses
+// `rgb(var(--neeto-ui-gray-400))` etc. resolves correctly because the shim
+// above ships those tokens as `r,g,b` tuples.
+@import "../../styles/editor/editor";
+@import "../../styles/editor/menu";
+
 @import "codeblock-theme-adapter";
 
 @import "v2-toolbar";
