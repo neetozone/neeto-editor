@@ -1,56 +1,29 @@
-// neetoUI's dist/index.css ships an unlayered `button { background-color:
-// transparent; background-image: none; border: none }` reset that wipes
-// the bg + border on every neeto-atoms primitive that renders a <button>
-// (Button, DropdownMenuTrigger, Checkbox, RadioGroup, Switch, Toggle,
-// ContextMenuTrigger, …). Wrapping neetoUI in a `@layer compat` was the
-// architecturally clean fix but it changed v1 styling because Tailwind
-// utilities started winning ties against `.neeto-ui-*` rules.
-//
-// Instead, beat the unlayered reset with an unlayered override of higher
-// specificity (0,1,1 vs 0,0,1). Every neeto-atoms button-based primitive
-// sets `data-slot="…"`; v1 neetoUI buttons do not. So this single
-// selector covers every present + future slot without touching v1.
 button[data-slot] {
   background-color: revert-layer;
   border: revert-layer;
 }
 
-// Toolbar items are wrapped via Radix `asChild`, which overwrites
-// `data-slot` with `dropdown-menu-trigger` etc. — already caught by the
-// rule above. Plain icon-only toolbar buttons keep the `ne-toolbar-item`
-// marker class as a fallback for any path that doesn't get a slot.
 button.ne-toolbar-item {
   background-color: revert-layer;
   border: revert-layer;
 }
 
-// Inset the v2 toolbar wrapper a couple of px on the inline axis so the
-// square hover backgrounds on the first/last items don't paint past the
-// wrapper's rounded outer corners. Scoped to `.ne-fixed-menu--v2` so v1
-// (which shares the wrapper class) is untouched.
 .ne-fixed-menu--v2 {
   padding-inline: 4px !important;
 }
 
-// Toolbar items sit flush — square corners + 32px minimum height. The
-// `align-self: stretch` lets a button grow past 32px when a sibling in the
-// flex wrapper renders taller (e.g. a wider trigger with a chevron),
-// otherwise the wrapper would be taller than the buttons and the
-// hover/active background would leave a visible 1px gap top + bottom.
 button.ne-toolbar-item {
   min-height: 2rem;
   align-self: stretch;
   border-radius: 0;
 }
 
-// Rich Button picks the `icon` size (32×32) for icon-only triggers, which
-// clips the auto-injected trailing chevron. Let width grow to fit it.
 button.ne-toolbar-item.ne-toolbar-dropdown {
   width: auto !important;
   min-width: 2rem;
   padding-inline: 0.25rem;
 
-  // Rich Button hardcodes `gap-1.5` (6px) on the icon+chevron wrapper.
+  
   & > span {
     gap: 0.125rem;
   }
@@ -61,11 +34,6 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
   }
 }
 
-// Small gap between dropdown menu items so adjacent active backgrounds (e.g.
-// H3 + H4 both highlighted) don't visually merge into one continuous pill.
-// Scoped under `.ne-editor-dropdown` (added via dropdownProps on every v2
-// editor DropdownMenu) so the rule never reaches non-editor neeto-atoms
-// dropdowns elsewhere in the host app.
 .ne-editor-dropdown {
   color: var(--popover-foreground);
 
@@ -73,42 +41,36 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
     gap: 2px;
   }
 
-  // The table popover lays its inputs + Create button out as a flex row and
-  // needs its own (bigger) gap. Restore it — the generic 2px rule above wins
-  // on specificity otherwise and squashes the Columns ↔ Create spacing.
+  
+  
+  
   .neeto-editor-table__item {
     gap: 8px;
   }
 
-  // Highlight popover groups Text color + Background color sections vertically;
-  // the generic 2px rule squashes them. Restore the v1 16px section gap.
+  
+  
   .neeto-editor-highlight-dropdown {
     gap: 16px;
   }
 
-  // Editor SCSS sets `pre div { color: var(--neeto-editor-content-code-color) }`
-  // and similar element-level color rules that cascade into the portaled
-  // popover when it lands inside the editor surface. Force the popover
-  // foreground to win so menu item labels stay legible.
+  
+  
+  
+  
   [data-slot="dropdown-menu-item"],
   [data-slot="dropdown-menu-checkbox-item"],
   [data-slot="dropdown-menu-radio-item"] {
     color: var(--popover-foreground);
   }
 
-  // Section labels (e.g. "Select callout type") should read as a heading,
-  // not as a primary item — drop them to muted-foreground for less weight.
+  
+  
   [data-slot="dropdown-menu-label"] {
     color: var(--muted-foreground);
   }
 }
 
-// Mention suggestions popup (Tippy popover rendered by the Mention extension's
-// `suggestion.render`, outside any Radix DropdownMenu Root). v1 leaned on
-// neetoUI's Dropdown.Menu/MenuItem.Button styles; v2 uses plain <button>s
-// (Radix items would miss their menu scope context here), so we provide the
-// list + item visuals directly. The `__wrapper`/`__item` class names are v2-
-// only — v1 uses neetoUI's classes — so this rule doesn't leak into v1.
 .neeto-editor-mentions__wrapper {
   display: flex;
   flex-direction: column;
@@ -118,7 +80,7 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
   padding: 4px;
   background-color: var(--popover);
   color: var(--popover-foreground);
-  border-radius: var(--radius-md);
+  border-radius: var(--ne-editor-radius-md);
 }
 
 .neeto-editor-mentions__item {
@@ -129,7 +91,7 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
   padding: 6px 8px;
   background: transparent;
   border: 0;
-  border-radius: var(--radius-sm);
+  border-radius: var(--ne-editor-radius-sm);
   text-align: start;
   cursor: pointer;
   color: inherit;
@@ -141,11 +103,6 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
   }
 }
 
-// Dynamic variables popup (legacy neetoUI Dropdown via neetomolecules) renders
-// at neetoUI's default narrow width. Widen it so category labels + variable
-// names get reasonable breathing room. The class is passed via
-// `dropdownProps.classNames` on the DynamicVariables wrapper, which neetoUI
-// applies to the `.neeto-ui-dropdown__popup` content div.
 .ne-editor-variables-popup {
   min-width: 280px;
 
@@ -154,15 +111,10 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
   }
 }
 
-// v2 codeblock options bar (line-numbers / language dropdowns + copy).
-// The shared v1 SCSS sets `pre div { color: var(--neeto-editor-content-code-color) }`,
-// which cascades dark text into the dropdown trigger labels and renders them
-// unreadable on the dark codeblock surface. Restore the button-level color
-// tokens so the secondary trigger and its label use the proper foreground.
 .ne-codeblock--v2 .neeto-editor-codeblock-options {
   button[data-slot="button"],
   button[data-slot="dropdown-menu-trigger"] {
-    color: var(--secondary-foreground);
+    color: var(--foreground);
 
     & > * {
       color: inherit;
@@ -170,19 +122,6 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
   }
 }
 
-// v2 error state. The shared `ErrorWrapper` adds `.neeto-editor-error` to a
-// div wrapping the editor and renders a sibling `<p.neeto-ui-input__error>`
-// for the message. v1's `_editor.scss` paints a 1px wrapper border in error
-// state, which stacks an extra red ring around an editor that already has
-// its own gray-400 border on `.neeto-editor-fixed-menu` + `.neeto-editor`.
-//
-// In v2 we instead repaint the EXISTING menu + content borders with the
-// destructive token and drop the outer ring, so the error renders as a
-// single destructive frame around the editor — no doubled rings.
-//
-// Side note: the v1 SCSS uses `rgb(var(--neeto-ui-error-500))`, which the v2
-// shim maps to `rgb(oklch(...))` — invalid CSS that falls back to
-// `currentColor`. Setting `var(--destructive)` here also fixes that.
 .ne-editor--v2 {
   > .neeto-editor-error {
     border: 0 !important;
@@ -190,20 +129,17 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
 
     .neeto-editor-fixed-menu,
     .neeto-editor.fixed-menu-active {
-      border-color: var(--destructive);
+      border-color: var(--error-solid);
     }
   }
 
   > p[data-testid="neeto-editor-error-text"] {
     margin-top: 4px;
-    color: var(--destructive);
+    color: var(--error-foreground);
     font-size: 0.75rem;
   }
 }
 
-// v2 Headless menu: bare row of icon buttons with no chrome by default.
-// All selectors are scoped under `.ne-headless--v2` (added by v2's
-// Headless/index.jsx) so v1's `.ne-headless` instances are untouched.
 .ne-headless--v2 {
   display: inline-flex;
   align-items: center;
@@ -213,7 +149,7 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 1.75rem; // 28px
+    width: 1.75rem; 
     height: 1.75rem;
     padding: 0;
     border-radius: var(--radius);
@@ -236,9 +172,9 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
       cursor: not-allowed;
     }
 
-    // Tighten the icon to match the smaller hit area.
+    
     & > svg {
-      width: 0.875rem; // 14px
+      width: 0.875rem; 
       height: 0.875rem;
     }
 

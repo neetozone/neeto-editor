@@ -1,7 +1,7 @@
 @mixin show-placeholder {
   content: attr(data-placeholder);
   float: inline-start;
-  color: #ced4da;
+  color: var(--muted-foreground);
   pointer-events: none;
   height: 0;
 }
@@ -10,11 +10,11 @@
   @extend .neeto-editor-content;
 
   max-width: 100% !important;
-  border-radius: var(--neeto-ui-rounded);
+  border-radius: var(--radius);
   white-space: pre-wrap;
   padding: 16px;
-  color: rgb(var(--neeto-ui-black));
-  background-color: rgb(var(--neeto-ui-white));
+  color: var(--foreground);
+  background-color: var(--background);
 
   &:focus {
     outline: none;
@@ -26,9 +26,9 @@
 
   [data-variable] {
     display: inline-flex;
-    color: rgb(var(--neeto-ui-gray-600));
-    background-color: rgb(var(--neeto-ui-gray-200));
-    border-radius: var(--neeto-ui-rounded-sm);
+    color: var(--muted-foreground);
+    background-color: var(--border);
+    border-radius: var(--ne-editor-radius-sm);
     line-height: 1;
     padding-block: 4px;
     padding-inline: 6px;
@@ -39,7 +39,7 @@
   }
 
   &.fixed-menu-active {
-    border: thin solid rgb(var(--neeto-ui-gray-400));
+    border: thin solid var(--border);
     border-top: none;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
@@ -72,7 +72,7 @@
   }
 
   .ProseMirror-selectednode {
-    outline: 3px solid rgb(var(--neeto-ui-pastel-blue));
+    outline: 3px solid var(--info);
   }
 
   .has-focus {
@@ -82,9 +82,9 @@
 
   [data-variable] {
     display: inline-flex;
-    color: rgb(var(--neeto-ui-gray-800));
-    background-color: rgb(var(--neeto-ui-gray-200));
-    border-radius: var(--neeto-ui-rounded-sm);
+    color: var(--foreground);
+    background-color: var(--border);
+    border-radius: var(--ne-editor-radius-sm);
     line-height: 1;
     padding: 4px;
   }
@@ -92,21 +92,21 @@
 
 .neeto-editor-character-count {
   padding: 4px;
-  color: rgb(var(--neeto-ui-gray-600));
+  color: var(--muted-foreground);
   font-size: 12px;
   text-align: end;
   width: 100%;
 }
 
 .neeto-editor-error {
-  color: rgb(var(--neeto-ui-error-500));
+  color: var(--error-foreground);
   border-width: 1px;
-  border-color: rgb(var(--neeto-ui-error-500));
-  border-radius: var(--neeto-ui-rounded);
+  border-color: var(--error-solid);
+  border-radius: var(--radius);
 }
 
 .neeto-editor-error:focus-within {
-  border-color: rgb(var(--neeto-ui-error-600));
+  border-color: var(--error-foreground);
 }
 
 .ne_variable-tag {

@@ -1,5 +1,5 @@
 .tippy-box[data-theme~=neeto-editor-slash-commands-tippy] {
-  border: 1px solid rgb(var(--neeto-ui-gray-400));
+  border: 1px solid var(--border);
 
   .tippy-content {
     padding: 0 !important;
@@ -28,10 +28,10 @@
     padding-block: 8px;
     padding-inline: 12px;
     gap: 8px;
-    border-radius: var(--neeto-ui-rounded);
-    transition: var(--neeto-ui-transition);
+    border-radius: var(--radius);
+    transition: 0.15s ease-in-out;
     cursor: pointer;
-    color: rgb(var(--neeto-ui-gray-800));
+    color: var(--foreground);
     box-shadow: none;
     border: none;
     outline: none;
@@ -39,8 +39,8 @@
     &:hover,
     &:focus-visible,
     &.active {
-      color: rgb(var(--neeto-ui-black));
-      background-color: rgb(var(--neeto-ui-gray-200));
+      color: var(--foreground);
+      background-color: var(--border);
       box-shadow: none;
       border: none;
       outline: none;
@@ -67,14 +67,14 @@
 }
 
 .tippy-box[data-theme~="neeto-editor-mentions-tooltip"] {
-  border: 1px solid rgb(var(--neeto-ui-gray-400));
+  border: 1px solid var(--border);
 
   .tippy-content {
     padding: 0;
     max-height: none;
 
     button.active {
-      background-color: var(--neeto-ui-dropdown-item-focus-bg-color);
+      background-color: var(--accent);
     }
   }
 }

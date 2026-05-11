@@ -1,13 +1,13 @@
 .ne-link-popover {
   position: fixed;
   z-index: 99999;
-  background-color: rgb(var(--neeto-ui-white));
-  color: rgb(var(--neeto-ui-gray-800));
+  background-color: var(--background);
+  color: var(--foreground);
   padding-block: 10px;
   padding-inline: 16px;
   border-radius: 5px;
-  border: 1px solid var(--neeto-ui-popover-light-theme-border-color);
-  box-shadow: var(--neeto-ui-tooltip-light-theme-box-shadow);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px oklch(0 0 0 / 0.1);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
 
   &__url-input {
@@ -32,15 +32,15 @@
     float: left;
     max-width: 300px;
     white-space: nowrap;
-    color: rgb(var(--neeto-ui-gray-800));
+    color: var(--foreground);
     overflow: hidden;
     text-overflow: ellipsis;
     margin-inline-end: 8px;
-    font-weight: var(--neeto-ui-font-medium);
-    font-size: var(--neeto-ui-text-sm);
+    font-weight: 500;
+    font-size: 0.875rem;
 
     &[data-neeto-kb-article="true"][data-article-deleted="true"] {
-      color: rgb(var(--neeto-ui-error-600)) !important;
+      color: var(--error-foreground) !important;
     }
   }
 
@@ -49,11 +49,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: rgb(var(--neeto-ui-accent-500)) !important;
+    color: var(--info-solid) !important;
     text-decoration: none;
 
     &--deleted {
-      color: rgb(var(--neeto-ui-error-600)) !important;
+      color: var(--error-foreground) !important;
     }
 
     &:hover {
@@ -70,18 +70,17 @@
   inset-inline-start: 0;
   border-style: solid;
   border-width: 6px;
-  border-color: rgba(0, 0, 0, 0.2) transparent transparent transparent;
+  border-color: oklch(0 0 0 / 0.2) transparent transparent transparent;
 }
-
 
 .ne-article-picker-popover {
   position: fixed;
   z-index: 99999;
-  background-color: rgb(var(--neeto-ui-white));
-  color: rgb(var(--neeto-ui-gray-800));
+  background-color: var(--background);
+  color: var(--foreground);
   padding-block: 10px;
   padding-inline: 16px;
   border-radius: 5px;
-  border: 1px solid var(--neeto-ui-popover-light-theme-border-color);
-  box-shadow: var(--neeto-ui-tooltip-light-theme-box-shadow);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px oklch(0 0 0 / 0.1);
 }

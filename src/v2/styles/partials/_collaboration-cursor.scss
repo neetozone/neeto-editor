@@ -1,9 +1,9 @@
 .tiptap {
 
-  /* Give a remote user a caret */
+  
   .collaboration-cursor__caret {
-    border-inline-start: 1px solid #0d0d0d;
-    border-inline-end: 1px solid #0d0d0d;
+    border-inline-start: 1px solid var(--foreground);
+    border-inline-end: 1px solid var(--foreground);
     margin-inline-start: -1px;
     margin-inline-end: -1px;
     pointer-events: none;
@@ -11,10 +11,10 @@
     word-break: normal;
   }
 
-  /* Render the username above the caret */
+  
   .collaboration-cursor__label {
     border-radius: 3px 3px 3px 0;
-    color: #0d0d0d;
+    color: var(--foreground);
     font-size: 12px;
     font-style: normal;
     font-weight: 600;

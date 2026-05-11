@@ -7,31 +7,31 @@ $emoji-font-family: "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji,
 
 .emoji-mart.emoji-mart-light {
   font-size: 14px;
-  color: rgb(var(--neeto-ui-gray-800));
+  color: var(--foreground);
   border: none;
 
   .emoji-mart-bar {
     .emoji-mart-anchors {
       .emoji-mart-anchor {
-        color: rgb(var(--neeto-ui-gray-500));
+        color: var(--muted-foreground);
 
         svg {
           margin: auto;
         }
 
         .emoji-mart-anchor-bar {
-          background-color: rgb(var(--neeto-ui-gray-700)) !important;
+          background-color: var(--foreground) !important;
         }
 
         &.emoji-mart-anchor-selected {
-          color: rgb(var(--neeto-ui-gray-700)) !important;
+          color: var(--foreground) !important;
         }
       }
     }
   }
 
   .emoji-mart-search input {
-    border-radius: var(--neeto-ui-rounded-sm);
+    border-radius: var(--ne-editor-radius-sm);
   }
 
   .emoji-mart-category {
@@ -46,8 +46,8 @@ $emoji-font-family: "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji,
 
       &:hover {
         &::before {
-          background-color: rgb(var(--neeto-ui-gray-200));
-          border-radius: var(--neeto-ui-rounded-sm);
+          background-color: var(--border);
+          border-radius: var(--ne-editor-radius-sm);
         }
       }
     }
@@ -59,8 +59,6 @@ $emoji-font-family: "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji,
   }
 }
 
-// Emoji Suggestion
-
 .neeto-editor-emoji-suggestion {
   display: flex;
   flex-direction: row;
@@ -71,8 +69,8 @@ $emoji-font-family: "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji,
   font-family: $emoji-font-family;
 
   p {
-    font-size: var(--neeto-ui-text-xs);
-    color: rgb(var(--neeto-ui-black));
+    font-size: 0.75rem;
+    color: var(--foreground);
   }
 
   span {
@@ -83,18 +81,18 @@ $emoji-font-family: "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji,
 
   .neeto-editor-emoji-suggestion__item {
     padding: 6px;
-    font-size: var(--neeto-ui-text-2xl);
-    transition: var(--neeto-ui-transition);
-    border-radius: var(--neeto-ui-rounded-sm);
+    font-size: 1.5rem;
+    transition: 0.15s ease-in-out;
+    border-radius: var(--ne-editor-radius-sm);
     line-height: 1;
     cursor: pointer;
 
     &:hover {
-      background-color: rgb(var(--neeto-ui-gray-200));
+      background-color: var(--border);
     }
   }
 
   .neeto-editor-emoji-suggestion__item--selected {
-    background-color: rgb(var(--neeto-ui-gray-200));
+    background-color: var(--border);
   }
 }

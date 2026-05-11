@@ -1,5 +1,8 @@
 import "../src/v2/styles/tailwind.css";
 import "../src/index.scss";
+import "../src/styles/editor/index.scss";
+import "../src/styles/editor/_image-skeleton.scss";
+import "../src/styles/components/attachments.scss";
 import "../src/v2/styles/index.scss";
 import "./style.scss";
 import { themes } from "@storybook/theming";

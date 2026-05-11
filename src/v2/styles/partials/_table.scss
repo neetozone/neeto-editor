@@ -20,14 +20,14 @@
       bottom: 0px;
       inset-inline-end: -2px;
       width: 4px;
-      background-color: rgb(var(--neeto-ui-gray-300));
+      background-color: var(--border);
     }
 
     .selectedCell:after {
       position: absolute;
       inset: 0;
       content: "";
-      background: rgba(var(--neeto-ui-primary-500), 0.1);
+      background: color-mix(in oklch, var(--primary) 10%, transparent);
     }
   }
 
@@ -43,23 +43,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(var(--neeto-ui-gray-200));
-    border-radius: var(--neeto-ui-rounded-sm);
-    transition: var(--neeto-ui-transition);
+    background: var(--border);
+    border-radius: var(--ne-editor-radius-sm);
+    transition: 0.15s ease-in-out;
     visibility: hidden;
     cursor: pointer;
     opacity: 0;
-    transition: var(--neeto-ui-transition);
+    transition: 0.15s ease-in-out;
 
     p {
-      color: rgb(var(--neeto-ui-gray-500)) !important;
-      font-size: var(--neeto-ui-text-base) !important;
+      color: var(--muted-foreground) !important;
+      font-size: 1rem !important;
       line-height: 16px !important;
-      font-weight: var(--neeto-ui-font-light) !important;
+      font-weight: 300 !important;
     }
 
     &:hover {
-      background: rgba(var(--neeto-ui-gray-300));
+      background: var(--border);
     }
   }
 

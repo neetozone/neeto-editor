@@ -25,8 +25,8 @@
 
   input[type="checkbox"] {
     cursor: pointer;
-    color: rgb(var(--neeto-ui-primary-500));
-    border-color: rgb(var(--neeto-ui-gray-800));
+    color: var(--ne-editor-content-todo-checkbox-color);
+    border-color: var(--ne-editor-content-todo-checkbox-border-color);
     border-radius: 0;
     border-width: 1px;
     position: relative;
@@ -35,7 +35,7 @@
     z-index: 2;
 
     &:checked {
-      border-color: rgb(var(--neeto-ui-primary-500));
+      border-color: var(--ne-editor-content-todo-checkbox-color);
     }
   }
 
@@ -43,7 +43,7 @@
     margin: 0;
   }
 
-  // Completed tasks
+  
   li[data-checked="true"]>div p {
     text-decoration: line-through;
     opacity: 0.65;

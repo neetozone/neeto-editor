@@ -38,24 +38,24 @@
     }
   }
 
-  &--default {
-    background-color: rgb(var(--neeto-editor-gray-100));
+  &.neeto-editor__callout--default {
+    background-color: var(--ne-editor-content-callout-default-background-color);
   }
 
-  &--info {
-    background-color: rgb(var(--neeto-editor-info-100));
+  &.neeto-editor__callout--info {
+    background-color: var(--ne-editor-content-callout-info-background-color);
   }
 
-  &--warning {
-    background-color: rgb(var(--neeto-editor-warning-100));
+  &.neeto-editor__callout--warning {
+    background-color: var(--ne-editor-content-callout-warning-background-color);
   }
 
-  &--error {
-    background-color: rgb(var(--neeto-editor-error-100));
+  &.neeto-editor__callout--error {
+    background-color: var(--ne-editor-content-callout-error-background-color);
   }
 
-  &--success {
-    background-color: rgb(var(--neeto-editor-success-100));
+  &.neeto-editor__callout--success {
+    background-color: var(--ne-editor-content-callout-success-background-color);
   }
 }
 
@@ -73,7 +73,7 @@
     width: 100%;
 
     .neeto-editor-callout-dropdown__section-title {
-      color: rgb(var(--neeto-ui-gray-600));
+      color: var(--muted-foreground);
       font-size: 10px;
       font-weight: 500;
       text-transform: uppercase;
@@ -117,20 +117,20 @@
 
   .neeto-editor-callout-dropdown__type-label {
     font-weight: 500;
-    color: rgb(var(--neeto-ui-gray-800));
+    color: var(--foreground);
     flex: 1;
   }
 
   &:hover {
-    background-color: rgb(var(--neeto-ui-gray-50));
+    background-color: var(--accent);
   }
 
   &--selected {
-    background-color: rgb(var(--neeto-ui-primary-50));
-    border: 1px solid rgb(var(--neeto-ui-primary-200));
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
 
     .neeto-editor-callout-dropdown__type-label {
-      color: rgb(var(--neeto-ui-primary-900));
+      color: var(--primary-foreground);
     }
   }
 }

@@ -14,7 +14,7 @@
     width: 100%;
     height: auto;
     max-height: 90vh;
-    border: 10px solid rgb(var(--neeto-ui-gray-100));
+    border: 10px solid var(--muted);
     border-radius: 10px;
     opacity: 1;
     transition: opacity 2s ease-in-out
@@ -32,7 +32,8 @@
     height: 100%;
 
     .spinner {
-      --neeto-ui-spinner-size: 32px;
+      width: 32px;
+      height: 32px;
     }
   }
 }

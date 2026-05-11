@@ -15,9 +15,9 @@
     align-items: center;
     padding-block: 4px;
     padding-inline: 8px 2px;
-    border-radius: var(--neeto-ui-rounded-sm);
-    border: 1px solid rgb(var(--neeto-ui-gray-200));
-    background-color: rgb(var(--neeto-ui-white));
+    border-radius: var(--ne-editor-radius-sm);
+    border: 1px solid var(--border);
+    background-color: var(--background);
     width: 256px;
 
     &-wrapper {
@@ -70,7 +70,7 @@
     }
 
     &:hover {
-      box-shadow: 0 0 0 1px rgb(var(--neeto-ui-gray-400));
+      box-shadow: 0 0 0 1px var(--ring);
     }
   }
 
@@ -91,7 +91,7 @@
     &__header {
       min-height: 58px;
       margin-bottom: 8px;
-      border-bottom: 1px solid rgb(var(--neeto-ui-gray-200));
+      border-bottom: 1px solid var(--border);
       padding: 16px !important;
       display: flex;
       flex-direction: row;
@@ -102,7 +102,7 @@
         align-items: center;
         gap: 8px;
         padding-inline-end: 6px;
-        border-inline-end: 1px solid rgb(var(--neeto-ui-gray-200));
+        border-inline-end: 1px solid var(--border);
       }
     }
 
@@ -118,7 +118,7 @@
 
       &-download {
         cursor: pointer;
-        color: rgb(var(--neeto-ui-accent-800));
+        color: var(--info-foreground);
       }
 
       &-docviewer {
@@ -168,10 +168,10 @@
 
 .ne-attachments--integrated {
   padding-inline: 6px;
-  border: 1px solid rgb(var(--neeto-ui-gray-300));
+  border: 1px solid var(--border);
   border-top: none;
-  border-radius: 0px 0px var(--neeto-ui-rounded) var(--neeto-ui-rounded);
-  background-color: rgb(var(--neeto-ui-white));
+  border-radius: 0px 0px var(--radius) var(--radius);
+  background-color: var(--background);
 }
 
 .ne-attachments__wrapper {
@@ -182,9 +182,9 @@
   position: absolute;
   inset: 7px;
   border-radius: 5px;
-  background-color: rgba(var(--neeto-ui-gray-300), 0.5);
-  border: 3px dashed rgb(var(--neeto-ui-gray-500));
-  color: rgb(var(--neeto-ui-gray-600));
+  background-color: color-mix(in oklch, var(--border) 50%, transparent);
+  border: 3px dashed var(--muted-foreground);
+  color: var(--muted-foreground);
   content: 'Drop the file here';
   display: flex;
   align-items: center;
