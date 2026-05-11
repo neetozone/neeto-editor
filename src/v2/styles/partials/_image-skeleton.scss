@@ -1,0 +1,10 @@
+.neeto-editor-image__skeleton {
+  height: 100%;
+  width: 100%;
+
+  .skeleton {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(var(--neeto-ui-gray-700));
+  }
+}

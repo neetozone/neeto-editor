@@ -1,0 +1,1223 @@
+@import "callout";
+@import "./todo-list";
+
+// Fallback codeblock theme for pages without .neeto-ui-theme--light/dark wrappers.
+.neeto-editor-content .hljs {
+  color: #abb2bf;
+  background: #282c34;
+}
+
+.neeto-editor-content .hljs-comment,
+.neeto-editor-content .hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.neeto-editor-content .hljs-doctag,
+.neeto-editor-content .hljs-keyword,
+.neeto-editor-content .hljs-formula {
+  color: #c678dd;
+}
+
+.neeto-editor-content .hljs-section,
+.neeto-editor-content .hljs-name,
+.neeto-editor-content .hljs-selector-tag,
+.neeto-editor-content .hljs-deletion,
+.neeto-editor-content .hljs-subst {
+  color: #e06c75;
+}
+
+.neeto-editor-content .hljs-literal {
+  color: #56b6c2;
+}
+
+.neeto-editor-content .hljs-string,
+.neeto-editor-content .hljs-regexp,
+.neeto-editor-content .hljs-addition,
+.neeto-editor-content .hljs-attribute,
+.neeto-editor-content .hljs-meta .hljs-string {
+  color: #98c379;
+}
+
+.neeto-editor-content .hljs-attr,
+.neeto-editor-content .hljs-variable,
+.neeto-editor-content .hljs-template-variable,
+.neeto-editor-content .hljs-type,
+.neeto-editor-content .hljs-selector-class,
+.neeto-editor-content .hljs-selector-attr,
+.neeto-editor-content .hljs-selector-pseudo,
+.neeto-editor-content .hljs-number {
+  color: #d19a66;
+}
+
+.neeto-editor-content .hljs-symbol,
+.neeto-editor-content .hljs-bullet,
+.neeto-editor-content .hljs-link,
+.neeto-editor-content .hljs-meta,
+.neeto-editor-content .hljs-selector-id,
+.neeto-editor-content .hljs-title {
+  color: #61aeee;
+}
+
+.neeto-editor-content .hljs-built_in,
+.neeto-editor-content .hljs-title.class_,
+.neeto-editor-content .hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.neeto-editor-content .hljs-emphasis {
+  font-style: italic;
+}
+
+.neeto-editor-content .hljs-strong {
+  font-weight: bold;
+}
+
+.neeto-editor-content .hljs-link {
+  text-decoration: underline;
+}
+
+// Codeblock Dark mode
+.neeto-ui-theme--dark .hljs {
+  color: #383a42;
+  background: #fafafa;
+}
+
+.neeto-ui-theme--dark .hljs-comment,
+.neeto-ui-theme--dark .hljs-quote {
+  color: #a0a1a7;
+  font-style: italic;
+}
+
+.neeto-ui-theme--dark .hljs-doctag,
+.neeto-ui-theme--dark .hljs-keyword,
+.neeto-ui-theme--dark .hljs-formula {
+  color: #a626a4;
+}
+
+.neeto-ui-theme--dark .hljs-section,
+.neeto-ui-theme--dark .hljs-name,
+.neeto-ui-theme--dark .hljs-selector-tag,
+.neeto-ui-theme--dark .hljs-deletion,
+.neeto-ui-theme--dark .hljs-subst {
+  color: #e45649;
+}
+
+.neeto-ui-theme--dark .hljs-literal {
+  color: #0184bb;
+}
+
+.neeto-ui-theme--dark .hljs-string,
+.neeto-ui-theme--dark .hljs-regexp,
+.neeto-ui-theme--dark .hljs-addition,
+.neeto-ui-theme--dark .hljs-attribute,
+.neeto-ui-theme--dark .hljs-meta .hljs-string {
+  color: #50a14f;
+}
+
+.neeto-ui-theme--dark .hljs-attr,
+.neeto-ui-theme--dark .hljs-variable,
+.neeto-ui-theme--dark .hljs-template-variable,
+.neeto-ui-theme--dark .hljs-type,
+.neeto-ui-theme--dark .hljs-selector-class,
+.neeto-ui-theme--dark .hljs-selector-attr,
+.neeto-ui-theme--dark .hljs-selector-pseudo,
+.neeto-ui-theme--dark .hljs-number {
+  color: #986801;
+}
+
+.neeto-ui-theme--dark .hljs-symbol,
+.neeto-ui-theme--dark .hljs-bullet,
+.neeto-ui-theme--dark .hljs-link,
+.neeto-ui-theme--dark .hljs-meta,
+.neeto-ui-theme--dark .hljs-selector-id,
+.neeto-ui-theme--dark .hljs-title {
+  color: #4078f2;
+}
+
+.neeto-ui-theme--dark .hljs-built_in,
+.neeto-ui-theme--dark .hljs-title.class_,
+.neeto-ui-theme--dark .hljs-class .hljs-title {
+  color: #c18401;
+}
+
+.neeto-ui-theme--dark .hljs-emphasis {
+  font-style: italic;
+}
+
+.neeto-ui-theme--dark .hljs-strong {
+  font-weight: bold;
+}
+
+.neeto-ui-theme--dark .hljs-link {
+  text-decoration: underline;
+}
+
+
+// Codeblock Light mode
+.neeto-ui-theme--light .hljs {
+  color: #abb2bf;
+  background: #282c34;
+}
+
+.neeto-ui-theme--light .hljs-comment,
+.neeto-ui-theme--light .hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.neeto-ui-theme--light .hljs-doctag,
+.neeto-ui-theme--light .hljs-keyword,
+.neeto-ui-theme--light .hljs-formula {
+  color: #c678dd;
+}
+
+.neeto-ui-theme--light .hljs-section,
+.neeto-ui-theme--light .hljs-name,
+.neeto-ui-theme--light .hljs-selector-tag,
+.neeto-ui-theme--light .hljs-deletion,
+.neeto-ui-theme--light .hljs-subst {
+  color: #e06c75;
+}
+
+.neeto-ui-theme--light .hljs-literal {
+  color: #56b6c2;
+}
+
+.neeto-ui-theme--light .hljs-string,
+.neeto-ui-theme--light .hljs-regexp,
+.neeto-ui-theme--light .hljs-addition,
+.neeto-ui-theme--light .hljs-attribute,
+.neeto-ui-theme--light .hljs-meta .hljs-string {
+  color: #98c379;
+}
+
+.neeto-ui-theme--light .hljs-attr,
+.neeto-ui-theme--light .hljs-variable,
+.neeto-ui-theme--light .hljs-template-variable,
+.neeto-ui-theme--light .hljs-type,
+.neeto-ui-theme--light .hljs-selector-class,
+.neeto-ui-theme--light .hljs-selector-attr,
+.neeto-ui-theme--light .hljs-selector-pseudo,
+.neeto-ui-theme--light .hljs-number {
+  color: #d19a66;
+}
+
+.neeto-ui-theme--light .hljs-symbol,
+.neeto-ui-theme--light .hljs-bullet,
+.neeto-ui-theme--light .hljs-link,
+.neeto-ui-theme--light .hljs-meta,
+.neeto-ui-theme--light .hljs-selector-id,
+.neeto-ui-theme--light .hljs-title {
+  color: #61aeee;
+}
+
+.neeto-ui-theme--light .hljs-built_in,
+.neeto-ui-theme--light .hljs-title.class_,
+.neeto-ui-theme--light .hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.neeto-ui-theme--light .hljs-emphasis {
+  font-style: italic;
+}
+
+.neeto-ui-theme--light .hljs-strong {
+  font-weight: bold;
+}
+
+.neeto-ui-theme--light .hljs-link {
+  text-decoration: underline;
+}
+
+:root,
+.neeto-ui-theme--light {
+  --neeto-editor-white: 255, 255, 255;
+  --neeto-editor-black: 12, 17, 29;
+  --neeto-editor-gray-800: 16, 24, 40;
+  --neeto-editor-gray-700: 29, 41, 57;
+  --neeto-editor-gray-600: 52, 64, 84;
+  --neeto-editor-gray-500: 135, 146, 157;
+  --neeto-editor-gray-400: 194, 200, 204;
+  --neeto-editor-gray-300: 216, 220, 222;
+  --neeto-editor-gray-200: 233, 235, 237;
+  --neeto-editor-gray-100: 246, 247, 248;
+  --neeto-editor-gray-50: 250, 250, 250;
+  --neeto-editor-primary-800: 0, 102, 83;
+  --neeto-editor-primary-600: 0, 122, 100;
+  --neeto-editor-primary-500: 0, 128, 104;
+  --neeto-editor-primary-100: 225, 243, 238;
+  --neeto-editor-primary-50: 240, 249, 247;
+  --neeto-editor-accent-800: 9, 90, 186;
+  --neeto-editor-accent-600: 13, 102, 208;
+  --neeto-editor-accent-500: 20, 115, 230;
+  --neeto-editor-accent-100: 230, 244, 255;
+  --neeto-editor-accent-50: 239, 248, 255;
+  --neeto-editor-success-800: 1, 121, 93;
+  --neeto-editor-success-600: 1, 141, 109;
+  --neeto-editor-success-500: 2, 162, 124;
+  --neeto-editor-success-100: 235, 255, 250;
+  --neeto-editor-error-800: 187, 18, 26;
+  --neeto-editor-error-600: 201, 37, 45;
+  --neeto-editor-error-500: 215, 55, 63;
+  --neeto-editor-error-100: 254, 236, 240;
+  --neeto-editor-info-800: 9, 90, 186;
+  --neeto-editor-info-600: 13, 102, 208;
+  --neeto-editor-info-500: 20, 115, 230;
+  --neeto-editor-info-100: 226, 242, 255;
+  --neeto-editor-warning-800: 189, 100, 13;
+  --neeto-editor-warning-600: 203, 111, 16;
+  --neeto-editor-warning-500: 218, 123, 17;
+  --neeto-editor-warning-100: 251, 242, 225;
+  --neeto-editor-pastel-silver: 232, 233, 237;
+  --neeto-editor-pastel-red: 255, 229, 229;
+  --neeto-editor-pastel-yellow: 254, 243, 197;
+  --neeto-editor-pastel-green: 211, 249, 232;
+  --neeto-editor-pastel-blue: 236, 244, 255;
+  --neeto-editor-pastel-purple: 238, 235, 255;
+  --neeto-editor-pastel-pink: 253, 226, 241;
+  --neeto-editor-rounded-none: 0;
+  --neeto-editor-rounded-sm: 3px;
+  --neeto-editor-rounded: 5px;
+  --neeto-editor-rounded-md: 6px;
+  --neeto-editor-rounded-lg: 8px;
+  --neeto-editor-rounded-xl: 12px;
+  --neeto-editor-rounded-full: 999px;
+  --neeto-editor-font-thin: 100;
+  --neeto-editor-font-extralight: 200;
+  --neeto-editor-font-light: 300;
+  --neeto-editor-font-normal: 400;
+  --neeto-editor-font-medium: 500;
+  --neeto-editor-font-semibold: 600;
+  --neeto-editor-font-bold: 700;
+  --neeto-editor-font-extrabold: 800;
+  --neeto-editor-font-black: 900;
+  --neeto-editor-content-h1-margin: 1.5rem 0 0.25rem;
+  --neeto-editor-content-h2-margin: 1.5rem 0 0.25rem;
+  --neeto-editor-content-h3-margin: 1.5rem 0 0.25rem;
+  --neeto-editor-content-h4-margin: 1.5rem 0 0.25rem;
+  --neeto-editor-content-h5-margin: 1.5rem 0 0.25rem;
+  --neeto-editor-content-h6-margin: 1.5rem 0 0.25rem;
+  --neeto-editor-content-heading-font-weight: 600;
+  --neeto-editor-content-heading-font-weight-bold: bold;
+  --neeto-editor-content-heading-color: 12, 17, 29, 1;
+  --neeto-editor-content-heading-line-height: 1.25;
+  --neeto-editor-content-paragraph-color: 54, 55, 55, 1;
+  --neeto-editor-content-paragraph-font-weight: 400;
+  --neeto-editor-content-paragraph-line-height: 1.6;
+  --neeto-editor-content-paragraph-margin-bottom: 0.5rem;
+  --neeto-editor-content-list-padding-inline-start: 2rem;
+  --neeto-editor-content-list-margin-bottom: 1rem;
+  --neeto-editor-content-list-item-margin-bottom: 0.5rem;
+  --neeto-editor-content-list-item-margin-top: 0.5rem;
+  --neeto-editor-content-code-font-size: 85%;
+  --neeto-editor-content-code-background-color: 40, 44, 52, 1;
+  --neeto-editor-content-code-line-number-color: 89, 99, 110, 1;
+  --neeto-editor-content-code-color: 171, 178, 191, 1;
+  --neeto-editor-content-inline-code-color: 31, 35, 40, 1;
+  --neeto-editor-content-inline-code-background-color: 239, 242, 246, 1;
+  --neeto-editor-content-code-padding: 0.2em 0.4em;
+  --neeto-editor-content-blockquote-color: 89, 99, 110, 1;
+  --neeto-editor-content-blockquote-border-color: 209, 217, 224, 1;
+  --neeto-editor-content-blockquote-border-inline-start-width: 4px;
+  --neeto-editor-content-blockquote-margin-bottom: 1rem;
+  --neeto-editor-content-blockquote-padding-inline-start: 0.75rem;
+  --neeto-editor-content-image-border-color: 228, 228, 231;
+  --neeto-editor-content-image-border-radius: 8px;
+  /* Highlight text colors */
+  --neeto-editor-highlight-text-1: rgb(50, 48, 44);
+  --neeto-editor-highlight-text-2: rgb(120, 119, 116);
+  --neeto-editor-highlight-text-3: rgb(159, 107, 83);
+  --neeto-editor-highlight-text-4: rgb(217, 115, 13);
+  --neeto-editor-highlight-text-5: rgb(203, 145, 47);
+  --neeto-editor-highlight-text-6: rgb(68, 131, 97);
+  --neeto-editor-highlight-text-7: rgb(51, 126, 169);
+  --neeto-editor-highlight-text-8: rgb(144, 101, 176);
+  --neeto-editor-highlight-text-9: rgb(193, 76, 138);
+  --neeto-editor-highlight-text-10: rgb(212, 76, 71);
+  --neeto-editor-highlight-text-11: rgb(99, 100, 220);
+  --neeto-editor-highlight-text-12: rgb(217, 150, 65);
+  --neeto-editor-highlight-text-13: rgb(90, 140, 215);
+  --neeto-editor-highlight-text-14: rgb(72, 168, 105);
+  --neeto-editor-highlight-text-15: rgb(220, 50, 50);
+  --neeto-editor-highlight-text-16: rgb(175, 80, 220);
+
+  /* Highlight background colors */
+  --neeto-editor-highlight-bg-1: rgb(255, 255, 0);
+  --neeto-editor-highlight-bg-2: rgb(227, 227, 222);
+  --neeto-editor-highlight-bg-3: rgb(223, 206, 206);
+  --neeto-editor-highlight-bg-4: rgb(249, 224, 200);
+  --neeto-editor-highlight-bg-5: rgb(247, 231, 182);
+  --neeto-editor-highlight-bg-6: rgb(208, 224, 205);
+  --neeto-editor-highlight-bg-7: rgb(192, 223, 236);
+  --neeto-editor-highlight-bg-8: rgb(227, 206, 243);
+  --neeto-editor-highlight-bg-9: rgb(244, 205, 222);
+  --neeto-editor-highlight-bg-10: rgb(249, 199, 202);
+  --neeto-editor-highlight-bg-11: rgb(182, 156, 255);
+  --neeto-editor-highlight-bg-12: rgb(217, 115, 13);
+  --neeto-editor-highlight-bg-13: rgb(74, 133, 232);
+  --neeto-editor-highlight-bg-14: rgb(0, 255, 1);
+  --neeto-editor-highlight-bg-15: rgb(255, 0, 0);
+  --neeto-editor-highlight-bg-16: rgb(255, 0, 255);
+}
+
+.neeto-ui-theme--dark {
+  --neeto-editor-white: 18, 18, 18;
+  --neeto-editor-black: 224, 224, 224;
+  --neeto-editor-gray-50: 10, 10, 10;
+  --neeto-editor-gray-100: 30, 30, 30;
+  --neeto-editor-gray-200: 44, 44, 44;
+  --neeto-editor-gray-300: 57, 57, 57;
+  --neeto-editor-gray-400: 73, 73, 73;
+  --neeto-editor-gray-500: 92, 92, 92;
+  --neeto-editor-gray-600: 124, 124, 124;
+  --neeto-editor-gray-700: 162, 162, 162;
+  --neeto-editor-gray-800: 200, 200, 200;
+  --neeto-editor-primary-800: 0, 245, 200;
+  --neeto-editor-primary-600: 0, 224, 183;
+  --neeto-editor-primary-500: 0, 204, 167;
+  --neeto-editor-primary-100: 0, 61, 49;
+  --neeto-editor-primary-50: 0, 41, 33;
+  --neeto-editor-accent-800: 142, 189, 245;
+  --neeto-editor-accent-600: 105, 167, 242;
+  --neeto-editor-accent-500: 67, 144, 239;
+  --neeto-editor-accent-100: 10, 56, 113;
+  --neeto-editor-accent-50: 7, 37, 75;
+  --neeto-editor-error-800: 247, 109, 116;
+  --neeto-editor-error-600: 236, 91, 98;
+  --neeto-editor-error-500: 227, 72, 80;
+  --neeto-editor-error-100: 129, 33, 38;
+  --neeto-editor-success-800: 0, 245, 200;
+  --neeto-editor-success-600: 0, 224, 183;
+  --neeto-editor-success-500: 0, 204, 167;
+  --neeto-editor-success-100: 0, 61, 49;
+  --neeto-editor-warning-800: 249, 164, 63;
+  --neeto-editor-warning-600: 242, 148, 35;
+  --neeto-editor-warning-500: 230, 134, 25;
+  --neeto-editor-warning-100: 131, 74, 11;
+  --neeto-editor-info-800: 142, 189, 245;
+  --neeto-editor-info-600: 105, 167, 242;
+  --neeto-editor-info-500: 67, 144, 239;
+  --neeto-editor-info-100: 10, 56, 113;
+  --neeto-editor-pastel-silver: 167, 168, 170;
+  --neeto-editor-pastel-red: 183, 164, 165;
+  --neeto-editor-pastel-yellow: 182, 175, 143;
+  --neeto-editor-pastel-green: 152, 179, 167;
+  --neeto-editor-pastel-blue: 170, 175, 183;
+  --neeto-editor-pastel-purple: 171, 169, 183;
+  --neeto-editor-pastel-pink: 181, 162, 174;
+  --neeto-editor-content-heading-color: 224, 224, 224, 1;
+  --neeto-editor-content-paragraph-color: 224, 224, 224, 1;
+  --neeto-editor-content-code-background-color: 246, 248, 250, 1;
+  --neeto-editor-content-code-line-number-color: 89, 99, 110, 1;
+  --neeto-editor-content-code-color: 31, 35, 40, 1;
+  --neeto-editor-content-inline-code-color: 212, 223, 243, 1;
+  --neeto-editor-content-inline-code-background-color: 67, 73, 84, 1;
+  --neeto-editor-content-blockquote-color: 145, 152, 161, 1;
+  --neeto-editor-content-blockquote-border-color: 61, 68, 77, 1;
+  /* Highlight text colors */
+  --neeto-editor-highlight-text-1: rgb(205, 205, 205);
+  --neeto-editor-highlight-text-2: rgb(180, 180, 180);
+  --neeto-editor-highlight-text-3: rgb(200, 150, 120);
+  --neeto-editor-highlight-text-4: rgb(240, 180, 100);
+  --neeto-editor-highlight-text-5: rgb(230, 190, 120);
+  --neeto-editor-highlight-text-6: rgb(120, 190, 150);
+  --neeto-editor-highlight-text-7: rgb(100, 180, 220);
+  --neeto-editor-highlight-text-8: rgb(190, 150, 230);
+  --neeto-editor-highlight-text-9: rgb(220, 120, 190);
+  --neeto-editor-highlight-text-10: rgb(230, 120, 110);
+  --neeto-editor-highlight-text-11: rgb(155, 156, 255);
+  --neeto-editor-highlight-text-12: rgb(245, 180, 100);
+  --neeto-editor-highlight-text-13: rgb(120, 170, 245);
+  --neeto-editor-highlight-text-14: rgb(100, 200, 135);
+  --neeto-editor-highlight-text-15: rgb(250, 110, 110);
+  --neeto-editor-highlight-text-16: rgb(220, 130, 255);
+
+  /* Highlight background colors */
+  --neeto-editor-highlight-bg-1: rgb(100, 100, 0);
+  --neeto-editor-highlight-bg-2: rgb(65, 65, 60);
+  --neeto-editor-highlight-bg-3: rgb(65, 55, 55);
+  --neeto-editor-highlight-bg-4: rgb(80, 65, 48);
+  --neeto-editor-highlight-bg-5: rgb(85, 78, 45);
+  --neeto-editor-highlight-bg-6: rgb(45, 65, 42);
+  --neeto-editor-highlight-bg-7: rgb(35, 68, 82);
+  --neeto-editor-highlight-bg-8: rgb(65, 48, 85);
+  --neeto-editor-highlight-bg-9: rgb(85, 45, 68);
+  --neeto-editor-highlight-bg-10: rgb(85, 48, 48);
+  --neeto-editor-highlight-bg-11: rgb(50, 20, 90);
+  --neeto-editor-highlight-bg-12: rgb(100, 60, 10);
+  --neeto-editor-highlight-bg-13: rgb(25, 60, 110);
+  --neeto-editor-highlight-bg-14: rgb(0, 80, 10);
+  --neeto-editor-highlight-bg-15: rgb(110, 15, 15);
+  --neeto-editor-highlight-bg-16: rgb(100, 10, 100);
+}
+
+.neeto-ui-theme--dark .neeto-editor-content.neeto-editor-size--small {
+  --neeto-editor-content-heading-color: 224, 224, 224, 1;
+  --neeto-editor-content-paragraph-color: 224, 224, 224, 1;
+}
+
+.neeto-ui-theme--light .neeto-editor-content {
+  --neeto-editor-content-heading-color: 12, 17, 29, 1;
+  --neeto-editor-content-paragraph-color: 54, 55, 55, 1;
+}
+
+.neeto-ui-theme--light .neeto-editor-content.neeto-editor-size--small {
+  --neeto-editor-content-heading-color: 31, 35, 40, 1;
+  --neeto-editor-content-paragraph-color: 31, 35, 40, 1;
+}
+
+.neeto-editor-content {
+  white-space: pre-wrap;
+  word-break: break-word;
+  tab-size: 2;
+
+  hr {
+    margin: 0.5rem 0;
+    border-color: rgba(var(--neeto-editor-content-paragraph-color));
+    opacity: 0.2;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1rem 0;
+
+    &.neeto-editor-table--left table {
+
+      th,
+      td {
+        text-align: start !important;
+      }
+    }
+
+    &.neeto-editor-table--center table {
+
+      th,
+      td {
+        text-align: center !important;
+      }
+    }
+
+    &.neeto-editor-table--right table {
+
+      th,
+      td {
+        text-align: end !important;
+      }
+    }
+  }
+
+  // Sizing
+  &.neeto-editor-size--small {
+    --neeto-editor-content-heading-color: 31, 35, 40, 1;
+    --neeto-editor-content-paragraph-color: 31, 35, 40, 1;
+    --neeto-editor-content-h1-font-size: 1.75rem;
+    --neeto-editor-content-h2-font-size: 1.3125rem;
+    --neeto-editor-content-h3-font-size: 1.09375rem;
+    --neeto-editor-content-h4-font-size: 0.875rem;
+    --neeto-editor-content-h5-font-size: 0.765625rem;
+    --neeto-editor-content-h6-font-size: 0.74375rem;
+    --neeto-editor-content-paragraph-font-size: 0.875rem;
+    --neeto-editor-content-paragraph-line-height: 1.5;
+    --neeto-editor-content-list-padding-inline-start: 1.5rem;
+    --neeto-editor-content-list-item-margin-bottom: 0.25rem;
+    --neeto-editor-content-list-item-margin-top: 0.25rem;
+  }
+
+  &.neeto-editor-size--medium {
+    --neeto-editor-content-h1-font-size: 2rem;
+    --neeto-editor-content-h2-font-size: 1.5rem;
+    --neeto-editor-content-h3-font-size: 1.25rem;
+    --neeto-editor-content-h4-font-size: 1rem;
+    --neeto-editor-content-h5-font-size: 0.875rem;
+    --neeto-editor-content-h6-font-size: 0.75rem;
+    --neeto-editor-content-paragraph-font-size: 1rem;
+
+    @media only screen and (max-width: 767px) {
+      --neeto-editor-content-h1-font-size: 1.375rem;
+      --neeto-editor-content-h2-font-size: 1.25rem;
+      --neeto-editor-content-h3-font-size: 1.125rem;
+    }
+  }
+
+  &.neeto-editor-size--large {
+    --neeto-editor-content-h1-font-size: 2.375rem;
+    --neeto-editor-content-h2-font-size: 1.93rem;
+    --neeto-editor-content-h3-font-size: 1.633rem;
+    --neeto-editor-content-h4-font-size: 1.336rem;
+    --neeto-editor-content-h5-font-size: 0.986rem;
+    --neeto-editor-content-h6-font-size: 0.796rem;
+    --neeto-editor-content-paragraph-font-size: 1.125rem;
+
+    @media only screen and (max-width: 767px) {
+      --neeto-editor-content-h1-font-size: 2.125rem;
+      --neeto-editor-content-h2-font-size: 1.7266rem;
+      --neeto-editor-content-h3-font-size: 1.4609rem;
+      --neeto-editor-content-h4-font-size: 1.1953rem;
+      --neeto-editor-content-h5-font-size: 0.875rem;
+      --neeto-editor-content-h6-font-size: 0.75rem;
+      --neeto-editor-content-paragraph-font-size: 1rem;
+    }
+  }
+
+  // Headers
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: rgba(var(--neeto-editor-content-heading-color));
+    font-weight: var(--neeto-editor-content-heading-font-weight);
+
+    strong {
+      font-weight: var(--neeto-editor-content-heading-font-weight-bold) !important;
+    }
+  }
+
+  h1 {
+    font-size: var(--neeto-editor-content-h1-font-size);
+    margin: var(--neeto-editor-content-h1-margin);
+  }
+
+  h2 {
+    font-size: var(--neeto-editor-content-h2-font-size);
+    margin: var(--neeto-editor-content-h2-margin);
+  }
+
+  h3 {
+    font-size: var(--neeto-editor-content-h3-font-size);
+    margin: var(--neeto-editor-content-h3-margin);
+  }
+
+  h4 {
+    font-size: var(--neeto-editor-content-h4-font-size);
+    margin: var(--neeto-editor-content-h4-margin);
+  }
+
+  h5 {
+    font-size: var(--neeto-editor-content-h5-font-size);
+    margin: var(--neeto-editor-content-h5-margin);
+  }
+
+  h6 {
+    font-size: var(--neeto-editor-content-h6-font-size);
+    margin: var(--neeto-editor-content-h6-margin);
+  }
+
+  // header anchor tags
+  .header-wrapper {
+    position: relative;
+
+    &__link {
+      position: absolute;
+      top: 50%;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      transition: color ease-in 150ms;
+      line-height: var(--neeto-editor-content-heading-line-height);
+    }
+
+    .header-link-icon-wrapper {
+      position: absolute;
+      inset-inline-start: -1.5625rem;
+      height: 100%;
+      width: 1.5625rem;
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      transition: opacity ease-in 150ms;
+
+      svg {
+        transition: fill ease-in 150ms;
+        fill: rgb(var(--neeto-editor-primary-800));
+      }
+    }
+
+    &:hover {
+      .header-link-icon-wrapper {
+        opacity: 1;
+      }
+
+      svg {
+        fill: rgb(var(--neeto-editor-accent-800));
+      }
+    }
+  }
+
+  // Paragraph
+  p {
+    font-size: var(--neeto-editor-content-paragraph-font-size);
+    font-weight: var(--neeto-editor-content-paragraph-font-weight);
+    line-height: var(--neeto-editor-content-paragraph-line-height);
+    min-height: 1.3rem;
+    color: rgba(var(--neeto-editor-content-paragraph-color));
+    margin-top: 0;
+    margin-bottom: var(--neeto-editor-content-paragraph-margin-bottom);
+
+    &:empty::after {
+      content: "\00a0";
+    }
+
+    &:empty {
+      margin-bottom: 0;
+      line-height: 1;
+      min-height: 1rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      font-weight: 600 !important;
+    }
+  }
+
+  // Div
+  div {
+    font-size: var(--neeto-editor-content-paragraph-font-size);
+    font-weight: var(--neeto-editor-content-paragraph-font-weight);
+    line-height: var(--neeto-editor-content-paragraph-line-height);
+    color: rgba(var(--neeto-editor-content-paragraph-color));
+  }
+
+  // Code
+  code {
+    padding: var(--neeto-editor-content-code-padding);
+    font-size: var(--neeto-editor-content-code-font-size);
+    border-radius: var(--neeto-editor-rounded-sm);
+    color: rgba(var(--neeto-editor-content-code-color));
+    background-color: rgba(var(--neeto-editor-content-code-background-color));
+    border-color: rgba(var(--neeto-editor-content-code-background-color));
+    font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono",
+      Courier, monospace;
+
+    * {
+      font-size: inherit !important;
+    }
+  }
+
+  h1 code,
+  h2 code,
+  h3 code,
+  h4 code,
+  h5 code,
+  h6 code,
+  p code,
+  li code,
+  table th code,
+  table td code {
+    font-size: var(--neeto-editor-content-code-font-size);
+    color: rgba(var(--neeto-editor-content-inline-code-color));
+    background-color: rgba(var(--neeto-editor-content-inline-code-background-color));
+    border-radius: var(--neeto-editor-rounded-sm);
+  }
+
+  pre {
+    position: relative;
+    color: rgba(var(--neeto-editor-content-code-color));
+    background-color: rgba(var(--neeto-editor-content-code-background-color));
+    border-color: rgba(var(--neeto-editor-content-code-background-color));
+    max-width: 100%;
+    font-size: var(--neeto-editor-content-paragraph-font-size);
+    line-height: 1.5;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: var(--neeto-editor-rounded-lg);
+    padding: 0;
+    position: relative;
+
+    div {
+      color: rgba(var(--neeto-editor-content-code-color));
+    }
+
+    .neeto-editor-codeblock-options {
+      display: flex;
+      position: absolute;
+      gap: 0.25rem;
+      align-items: center;
+      top: 0.25rem;
+      inset-inline-end: 0.25rem;
+      visibility: hidden;
+      opacity: 0;
+
+      &__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      &__input {
+        margin: 0.25rem 0.25rem;
+      }
+    }
+
+    &:hover {
+      .neeto-editor-codeblock-options {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .copy-button {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 0.25rem;
+      inset-inline-end: 0.25rem;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    counter-reset: line-number;
+  }
+
+  pre[data-linenumbers] .highlight-line {
+    position: relative;
+    padding-inline-start: 3.125rem;
+
+    &::before {
+      color: rgba(var(--neeto-editor-content-code-line-number-color));
+      content: counter(line-number);
+      counter-increment: line-number;
+      font-size: 85%;
+      font-weight: 400;
+      position: absolute;
+      inset-inline-start: 0;
+      padding-inline-start: 0.625rem;
+      padding-inline-end: 1rem;
+      width: 3.125rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    &:last-child::before {
+      content: "";
+    }
+  }
+
+  pre>code {
+    font-size: var(--neeto-editor-content-code-font-size);
+    background-color: transparent;
+    border-width: 0;
+    border-radius: 0;
+    font-weight: 400;
+    color: inherit;
+    line-height: inherit;
+    white-space: pre !important;
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    padding: 0.75rem;
+    border-radius: var(--neeto-editor-rounded-lg);
+  }
+
+  pre[data-linenumbers]>code {
+    padding-inline-start: 0;
+  }
+
+  // Blockquote
+  blockquote {
+    font-weight: var(--neeto-editor-font-medium);
+    color: rgba(var(--neeto-editor-content-blockquote-color));
+    border-inline-start-width: var(--neeto-editor-content-blockquote-border-inline-start-width);
+    border-inline-start-color: rgba(var(--neeto-editor-content-blockquote-border-color));
+    quotes: "\201C" "\201D" "\2018" "\2019";
+    margin-bottom: var(--neeto-editor-content-blockquote-margin-bottom);
+    padding-inline-start: var(--neeto-editor-content-blockquote-padding-inline-start);
+
+    div,
+    p {
+      color: inherit;
+    }
+
+    &>p::before {
+      content: "" !important;
+    }
+
+    &>p::after {
+      content: "" !important;
+    }
+  }
+
+  ul,
+  ol {
+    list-style: revert;
+    padding-inline-start: var(--neeto-editor-content-list-padding-inline-start);
+    margin-bottom: var(--neeto-editor-content-list-margin-bottom);
+
+    li {
+      font-size: var(--neeto-editor-content-paragraph-font-size);
+      font-weight: var(--neeto-editor-content-paragraph-font-weight);
+      line-height: var(--neeto-editor-content-paragraph-line-height);
+      color: rgba(var(--neeto-editor-content-paragraph-color));
+    }
+
+    li::before {
+      background-color: rgba(var(--neeto-editor-content-paragraph-color));
+    }
+  }
+
+  ul li>p,
+  ol li>p {
+    margin-top: var(--neeto-editor-content-list-item-margin-top) !important;
+    margin-bottom: var(--neeto-editor-content-list-item-margin-bottom) !important;
+  }
+
+  ul+p,
+  ol+p {
+    margin-top: var(--neeto-editor-content-list-item-margin-top) !important;
+  }
+
+  // Link
+  a[href] {
+    color: rgb(var(--neeto-editor-accent-800));
+    font-weight: inherit;
+  }
+
+  // Embed
+  .neeto-editor__video-wrapper {
+    padding-inline-start: 3px;
+
+    &.neeto-editor__video--bordered {
+
+      video,
+      iframe {
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgba(var(--neeto-editor-content-image-border-color));
+        border-radius: var(--neeto-editor-content-image-border-radius);
+      }
+    }
+
+    display: flex;
+    margin: 1rem 0px;
+
+    .neeto-editor__video-iframe {
+      display: inline-block;
+      vertical-align: top;
+      max-width: 100%;
+      height: auto !important;
+
+      iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+      }
+
+      &.neeto-editor-aspect-1-1 {
+        iframe {
+          width: 100%;
+          aspect-ratio: 1 / 1;
+        }
+      }
+
+      &.neeto-editor-aspect-16-9 {
+        iframe {
+          width: 100%;
+          aspect-ratio: 16 / 9;
+        }
+      }
+
+      &.neeto-editor-aspect-9-16 {
+        iframe {
+          width: 100%;
+          aspect-ratio: 9 / 16;
+        }
+      }
+
+      &.neeto-editor-aspect-4-3 {
+        iframe {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+        }
+      }
+
+      &.neeto-editor-aspect-3-2 {
+        iframe {
+          width: 100%;
+          aspect-ratio: 3 / 2;
+        }
+      }
+    }
+  }
+
+  .neeto-editor__video--left {
+    justify-content: flex-start;
+  }
+
+  .neeto-editor__video--right {
+    justify-content: flex-end;
+  }
+
+  .neeto-editor__video--center {
+    justify-content: center;
+  }
+
+  mark {
+    border-radius: var(--neeto-editor-rounded-sm);
+    padding: 0px;
+  }
+
+  [data-type="mention"] {
+    color: rgb(var(--neeto-editor-accent-800));
+  }
+
+  [data-type="special-mention"] {
+    color: rgb(var(--neeto-editor-accent-800));
+  }
+
+  table {
+    overflow: hidden;
+    border: 1px solid rgba(var(--neeto-editor-gray-300));
+    border-collapse: separate;
+    border-radius: var(--neeto-editor-rounded-sm);
+    border-spacing: 0;
+    table-layout: fixed;
+    min-width: 300px;
+
+    th,
+    td {
+      border-inline-start: 1px solid rgba(var(--neeto-editor-gray-300));
+      border-top: 1px solid rgba(var(--neeto-editor-gray-300));
+      padding-block: 8px;
+      padding-inline: 12px;
+      position: relative;
+      text-align: start;
+    }
+
+    td:first-child,
+    th:first-child {
+      border-inline-start: none;
+    }
+
+    th {
+      background: rgb(var(--neeto-editor-gray-100));
+      border-top: none;
+    }
+
+    td {
+      background: rgb(var(--neeto-editor-white));
+    }
+  }
+}
+
+
+.neeto-editor-content--hidden {
+  display: none;
+}
+
+.neeto-editor__image-wrapper {
+  margin: 1rem 0;
+  display: flex;
+  text-decoration: none;
+  padding-inline-start: 3px;
+
+  &.neeto-editor__image--bordered {
+
+    img,
+    video {
+      border-style: solid;
+      border-width: 1px;
+      border-color: rgba(var(--neeto-editor-content-image-border-color));
+      border-radius: var(--neeto-editor-content-image-border-radius);
+    }
+  }
+
+  figure {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .neeto-editor__image {
+    display: inline-block;
+    min-height: 52px;
+    max-width: 100%;
+    height: auto !important;
+    vertical-align: top;
+
+    img,
+    video {
+      display: inline-block;
+      vertical-align: top !important;
+      width: 100%;
+      height: auto;
+
+      &.hidden {
+        display: none;
+      }
+    }
+
+    img {
+      cursor: zoom-in;
+    }
+  }
+
+  .neeto-editor__image-placeholder {
+    width: 400px;
+    height: 200px;
+    border: 1px solid;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  figcaption div {
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    font-weight: var(--neeto-editor-font-normal);
+    color: rgb(var(--neeto-editor-gray-600));
+
+    a {
+      display: inline-block;
+      text-align: center;
+      margin: 0;
+    }
+  }
+
+  figcaption.is-empty {
+    div:before {
+      position: absolute;
+      inset: 0;
+      content: "Add a caption";
+      color: rgb(var(--neeto-editor-gray-500));
+    }
+  }
+
+  color: unset !important;
+  font-weight: normal !important;
+
+  &:has(img:not([src])),
+  &:has(video:not([src]):not(:has(source[src]))) {
+    display: none;
+  }
+}
+
+.neeto-editor-content {
+  figcaption {
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    font-weight: normal;
+    color: #6b7280;
+    max-width: 100%;
+  }
+}
+
+.neeto-editor__image--left {
+  justify-content: flex-start;
+}
+
+.neeto-editor__image--center {
+  justify-content: center;
+}
+
+.neeto-editor__image--right {
+  justify-content: flex-end;
+}
+
+.selected-text {
+  padding-inline: 0px;
+  padding-block: 2px;
+  background-color: rgb(var(--neeto-editor-gray-300));
+}
+
+.ne-image-preview-wrapper {
+  position: fixed;
+  top: 0;
+  inset-inline-start: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(var(--neeto-editor-gray-800), 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+
+  &.active {
+    display: flex;
+  }
+
+  .ne-image-preview {
+    opacity: 0;
+    transition: opacity 100ms ease-in-out;
+    background: rgb(var(--neeto-editor-white));
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    max-width: 60vw;
+    max-height: 90vh;
+
+    img {
+      max-height: 100%;
+      max-width: 100%;
+      width: fit-content;
+      overflow: hidden;
+      object-fit: contain;
+      padding: 10px;
+      background: rgb(var(--neeto-editor-white));
+    }
+
+    &.image-loaded {
+      border-radius: 10px;
+      opacity: 1;
+      background: transparent;
+      display: flex;
+      align-items: center;
+    }
+
+    &__caption {
+      line-height: 1.5;
+      color: rgb(var(--neeto-editor-gray-800));
+      margin-top: auto;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .close-button {
+    position: absolute;
+    top: 12px;
+    inset-inline-end: 12px;
+    background-color: rgb(var(--neeto-editor-white));
+    border-radius: var(--neeto-editor-rounded-full);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-preview {
+    max-width: 70%;
+    max-height: 70%;
+  }
+
+  &__spinner {
+    position: absolute;
+
+    i {
+      background-color: rgb(var(--neeto-editor-gray-300));
+    }
+  }
+}

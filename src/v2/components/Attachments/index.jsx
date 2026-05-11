@@ -16,7 +16,7 @@ import { isEmpty } from "ramda";
 import { useTranslation } from "react-i18next";
 
 import useDropFiles from "hooks/useDropFiles";
-import "src/styles/components/attachments.scss";
+import "src/v2/styles/index.scss";
 import useFileUploader from "src/v2/hooks/useFileUploader";
 
 import Attachment from "./Attachment";

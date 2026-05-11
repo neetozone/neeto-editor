@@ -1,0 +1,38 @@
+.image-preview-neeto-ui-modal {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  height: auto !important;
+  margin: auto 0px;
+
+  &__close-btn {
+    float: right;
+    border-radius: 100%;
+    margin: 10px 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    border: 10px solid rgb(var(--neeto-ui-gray-100));
+    border-radius: 10px;
+    opacity: 1;
+    transition: opacity 2s ease-in-out
+  }
+
+  .display-none {
+    display: none;
+  }
+
+  .spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+
+    .spinner {
+      --neeto-ui-spinner-size: 32px;
+    }
+  }
+}

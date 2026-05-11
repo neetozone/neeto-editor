@@ -1,0 +1,140 @@
+.neeto-editor__callout {
+  position: relative;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+
+  .callout-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    .callout-emoji {
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .callout-content {
+      outline: none;
+      flex-grow: 1;
+      min-width: 0;
+
+      p {
+        margin: 0;
+      }
+
+      h1:first-child,
+      h2:first-child,
+      h3:first-child,
+      h4:first-child,
+      h5:first-child,
+      h6:first-child {
+        margin-top: 0;
+      }
+
+      >p:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &--default {
+    background-color: rgb(var(--neeto-editor-gray-100));
+  }
+
+  &--info {
+    background-color: rgb(var(--neeto-editor-info-100));
+  }
+
+  &--warning {
+    background-color: rgb(var(--neeto-editor-warning-100));
+  }
+
+  &--error {
+    background-color: rgb(var(--neeto-editor-error-100));
+  }
+
+  &--success {
+    background-color: rgb(var(--neeto-editor-success-100));
+  }
+}
+
+.neeto-ui-dropdown__popup .neeto-ui-dropdown__popup-menu.neeto-editor-callout-dropdown {
+  width: 200px;
+  padding: 8px;
+}
+
+.neeto-editor-callout-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .neeto-editor-callout-dropdown__section {
+    width: 100%;
+
+    .neeto-editor-callout-dropdown__section-title {
+      color: rgb(var(--neeto-ui-gray-600));
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      padding: 0 4px;
+    }
+
+    .neeto-editor-callout-dropdown__options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+  }
+}
+
+.neeto-editor-callout-dropdown__type-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-block: 6px;
+  padding-inline: 8px;
+  border-radius: 4px;
+  background: none;
+  border: none;
+  text-align: start;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 12px;
+
+  .neeto-editor-callout-dropdown__type-emoji {
+    margin-inline-end: 8px;
+    font-size: 14px;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .neeto-editor-callout-dropdown__type-label {
+    font-weight: 500;
+    color: rgb(var(--neeto-ui-gray-800));
+    flex: 1;
+  }
+
+  &:hover {
+    background-color: rgb(var(--neeto-ui-gray-50));
+  }
+
+  &--selected {
+    background-color: rgb(var(--neeto-ui-primary-50));
+    border: 1px solid rgb(var(--neeto-ui-primary-200));
+
+    .neeto-editor-callout-dropdown__type-label {
+      color: rgb(var(--neeto-ui-primary-900));
+    }
+  }
+}
+
+.neeto-editor-callout-dropdown__current-emoji {
+  display: inline-block;
+}

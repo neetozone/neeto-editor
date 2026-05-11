@@ -1,0 +1,100 @@
+$emoji-font-family: "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji,
+  "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols;
+
+.neeto-editor-emoji {
+  font-family: $emoji-font-family;
+}
+
+.emoji-mart.emoji-mart-light {
+  font-size: 14px;
+  color: rgb(var(--neeto-ui-gray-800));
+  border: none;
+
+  .emoji-mart-bar {
+    .emoji-mart-anchors {
+      .emoji-mart-anchor {
+        color: rgb(var(--neeto-ui-gray-500));
+
+        svg {
+          margin: auto;
+        }
+
+        .emoji-mart-anchor-bar {
+          background-color: rgb(var(--neeto-ui-gray-700)) !important;
+        }
+
+        &.emoji-mart-anchor-selected {
+          color: rgb(var(--neeto-ui-gray-700)) !important;
+        }
+      }
+    }
+  }
+
+  .emoji-mart-search input {
+    border-radius: var(--neeto-ui-rounded-sm);
+  }
+
+  .emoji-mart-category {
+    .emoji-mart-category-label span {
+      padding-top: 8px;
+    }
+
+    .emoji-mart-emoji {
+      span {
+        cursor: pointer;
+      }
+
+      &:hover {
+        &::before {
+          background-color: rgb(var(--neeto-ui-gray-200));
+          border-radius: var(--neeto-ui-rounded-sm);
+        }
+      }
+    }
+  }
+
+  .emoji-mart-scroll {
+    height: 264px;
+    padding-bottom: 0px;
+  }
+}
+
+// Emoji Suggestion
+
+.neeto-editor-emoji-suggestion {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 4px;
+  gap: 2px;
+  font-family: $emoji-font-family;
+
+  p {
+    font-size: var(--neeto-ui-text-xs);
+    color: rgb(var(--neeto-ui-black));
+  }
+
+  span {
+    height: 16px !important;
+    width: 16px !important;
+    font-size: 10px;
+  }
+
+  .neeto-editor-emoji-suggestion__item {
+    padding: 6px;
+    font-size: var(--neeto-ui-text-2xl);
+    transition: var(--neeto-ui-transition);
+    border-radius: var(--neeto-ui-rounded-sm);
+    line-height: 1;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(var(--neeto-ui-gray-200));
+    }
+  }
+
+  .neeto-editor-emoji-suggestion__item--selected {
+    background-color: rgb(var(--neeto-ui-gray-200));
+  }
+}

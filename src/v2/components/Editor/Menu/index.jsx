@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import { assoc, isEmpty, not } from "ramda";
 
-import "src/styles/editor/menu.scss";
+import "src/v2/styles/index.scss";
 import { DEFAULT_EDITOR_OPTIONS } from "src/v2/components/Editor/constants";
 
 import { MENU_COMPONENTS } from "./constants";

@@ -1,0 +1,195 @@
+.ne-attachments {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__preview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 4px;
+    padding-inline: 8px 2px;
+    border-radius: var(--neeto-ui-rounded-sm);
+    border: 1px solid rgb(var(--neeto-ui-gray-200));
+    background-color: rgb(var(--neeto-ui-white));
+    width: 256px;
+
+    &-wrapper {
+      display: flex;
+      gap: 8px;
+      width: 88%;
+
+      &__icon {
+        height: auto;
+        width: 15px;
+      }
+
+      p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        width: 92%
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &__progress {
+      display: flex;
+      opacity: 0.5;
+      justify-content: space-between;
+      width: 76%;
+      gap: 4px;
+
+      p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        width: 85%;
+      }
+
+      p:nth-child(2) {
+        width: fit-content;
+        flex-shrink: 0;
+      }
+
+      &-icon {
+        width: 15px;
+        height: auto;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 1px rgb(var(--neeto-ui-gray-400));
+    }
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  &-preview {
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+
+    .neeto-ui-modal__close {
+      top: 9px !important;
+      inset-inline-end: 16px !important;
+    }
+
+    &__header {
+      min-height: 58px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgb(var(--neeto-ui-gray-200));
+      padding: 16px !important;
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+
+      &__fileinfo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding-inline-end: 6px;
+        border-inline-end: 1px solid rgb(var(--neeto-ui-gray-200));
+      }
+    }
+
+    &__body {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      flex-grow: 1;
+      min-height: 10px;
+      padding-bottom: 8px !important;
+
+      &-download {
+        cursor: pointer;
+        color: rgb(var(--neeto-ui-accent-800));
+      }
+
+      &-docviewer {
+        height: 100%;
+        width: 100%;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      video {
+        height: 100%;
+        width: 100%;
+      }
+
+      iframe {
+        height: 100%;
+        width: 100%;
+        padding: 0 8px;
+      }
+
+      &-left,
+      &-right {
+        position: absolute !important;
+        z-index: 1;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &-left {
+        inset-inline-start: 16px;
+      }
+
+      &-right {
+        inset-inline-end: 16px;
+      }
+    }
+  }
+
+  .attachment-button-loader {
+    scale: 0.5;
+    width: 26px !important;
+  }
+}
+
+.ne-attachments--integrated {
+  padding-inline: 6px;
+  border: 1px solid rgb(var(--neeto-ui-gray-300));
+  border-top: none;
+  border-radius: 0px 0px var(--neeto-ui-rounded) var(--neeto-ui-rounded);
+  background-color: rgb(var(--neeto-ui-white));
+}
+
+.ne-attachments__wrapper {
+  position: relative;
+}
+
+.ne-attachments__wrapper.is-dragging-over-files::after {
+  position: absolute;
+  inset: 7px;
+  border-radius: 5px;
+  background-color: rgba(var(--neeto-ui-gray-300), 0.5);
+  border: 3px dashed rgb(var(--neeto-ui-gray-500));
+  color: rgb(var(--neeto-ui-gray-600));
+  content: 'Drop the file here';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  pointer-events: none;
+}

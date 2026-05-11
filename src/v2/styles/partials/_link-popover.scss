@@ -1,0 +1,87 @@
+.ne-link-popover {
+  position: fixed;
+  z-index: 99999;
+  background-color: rgb(var(--neeto-ui-white));
+  color: rgb(var(--neeto-ui-gray-800));
+  padding-block: 10px;
+  padding-inline: 16px;
+  border-radius: 5px;
+  border: 1px solid var(--neeto-ui-popover-light-theme-border-color);
+  box-shadow: var(--neeto-ui-tooltip-light-theme-box-shadow);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+
+  &__url-input {
+    margin: 8px 0;
+  }
+
+  &__checkbox {
+    margin: 16px 0;
+  }
+
+  &__option-button {
+    margin: 0 4px;
+  }
+
+  &__edit-prompt-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  a {
+    float: left;
+    max-width: 300px;
+    white-space: nowrap;
+    color: rgb(var(--neeto-ui-gray-800));
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-end: 8px;
+    font-weight: var(--neeto-ui-font-medium);
+    font-size: var(--neeto-ui-text-sm);
+
+    &[data-neeto-kb-article="true"][data-article-deleted="true"] {
+      color: rgb(var(--neeto-ui-error-600)) !important;
+    }
+  }
+
+  &__kb-article-link {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgb(var(--neeto-ui-accent-500)) !important;
+    text-decoration: none;
+
+    &--deleted {
+      color: rgb(var(--neeto-ui-error-600)) !important;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.ne-link-arrow {
+  z-index: 99999;
+  content: "";
+  position: fixed;
+  top: 0;
+  inset-inline-start: 0;
+  border-style: solid;
+  border-width: 6px;
+  border-color: rgba(0, 0, 0, 0.2) transparent transparent transparent;
+}
+
+
+.ne-article-picker-popover {
+  position: fixed;
+  z-index: 99999;
+  background-color: rgb(var(--neeto-ui-white));
+  color: rgb(var(--neeto-ui-gray-800));
+  padding-block: 10px;
+  padding-inline: 16px;
+  border-radius: 5px;
+  border: 1px solid var(--neeto-ui-popover-light-theme-border-color);
+  box-shadow: var(--neeto-ui-tooltip-light-theme-box-shadow);
+}

@@ -1,0 +1,116 @@
+.neeto-editor-table {
+  position: relative;
+  width: fit-content;
+  margin: 1rem 0 0;
+  max-width: 100%;
+  overflow-x: auto;
+
+  table {
+
+    th,
+    td {
+      p {
+        margin: 0;
+      }
+    }
+
+    .column-resize-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0px;
+      inset-inline-end: -2px;
+      width: 4px;
+      background-color: rgb(var(--neeto-ui-gray-300));
+    }
+
+    .selectedCell:after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: rgba(var(--neeto-ui-primary-500), 0.1);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 2px;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  &__add-row,
+  &__add-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--neeto-ui-gray-200));
+    border-radius: var(--neeto-ui-rounded-sm);
+    transition: var(--neeto-ui-transition);
+    visibility: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transition: var(--neeto-ui-transition);
+
+    p {
+      color: rgb(var(--neeto-ui-gray-500)) !important;
+      font-size: var(--neeto-ui-text-base) !important;
+      line-height: 16px !important;
+      font-weight: var(--neeto-ui-font-light) !important;
+    }
+
+    &:hover {
+      background: rgba(var(--neeto-ui-gray-300));
+    }
+  }
+
+  &:hover {
+
+    .neeto-editor-table__add-row,
+    .neeto-editor-table__add-column {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__add-row {
+    margin-block: 2px;
+    margin-inline: 0 20px;
+    padding-block-end: 2px;
+  }
+
+  &__add-column {
+    flex-direction: column;
+    padding-inline: 4px;
+  }
+
+  &.neeto-editor-table--left table,
+  .neeto-editor-content .table-responsive.neeto-editor-table--left table {
+
+    th,
+    td {
+      text-align: start !important;
+    }
+  }
+
+  &.neeto-editor-table--center table,
+  .neeto-editor-content .table-responsive.neeto-editor-table--center table {
+
+    th,
+    td {
+      text-align: center !important;
+    }
+  }
+
+  &.neeto-editor-table--right table,
+  .neeto-editor-content .table-responsive.neeto-editor-table--right table {
+
+    th,
+    td {
+      text-align: end !important;
+    }
+  }
+}
+
+.ProseMirror.resize-cursor {
+  cursor: col-resize;
+}

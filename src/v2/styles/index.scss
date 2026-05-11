@@ -1,11 +1,16 @@
 /**
  * neeto-editor v2 stylesheet entry.
  *
- * Consumers of `@bigbinary/neeto-editor/v2` should import this file once at
- * app startup, alongside their own neeto-atoms CSS import:
+ * Consumers don't import this file directly. It's side-effect imported by
+ * every v2 rollup entry (`src/v2/index.js`, `src/v2/components/Editor`,
+ * `src/v2/components/EditorContent`, `src/v2/components/Editor/Menu`,
+ * `src/v2/components/Attachments`), so any `import { Editor } from
+ * "@bigbinary/neeto-editor/v2"` triggers auto-injection at runtime via
+ * `rollup-plugin-styles` (default `mode: "inject"`). Same pattern as v1.
+ *
+ * The only CSS import a v2 consumer needs in their app is neeto-atoms's:
  *
  *     import "@bigbinary/neeto-atoms/dist/index.css";
- *     import "@bigbinary/neeto-editor/v2/styles";
  *
  * neeto-atoms's CSS is intentionally not re-imported here — it relies on
  * Tailwind v4 directives (`@custom-variant`, `@theme inline`) plus the Geist
@@ -13,28 +18,72 @@
  * Re-bundling it via SCSS would double-load the tokens and conflict with the
  * host's Tailwind config.
  *
- * What this file ships:
- *   1. The neeto-ui shim — bridges --neeto-ui-* names (used by editor SCSS)
- *      to neeto-atoms semantic tokens (--background, --foreground, --border,
- *      --primary, --destructive, --radius). Scoped to both `:root`/`.dark`
- *      and the legacy `.neeto-ui-theme--light`/`.neeto-ui-theme--dark`
- *      classes so consumers can toggle either convention.
- *   2. The shared editor SCSS (which now resolves via the shim).
- *   3. A `.dark` adapter for the highlight.js codeblock theme — mirrors the
- *      `.neeto-ui-theme--dark .hljs*` rules onto `.dark .hljs*` so v2 dark
- *      mode lights up codeblocks correctly.
+ * v2 owns its own copy of every editor partial under `./partials/`. We
+ * intentionally do NOT import from `src/styles/` (the v1 tree) — keeping the
+ * stylesheets forked means a host on v2 carries zero v1 CSS, and edits to
+ * v1's partials never accidentally leak into v2. The cost is bug fixes
+ * during the coexistence period need to be applied to both copies; once v1
+ * retires, the `src/styles/` tree can be deleted in one go without touching
+ * v2.
+ *
+ * Layers, in order:
+ *   1. neeto-ui shim — bridges `--neeto-ui-*` names (used by every legacy
+ *      editor partial below) to neeto-atoms semantic tokens. Must load first
+ *      so subsequent `@import`s resolve cleanly.
+ *   2. Shared animations (`fade-in`, `shake`, `spin`) — used by link popover
+ *      and other v2 surfaces.
+ *   3. Editor partials (forked from v1 at the time of the shadcn migration).
+ *      Same BEM class names as v1 so v2 components render against the
+ *      familiar selectors; the shim above lets the `--neeto-ui-*`
+ *      references inside resolve to neeto-atoms tokens.
+ *   4. v2-only overlays — `.dark` adapter for the highlight.js codeblock
+ *      theme and `_v2-toolbar` rules namespaced under `.ne-*` markers so
+ *      they don't leak into v1 or host-app surfaces.
  */
 
-@import "neetoui-shim";
+@import "v2-tokens";
 
-@import "../../styles/editor-output.scss";
+@import "partials/animations";
 
-// Editor wrapper border + fixed-menu container border. v1 SCSS that uses
-// `rgb(var(--neeto-ui-gray-400))` etc. resolves correctly because the shim
-// above ships those tokens as `r,g,b` tuples.
-@import "../../styles/editor/editor";
-@import "../../styles/editor/menu";
+@import "partials/commands";
+@import "partials/editor";
+@import "partials/editor-content";
+@import "partials/menu";
+@import "partials/media-uploader";
+@import "partials/image-preview";
+@import "partials/image-skeleton";
+@import "partials/emoji";
+@import "partials/table";
+@import "partials/link-popover";
+@import "partials/collaboration-cursor";
+@import "partials/codeblock";
+@import "partials/highlight";
+@import "partials/attachments";
 
 @import "codeblock-theme-adapter";
 
 @import "v2-toolbar";
+
+.ProseMirror {
+  overflow-y: auto;
+  height: 100%;
+  white-space: break-spaces;
+
+  a {
+    text-decoration: underline;
+    color: rgb(var(--neeto-ui-accent-500));
+  }
+
+  a[data-neeto-kb-article="true"][data-article-deleted="true"] {
+    color: #dc2626 !important;
+    cursor: not-allowed;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.ProseMirror:focus {
+  outline: none;
+}

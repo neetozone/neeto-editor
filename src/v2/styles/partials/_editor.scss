@@ -1,0 +1,126 @@
+@mixin show-placeholder {
+  content: attr(data-placeholder);
+  float: inline-start;
+  color: #ced4da;
+  pointer-events: none;
+  height: 0;
+}
+
+.neeto-editor {
+  @extend .neeto-editor-content;
+
+  max-width: 100% !important;
+  border-radius: var(--neeto-ui-rounded);
+  white-space: pre-wrap;
+  padding: 16px;
+  color: rgb(var(--neeto-ui-black));
+  background-color: rgb(var(--neeto-ui-white));
+
+  &:focus {
+    outline: none;
+  }
+
+  a {
+    pointer-events: none;
+  }
+
+  [data-variable] {
+    display: inline-flex;
+    color: rgb(var(--neeto-ui-gray-600));
+    background-color: rgb(var(--neeto-ui-gray-200));
+    border-radius: var(--neeto-ui-rounded-sm);
+    line-height: 1;
+    padding-block: 4px;
+    padding-inline: 6px;
+  }
+
+  .ProseMirror-separator {
+    display: none;
+  }
+
+  &.fixed-menu-active {
+    border: thin solid rgb(var(--neeto-ui-gray-400));
+    border-top: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+
+  &.attachments-active {
+    border-bottom: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .is-empty {
+    position: relative;
+  }
+
+  p.is-empty {
+    margin-bottom: 0;
+    line-height: 1;
+    min-height: 1rem;
+  }
+
+  &.placeholder-active {
+    .is-editor-empty:first-child::before {
+      @include show-placeholder;
+    }
+
+    p.is-current-slash-placeholder::before {
+      @include show-placeholder;
+    }
+  }
+
+  .ProseMirror-selectednode {
+    outline: 3px solid rgb(var(--neeto-ui-pastel-blue));
+  }
+
+  .has-focus {
+    background: var(--focus-background-color);
+    transition: background-color 200ms ease;
+  }
+
+  [data-variable] {
+    display: inline-flex;
+    color: rgb(var(--neeto-ui-gray-800));
+    background-color: rgb(var(--neeto-ui-gray-200));
+    border-radius: var(--neeto-ui-rounded-sm);
+    line-height: 1;
+    padding: 4px;
+  }
+}
+
+.neeto-editor-character-count {
+  padding: 4px;
+  color: rgb(var(--neeto-ui-gray-600));
+  font-size: 12px;
+  text-align: end;
+  width: 100%;
+}
+
+.neeto-editor-error {
+  color: rgb(var(--neeto-ui-error-500));
+  border-width: 1px;
+  border-color: rgb(var(--neeto-ui-error-500));
+  border-radius: var(--neeto-ui-rounded);
+}
+
+.neeto-editor-error:focus-within {
+  border-color: rgb(var(--neeto-ui-error-600));
+}
+
+.ne_variable-tag {
+  border-radius: 6px !important;
+}
+
+.neeto-editor-mentions {
+  &__wrapper {
+    padding-inline: 0px;
+    padding-block: 4px;
+  }
+
+  &__item {
+    padding-block: 8px;
+    padding-inline: 12px;
+  }
+}

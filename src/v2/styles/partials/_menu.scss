@@ -1,0 +1,502 @@
+.neeto-editor-fixed-menu {
+  border: thin solid rgb(var(--neeto-ui-gray-400));
+  border-radius: var(--neeto-ui-rounded) var(--neeto-ui-rounded) 0px 0px;
+  border-bottom: none;
+  background-color: rgb(var(--neeto-ui-white));
+  position: relative;
+  display: flex;
+
+  &--independant {
+    border-radius: unset;
+    border-bottom: thin solid rgb(var(--neeto-ui-gray-400));
+
+    .neeto-editor-fixed-menu__wrapper {
+      border-bottom: 0 !important;
+
+      button.neeto-editor-fixed-menu__item {
+        .neeto-ui-btn__icon {
+          path {
+            stroke-width: 1.8px;
+          }
+        }
+      }
+    }
+  }
+
+  &__item {
+    border-radius: 0;
+  }
+
+  button.neeto-editor-fixed-menu__item {
+    min-width: fit-content;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    --neeto-ui-btn-border-radius: 0;
+    --neeto-ui-btn-icon-size: 22px;
+    --neeto-ui-btn-padding-x: 0;
+    --neeto-ui-btn-padding-y: 0;
+    --neeto-ui-btn-focus-box-shadow: none;
+
+    .neeto-ui-btn__icon {
+      color: rgb(var(--neeto-ui-black));
+
+      path {
+        stroke-width: 1.5px;
+      }
+    }
+
+    &:hover {
+      background-color: rgb(var(--neeto-ui-gray-100));
+    }
+  }
+
+  button.neeto-editor-fixed-menu__item.neeto-ui-btn--style-secondary {
+    background-color: rgb(var(--neeto-ui-accent-100));
+
+    .neeto-ui-btn__icon {
+      color: rgb(var(--neeto-ui-accent-800));
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    padding: 0 2px;
+    border-bottom: thin solid rgb(var(--neeto-ui-gray-400));
+
+    &__button-group {
+      display: flex;
+    }
+  }
+
+  &__variables {
+    position: absolute;
+    inset-inline-end: 8px;
+    bottom: -42px;
+    z-index: 10;
+
+    .neeto-editor-menu__item {
+      padding: 4px;
+      border-radius: var(--neeto-ui-rounded-sm);
+      background-color: rgb(var(--neeto-ui-gray-700));
+
+      &:hover,
+      &.active {
+        background-color: rgb(var(--neeto-ui-gray-600));
+      }
+    }
+  }
+
+  &__variables--standalone {
+    position: absolute;
+    inset-inline-end: 0px;
+    top: 8px;
+    bottom: auto;
+    z-index: 10;
+  }
+
+  &__right-options {
+    display: flex;
+  }
+
+  &__emoji-dropdown {
+    max-height: unset !important;
+  }
+
+  &__separator {
+    display: flex;
+    height: 28px;
+    width: 32px;
+
+    span {
+      width: 100%;
+    }
+
+    span:first-child {
+      border-inline-end: 1px solid rgb(var(--neeto-ui-gray-200));
+    }
+  }
+}
+
+.neeto-editor-text-color-option {
+  &__options-group {
+    margin-block: 8px;
+    margin-inline: 4px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    &__input {
+      max-width: 120px;
+    }
+
+    &__reset-button {
+      align-self: center;
+    }
+  }
+}
+
+.react-colorful {
+  width: 100% !important;
+}
+
+.neeto-editor-menu__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4px;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  transition: var(--neeto-ui-transition);
+  border-radius: 2px;
+
+  p {
+    color: rgb(var(--neeto-ui-gray-600));
+    font-size: var(--neeto-ui-text-xs);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  &:hover,
+  &.active {
+    background-color: rgb(var(--neeto-ui-gray-200));
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: rgb(var(--neeto-ui-gray-300)) auto 1px;
+  }
+
+  input[type="color"] {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    background-color: rgb(var(--neeto-ui-gray-100));
+  }
+}
+
+.neeto-editor-link__item {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px !important;
+}
+
+.neeto-editor-table__item {
+  display: flex !important;
+  flex-direction: row;
+  gap: 8px;
+  padding: 8px !important;
+  min-width: 210px;
+
+  input {
+    max-width: 60px !important;
+  }
+}
+
+.neeto-editor-table__options-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px !important;
+  max-height: 150px !important;
+  overflow: scroll;
+}
+
+.neeto-editor-font-size__wrapper {
+  font-size: 16px;
+  font-weight: var(--neeto-ui-font-normal) !important;
+  padding-inline-start: 4px !important;
+  padding-inline-end: 4px !important;
+}
+
+.tippy-box[data-theme~=neeto-editor-bubble-menu-tippy-box] {
+  box-shadow: none !important;
+}
+
+.tippy-box[data-theme~=neeto-editor-bubble-menu-tippy-box] .tippy-content {
+  padding: 0 !important;
+}
+
+.tippy-box[data-theme~=neeto-editor-common-submenu-tippy-box] {
+  box-shadow: none !important;
+}
+
+.tippy-box[data-theme~=neeto-editor-common-submenu-tippy-box] .tippy-content {
+  padding: 0 !important;
+}
+
+.neeto-editor-bubble-menu {
+  position: relative;
+  display: flex;
+  gap: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: var(--neeto-ui-rounded);
+  background: rgb(var(--neeto-ui-white));
+  padding: 0;
+  border: 1px solid rgb(var(--neeto-ui-gray-400));
+  overflow-x: auto;
+
+  &>.neeto-editor-bubble-menu__item:first-child,
+  &>.neeto-editor-fixed-menu__item:first-child,
+  &>.neeto-editor-table-bubble-menu__item:first-child {
+    border-top-left-radius: var(--neeto-ui-rounded);
+    border-bottom-left-radius: var(--neeto-ui-rounded);
+  }
+
+  &>.neeto-editor-bubble-menu__item:last-child,
+  &>.neeto-editor-fixed-menu__item:last-child,
+  &>.neeto-editor-table-bubble-menu__item:last-child {
+    border-top-right-radius: var(--neeto-ui-rounded);
+    border-bottom-right-radius: var(--neeto-ui-rounded);
+  }
+
+  button.neeto-editor-bubble-menu__item,
+  button.neeto-editor-fixed-menu__item,
+  button.neeto-editor-table-bubble-menu__item {
+    color: rgb(var(--neeto-ui-black)) !important;
+    min-width: fit-content;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    --neeto-ui-btn-border-radius: 0;
+    --neeto-ui-btn-icon-size: 22px;
+    --neeto-ui-btn-padding-x: 0;
+    --neeto-ui-btn-padding-y: 0;
+    --neeto-ui-btn-focus-box-shadow: none;
+
+    .neeto-ui-btn__icon {
+      color: rgb(var(--neeto-ui-black));
+
+      path {
+        stroke-width: 1.5px;
+      }
+    }
+
+    &:hover,
+    &:active,
+    &.active {
+      background-color: rgb(var(--neeto-ui-gray-100));
+    }
+  }
+
+  button.neeto-editor-bubble-menu__item.neeto-ui-btn--style-secondary {
+    background-color: rgb(var(--neeto-ui-accent-100)) !important;
+
+    .neeto-ui-btn__icon {
+      color: rgb(var(--neeto-ui-accent-800)) !important;
+    }
+  }
+
+  .neeto-editor-bubble-menu__link {
+    width: 256px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px;
+    gap: 6px;
+
+    .neeto-editor-bubble-menu-link__input {
+      background-color: transparent;
+      outline: none;
+      height: 28px;
+      width: 100%;
+      font-size: var(--neeto-ui-input-font-size);
+      transition: var(--neeto-ui-transition);
+      border-radius: var(--neeto-ui-input-border-radius);
+      border: var(--neeto-ui-input-border-width) solid var(--neeto-ui-input-border-color);
+      background-color: var(--neeto-ui-input-bg-color);
+      color: var(--neeto-ui-input-color);
+      outline: none;
+      line-height: 1.2;
+
+      &::placeholder {
+        color: rgba(var(--neeto-ui-white, 0.4));
+      }
+    }
+
+    .ne-btn--icon-only {
+      padding: 0;
+      min-height: 0;
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .neeto-editor-bubble-menu__table {
+    max-width: 256px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 4px;
+    gap: 6px;
+
+    input {
+      font-size: var(--neeto-ui-input-font-size);
+      transition: var(--neeto-ui-transition);
+      border-radius: var(--neeto-ui-input-border-radius);
+      border: var(--neeto-ui-input-border-width) solid var(--neeto-ui-input-border-color);
+      background-color: var(--neeto-ui-input-bg-color);
+      color: var(--neeto-ui-input-color);
+      outline: none;
+      line-height: 1.2;
+      width: 60px;
+      height: 28px;
+      padding-block: 3px;
+      padding-inline: 5px;
+
+      &::placeholder {
+        color: rgb(var(--neeto-ui-gray-500));
+      }
+    }
+
+    &__menu-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    &__input-label {
+      color: rgb(var(--neeto-ui-gray-800));
+    }
+
+    &__buttons {
+      display: flex;
+      align-self: flex-end;
+      justify-content: space-between;
+      gap: 4px;
+    }
+
+    &__options {
+      display: flex;
+      max-height: 190px;
+      flex-direction: column;
+      overflow: scroll;
+      gap: 2px;
+    }
+  }
+
+  .neeto-editor-bubble-menu__dropdown-target {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+    font-size: var(--neeto-ui-text-xs);
+    line-height: var(--neeto-ui-leading-normal);
+  }
+
+  .neeto-editor-bubble-menu__dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .neeto-editor-bubble-menu__dropdown-item {
+      width: 100%;
+      text-align: start;
+      padding-block: 8px;
+      padding-inline: 12px;
+      font-size: var(--neeto-ui-text-xs);
+
+      &:first-child {
+        border-top-left-radius: var(--neeto-ui-rounded);
+        border-top-right-radius: var(--neeto-ui-rounded);
+      }
+
+      &:last-child {
+        border-bottom-left-radius: var(--neeto-ui-rounded);
+        border-bottom-right-radius: var(--neeto-ui-rounded);
+      }
+    }
+  }
+}
+
+.neeto-editor-bubble-menu-animate-shake {
+  animation: 1s linear infinite alternate both shake;
+}
+
+.neeto-editor-table-menu {
+  &__button {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.neeto-editor__image-menu {
+  .neeto-ui-dropdown__popup {
+    display: flex;
+    min-width: unset;
+
+    .neeto-ui-btn {
+      .neeto-ui-btn__icon {
+        height: 18px !important;
+        width: 18px !important;
+      }
+    }
+  }
+
+  &-btn {
+    position: absolute !important;
+    top: 6px;
+    inset-inline-end: 6px;
+    z-index: 1;
+    border-radius: 100%;
+  }
+}
+
+.neeto-editor-menu-font-size-options {
+  padding: 8px !important;
+
+  .neeto-ui-dropdown__popup-menu-item {
+    background-color: transparent !important;
+  }
+
+  .neeto-editor-menu-font-size-options__item-btn {
+    padding-inline-start: 0px !important;
+    padding-inline-end: 0px !important;
+    min-width: 34px;
+    min-height: 34px;
+    border-radius: var(--neeto-ui-btn-border-radius) !important;
+    overflow: hidden;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .neeto-editor-menu-font-size-options__item-btn--selected {
+    background-color: rgb(var(--neeto-ui-accent-100)) !important;
+    color: rgb(var(--neeto-ui-accent-800)) !important;
+  }
+}
+
+.neeto-editor-table-bubble-menu__dropdown .neeto-ui-dropdown__popup {
+  min-width: auto;
+}
+
+.neeto-editor-table-bubble-menu__dropdown .neeto-ui-dropdown__popup .neeto-ui-dropdown__popup-menu {
+  padding: 0;
+  --neeto-ui-btn-border-radius: 0;
+}
+
+.neeto-editor-fixed-menu-standalone-variables-wrapper {
+  position: relative;
+}
