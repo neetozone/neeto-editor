@@ -24,16 +24,6 @@
     pointer-events: none;
   }
 
-  [data-variable] {
-    display: inline-flex;
-    color: var(--muted-foreground);
-    background-color: var(--border);
-    border-radius: var(--ne-editor-radius-sm);
-    line-height: 1;
-    padding-block: 4px;
-    padding-inline: 6px;
-  }
-
   .ProseMirror-separator {
     display: none;
   }
