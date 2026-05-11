@@ -269,7 +269,8 @@
   --ne-editor-content-image-border-radius: 8px;
 
   --ne-editor-content-anchor-color: oklch(0.205 0 0);
-  --ne-editor-content-link-color: oklch(0.5318 0.2399 256.99);
+  --ne-editor-content-link-color: oklch(0.205 0 0);
+  --ne-editor-content-link-decoration-color: oklch(0.205 0 0 / 0.4);
   --ne-editor-content-mention-color: oklch(0.5318 0.2399 256.99);
 
   --ne-editor-content-table-border-color: oklch(0.922 0 0);
@@ -340,7 +341,8 @@
   --ne-editor-content-image-border-color: oklch(1 0 0 / 10%);
 
   --ne-editor-content-anchor-color: oklch(0.922 0 0);
-  --ne-editor-content-link-color: oklch(0.717 0.1648 250.79);
+  --ne-editor-content-link-color: oklch(0.922 0 0);
+  --ne-editor-content-link-decoration-color: oklch(0.922 0 0 / 0.4);
   --ne-editor-content-mention-color: oklch(0.717 0.1648 250.79);
 
   --ne-editor-content-table-border-color: oklch(1 0 0 / 10%);
@@ -810,7 +812,14 @@
   
   a[href] {
     color: var(--ne-editor-content-link-color);
+    text-decoration: underline;
+    text-decoration-color: var(--ne-editor-content-link-decoration-color);
+    text-underline-offset: 4px;
     font-weight: inherit;
+
+    &:hover {
+      text-decoration-color: var(--ne-editor-content-link-color);
+    }
   }
 
   
