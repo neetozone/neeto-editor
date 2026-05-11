@@ -1,0 +1,92 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta
+  title="V2 (neeto-atoms)/Getting started"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+/>
+
+# Getting started — v2
+
+<br />
+<br />
+
+### **Installation**
+
+<div className="sbdocs-install-code">
+
+```
+yarn add @bigbinary/neeto-editor
+```
+
+</div>
+
+The v2 build ships in the same npm package as v1 — switch the import path to
+opt in.
+
+### **Peer dependencies**
+
+<div className="sbdocs-install-code">
+
+```
+yarn add @bigbinary/neeto-atoms @bigbinary/neeto-commons-frontend lucide-react react-toastify@8.0.2 react-router-dom@5.2.0 react-router-nav-prompt@0.4.1 formik@2.2.9 yup@0.32.11 ramda@0.28.0 axios@0.27.2 i18next@21.7.0 react-i18next@11.16.8
+```
+
+</div>
+
+> v1 and v2 ship side-by-side from the same npm package. Consumer products
+> migrate at their own pace by switching their import path from
+> `@bigbinary/neeto-editor` to `@bigbinary/neeto-editor/v2`. They never coexist
+> on the same page.
+
+### **Usage**
+
+Use the `Editor` component for rendering the rich text editor.
+
+```jsx
+import { Editor } from "@bigbinary/neeto-editor/v2";
+```
+
+Use the `EditorContent` component for displaying the rich text content.
+
+```jsx
+import { EditorContent } from "@bigbinary/neeto-editor/v2";
+```
+
+Use the `isEditorEmpty` utility to check whether the passed `htmlContent` is
+considered empty by the editor.
+
+```jsx
+import { isEditorEmpty } from "@bigbinary/neeto-editor/v2";
+```
+
+Use the `FormikEditor` component as a formik input component.
+
+```jsx
+import { FormikEditor } from "@bigbinary/neeto-editor/v2";
+```
+
+### **Styles**
+
+Import the v2 stylesheet once, near the root of the app:
+
+```jsx
+import "@bigbinary/neeto-editor/v2/styles";
+```
+
+### **Local development**
+
+1. Clone the [repository](https://github.com/bigbinary/neeto-editor) and
+   switch to the new directory.
+2. Run `yarn install`.
+3. Run `yarn start` to spin up Storybook.
+4. Storybook should now be running at
+   [http://localhost:6006/](http://localhost:6006/).
+
+### **Building**
+
+The neetoEditor package is auto-published to npm for every new merge to the
+main branch. Both `dist/index.js` (v1) and `dist/v2/index.js` (v2) are
+emitted. Check the `publish` workflow in git actions for the live build.

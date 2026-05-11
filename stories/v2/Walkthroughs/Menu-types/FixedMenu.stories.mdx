@@ -1,0 +1,22 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Walkthroughs/MenuTypes/Fixed Menu"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Fixed menu — v2
+
+The default top-of-editor toolbar. Exercises `Fixed/components/Button`,
+`MoreMenu`, `SecondaryMenuTarget`, `FontSizeOption`, `HighlightDropdown`,
+`CalloutDropdown` (and its `CalloutTypeOption` cells), `EmojiOption`,
+`TextColorOption`, `Fixed/TableOption`.
+
+<Canvas>
+  <Editor menuType="fixed" autoFocus />
+</Canvas>

@@ -1,0 +1,115 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../src/v2";
+import VariablesDemo from "./VariablesDemo";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Variables"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Variable Support — v2
+
+neetoEditor supports variable placement. Pass an array of variables as the
+`variables` prop. Users can choose from the available variables via the `{}`
+icon in the fixed menu, or by typing `{{` inside the editor.
+
+<Canvas>
+  <Editor
+    variables={[
+      {
+        category: "ticket",
+        label: "Ticket",
+        variables: [
+          { label: "ID", key: "id" },
+          { label: "Number", key: "number" },
+          { label: "Category", key: "category" },
+          { label: "Status", key: "status" },
+          { label: "Customer URL/Link", key: "customer_url" },
+          { label: "Latest Comment", key: "latest_comment" },
+          { label: "Updated at", key: "updatedt_at" },
+        ],
+      },
+      { label: "Subdomain", key: "subdomain" },
+      {
+        category: "organisation",
+        label: "Organisation",
+        variables: [
+          { label: "ID", key: "id" },
+          { label: "Name", key: "name" },
+          { label: "Slug", key: "slug" },
+        ],
+      },
+    ]}
+  />
+</Canvas>
+
+### **Usage**
+
+The following is an example of how to use variables with `FormikEditor` and
+`EditorContent`.
+
+<VariablesDemo />
+
+<br />
+
+### **Variables prop**
+
+```js
+[
+  {
+    category: "ticket",
+    label: "Ticket",
+    variables: [
+      {
+        label: "ID",
+        key: "id",
+        value: "001",
+      },
+      {
+        label: "Name",
+        key: "name",
+        value: "Ticket name",
+      },
+    ],
+  },
+  {
+    label: "Subdomain",
+    key: "subdomain",
+    value: "subdomain name",
+  },
+  {
+    label: "User",
+    key: "user",
+  },
+  {
+    category: "organisation",
+    label: "Organisation",
+    variables: [
+      {
+        label: "ID",
+        key: "id",
+      },
+      {
+        label: "Name",
+        key: "name",
+        value: "Organisation name",
+      },
+    ],
+  },
+];
+```
+
+### **substituteVariables** method
+
+The `substituteVariables` method substitutes variables in the editor content
+with their associated values.
+
+```jsx
+const parsedEditorContent = substituteVariables(editorContent, variables);
+```
+
+Here `variables` is an array of the format shown above.

@@ -42,6 +42,18 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       ...alias,
+      // v2: bare entry → src/v2/index.js; sub-paths → src/v2/components/<Name>
+      "@bigbinary/neeto-editor/v2$": path.resolve(
+        __dirname,
+        "../src/v2/index.js"
+      ),
+      "@bigbinary/neeto-editor/v2": path.resolve(
+        __dirname,
+        "../src/v2/components"
+      ),
+      // Sub-paths that don't live under `src/components/` — must come before
+      // the broad `@bigbinary/neeto-editor` alias so webpack matches them first.
+      "@bigbinary/neeto-editor/utils": path.resolve(__dirname, "../src/utils"),
       "@bigbinary/neeto-editor": path.resolve(__dirname, "../src/components"),
     };
 
@@ -58,8 +70,14 @@ module.exports = {
 
     config.module.rules.push({
       test: /\.js$/,
-      include: /node_modules\/@bigbinary\/neeto-commons-frontend\/initializers/,
-      use: { loader: "babel-loader", options: { plugins: ["preval"] } },
+      include:
+        /node_modules\/@bigbinary\/neeto-commons-frontend\/dist\/initializers/,
+      enforce: "pre",
+      use: {
+        loader: require.resolve(
+          "@bigbinary/neeto-commons-frontend/configs/webpack/prevalLoader.js"
+        ),
+      },
     });
 
     config.resolve.extensions.push(".svg");

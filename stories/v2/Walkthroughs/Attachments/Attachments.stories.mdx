@@ -1,0 +1,84 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import {
+  attachments,
+  setAttachments,
+  ATTACHMENTS_TABLE_COLUMNS,
+  ATTACHMENTS_TABLE_ROWS,
+} from "../../../Walkthroughs/Attachments/constants";
+import { Attachments } from "../../../../src/v2";
+import Table from "../../../components/Table";
+import DefaultAttachment from "../../../assets/attachments.gif";
+
+<Meta
+  title="V2 (neeto-atoms)/Walkthroughs/Attachments"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Attachments}
+/>
+
+# Attachments — v2
+
+`import { Attachments } from "@bigbinary/neeto-editor/v2";`
+
+The v2 `Attachments` component allows users to upload files via drag-and-drop
+or a file input. The internal upload pipeline still uses `Uppy`, while the UI
+shell is rebuilt on neeto-atoms `Button`, `Toastr`, `DropdownMenu`, `Input`,
+`Tooltip`, `Spinner`, `Alert`, and `Dialog`.
+
+<img src={DefaultAttachment} />
+<br />
+
+#### **Props**
+
+<Table columns={ATTACHMENTS_TABLE_COLUMNS} rows={ATTACHMENTS_TABLE_ROWS} />
+<br />
+<br />
+
+#### **Properties of config prop**
+
+> allowedFileTypes: [ ".jpg", ".png", ... ]<br /> maxNumberOfFiles: 1 ( for
+> single file or else multiple files can be selected )<br /> maxFileSize =
+> 100 \* 1024 \* 1024 ( for 100 MB ).
+
+<br />
+
+## **Stories**
+
+<br />
+
+### **Default**
+
+The attachments prop is an array of objects with the following structure:
+
+```js
+[
+  {
+    filename: "example.jpg",
+    url: "https://example.com/images/example.jpg",
+    signedId: "ASDF1234",
+  },
+];
+```
+
+<Canvas>
+  <Attachments attachments={[]} onChange={() => {}} />
+</Canvas>
+
+### **With previous attachments**
+
+<Canvas>
+  <Attachments attachments={attachments} onChange={setAttachments} />
+</Canvas>
+
+### **With options disabled**
+
+<Canvas>
+  <Attachments
+    attachments={attachments}
+    onChange={setAttachments}
+    isIndependent={false}
+    disabled
+  />
+</Canvas>

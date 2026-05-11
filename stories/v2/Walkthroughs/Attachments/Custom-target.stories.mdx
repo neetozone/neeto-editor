@@ -1,0 +1,52 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import CustomAttachmentsDemo from "./CustomAttachmentsDemo";
+import { Attachments } from "../../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Walkthroughs/Attachments/CustomAttachments"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Attachments}
+/>
+
+# Custom Attachments — v2
+
+The Upload function of the `Attachments` component can be mapped to different
+components.
+
+<Canvas>
+  <CustomAttachmentsDemo />
+</Canvas>
+
+## Usage
+
+```jsx
+import React, { useRef } from "react";
+
+import { Button } from "@bigbinary/neeto-atoms";
+import { noop } from "neetocist";
+
+import { Attachments } from "@bigbinary/neeto-editor/v2";
+
+const CustomAttachmentsDemo = () => {
+  const attachmentsRef = useRef(null);
+
+  const handleUpload = () =>
+    attachmentsRef.current?.handleUploadAttachments() || noop;
+
+  return (
+    <>
+      <Button label="Custom upload button" onClick={handleUpload} />
+      <Attachments
+        className="pt-2"
+        isIndependent={false}
+        ref={attachmentsRef}
+      />
+    </>
+  );
+};
+
+export default CustomAttachmentsDemo;
+```

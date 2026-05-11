@@ -1,0 +1,33 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta
+  title="V2 (neeto-atoms)/Welcome"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+/>
+
+# neeto-editor v2 (neeto-atoms)
+
+The v2 editor is the same `neeto-editor` API rebuilt on top of
+`@bigbinary/neeto-atoms` (shadcn) instead of `@bigbinary/neetoui`. The public
+component surface is unchanged — switching to v2 is a one-line import swap.
+
+```js
+import { Editor } from "@bigbinary/neeto-editor/v2";
+```
+
+v1 and v2 ship side-by-side from the same npm package, so consumer products can
+migrate at their own pace. They never coexist on the same page — pick one entry
+per app.
+
+## What's different from v1
+
+- Renders against neeto-atoms (shadcn) primitives — Button, DropdownMenu,
+  Dialog, Tabs, etc.
+- Theming flows through shadcn CSS variables instead of neeto-ui SCSS tokens.
+- No `@bigbinary/neetoui` peer dependency once cutover lands.
+
+Browse the **Walkthroughs** and **Examples** sections under this group for
+runnable stories.

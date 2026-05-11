@@ -1,0 +1,167 @@
+import React, { useState, useEffect, useRef } from "react";
+
+import { Select, Spinner } from "@bigbinary/neeto-atoms";
+import { findBy } from "neetocist";
+import Search from "neetomolecules/v2/Search";
+import { useTranslation } from "react-i18next";
+
+import { useFetchKbArticles } from "hooks/reactQuery/kbArticle/useArticleFetching";
+import {
+  MODE,
+  MODAL_BOTTOM_MARGIN,
+  MODAL_LEFT_OFFSET,
+  MODAL_TOP_OFFSET,
+  MODAL_TRANSFORM_Y,
+  MODAL_TRANSFORM_X,
+} from "src/v2/components/Editor/CustomExtensions/LinkKbArticles/constants";
+import useArticleNavigation from "src/v2/components/Editor/CustomExtensions/LinkKbArticles/hooks/useArticleNavigation";
+import {
+  buildArticleFullUrl,
+  createArticleOptions,
+} from "src/v2/components/Editor/CustomExtensions/LinkKbArticles/utils";
+
+import ArticlesList from "./ArticlesList";
+
+const ArticlePicker = ({
+  mode = MODE.MODAL,
+  cursorPos,
+  onClose,
+  isLoading: externalIsLoading,
+  options: externalOptions,
+  value,
+  onChange,
+  placeholder,
+  label,
+  name,
+  className,
+  onArticleSelect,
+}) => {
+  const { t } = useTranslation();
+  const [searchTerm, setSearchTerm] = useState("");
+  const modalRef = useRef(null);
+  const articlesContainerRef = useRef(null);
+
+  const { data: articles = [], isLoading: isLoadingArticles } =
+    useFetchKbArticles({
+      searchTerm,
+      reactQueryOptions: { enabled: !externalOptions },
+    });
+
+  const isLoading = externalIsLoading || isLoadingArticles;
+
+  const selectOptions =
+    mode === MODE.SELECT ? createArticleOptions(articles) : [];
+
+  const handleModalArticleSelect = article => {
+    if (mode !== MODE.MODAL || !article) return;
+
+    const articleWithUrl = {
+      ...article,
+      full_url: buildArticleFullUrl(article.slug),
+    };
+
+    onArticleSelect(article, articleWithUrl);
+    onClose?.();
+  };
+
+  const { highlightedIndex } = useArticleNavigation({
+    articles,
+    articlesContainerRef,
+    mode,
+    onClose,
+    handleModalArticleSelect,
+    searchTerm,
+  });
+
+  const handleSelectChange = selectedValueString => {
+    const options = externalOptions || selectOptions;
+    const selectedOption = findBy({ value: selectedValueString }, options);
+
+    if (selectedOption?.data?.type === "article" && onChange) {
+      onChange(
+        { value: selectedOption.value, label: selectedOption.label },
+        undefined
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (mode !== MODE.MODAL || !modalRef.current || !cursorPos) return;
+
+    const modal = modalRef.current;
+
+    const modalRect = modal.getBoundingClientRect();
+    const modalWidth = modalRect.width || 320;
+    const modalHeight = modalRect.height || 200;
+
+    const maxLeft = window.innerWidth - modalWidth;
+    const maxTop = window.innerHeight - modalHeight - MODAL_BOTTOM_MARGIN;
+
+    const adjustedLeft = Math.min(cursorPos.left - MODAL_LEFT_OFFSET, maxLeft);
+    const adjustedTop = Math.min(cursorPos.top - MODAL_TOP_OFFSET, maxTop);
+
+    Object.assign(modal.style, {
+      position: "fixed",
+      top: `${adjustedTop}px`,
+      left: `${adjustedLeft}px`,
+      transform: `translateY(${MODAL_TRANSFORM_Y}px) translateX(${MODAL_TRANSFORM_X}px)`,
+      zIndex: 99999,
+    });
+  }, [mode, cursorPos]);
+
+  useEffect(() => {
+    if (mode !== MODE.MODAL) return undefined;
+
+    const handleClickOutside = event => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        onClose?.();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [mode, onClose]);
+
+  if (mode === MODE.MODAL) {
+    return (
+      <div className="ne-article-picker-popover w-80 border" ref={modalRef}>
+        <div className="mb-4">
+          <Search
+            autoFocus
+            placeholder={t("neetoEditor.placeholders.searchArticles")}
+            onSearch={setSearchTerm}
+          />
+        </div>
+        {isLoading ? (
+          <div className="flex items-center justify-center py-8">
+            <Spinner />
+          </div>
+        ) : (
+          <div>
+            <ArticlesList
+              {...{ articles, highlightedIndex, searchTerm }}
+              containerRef={articlesContainerRef}
+              onSelectArticle={handleModalArticleSelect}
+            />
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <Select
+      {...{ className, label, name, placeholder }}
+      isSearchable
+      isDisabled={isLoading}
+      options={externalOptions || selectOptions}
+      value={typeof value === "object" ? value?.value : value}
+      onChange={handleSelectChange}
+    />
+  );
+};
+
+export default ArticlePicker;

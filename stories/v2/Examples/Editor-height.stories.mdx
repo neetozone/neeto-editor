@@ -1,0 +1,22 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Editor height"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Editor height — v2
+
+neetoEditor can be configured to provide a custom initial height using the
+`rows` prop. It accepts an integer value which represents the number of rows.
+The `heightStrategy` prop controls whether the height is `fixed` or
+`flexible`.
+
+<Canvas>
+  <Editor rows={3} heightStrategy="flexible" />
+</Canvas>

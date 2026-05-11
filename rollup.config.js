@@ -26,7 +26,8 @@ const peerDependencies = Object.keys(packageJson.peerDependencies);
 
 const formats = ["esm", "cjs"];
 
-const input = {
+// v1 (neetoUI-based) entries — outputs to `dist/*` and `dist/cjs/*`
+const v1Input = {
   index: "./src/index.js",
   Editor: "./src/components/Editor",
   EditorContent: "./src/components/EditorContent",
@@ -36,6 +37,21 @@ const input = {
   utils: "./src/utils",
   constants: "./src/constants",
 };
+
+// v2 (neeto-atoms-based) entries — outputs to `dist/v2/*` and `dist/cjs/v2/*`.
+// Mirrors v1Input one-for-one so babel-plugin-transform-imports can rewrite
+// bare-barrel imports (`{ Editor } from "@bigbinary/neeto-editor/v2"`) to
+// subpaths (`@bigbinary/neeto-editor/v2/Editor`) without breaking.
+const v2Input = {
+  "v2/index": "./src/v2/index.js",
+  "v2/Editor": "./src/v2/components/Editor",
+  "v2/EditorContent": "./src/v2/components/EditorContent",
+  "v2/Menu": "./src/v2/components/Editor/Menu",
+  "v2/FormikEditor": "./src/v2/components/Editor/FormikEditor",
+  "v2/Attachments": "./src/v2/components/Attachments",
+};
+
+const input = { ...v1Input, ...v2Input };
 
 const plugins = [
   peerDepsExternal(),
@@ -109,6 +125,27 @@ const config = args => {
           minimize: true,
         }),
       ],
+    },
+    {
+      // Input basename `index.scss` would emit `dist/v2/index.js` and clobber
+      // the JS barrel from the main bundle. Force a non-colliding stub name;
+      // the actual consumable artifact is the extracted `dist/v2/styles.css`.
+      input: "./src/v2/styles/index.scss",
+      output: {
+        dir: `${__dirname}/dist/v2`,
+        entryFileNames: "_styles-bundle.js",
+        format: "esm",
+        sourcemap: true,
+        assetFileNames: "[name][extname]",
+      },
+      plugins: [
+        styles({
+          extensions: [".css", ".scss", ".min.css"],
+          mode: ["extract", "styles.css"],
+          minimize: true,
+        }),
+      ],
+      extract: true,
     },
     {
       input: "./src/styles/editor-output-pdf-email.scss",

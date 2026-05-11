@@ -1,0 +1,61 @@
+import { Meta } from "@storybook/addon-docs";
+import {
+  MethodsTable,
+  CommandsTable,
+  UtilitesTable,
+} from "../../API-Reference/Tables";
+
+<Meta
+  title="V2 (neeto-atoms)/API Reference/Editor API"
+  parameters={{
+    layout: "padded",
+    viewMode: "docs",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+/>
+
+# Editor API — v2
+
+####
+
+The editor API is identical between v1 and v2 — TipTap drives the underlying
+methods and commands. The tables below list the most commonly used surface.
+
+### **Methods**
+
+<MethodsTable />
+
+#### **Usage**
+
+```js
+editor.methodName;
+```
+
+Refer to [https://tiptap.dev/api/editor](https://tiptap.dev/api/editor) for
+the full list of available editor methods.
+
+### **Commands**
+
+<CommandsTable />
+
+#### **Usage**
+
+```js
+editor.commands.commandName();
+```
+
+You can also chain multiple commands in a single call.
+
+```js
+editor.chain().command1().command2().run();
+```
+
+Refer to [https://tiptap.dev/api/commands](https://tiptap.dev/api/commands)
+for the full list of available editor commands.
+
+### **Utility functions**
+
+The package also exports a few utility functions useful when building an
+interface around neeto-editor.
+
+<UtilitesTable />

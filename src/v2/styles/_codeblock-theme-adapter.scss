@@ -1,0 +1,87 @@
+/**
+ * Codeblock theme — `.dark` adapter.
+ *
+ * The shared `editor-content.scss` ships a 70+ rule highlight.js theme keyed
+ * to `.neeto-ui-theme--dark .hljs*`. The v2 entry uses Tailwind v4's `.dark`
+ * convention. This file mirrors the dark-theme rules under `.dark` so v2
+ * consumers that toggle `.dark` (the neeto-atoms standard) get the same
+ * dark-mode codeblock colors.
+ *
+ * Light theme already cascades correctly because v1 uses `:root,
+ * .neeto-ui-theme--light` and v2 also matches `:root` by default.
+ */
+
+.dark .hljs {
+  color: #383a42;
+  background: #fafafa;
+}
+
+.dark .hljs-comment,
+.dark .hljs-quote {
+  color: #a0a1a7;
+  font-style: italic;
+}
+
+.dark .hljs-doctag,
+.dark .hljs-keyword,
+.dark .hljs-formula {
+  color: #a626a4;
+}
+
+.dark .hljs-section,
+.dark .hljs-name,
+.dark .hljs-selector-tag,
+.dark .hljs-deletion,
+.dark .hljs-subst {
+  color: #e45649;
+}
+
+.dark .hljs-literal {
+  color: #0184bb;
+}
+
+.dark .hljs-string,
+.dark .hljs-regexp,
+.dark .hljs-addition,
+.dark .hljs-attribute,
+.dark .hljs-meta .hljs-string {
+  color: #50a14f;
+}
+
+.dark .hljs-attr,
+.dark .hljs-variable,
+.dark .hljs-template-variable,
+.dark .hljs-type,
+.dark .hljs-selector-class,
+.dark .hljs-selector-attr,
+.dark .hljs-selector-pseudo,
+.dark .hljs-number {
+  color: #986801;
+}
+
+.dark .hljs-symbol,
+.dark .hljs-bullet,
+.dark .hljs-link,
+.dark .hljs-meta,
+.dark .hljs-selector-id,
+.dark .hljs-title {
+  color: #4078f2;
+}
+
+.dark .hljs-built_in,
+.dark .hljs-title.class_,
+.dark .hljs-class .hljs-title {
+  color: #c18401;
+}
+
+.dark .hljs-emphasis {
+  font-style: italic;
+}
+
+.dark .hljs-strong {
+  font-weight: bold;
+}
+
+.dark .hljs-link {
+  text-decoration: underline;
+}

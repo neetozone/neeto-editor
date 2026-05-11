@@ -1,0 +1,30 @@
+.editor-sandbox-container {
+  padding: 12px 24px;
+  background: white;
+  min-height: 100vh;
+
+  // To hide the mobile and desktop button on top of the live code editor.
+  [data-role="code-wrapper"]>div:nth-child(1)>div:nth-child(1) {
+    display: none;
+  }
+
+  div {
+    font-family: inherit !important;
+  }
+  .sb-unstyled {
+    border-radius: 0px !important;
+  }
+  // Editor container styles
+  .desktop>div{
+    padding: 0px;
+    margin-bottom: 12px;
+    height: 200px;
+  }
+  // Code editor styles.
+  .npm__react-simple-code-editor__textarea, pre {
+    border-radius: 4px;
+    border: 1px solid rgb(216, 220, 222) !important;
+    font-family: monospace !important;
+    background-color: transparent !important;
+  }
+}

@@ -1,0 +1,21 @@
+/**
+ * Tailwind v4 entry for v2 + neeto-atoms.
+ *
+ * Imports neeto-atoms's source CSS (which brings in its design tokens,
+ * @theme, @custom-variant rules) and tells Tailwind v4 which files to scan
+ * for utility-class usage.
+ *
+ * `@source` is required because Tailwind v4 generates only the utilities it
+ * sees referenced in scanned files. Without these directives, the resulting
+ * CSS would lack `inline-flex`, `size-4`, `aria-expanded:bg-muted`, etc. —
+ * the classes neeto-atoms's compiled components emit at runtime.
+ */
+
+@import "tailwindcss";
+@import "@bigbinary/neeto-atoms/dist/index.css";
+
+/* v2 source — components and stories may use Tailwind utilities directly. */
+@source "../../v2";
+
+/* Pre-built neeto-atoms components contain class strings in compiled JS. */
+@source "../../../node_modules/@bigbinary/neeto-atoms/dist";

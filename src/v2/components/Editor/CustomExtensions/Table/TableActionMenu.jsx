@@ -1,0 +1,127 @@
+import { useCallback, useState } from "react";
+
+import { Button } from "@bigbinary/neeto-atoms";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@bigbinary/neeto-atoms/primitives/Popover";
+import { BubbleMenu } from "@tiptap/react";
+import { AlignCenter, AlignLeft, AlignRight } from "lucide-react";
+import { flushSync } from "react-dom";
+import { sticky } from "tippy.js";
+
+import { tableActions } from "src/v2/components/Editor/CustomExtensions/Table/utils";
+
+const alignmentIcons = {
+  left: AlignLeft,
+  center: AlignCenter,
+  right: AlignRight,
+};
+
+const TableActionMenu = ({ editor }) => {
+  const [isAlignmentOpen, setIsAlignmentOpen] = useState(false);
+
+  const getReferenceClientRect = useCallback(() => {
+    if (!editor) return new DOMRect(0, 0, 0, 0);
+
+    const { $anchor: anchor } = editor.state?.selection ?? {};
+    const node = editor.view.domAtPos(anchor?.pos)?.node;
+    const element = node?.nodeType === 3 ? node?.parentElement : node;
+
+    return element?.getBoundingClientRect() || new DOMRect(0, 0, 0, 0);
+  }, [editor]);
+
+  const shouldShow = useCallback(
+    () => editor?.isFocused && editor?.isActive("table"),
+    [editor]
+  );
+
+  if (!editor) return null;
+
+  return (
+    <BubbleMenu
+      {...{ editor, shouldShow }}
+      className="neeto-editor-bubble-menu"
+      tippyOptions={{
+        arrow: false,
+        offset: [10, 10],
+        zIndex: 99999,
+        theme: "light neeto-editor-bubble-menu-tippy-box",
+        popperOptions: {
+          modifiers: [{ name: "flip", enabled: false }],
+        },
+        getReferenceClientRect,
+        plugins: [sticky],
+        sticky: "popper",
+      }}
+    >
+      {tableActions({ editor }).map(action => {
+        if (action.isHidden) return null;
+
+        if (action.type) {
+          return (
+            <Popover
+              key={action.label}
+              open={isAlignmentOpen}
+              onOpenChange={setIsAlignmentOpen}
+            >
+              <PopoverTrigger asChild>
+                <Button
+                  className="ne-toolbar-item"
+                  icon={AlignLeft}
+                  size="sm"
+                  tooltipProps={{ content: action.label, position: "top" }}
+                  variant="ghost"
+                />
+              </PopoverTrigger>
+              <PopoverContent
+                align="start"
+                className="ne-editor-dropdown data-[state=closed]:hidden w-auto p-1"
+                side="bottom"
+                onOpenAutoFocus={e => e.preventDefault()}
+              >
+                <div className="flex flex-row items-center gap-1">
+                  {action.items?.map(({ type, command, tooltipLabel }) => {
+                    const IconComponent = alignmentIcons[type];
+
+                    return (
+                      <Button
+                        className="ne-toolbar-item"
+                        icon={IconComponent}
+                        key={type}
+                        tooltipProps={{
+                          content: tooltipLabel,
+                          position: "bottom",
+                        }}
+                        variant="ghost"
+                        onClick={() => {
+                          flushSync(() => setIsAlignmentOpen(false));
+                          command();
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+              </PopoverContent>
+            </Popover>
+          );
+        }
+
+        return (
+          <Button
+            className="ne-toolbar-item"
+            icon={action.icon}
+            key={action.label}
+            size="sm"
+            tooltipProps={{ content: action.label, position: "top" }}
+            variant="ghost"
+            onClick={action.command}
+          />
+        );
+      })}
+    </BubbleMenu>
+  );
+};
+
+export default TableActionMenu;

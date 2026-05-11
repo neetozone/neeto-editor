@@ -29,6 +29,8 @@
       "src/*": ["src/*"],
       "neetoui": ["node_modules/@bigbinary/neetoui"],
       "neetoui/*": ["node_modules/@bigbinary/neetoui/*"],
+      "neeto-atoms": ["node_modules/@bigbinary/neeto-atoms"],
+      "neeto-atoms/*": ["node_modules/@bigbinary/neeto-atoms/*"],
       "neetocommons": ["node_modules/@bigbinary/neeto-commons-frontend"],
       "neetocommons/*": ["node_modules/@bigbinary/neeto-commons-frontend/*"],
       "neetoicons": ["node_modules/@bigbinary/neeto-icons"],

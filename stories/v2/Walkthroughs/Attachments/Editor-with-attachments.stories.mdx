@@ -1,0 +1,24 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor, Attachments } from "../../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Walkthroughs/Attachments/IntegratedToEditor"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Attachments}
+/>
+
+# Integrated to neetoEditor — v2
+
+File attachment feature can be enabled in neetoEditor by adding the
+`attachments` addon to the list of addons. All the files are uploaded using a
+pre-signed URL from the backend. This addon also enables the drag and drop
+feature to upload files.
+
+<Canvas>
+  <Editor addons={["attachments"]} />
+</Canvas>
+
+> The file attachment feature uses a procedure similar to image upload feature.

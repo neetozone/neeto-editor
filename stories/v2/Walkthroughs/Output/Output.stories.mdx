@@ -1,0 +1,136 @@
+import { Meta } from "@storybook/addon-docs";
+import {
+  EDITOR_PROP_TABLE_COLUMNS,
+  EDITOR_CONTENT_PROP_TABLE_ROWS,
+} from "../../../constants";
+import Table from "../../../components/Table";
+
+<Meta
+  title="V2 (neeto-atoms)/Walkthroughs/Output"
+  parameters={{
+    layout: "padded",
+    viewMode: "docs",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+/>
+
+# Output — v2
+
+####
+
+<br />
+
+### **Using the EditorContent component**
+
+The `EditorContent` component renders editor HTML content with proper
+formatting. The v2 build is exported under the `/v2` subpath.
+
+```js
+import { EditorContent } from "@bigbinary/neeto-editor/v2";
+```
+
+<Table
+  columns={EDITOR_PROP_TABLE_COLUMNS}
+  rows={EDITOR_CONTENT_PROP_TABLE_ROWS}
+/>
+
+<br />
+
+### **`variables`**
+
+The `variables` prop renders variables in the output content. It accepts an
+array of objects in the following two formats.
+
+```js
+[{ key: "name", label: "Name", value: "John" }, { key: "age", label: "Age", value: "20" }]
+```
+
+```js
+[
+  {
+    category_key: "ticket",
+    category_label: "Ticket",
+    variables: [
+      { key: "id", label: "ID", value: "123" },
+    ],
+  },
+]
+```
+
+<br />
+
+### **Without using the EditorContent component**
+
+#### **Include CSS in your project**
+
+Add the following line to the `<head></head>` tag of your HTML file. (CDN
+parity with v1; the v2 SCSS shim maps the same `--neeto-ui-*` tokens onto the
+neeto-atoms semantic tokens.)
+
+```html
+<link
+  href="https://neeto-editor-cdn.neeto.com/editor-content.min.css"
+  rel="stylesheet"
+/>
+```
+
+#### **Use editor content in PDF or email generation**
+
+```erb
+<%= stylesheet_link_tag "https://neeto-editor-cdn.neeto.com/editor-output-pdf-email.css", media: "all" %>
+```
+
+Add the class **neeto-editor-content** to the wrapper of the output content.
+
+#### **Apply syntax highlighting**
+
+```html
+<script
+  defer
+  type="text/javascript"
+  src="https://neeto-editor-cdn.neeto.com/codeblockHighlight.js"
+></script>
+```
+
+This script exposes `window.neetoEditor.applyCodeblockDecorations`. Trigger it
+once the content is rendered:
+
+```jsx
+useEffect(() => {
+  window.neetoEditor?.applyCodeblockDecorations?.()
+}, [])
+```
+
+#### **Make headings navigable in NextJS websites**
+
+```jsx
+<Script
+  src="https://neeto-editor-cdn.neeto.com/headerLinks.js"
+  strategy="afterInteractive"
+/>
+```
+
+```jsx
+useEffect(() => {
+  window.neetoEditor?.applyHeaderDecorations?.()
+}, [])
+```
+
+#### **Image preview**
+
+```jsx
+<Script
+  src="https://neeto-editor-cdn.neeto.com/editorUtils.js"
+  strategy="afterInteractive"
+/>
+```
+
+```jsx
+useEffect(() => {
+  window.neetoEditor?.utils?.init?.()
+
+  return () => {
+    window.neetoEditor?.utils?.destroy?.()
+  }
+}, [])
+```

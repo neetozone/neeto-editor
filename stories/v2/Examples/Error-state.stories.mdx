@@ -1,0 +1,25 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Editor } from "../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Error state"
+  parameters={{
+    layout: "padded",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+  component={Editor}
+/>
+
+# Error state — v2
+
+neetoEditor can be configured with a custom `error` prop, which renders inside
+the editor wrapper. The error prop can be a string, an array of strings, or an
+object with a `message` property.
+
+<Canvas>
+  <Editor
+    error={{
+      message: "Something went wrong in the editor",
+    }}
+  />
+</Canvas>

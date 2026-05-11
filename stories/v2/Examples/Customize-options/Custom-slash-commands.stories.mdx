@@ -1,0 +1,71 @@
+import { MessageSquareQuote } from "lucide-react";
+import { Meta, Canvas } from "@storybook/addon-docs";
+
+import Table from "../../../components/Table";
+import {
+  CUSTOM_SLASH_COMMANDS_TABLE_COLUMNS,
+  CUSTOM_SLASH_COMMANDS_TABLE_ROWS,
+} from "../../../constants";
+
+import { Editor } from "../../../../src/v2";
+
+<Meta
+  title="V2 (neeto-atoms)/Examples/Customize options/Custom slash commands"
+  parameters={{
+    layout: "padded",
+    viewMode: "docs",
+    previewTabs: { canvas: { hidden: true } },
+  }}
+/>
+
+# Custom slash commands — v2
+
+neetoEditor allows users to customize their Slash Commands menu by including
+their own custom commands.
+
+Use the `addonCommands` prop to pass an array of custom slash command menu
+items. The expected array should contain items with the following properties:
+
+<Table
+  columns={CUSTOM_SLASH_COMMANDS_TABLE_COLUMNS}
+  rows={CUSTOM_SLASH_COMMANDS_TABLE_ROWS}
+/>
+
+To execute commands beyond what neetoEditor is preconfigured to support, pass
+the corresponding extensions via the `extensions` prop so the editor can
+recognize them. This unlocks complex features like canned responses.
+
+> v2 swaps `@bigbinary/neeto-icons` for `lucide-react`. The icon below is
+> rendered through the migrated v2 menu pipeline.
+
+<Canvas>
+  <Editor
+    hideSlashCommands={false}
+    menuType="bubble"
+    addonCommands={[
+      {
+        label: "Canned Responses",
+        tooltip: "Canned Responses",
+        icon: MessageSquareQuote,
+        description: "Select a canned response",
+        optionName: "canned-responses",
+        items: [
+          {
+            label: "Feedback",
+            description: "Thank you for your feedback.",
+            command: ({ editor }) => {
+              editor.commands.setContent("Thank you for your feedback.");
+            },
+          },
+          {
+            label: "Thanks",
+            description: "We are happy to help you.",
+            command: ({ editor }) => {
+              editor.commands.setContent("We are happy to help you.");
+            },
+          },
+        ],
+      },
+    ]}
+  />
+</Canvas>
