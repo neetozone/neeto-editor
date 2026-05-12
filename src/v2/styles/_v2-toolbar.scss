@@ -119,8 +119,9 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
     border-radius: 0 !important;
 
     .neeto-editor-fixed-menu,
+    .neeto-editor-fixed-menu__wrapper,
     .neeto-editor.fixed-menu-active {
-      border-color: var(--error-solid);
+      border-color: var(--error-solid) !important;
     }
   }
 
