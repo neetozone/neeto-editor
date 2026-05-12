@@ -7,7 +7,6 @@ import { isNil } from "ramda";
 import { createRoot } from "react-dom/client";
 
 import { EDITOR_SIZES } from "src/common/constants";
-import "src/v2/styles/index.scss";
 import {
   EDITOR_CONTENT_CLASS_NAME,
   EDITOR_CONTENT_DEFAULT_CONFIGURATION,

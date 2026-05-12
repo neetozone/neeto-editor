@@ -1,18 +1,4 @@
 /* eslint-disable @bigbinary/neeto/file-name-and-export-name-standards */
-/**
- * neeto-editor v2 entry — neeto-atoms based.
- *
- * Consumers import from `@bigbinary/neeto-editor/v2` to get the shadcn-themed
- * editor. v1 (`@bigbinary/neeto-editor`) remains the neetoUI-based editor and
- * stays unchanged until all consumers migrate.
- *
- * Every export below mounts v2 internals end-to-end. Editor → v2 Menu → v2
- * Fixed/Bubble/Headless → v2 leaves. Styles auto-inject at import time via
- * the side-effect SCSS import below — no separate `@bigbinary/neeto-editor/
- * v2/styles` import is needed by consumers. Same pattern as v1.
- */
-import "src/v2/styles/index.scss";
-
 import { EDITOR_OPTIONS } from "common/constants";
 
 import { DEFAULT_EDITOR_OPTIONS } from "src/v2/components/Editor/constants";
