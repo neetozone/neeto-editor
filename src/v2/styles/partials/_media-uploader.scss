@@ -1,0 +1,285 @@
+.ne-media-uploader-modal {
+  @media screen and (max-width: 767px) {
+    width: 95vw !important;
+  }
+}
+
+.ne-media-uploader {
+  display: flex;
+  flex-direction: column;
+  min-height: 184px;
+  width: 100%;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-block: 16px 0;
+    padding-inline: 16px;
+    min-height: 56px;
+
+    &-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--foreground);
+      margin: 0;
+      line-height: 1.5;
+      text-align: start;
+    }
+  }
+
+  .neeto-ui-tab__wrapper {
+    padding: 0 16px;
+    margin-top: 1rem;
+  }
+
+  .ne-tab__wrapper {
+    .ne-tab {
+      min-width: 88px;
+    }
+  }
+
+  .ne-media-uploader__content {
+    flex-grow: 1;
+    display: flex;
+    padding: 16px;
+  }
+
+  .ne-media-uploader__image-uploader {
+    width: 100%;
+    flex-grow: 1;
+  }
+
+  .ne-media-uploader__dnd {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    gap: 2px;
+    border: 1px dashed var(--primary);
+    box-sizing: border-box;
+    border-radius: var(--radius);
+    padding: 16px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &-icon {
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    &-input {
+      display: none;
+    }
+
+    &:hover {
+      background-color: var(--muted);
+    }
+  }
+
+  .ne-media-uploader__dnd:hover {
+    cursor: pointer;
+  }
+
+  .ne-media-uploader__dnd.is-dragging-over-files {
+    background-color: color-mix(in oklch, var(--border) 50%, transparent);
+    border: 3px dashed var(--muted-foreground);
+    color: var(--muted-foreground);
+  }
+
+  .ne-media-uploader__wrapper {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    flex-wrap: wrap;
+
+    .ne-media-uploader__media {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      justify-content: space-between;
+      padding-block: 4px;
+      padding-inline: 8px;
+      border-radius: var(--ne-editor-radius-sm);
+      border: 1px solid var(--border);
+      background-color: var(--background);
+      width: 105px;
+      align-self: start;
+      margin-top: auto;
+      margin-bottom: auto;
+      gap: 10px;
+
+      &__cancel-button-wrapper {
+        position: absolute;
+        top: 4px;
+        inset-inline-end: 4px;
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 4px;
+        margin-top: 4px;
+
+        &__icon {
+          width: 45px;
+          margin-top: 12px;
+        }
+
+        p {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: block;
+          max-width: 100%;
+        }
+      }
+
+      &__progress {
+        align-self: flex-end;
+        width: 100%;
+        background-color: var(--border);
+        overflow: hidden;
+        border-radius: var(--ne-editor-radius-sm);
+
+        &-bar {
+          display: flex;
+          height: 4px;
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          border-radius: var(--ne-editor-radius-sm);
+          background-color: var(--primary);
+          transition: 0.15s ease-in-out;
+        }
+      }
+    }
+  }
+
+  
+  .neeto-editor-unsplash-wrapper {
+    width: 100%;
+
+    .neeto-editor-unsplash-container {
+      max-height: 50vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .neeto-editor-unsplash-search {
+      padding-inline: 8px;
+      margin-bottom: 16px;
+    }
+
+    .neeto-editor-unsplash-gallery {
+      width: 100%;
+      inset-inline-end: -8px;
+    }
+
+    .neeto-editor-unsplash-gallery__loader {
+      display: flex;
+      justify-content: center;
+    }
+
+    .neeto-editor-unsplash-gallery__item {
+      width: 33.3%;
+      padding-inline-end: 16px;
+      padding-bottom: 16px;
+      float: left;
+    }
+
+    .neeto-editor-unsplash-gallery__item-placeholder {
+      width: 100%;
+      position: relative;
+
+      .neeto-editor-unsplash-gallery__item-inner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--muted);
+        border-radius: var(--ne-editor-radius-sm);
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          animation: fade-in 1.2s 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+          border-radius: var(--radius);
+          position: relative;
+          cursor: pointer;
+        }
+
+        a {
+          opacity: 0;
+          position: absolute;
+          inset-inline-start: 8px;
+          bottom: 8px;
+          margin: auto;
+
+          color: var(--background);
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 1;
+          text-transform: capitalize;
+          transition: 0.15s ease-in-out;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        &:hover {
+          a {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .neeto-editor-unsplash-gallery__text {
+      font-size: 0.75rem;
+      color: var(--foreground);
+      text-align: center;
+      margin-top: 12px;
+    }
+  }
+}
+
+.neeto-editor-url-form__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+
+  .neeto-ui-input__wrapper {
+    width: 100%;
+    flex-grow: 0;
+    margin-bottom: 16px;
+  }
+}
+
+.ne-embed-modal-wrapper {
+  @media screen and (max-width: 767px) {
+    width: 95vw !important;
+  }
+}
+
+.ne-video-embed-form {
+  width: 100%;
+
+  &__content {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  &__footer {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}

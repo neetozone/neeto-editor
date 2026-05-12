@@ -1,0 +1,29 @@
+.tiptap {
+
+  
+  .collaboration-cursor__caret {
+    border-inline-start: 1px solid var(--foreground);
+    border-inline-end: 1px solid var(--foreground);
+    margin-inline-start: -1px;
+    margin-inline-end: -1px;
+    pointer-events: none;
+    position: relative;
+    word-break: normal;
+  }
+
+  
+  .collaboration-cursor__label {
+    border-radius: 3px 3px 3px 0;
+    color: var(--foreground);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    inset-inline-start: -1px;
+    line-height: normal;
+    padding: 0.1rem 0.3rem;
+    position: absolute;
+    top: -1.4em;
+    user-select: none;
+    white-space: nowrap;
+  }
+}

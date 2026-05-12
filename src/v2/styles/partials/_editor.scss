@@ -1,0 +1,116 @@
+@mixin show-placeholder {
+  content: attr(data-placeholder);
+  float: inline-start;
+  color: var(--muted-foreground);
+  pointer-events: none;
+  height: 0;
+}
+
+.neeto-editor {
+  @extend .neeto-editor-content;
+
+  max-width: 100% !important;
+  border-radius: var(--radius);
+  white-space: pre-wrap;
+  padding: 16px;
+  color: var(--foreground);
+  background-color: var(--background);
+
+  &:focus {
+    outline: none;
+  }
+
+  a {
+    pointer-events: none;
+  }
+
+  .ProseMirror-separator {
+    display: none;
+  }
+
+  &.fixed-menu-active {
+    border: thin solid var(--border);
+    border-top: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+
+  &.attachments-active {
+    border-bottom: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .is-empty {
+    position: relative;
+  }
+
+  p.is-empty {
+    margin-bottom: 0;
+    line-height: 1;
+    min-height: 1rem;
+  }
+
+  &.placeholder-active {
+    .is-editor-empty:first-child::before {
+      @include show-placeholder;
+    }
+
+    p.is-current-slash-placeholder::before {
+      @include show-placeholder;
+    }
+  }
+
+  .ProseMirror-selectednode {
+    outline: 3px solid var(--info);
+  }
+
+  .has-focus {
+    background: var(--focus-background-color);
+    transition: background-color 200ms ease;
+  }
+
+  [data-variable] {
+    display: inline-flex;
+    color: var(--foreground);
+    background-color: var(--border);
+    border-radius: var(--ne-editor-radius-sm);
+    line-height: 1;
+    padding: 4px;
+  }
+}
+
+.neeto-editor-character-count {
+  padding: 4px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  text-align: end;
+  width: 100%;
+}
+
+.neeto-editor-error {
+  color: var(--error-foreground);
+  border-width: 1px;
+  border-color: var(--error-solid);
+  border-radius: var(--radius);
+}
+
+.neeto-editor-error:focus-within {
+  border-color: var(--error-foreground);
+}
+
+.ne_variable-tag {
+  border-radius: 6px !important;
+}
+
+.neeto-editor-mentions {
+  &__wrapper {
+    padding-inline: 0px;
+    padding-block: 4px;
+  }
+
+  &__item {
+    padding-block: 8px;
+    padding-inline: 12px;
+  }
+}

@@ -70,10 +70,13 @@ import { FormikEditor } from "@bigbinary/neeto-editor/v2";
 
 ### **Styles**
 
-Import the v2 stylesheet once, near the root of the app:
+v2 styles auto-inject when you import any v2 component — no separate
+stylesheet import is required. Same pattern as v1. You still need to import
+your neeto-atoms stylesheet at app startup (the editor reads neeto-atoms
+semantic tokens), e.g.:
 
 ```jsx
-import "@bigbinary/neeto-editor/v2/styles";
+import "@bigbinary/neeto-atoms/dist/index.css";
 ```
 
 ### **Local development**

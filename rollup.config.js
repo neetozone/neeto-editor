@@ -127,27 +127,6 @@ const config = args => {
       ],
     },
     {
-      // Input basename `index.scss` would emit `dist/v2/index.js` and clobber
-      // the JS barrel from the main bundle. Force a non-colliding stub name;
-      // the actual consumable artifact is the extracted `dist/v2/styles.css`.
-      input: "./src/v2/styles/index.scss",
-      output: {
-        dir: `${__dirname}/dist/v2`,
-        entryFileNames: "_styles-bundle.js",
-        format: "esm",
-        sourcemap: true,
-        assetFileNames: "[name][extname]",
-      },
-      plugins: [
-        styles({
-          extensions: [".css", ".scss", ".min.css"],
-          mode: ["extract", "styles.css"],
-          minimize: true,
-        }),
-      ],
-      extract: true,
-    },
-    {
       input: "./src/styles/editor-output-pdf-email.scss",
       output: {
         dir: `${__dirname}/dist`,
@@ -164,6 +143,22 @@ const config = args => {
         }),
       ],
       extract: true,
+    },
+    {
+      input: { "v2/styles": "./src/v2/styles/index.scss" },
+      output: {
+        dir: `${__dirname}/dist`,
+        format: "esm",
+        sourcemap: true,
+        assetFileNames: "[name][extname]",
+      },
+      plugins: [
+        styles({
+          extensions: [".css", ".scss"],
+          mode: ["extract", "v2/styles.css"],
+          minimize: true,
+        }),
+      ],
     },
     {
       input: "./src/components/EditorContent/codeblockHighlight.js",

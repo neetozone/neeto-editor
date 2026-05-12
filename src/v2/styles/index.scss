@@ -1,40 +1,52 @@
-/**
- * neeto-editor v2 stylesheet entry.
- *
- * Consumers of `@bigbinary/neeto-editor/v2` should import this file once at
- * app startup, alongside their own neeto-atoms CSS import:
- *
- *     import "@bigbinary/neeto-atoms/dist/index.css";
- *     import "@bigbinary/neeto-editor/v2/styles";
- *
- * neeto-atoms's CSS is intentionally not re-imported here — it relies on
- * Tailwind v4 directives (`@custom-variant`, `@theme inline`) plus the Geist
- * font and `shadcn/tailwind.css`, all of which the host app already wires.
- * Re-bundling it via SCSS would double-load the tokens and conflict with the
- * host's Tailwind config.
- *
- * What this file ships:
- *   1. The neeto-ui shim — bridges --neeto-ui-* names (used by editor SCSS)
- *      to neeto-atoms semantic tokens (--background, --foreground, --border,
- *      --primary, --destructive, --radius). Scoped to both `:root`/`.dark`
- *      and the legacy `.neeto-ui-theme--light`/`.neeto-ui-theme--dark`
- *      classes so consumers can toggle either convention.
- *   2. The shared editor SCSS (which now resolves via the shim).
- *   3. A `.dark` adapter for the highlight.js codeblock theme — mirrors the
- *      `.neeto-ui-theme--dark .hljs*` rules onto `.dark .hljs*` so v2 dark
- *      mode lights up codeblocks correctly.
- */
+:root {
+  --ne-editor-radius-sm: 0.375rem;
+  --ne-editor-radius-md: 0.5rem;
+  --ne-editor-radius-lg: 0.625rem;
+  --ne-editor-radius-xl: 0.875rem;
+}
 
-@import "neetoui-shim";
+@import "partials/animations";
 
-@import "../../styles/editor-output.scss";
-
-// Editor wrapper border + fixed-menu container border. v1 SCSS that uses
-// `rgb(var(--neeto-ui-gray-400))` etc. resolves correctly because the shim
-// above ships those tokens as `r,g,b` tuples.
-@import "../../styles/editor/editor";
-@import "../../styles/editor/menu";
+@import "partials/commands";
+@import "partials/editor";
+@import "partials/editor-content";
+@import "partials/menu";
+@import "partials/media-uploader";
+@import "partials/image-preview";
+@import "partials/image-skeleton";
+@import "partials/emoji";
+@import "partials/table";
+@import "partials/link-popover";
+@import "partials/collaboration-cursor";
+@import "partials/codeblock";
+@import "partials/highlight";
+@import "partials/attachments";
 
 @import "codeblock-theme-adapter";
 
 @import "v2-toolbar";
+
+
+.ProseMirror {
+  overflow-y: auto;
+  height: 100%;
+  white-space: break-spaces;
+
+  a {
+    text-decoration: underline;
+    color: var(--info-solid);
+  }
+
+  a[data-neeto-kb-article="true"][data-article-deleted="true"] {
+    color: var(--error-foreground) !important;
+    cursor: not-allowed;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

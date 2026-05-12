@@ -1,0 +1,23 @@
+.ne-codeblock-nodeview-wrapper {
+  pre {
+    padding-inline-start: 0.75rem;
+    padding-inline-end: 0.75rem;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  .highlighted-line {
+    background-color: oklch(0.95 0.2 95 / 0.2);
+    position: absolute;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .selected-text{
+    background: inherit;
+  }
+}

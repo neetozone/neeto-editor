@@ -1,0 +1,98 @@
+$emoji-font-family: "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji,
+  "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols;
+
+.neeto-editor-emoji {
+  font-family: $emoji-font-family;
+}
+
+.emoji-mart.emoji-mart-light {
+  font-size: 14px;
+  color: var(--foreground);
+  border: none;
+
+  .emoji-mart-bar {
+    .emoji-mart-anchors {
+      .emoji-mart-anchor {
+        color: var(--muted-foreground);
+
+        svg {
+          margin: auto;
+        }
+
+        .emoji-mart-anchor-bar {
+          background-color: var(--foreground) !important;
+        }
+
+        &.emoji-mart-anchor-selected {
+          color: var(--foreground) !important;
+        }
+      }
+    }
+  }
+
+  .emoji-mart-search input {
+    border-radius: var(--ne-editor-radius-sm);
+  }
+
+  .emoji-mart-category {
+    .emoji-mart-category-label span {
+      padding-top: 8px;
+    }
+
+    .emoji-mart-emoji {
+      span {
+        cursor: pointer;
+      }
+
+      &:hover {
+        &::before {
+          background-color: var(--border);
+          border-radius: var(--ne-editor-radius-sm);
+        }
+      }
+    }
+  }
+
+  .emoji-mart-scroll {
+    height: 264px;
+    padding-bottom: 0px;
+  }
+}
+
+.neeto-editor-emoji-suggestion {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 4px;
+  gap: 2px;
+  font-family: $emoji-font-family;
+
+  p {
+    font-size: 0.75rem;
+    color: var(--foreground);
+  }
+
+  span {
+    height: 16px !important;
+    width: 16px !important;
+    font-size: 10px;
+  }
+
+  .neeto-editor-emoji-suggestion__item {
+    padding: 6px;
+    font-size: 1.5rem;
+    transition: 0.15s ease-in-out;
+    border-radius: var(--ne-editor-radius-sm);
+    line-height: 1;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--border);
+    }
+  }
+
+  .neeto-editor-emoji-suggestion__item--selected {
+    background-color: var(--border);
+  }
+}

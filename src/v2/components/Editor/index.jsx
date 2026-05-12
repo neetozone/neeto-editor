@@ -18,7 +18,6 @@ import { createPortal } from "react-dom";
 import { useDeletedArticles } from "hooks/reactQuery/kbArticle/useDeletedArticles";
 import useEditorWarnings from "hooks/useEditorWarnings";
 import { EDITOR_OPTIONS, EDITOR_SIZES } from "src/common/constants";
-import "src/styles/editor/index.scss";
 import { removeEmptyTags } from "src/utils";
 import ErrorWrapper from "src/v2/components/Common/ErrorWrapper";
 import { DEFAULT_EDITOR_OPTIONS } from "src/v2/components/Editor/constants";

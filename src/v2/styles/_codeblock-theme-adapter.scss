@@ -1,16 +1,3 @@
-/**
- * Codeblock theme — `.dark` adapter.
- *
- * The shared `editor-content.scss` ships a 70+ rule highlight.js theme keyed
- * to `.neeto-ui-theme--dark .hljs*`. The v2 entry uses Tailwind v4's `.dark`
- * convention. This file mirrors the dark-theme rules under `.dark` so v2
- * consumers that toggle `.dark` (the neeto-atoms standard) get the same
- * dark-mode codeblock colors.
- *
- * Light theme already cascades correctly because v1 uses `:root,
- * .neeto-ui-theme--light` and v2 also matches `:root` by default.
- */
-
 .dark .hljs {
   color: #383a42;
   background: #fafafa;

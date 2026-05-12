@@ -1,5 +1,3 @@
-import "src/styles/editor/_image-skeleton.scss";
-
 const imageSkeletonContainer = document.createElement("div");
 imageSkeletonContainer.classList.add("neeto-editor-image__skeleton");
 
