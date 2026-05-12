@@ -1,23 +1,26 @@
-import "../src/v2/styles/tailwind.css";
-import "../src/index.scss";
-import "../src/v2/styles/index.scss";
-import "./style.scss";
-import { themes } from "@storybook/theming";
+import "src/v2/styles/tailwind.css";
+import "src/index.scss";
+
 import { addons } from "@storybook/manager-api";
-import { LIVE_EXAMPLES_ADDON_ID } from "storybook-addon-live-examples";
+import { themes } from "@storybook/theming";
 import initializeApplication from "neetocommons/initializers";
-import en from "../src/translations/en.json";
+import { LIVE_EXAMPLES_ADDON_ID } from "storybook-addon-live-examples";
+
+import en from "src/translations/en.json";
+
 import neetoTheme from "./neetoTheme";
 import DocsContainer from "./docs/container";
+
+import "src/v2/styles/index.scss";
+
+import "./style.scss";
 
 initializeApplication({
   skip: { axios: true, globalProps: false, mixpanel: true, logger: true },
   translationResources: { en: { translation: en } },
 });
 
-addons.setConfig({
-  [LIVE_EXAMPLES_ADDON_ID]: {},
-});
+addons.setConfig({ [LIVE_EXAMPLES_ADDON_ID]: {} });
 
 export const parameters = {
   layout: "fullscreen",
