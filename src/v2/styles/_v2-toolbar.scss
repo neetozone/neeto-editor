@@ -1,13 +1,3 @@
-button[data-slot] {
-  background-color: revert-layer;
-  border: revert-layer;
-}
-
-button.ne-toolbar-item {
-  background-color: revert-layer;
-  border: revert-layer;
-}
-
 .ne-fixed-menu--v2 {
   padding-inline: 4px !important;
 }
@@ -23,12 +13,12 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
   min-width: 2rem;
   padding-inline: 0.25rem;
 
-  
-  & > span {
+
+  &>span {
     gap: 0.125rem;
   }
 
-  & > span > [data-icon="inline-end"] > svg {
+  &>span>[data-icon="inline-end"]>svg {
     width: 0.75rem;
     height: 0.75rem;
   }
@@ -41,31 +31,31 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
     gap: 2px;
   }
 
-  
-  
-  
+
+
+
   .neeto-editor-table__item {
     gap: 8px;
   }
 
-  
-  
+
+
   .neeto-editor-highlight-dropdown {
     gap: 16px;
   }
 
-  
-  
-  
-  
+
+
+
+
   [data-slot="dropdown-menu-item"],
   [data-slot="dropdown-menu-checkbox-item"],
   [data-slot="dropdown-menu-radio-item"] {
     color: var(--popover-foreground);
   }
 
-  
-  
+
+
   [data-slot="dropdown-menu-label"] {
     color: var(--muted-foreground);
   }
@@ -112,28 +102,30 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
 }
 
 .ne-codeblock--v2 .neeto-editor-codeblock-options {
+
   button[data-slot="button"],
   button[data-slot="dropdown-menu-trigger"] {
     color: var(--foreground);
 
-    & > * {
+    &>* {
       color: inherit;
     }
   }
 }
 
 .ne-editor--v2 {
-  > .neeto-editor-error {
+  >.neeto-editor-error {
     border: 0 !important;
     border-radius: 0 !important;
 
     .neeto-editor-fixed-menu,
+    .neeto-editor-fixed-menu__wrapper,
     .neeto-editor.fixed-menu-active {
-      border-color: var(--error-solid);
+      border-color: var(--error-solid) !important;
     }
   }
 
-  > p[data-testid="neeto-editor-error-text"] {
+  >p[data-testid="neeto-editor-error-text"] {
     margin-top: 4px;
     color: var(--error-foreground);
     font-size: 0.75rem;
@@ -149,7 +141,7 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 1.75rem; 
+    width: 1.75rem;
     height: 1.75rem;
     padding: 0;
     border-radius: var(--radius);
@@ -172,9 +164,9 @@ button.ne-toolbar-item.ne-toolbar-dropdown {
       cursor: not-allowed;
     }
 
-    
-    & > svg {
-      width: 0.875rem; 
+
+    &>svg {
+      width: 0.875rem;
       height: 0.875rem;
     }
 

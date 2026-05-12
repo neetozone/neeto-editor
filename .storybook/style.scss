@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "@bigbinary/neetoui";
+// neetoui ships an unlayered `button { background-color: transparent; ... }`
+// preflight that would clobber neeto-atoms variant utilities. Host apps that
+// run the v2 editor don't load neetoui — this wrap is purely so Storybook
+// (which still imports neetoui for legacy demo stories) matches prod cascade.
+@layer neetoui-compat {
+  @import "@bigbinary/neetoui";
+}
 @import "react-toastify/dist/ReactToastify.min.css";
 
 /* Hiding certain control columns from argstable */

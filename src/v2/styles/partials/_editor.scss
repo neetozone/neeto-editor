@@ -29,16 +29,16 @@
   }
 
   &.fixed-menu-active {
-    border: thin solid var(--border);
-    border-top: none;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+    border: thin solid var(--border) !important;
+    border-top: none !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
   }
 
   &.attachments-active {
-    border-bottom: none;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+    border-bottom: none !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
   }
 
   .is-empty {
