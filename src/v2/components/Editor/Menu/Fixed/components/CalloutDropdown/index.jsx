@@ -64,7 +64,7 @@ const CalloutDropdown = ({
       <DropdownMenu.SubMenu
         {...{ label }}
         contentProps={{ className: "ne-editor-dropdown w-[200px] p-2" }}
-        icon={Flag}
+        icon={isInCallout ? currentType.icon : Flag}
         triggerProps={{
           "data-testid": "neeto-editor-fixed-menu-callout-option",
         }}

@@ -39,7 +39,7 @@ const TextColorOption = ({
 
   const pickerContent = (
     <div
-      style={{ "min-width": "236px" }}
+      style={{ minWidth: "236px" }}
       onClick={e => {
         e.stopPropagation();
       }}
