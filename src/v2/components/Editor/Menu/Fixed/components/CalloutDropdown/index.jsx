@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 import { DropdownMenu } from "@bigbinary/neeto-atoms";
+import { Flag } from "lucide-react";
 import { findBy } from "neetocist";
 import { useTranslation } from "react-i18next";
 
@@ -8,7 +9,12 @@ import CalloutIcon from "./CalloutIcon";
 import { CALLOUT_TYPES } from "./constants";
 import RenderCalloutOptions from "./RenderCalloutOptions";
 
-const CalloutDropdown = ({ editor, label, tooltipContent }) => {
+const CalloutDropdown = ({
+  editor,
+  label,
+  tooltipContent,
+  isSecondaryMenu = false,
+}) => {
   const { t } = useTranslation();
   const dropdownRef = useRef(null);
 
@@ -42,6 +48,32 @@ const CalloutDropdown = ({ editor, label, tooltipContent }) => {
     }
   };
 
+  const renderOptions = (
+    <>
+      <DropdownMenu.Label>
+        {t("neetoEditor.menu.selectCalloutType")}
+      </DropdownMenu.Label>
+      <RenderCalloutOptions
+        {...{ currentCalloutAttrs, handleCalloutTypeClick, isInCallout }}
+      />
+    </>
+  );
+
+  if (isSecondaryMenu) {
+    return (
+      <DropdownMenu.SubMenu
+        {...{ label }}
+        contentProps={{ className: "ne-editor-dropdown w-[200px] p-2" }}
+        icon={isInCallout ? currentType.icon : Flag}
+        triggerProps={{
+          "data-testid": "neeto-editor-fixed-menu-callout-option",
+        }}
+      >
+        {renderOptions}
+      </DropdownMenu.SubMenu>
+    );
+  }
+
   return (
     <DropdownMenu
       dropdownProps={{ className: "ne-editor-dropdown w-[200px] p-2" }}
@@ -57,14 +89,7 @@ const CalloutDropdown = ({ editor, label, tooltipContent }) => {
         className: "ne-toolbar-item ne-toolbar-dropdown",
       }}
     >
-      <DropdownMenu.Menu>
-        <DropdownMenu.Label>
-          {t("neetoEditor.menu.selectCalloutType")}
-        </DropdownMenu.Label>
-        <RenderCalloutOptions
-          {...{ currentCalloutAttrs, handleCalloutTypeClick, isInCallout }}
-        />
-      </DropdownMenu.Menu>
+      <DropdownMenu.Menu>{renderOptions}</DropdownMenu.Menu>
     </DropdownMenu>
   );
 };

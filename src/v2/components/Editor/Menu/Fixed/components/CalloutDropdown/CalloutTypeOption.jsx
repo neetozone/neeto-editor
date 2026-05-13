@@ -10,7 +10,7 @@ const CalloutTypeOption = ({ calloutType, isSelected, onClick }) => {
       {...{ onClick }}
       data-testid="callout-type-option"
       isActive={isSelected}
-      prefix={<Icon size={16} />}
+      prefix={<Icon size={16} style={{ stroke: calloutType.iconColor }} />}
     >
       {calloutType.label}
     </MenuItem>

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 import { DropdownMenu, Typography } from "@bigbinary/neeto-atoms";
 import { Highlighter } from "lucide-react";
@@ -17,6 +17,7 @@ const HighlightDropdown = ({
   label,
   tooltipContent,
   runEditorCommand,
+  isSecondaryMenu = false,
 }) => {
   const dropdownRef = useRef(null);
   const textColor = editor.getAttributes("textStyle").color;
@@ -68,6 +69,42 @@ const HighlightDropdown = ({
       />
     ));
 
+  const renderSections = colorSections.map(({ title, colors, isTextColor }) => (
+    <div className="neeto-editor-highlight-dropdown__section" key={title}>
+      <Typography
+        className="neeto-editor-highlight-dropdown__section-title"
+        variant="body2"
+        weight="medium"
+      >
+        {title}
+      </Typography>
+      <div
+        className="neeto-editor-highlight-dropdown__color-grid"
+        data-testid={`neeto-editor-highlight-${hyphenize(title)}-grid`}
+      >
+        {renderColorDots(colors, isTextColor)}
+      </div>
+    </div>
+  ));
+
+  if (isSecondaryMenu) {
+    return (
+      <DropdownMenu.SubMenu
+        {...{ label }}
+        icon={Highlighter}
+        contentProps={{
+          className:
+            "ne-editor-dropdown neeto-editor-highlight-dropdown w-[280px] p-3",
+        }}
+        triggerProps={{
+          "data-testid": "neeto-editor-fixed-menu-highlight-option",
+        }}
+      >
+        {renderSections}
+      </DropdownMenu.SubMenu>
+    );
+  }
+
   return (
     <DropdownMenu
       dropdownProps={{ className: "ne-editor-dropdown w-[280px] p-3" }}
@@ -84,23 +121,7 @@ const HighlightDropdown = ({
       }}
     >
       <DropdownMenu.Menu className="neeto-editor-highlight-dropdown">
-        {colorSections.map(({ title, colors, isTextColor }) => (
-          <div className="neeto-editor-highlight-dropdown__section" key={title}>
-            <Typography
-              className="neeto-editor-highlight-dropdown__section-title"
-              variant="body2"
-              weight="medium"
-            >
-              {title}
-            </Typography>
-            <div
-              className="neeto-editor-highlight-dropdown__color-grid"
-              data-testid={`neeto-editor-highlight-${hyphenize(title)}-grid`}
-            >
-              {renderColorDots(colors, isTextColor)}
-            </div>
-          </div>
-        ))}
+        {renderSections}
       </DropdownMenu.Menu>
     </DropdownMenu>
   );
