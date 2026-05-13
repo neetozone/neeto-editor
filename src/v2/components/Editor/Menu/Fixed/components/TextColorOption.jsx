@@ -6,8 +6,6 @@ import { withEventTargetValue } from "neetocommons/v2/utils";
 import { HexColorPicker } from "react-colorful";
 import { useTranslation } from "react-i18next";
 
-import SecondaryMenuTarget from "./SecondaryMenuTarget";
-
 const TextColorOption = ({
   editor,
   tooltipContent,
@@ -39,13 +37,71 @@ const TextColorOption = ({
     setColor(editor.getAttributes("textStyle").color);
   }, [resetKey, editor.getAttributes("textStyle").color]);
 
+  const pickerContent = (
+    <div
+      style={{ "min-width": "236px" }}
+      onClick={e => {
+        e.stopPropagation();
+      }}
+    >
+      <HexColorPicker color={color || "#000000"} onChange={setColor} />
+      <div className="neeto-editor-text-color-option__options-group">
+        <Input
+          autoFocus
+          className="neeto-editor-text-color-option__options-group__input"
+          placeholder={t("neetoEditor.placeholders.pickColor")}
+          size="small"
+          value={color}
+          onChange={withEventTargetValue(setColor)}
+          onClick={event => event.stopPropagation()}
+        />
+        <Button icon={Check} size="sm" onClick={handleSave} />
+        <Button
+          icon={X}
+          size="sm"
+          variant="ghost"
+          onClick={() => {
+            editor.commands.focus();
+            closeMenu();
+          }}
+        />
+        <Button
+          icon={RotateCw}
+          size="sm"
+          variant="ghost"
+          tooltipProps={{
+            content: t("neetoEditor.common.resetToDefault"),
+            position: "top",
+          }}
+          onClick={handleUnset}
+        />
+      </div>
+    </div>
+  );
+
+  if (isSecondaryMenu) {
+    return (
+      <DropdownMenu.SubMenu
+        {...{ label }}
+        contentProps={{ className: "ne-editor-dropdown w-[260px] p-2" }}
+        icon={Baseline}
+        key={resetKey}
+        triggerProps={{
+          "data-testid": "neeto-editor-fixed-menu-text-color-option",
+        }}
+      >
+        {pickerContent}
+      </DropdownMenu.SubMenu>
+    );
+  }
+
   return (
     <DropdownMenu
       closeOnSelect={false}
       dropdownProps={{ className: "ne-editor-dropdown w-[260px] p-2" }}
       icon={Baseline}
       key={resetKey}
-      position={isSecondaryMenu ? "left-start" : "bottom-start"}
+      position="bottom-start"
       buttonProps={{
         variant: color ? "secondary" : "ghost",
         tabIndex: -1,
@@ -53,51 +109,8 @@ const TextColorOption = ({
         className:
           "ne-toolbar-item ne-toolbar-dropdown neeto-editor-text-color-option",
       }}
-      customTarget={
-        isSecondaryMenu && (
-          <SecondaryMenuTarget {...{ label }} icon={Baseline} />
-        )
-      }
     >
-      <div
-        style={{ "min-width": "236px" }}
-        onClick={e => {
-          e.stopPropagation();
-        }}
-      >
-        <HexColorPicker color={color || "#000000"} onChange={setColor} />
-        <div className="neeto-editor-text-color-option__options-group">
-          <Input
-            autoFocus
-            className="neeto-editor-text-color-option__options-group__input"
-            placeholder={t("neetoEditor.placeholders.pickColor")}
-            size="small"
-            value={color}
-            onChange={withEventTargetValue(setColor)}
-            onClick={event => event.stopPropagation()}
-          />
-          <Button icon={Check} size="sm" onClick={handleSave} />
-          <Button
-            icon={X}
-            size="sm"
-            variant="ghost"
-            onClick={() => {
-              editor.commands.focus();
-              closeMenu();
-            }}
-          />
-          <Button
-            icon={RotateCw}
-            size="sm"
-            variant="ghost"
-            tooltipProps={{
-              content: t("neetoEditor.common.resetToDefault"),
-              position: "top",
-            }}
-            onClick={handleUnset}
-          />
-        </div>
-      </div>
+      {pickerContent}
     </DropdownMenu>
   );
 };

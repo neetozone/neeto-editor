@@ -5,8 +5,6 @@ import { Smile } from "lucide-react";
 
 import EmojiPickerMenu from "src/v2/components/Editor/CustomExtensions/Emoji/EmojiPicker/EmojiPickerMenu";
 
-import SecondaryMenuTarget from "./SecondaryMenuTarget";
-
 const EmojiOption = ({
   editor,
   setActive,
@@ -25,12 +23,31 @@ const EmojiOption = ({
     setResetKey(k => k + 1);
   };
 
+  if (isSecondaryMenu) {
+    return (
+      <DropdownMenu.SubMenu
+        {...{ label }}
+        icon={Smile}
+        key={resetKey}
+        contentProps={{
+          className:
+            "ne-editor-dropdown neeto-editor-fixed-menu__emoji-dropdown min-w-[350px] p-0",
+        }}
+        triggerProps={{
+          "data-testid": "neeto-editor-fixed-menu-emoji-option",
+        }}
+      >
+        <EmojiPickerMenu {...{ editor }} setActive={handlePicked} />
+      </DropdownMenu.SubMenu>
+    );
+  }
+
   return (
     <DropdownMenu
       closeOnSelect={false}
       icon={Smile}
       key={resetKey}
-      position={isSecondaryMenu ? "left-start" : "bottom-start"}
+      position="bottom-start"
       buttonProps={{
         variant: "ghost",
         tabIndex: -1,
@@ -38,13 +55,9 @@ const EmojiOption = ({
         className: "ne-toolbar-item ne-toolbar-dropdown",
         "data-testid": "neeto-editor-fixed-menu-emoji-option",
       }}
-      customTarget={
-        isSecondaryMenu && <SecondaryMenuTarget {...{ label }} icon={Smile} />
-      }
       dropdownProps={{
         className:
           "ne-editor-dropdown neeto-editor-fixed-menu__emoji-dropdown min-w-[350px] p-0",
-        onClick: e => isSecondaryMenu && e.stopPropagation(),
       }}
       onClose={() => setActive(false)}
     >

@@ -44,18 +44,34 @@
 
   &.neeto-editor__callout--info {
     background-color: var(--ne-editor-content-callout-info-background-color);
+
+    .callout-emoji {
+      color: var(--ne-editor-content-callout-info-foreground-color);
+    }
   }
 
   &.neeto-editor__callout--warning {
     background-color: var(--ne-editor-content-callout-warning-background-color);
+
+    .callout-emoji {
+      color: var(--ne-editor-content-callout-warning-foreground-color);
+    }
   }
 
   &.neeto-editor__callout--error {
     background-color: var(--ne-editor-content-callout-error-background-color);
+
+    .callout-emoji {
+      color: var(--ne-editor-content-callout-error-foreground-color);
+    }
   }
 
   &.neeto-editor__callout--success {
     background-color: var(--ne-editor-content-callout-success-background-color);
+
+    .callout-emoji {
+      color: var(--ne-editor-content-callout-success-foreground-color);
+    }
   }
 }
 
@@ -133,8 +149,4 @@
       color: var(--primary-foreground);
     }
   }
-}
-
-.neeto-editor-callout-dropdown__current-emoji {
-  display: inline-block;
 }
