@@ -36,4 +36,4 @@ export const VIDEO_EMBED_FORM_VALIDATION_SCHEMA = yup.object().shape({
     .matches(URL_REGEXP, t("neetoEditor.error.invalidUrl")),
 });
 
-export const DEFAULT_ASPECT_RATIO = "16/9";
+export const DEFAULT_ASPECT_RATIO = "auto";

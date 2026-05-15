@@ -84,6 +84,7 @@
       "removeBorder": "Remove border",
       "delete": "Delete",
       "aspectRatio": "Aspect ratio",
+      "aspectRatioAuto": "Auto",
       "embedVideo": "Embed video",
       "normalText": "Normal text",
       "normalTextDescription": "Add a plain text block.",

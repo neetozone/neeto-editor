@@ -8,7 +8,10 @@ import VideoComponent from "./VideoComponent";
 
 import { DEFAULT_ASPECT_RATIO } from "../../MediaUploader/constants";
 import EmbedComponent from "../Embeds/EmbedComponent";
-import { validateUrl } from "../Embeds/utils";
+import {
+  validateUrl,
+  updateEmbedWithDetectedDimensions,
+} from "../Embeds/utils";
 
 const getSharedAttributes = () => ({
   src: {
@@ -68,6 +71,18 @@ const getEmbedAttributes = () => ({
     default: 500,
     parseHTML: element => element.getAttribute("figwidth"),
   },
+  originalFigheight: {
+    default: 281,
+    parseHTML: element =>
+      element.getAttribute("originalfigheight") ||
+      element.getAttribute("figheight"),
+  },
+  originalFigwidth: {
+    default: 500,
+    parseHTML: element =>
+      element.getAttribute("originalfigwidth") ||
+      element.getAttribute("figwidth"),
+  },
   aspectRatio: {
     default: DEFAULT_ASPECT_RATIO,
     parseHTML: element => {
@@ -84,7 +99,20 @@ const getEmbedAttributes = () => ({
 });
 
 const renderEmbedHTML = (node, HTMLAttributes, options) => {
-  const { align, figheight, figwidth, border, aspectRatio } = node.attrs;
+  const {
+    align,
+    figheight,
+    figwidth,
+    originalFigheight,
+    originalFigwidth,
+    border,
+    aspectRatio,
+  } = node.attrs;
+  const isAuto = aspectRatio === "auto";
+
+  const wrapperStyle = isAuto
+    ? `width: ${figwidth}px; aspect-ratio: ${figwidth} / ${figheight};`
+    : `width: ${figwidth}px; height: ${figheight}px;`;
 
   return [
     "div",
@@ -105,8 +133,10 @@ const renderEmbedHTML = (node, HTMLAttributes, options) => {
           "neeto-editor-aspect-4-3": aspectRatio === "4/3",
           "neeto-editor-aspect-3-2": aspectRatio === "3/2",
         }),
-        style: `width: ${figwidth}px; height: ${figheight}px;`,
-        "data-aspect-ratio": aspectRatio,
+        style: wrapperStyle,
+        "data-aspect-ratio": isAuto ? "auto" : aspectRatio,
+        originalfigwidth: originalFigwidth,
+        originalfigheight: originalFigheight,
       },
       [
         "iframe",
@@ -167,27 +197,35 @@ const renderUploadHTML = (node, HTMLAttributes, options) => {
   ];
 };
 
-const handleVideoPaste = ({ state, range, match }) => {
+const handleVideoPaste = ({ state, range, match, editor }) => {
   state.tr.delete(range.from, range.to);
   state.tr.setSelection(TextSelection.create(state.doc, range.from + 1));
 
   const validatedUrl = validateUrl(match[0]);
-  if (validatedUrl) {
-    const node = state.schema.nodes["unified-video"].create({
-      src: validatedUrl,
-      videoType: "embed",
-    });
+  if (!validatedUrl) return;
 
-    state.tr.insert(range.from, node);
-    state.tr.insert(
-      range.from + node.nodeSize + 1,
-      state.schema.nodes.paragraph.create()
-    );
+  const node = state.schema.nodes["unified-video"].create({
+    src: validatedUrl,
+    videoType: "embed",
+  });
 
-    state.tr.setSelection(
-      TextSelection.create(state.tr.doc, range.from + node.nodeSize + 1)
-    );
-  }
+  state.tr.insert(range.from, node);
+  state.tr.insert(
+    range.from + node.nodeSize + 1,
+    state.schema.nodes.paragraph.create()
+  );
+
+  state.tr.setSelection(
+    TextSelection.create(state.tr.doc, range.from + node.nodeSize + 1)
+  );
+
+  // Paste-rule handlers must be synchronous, so we kick off detection and let
+  // the helper locate and patch the placeholder node when oEmbed resolves.
+  updateEmbedWithDetectedDimensions({
+    editor,
+    originalUrl: match[0],
+    validatedSrc: validatedUrl,
+  });
 };
 
 const UnifiedVideoExtension = Node.create({
@@ -283,10 +321,12 @@ const UnifiedVideoExtension = Node.create({
   },
 
   addPasteRules() {
+    const { editor } = this;
+
     return [
       new PasteRule({
         find: COMBINED_REGEX,
-        handler: handleVideoPaste,
+        handler: args => handleVideoPaste({ ...args, editor }),
       }),
     ];
   },
